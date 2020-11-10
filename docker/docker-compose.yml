@@ -24,7 +24,7 @@ services:
       context: ../
       dockerfile: docker/nginx/Dockerfile
     volumes:
-      - ../static:/app/statc
+      - ../static:/app/static
       - ./data/nginx/logs:/tmp/logs
     ports:
       - ${WEB_PORT}:8000

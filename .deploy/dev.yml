@@ -71,7 +71,7 @@
         restart: yes
         volumes:
           - /var/www/woland/static:/app
-          - /var/www/woland/nginx/logs:/usr/local/nginx/logs
+          - /var/www/woland/nginx/logs:/tmp/logs
         networks:
           - name: woland-network
         ports: 8001:8000
