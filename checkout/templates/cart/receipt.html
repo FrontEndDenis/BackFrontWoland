@@ -1,0 +1,42 @@
+{% extends "catalog.html" %}
+{% block content %}
+  <div class="content">
+    <div class="bread-crumbs">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-12">
+            <ul class="bread-crumbs__list d-flex">
+              <li><a href="index.html" title="Главная">Главная<span></span></a></li>
+              <li>Спасибо за заказ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="s-thank-you-ordering">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="s-thank-you-ordering__title txt--rgl30">Спасибо за заказ </h1>
+          </div>
+          <div class="col-12">
+            <div class="s-thank-you-ordering__subtitle">Ожидайте звонка специалиста для подтверждения заказа. <br>График
+              работы: по будням с 9:00 до 18:00</div>
+          </div>
+          <div class="col-12">
+            <div class="s-thank-you-ordering__contact d-flex flex-md-row flex-column">
+              <div class="s-thank-you-ordering__phone phone mb-4 mb-md-0">
+                <div class="phone__title">Горячая линия</div><a class="phone__text txt--bld24 txt--clr1"
+                  href="tel:{{ current_filial.phone }}">{{ current_filial.phone }}</a>
+              </div>
+              <div class="s-thank-you-ordering__mail mail">
+                <div class="mail__title">Наша почта:</div><a class="mail__text txt--bld24 txt--clr1"
+                  href="mailto:{{ current_filial.email }}">{{ current_filial.email }}</a>
+              </div>
+            </div><a class="s-thank-you-ordering__button btn btn--wdh224" href="/">На главную</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

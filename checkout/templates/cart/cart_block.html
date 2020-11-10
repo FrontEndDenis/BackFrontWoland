@@ -1,0 +1,53 @@
+{% comment %}   
+                <table class="table">
+                    {% for item in cart_items %}
+                    <tr>
+                        <td><a href="{% url 'menu:product' item.product.slug %}">{{ item.product.name }}</a></td>
+                        <td><a href="#" onclick="product_del('{{ item.id }}');">
+                                <svg class="icon icon-close">
+                                    <use xlink:href="{{ static_url }}img/sprite.svg#Vector-10"></use>
+                                </svg></a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <button type="button" class="hissen-xs btn btn-blue buy-more" onclick="location.href='/catalog/'">Выбрать еще</button>
+             {% endcomment %}
+ <div class="basket-cards__list">
+    {% for item in cart_items %}
+        <div class="basket-cards__item">
+            <div class="product-card basket-card">
+                <div class="product-card__left">
+                    <div class="product-card__image"><img src="{{ media_url }}{{ item.product.image }}" alt="{{ item.product.name }}"></div>
+                </div>
+                <div class="product-card__right">
+                    <div class="product-card__top-line">
+                        <div class="product-card__article">Арт. {{ item.product.id }}</div>
+                        <div class="product-card__presence presence">В наличии</div>
+                    </div><a class="product-card__title" href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                    <div class="product-card__buttons column">
+                        <div class="product-card__price">по запросу</div>
+                        <div class="product-card__input-number input-number">
+                            <div class="input-number__minus">
+                                <svg class="svg-sprite-icon icon-minus">
+                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#minus"></use>
+                                </svg>
+                            </div>
+                            <input class="input-number__field" type="text" value="{{ item.quantity }}" pattern="^[0-9]+$"
+                                inputmode="numeric">
+                            <div class="input-number__plus">
+                                <svg class="svg-sprite-icon icon-plus">
+                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#plus"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card__close" onclick="product_del('{{ item.id }}');">
+                    <svg class="svg-sprite-icon icon-close">
+                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+ </div>

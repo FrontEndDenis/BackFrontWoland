@@ -1,0 +1,78 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install aptitude using apt
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+    - name: Install required system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3', 'python3-setuptools']
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt: update_cache=yes name=docker-ce state=latest
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+    - name: Pull default Docker image
+      docker_image:
+        name: "registry.roiburo.ru/roiburo-llc/woland"
+        source: pull
+
+    # Creates the number of containers defined by the variable create_containers, using values from vars file
+    - name: Create a network
+      docker_network:
+        name: woland-network
+    - name: Create app container
+      docker_container:
+        force_kill: yes
+        pull: yes
+        name: "woland-app"
+        image: "registry.roiburo.ru/roiburo-llc/woland.new-app"
+        state: present
+    - name: Copy public
+      shell: "docker cp woland-app:/app/public /var/www/woland"
+    - name: Run app
+      docker_container:
+        force_kill: yes
+        pull: yes
+        name: "woland-app"
+        image: "registry.roiburo.ru/roiburo-llc/woland.new-app"
+        state: started
+        restart: yes
+        volumes:
+          - /var/www/woland/public:/app/public
+          - /var/www/woland/app/logs:/app/storage/logs
+        networks:
+          - name: woland-network
+            aliases:
+              - app
+        env:
+      with_sequence: count=1
+    - name: Run nginx
+      docker_container:
+        force_kill: yes
+        pull: yes
+        name: "woland-nginx"
+        image: "registry.roiburo.ru/roiburo-llc/woland.new-nginx"
+        state: started
+        restart: yes
+        volumes:
+          - /var/www/woland/public:/app
+          - /var/www/woland/nginx/logs:/usr/local/nginx/logs
+        networks:
+          - name: woland-network
+        ports: 8000:8000
+      with_sequence: count=1

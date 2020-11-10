@@ -1,0 +1,97 @@
+{% extends "catalog.html" %}
+{% load catalog_tags %}
+{% block meta_description %}
+  {% if text_block_url.keywords_description %}
+    {{ text_block_url.keywords_description|my_safe:current_filial }}
+  {% elif current_menu.keywords_description %}
+    {{ current_menu.keywords_description|my_safe:current_filial }}
+  {% elif product_list_meta_description %}
+    {{ product_list_meta_description }}
+  {% else %}
+    Купить {{ str_filter_name }} в {{ current_filial.name_info }}
+  {% endif %}
+{% endblock %}
+{% block meta_keywords %}
+  {% if text_block_url.keywords %}
+    {{ text_block_url.keywords|my_safe:current_filial }}
+  {% elif current_menu.keywords %}
+    {{ current_menu.keywords|my_safe:current_filial }}
+  {% elif product_list_meta_keywords %}
+    {{ product_list_meta_keywords }}
+  {% else %}
+    {{ str_filter_name }}
+  {% endif %}
+{% endblock %}
+{% block title_page %}
+    {% if text_block_url.title_main %}
+      {{ text_block_url.title_main|my_safe:current_filial }}
+    {% elif current_menu.title_main %}
+      {{ current_menu.title_main|my_safe:current_filial }}
+    {% elif product_list_title_page %}
+      {{ product_list_title_page }}
+    {% else %}
+      {{ str_filter_name }}
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+    {% include 'element/breadcrumb.html' %}
+     <section class="s-product-list">
+         <div class="container-xl">
+             <div class="row product-list">
+                 <div class="col-12">
+                     <h1 class="txt--rgl30">{{ current_menu.name }}</h1>
+                 </div>
+                 <div class="col-12">
+                     <div class="row">
+                         <div class="col-lg-3 col-md-4 product-list__filters submenu-hidden">
+                            {% include 'element/left_menu.html' %}
+                         </div>
+                         <div class="col-lg-9 col-md-8 s-catalog p-catalog">
+                             <div class="col-12 s-catalog__list">
+                                 <div class="row">
+                                    {% for item in current_menu.get_child %}
+                                        <div class="col-lg-4 col-md-6 col-sm-6"><a class="category-card"
+                                                href="{% url 'menu:menu' item.slug %}"><img
+                                                    src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}">
+                                                <div class="category-card__button"><span>{{ item.name }}</span>
+                                                    <div class="btn-arrow">
+                                                        <svg class="svg-sprite-icon icon-arrow">
+                                                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                            </use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+     {% include 'element/attention_block.html'%}
+     {% include 'element/spec_block.html'%}
+
+     <section class="s-text">
+         <div class="container-xl">
+             <div class="row">
+                 <div class="col-12">
+                     <h2 class="s-text__title txt--rgl24">{{ current_menu.name }} купить в {{ current_filial.name_info }}</h2>
+                 </div>
+                 <div class="col-12 s-text__text">
+                    {{ product_list_description|safe }}
+                    {{ current_menu.description|my_safe:current_filial|safe }}
+                 </div>
+                 {% comment %} <div class="col-12 s-text__dwl-content">
+                     <div class="btn btn--wdh180 btn--h40">Показать ещё</div>
+                 </div> {% endcomment %}
+             </div>
+         </div>
+     </section>
+
+{% endblock %}

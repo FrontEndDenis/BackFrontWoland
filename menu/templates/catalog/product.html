@@ -1,0 +1,156 @@
+{% extends "catalog.html" %}
+{% block content %} 
+    {% include 'element/breadcrumb.html' %}
+    <section class="s-product">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <div class="s-product__image"><img src="{{ media_url }}{{ product.image }}" alt="{{ product.name }}"></div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="s-product__b-description">
+                        <div class="s-product__top-line">
+                            <div class="s-product__article">Артикул: {{ product.id }}</div>
+                            {% if product.available %}<div class="s-product__presence presence">В наличии</div>{% endif %}
+                        </div>
+                        <h1 class="s-product__title txt--rgl24">{{ product.name }}</h1>
+                        {% if product.available %}<div class="s-product__presence presence">В наличии</div>{% endif %}
+                        <div class="s-product__bottom">
+                            {% if product.price %}
+                                <div class="s-product__price txt--bld24">{{ product.price }}</div>
+                                <div class="s-product__buttons">
+                                    <div class="s-product__basket btn btn--h40" data-toggle="modal" data-target="#modal5"
+                                        title="Добавить в корзину">В корзину</div>
+                                    <div class="s-product__fast btn--faster" data-toggle="modal" data-target="#modal2"
+                                        title="Заказать в один клик">
+                                        <svg class="svg-sprite-icon icon-learn-price">
+                                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="s-product__price txt--bld24">по запросу</div>
+                                <div class="s-product__buttons">
+                                    <div class="spacial-offer-card__buttons">
+                                        <div class="spacial-offer-card__learn-price btn" data-toggle="modal" data-target="#modal" title="Узнать цену"
+                                            onclick="product_get_price({{ product.id }});">Узнать цену</div>
+                                        <div class="spacial-offer-card__in-basket btn--wrap" data-toggle="modal" data-target="#modal5"
+                                            title="Добавить в корзину" onclick="product_add_cart('{{ product.slug }}');">
+                                            <div class="btn--basket">
+                                                <svg class="svg-sprite-icon icon-basket">
+                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#basket">
+                                                    </use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="spacial-offer-card__fast btn--wrap" data-toggle="modal" data-target="#modal2"
+                                            title="Заказать в один клик" onclick="product_get_fast({{ product.id }});">
+                                            <div class="btn--faster">
+                                                <svg class="svg-sprite-icon icon-learn-price">
+                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price">
+                                                    </use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="s-product-specifications">
+        <div class="container-xl">
+            <div class="row specifications">
+                <div class="col-12">
+                    <h2 class="specifications__title txt--rgl30">Характеристики:</h2>
+                </div>
+                <div class="col-12 specifications__table">
+                    <div class="table">
+                        <table>
+                            <tbody>
+                                {% if product.marka and not current_menu.is_hide_marka %}
+                                    <tr>
+                                        <td>Марка</td>
+                                        <td>{{ product.marka }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if product.standart and not current_menu.is_hide_standart %}
+                                    <tr>
+                                        <td>ГОСТ</td>
+                                        <td>{{ product.standart }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if current_menu.label_param1 and product.param_1 %}
+                                    <tr>
+                                        <td>{{ current_menu.label_param1 }}{% if current_menu.ed_izm_param1 %}, {{ current_menu.ed_izm_param1 }}{% endif %}</td>
+                                        <td>{{ product.param_1 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if current_menu.label_param2 and product.param_2 %}
+                                    <tr>
+                                        <td>{{ current_menu.label_param2 }}{% if current_menu.ed_izm_param2 %}, {{ current_menu.ed_izm_param2 }}{% endif %}</td>
+                                        <td>{{ product.param_2 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if current_menu.label_param3 and product.param_3 %}
+                                    <tr>
+                                        <td>{{ current_menu.label_param3 }}{% if current_menu.ed_izm_param3 %}, {{ current_menu.ed_izm_param3 }}{% endif %}</td>
+                                        <td>{{ product.param_3 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if current_menu.label_param4 and product.param_4 %}
+                                    <tr>
+                                        <td>{{ current_menu.label_param4 }}{% if current_menu.ed_izm_param4 %}, {{ current_menu.ed_izm_param4 }}{% endif %}</td>
+                                        <td>{{ product.param_4 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if current_menu.label_param5 and product.param_5 %}
+                                    <tr>
+                                        <td>{{ current_menu.label_param5 }}{% if current_menu.ed_izm_param5 %}, {{ current_menu.ed_izm_param5 }}{% endif %}</td>
+                                        <td>{{ product.param_5 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if current_menu.label_param6 and product.param_6 %}
+                                    <tr>
+                                        <td>{{ current_menu.label_param6 }}{% if current_menu.ed_izm_param6 %}, {{ current_menu.ed_izm_param6 }}{% endif %}</td>
+                                        <td>{{ product.param_6 }}</td>
+                                    </tr>
+                                {% endif %}
+                                {% if current_menu.label_param7 and product.param_7 %}
+                                    <tr>
+                                        <td>{{ current_menu.label_param7 }}{% if current_menu.ed_izm_param7 %}, {{ current_menu.ed_izm_param7 }}{% endif %}</td>
+                                        <td>{{ product.param_7 }}</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="specifications__text txt--rgl14">
+                        {{ html_static_text|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="s-service">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-lg-9 col-md-8">
+                    <h2 class="s-service__title txt--rgl24">Анодирование алюминия</h2>
+                    <div class="s-service__text txt--rgl14">Вы можете добавить в корзину данную услугу наряду с
+                        металлургической продукцией, и наш менеджер уточнит все необходимые детали после оформления заказа.
+                    </div><a class="s-service__button btn btn--h40" href="#">Заказать услугу</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'element/spec_block.html'%}
+
+    {% include 'element/payment_delivery_block.html'%}
+{% endblock %}

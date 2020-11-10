@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title_page %}Металлопрокат оптом и в розницу{% endblock %}</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <link rel="icon" href="{{ static_url }}images/general/favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ static_url }}css/styles.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&amp;display=swap" rel="stylesheet"><!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->
+    {% if current_filial.text_head_filial %}{{ current_filial.text_head_filial|safe }}{% endif %}
+    {% if project_settings.text_head %}{{ project_settings.text_body|safe }}{% endif %}
+  </head>
+  <body>
+    <div class="wrapper">
+      {% block site_wrapper %}{% endblock %}
+
+      {% include 'modal/modal.html'%}
+      {% include 'modal/modal2.html'%}
+      {% include 'modal/modal3.html'%}
+      {% include 'modal/modal4.html'%}
+      {% include 'modal/modal5.html'%}
+      {% include 'modal/modal6.html'%}
+      {% include 'modal/modal8.html'%}
+      {% include 'modal/modal10.html'%}
+      
+      {% block modal_and_form %}
+      {% endblock %}
+    </div>
+    <script src="{{ static_url }}js/jquery-3.3.1.min.js"></script>
+    <script src="{{ static_url }}js/libs.min.js"></script>
+    <script src="{{ static_url }}js/main.js"></script>
+    <script>
+      function filterFunction(name_filter, name_list) {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById(name_filter);
+        filter = input.value.toUpperCase();
+        div = document.getElementById(name_list);
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+          txtValue = a[i].textContent || a[i].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            a[i].parentElement.style.display = "";
+          } else {
+            a[i].parentElement.style.display = "none";
+          }
+        }
+      } 
+    </script>
+
+    {% block extra_scripts %}
+    {% endblock %}
+    {% if current_filial.text_body_filial %}{{ current_filial.text_body_filial|safe }}{% endif %}
+    {% if project_settings.text_body %}{{ project_settings.text_body|safe }}{% endif %}
+  </body>
+</html>

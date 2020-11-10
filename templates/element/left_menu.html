@@ -1,0 +1,50 @@
+<div class="submenu">
+    <ul class="submenu__list txt--rgl14">
+    {% if current_menu.parent.parent %}
+        {% for item in current_menu.parent.parent.get_child %}
+            <li class="submenu__title"><a href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a>
+                <div class="accordion{% if item == current_menu.parent %} active{% endif %}">
+                    <svg class="svg-sprite-icon icon-arrow">
+                        <use xlink:href="{{ static_url }}/images/svg/symbol/sprite.svg#arrow"></use>
+                    </svg>
+                </div>
+                <ul class="submenu__panel"{% if item == current_menu.parent %} style="display: block;"{% endif %}>
+                    {% for sub_item in item.get_child %}
+                        <li{% if sub_item == current_menu %} class="active"{% endif %}><a href="{% url 'menu:menu' sub_item.slug %}">{{ sub_item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    {% elif current_menu.parent %}
+        {% for item in current_menu.parent.get_child %}
+            <li class="submenu__title"><a href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a>
+                <div class="accordion{% if item == current_menu.parent or item == current_menu %} active{% endif %}">
+                    <svg class="svg-sprite-icon icon-arrow">
+                        <use xlink:href="{{ static_url }}/images/svg/symbol/sprite.svg#arrow"></use>
+                    </svg>
+                </div>
+                <ul class="submenu__panel"{% if item == current_menu.parent or item == current_menu %} style="display: block;"{% endif %}>
+                    {% for sub_item in item.get_child %}
+                        <li{% if sub_item == current_menu %} class="active"{% endif %}><a href="{% url 'menu:menu' sub_item.slug %}">{{ sub_item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    {% else %}
+        {% for item in current_menu.get_child %}
+            <li class="submenu__title"><a href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a>
+                <div class="accordion{% if item == current_menu.parent or item == current_menu %} active{% endif %}">
+                    <svg class="svg-sprite-icon icon-arrow">
+                        <use xlink:href="{{ static_url }}/images/svg/symbol/sprite.svg#arrow"></use>
+                    </svg>
+                </div>
+                <ul class="submenu__panel"{% if item == current_menu.parent or item == current_menu %} style="display: block;"{% endif %}>
+                    {% for sub_item in item.get_child %}
+                        <li{% if sub_item == current_menu %} class="active"{% endif %}><a href="{% url 'menu:menu' sub_item.slug %}">{{ sub_item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+</div>

@@ -1,0 +1,49 @@
+<section class="s-feedback">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="txt--rgl24">Появились вопросы?</h2>
+            </div>
+            <div class="col-12">
+                <form class="needs-validation" action="" novalidate>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="form-group">
+                                <label for="s-feedback-1">Ваше имя</label>
+                                <input id="s-feedback-1" type="text" maxlength="50" placeholder="Имя">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="form-group">
+                                <label for="s-feedback-2">Ваш телефон
+                                    <div class="required">*</div>
+                                </label>
+                                <input class="form-control" id="s-feedback-2" type="tel"
+                                    placeholder="+7 (999) 999-99-99" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}"
+                                    minlength="16" inputmode="numeric" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="form-group">
+                                <label for="s-feedback-3">Ваш email
+                                    <div class="required">*</div>
+                                </label>
+                                <input class="form-control" id="s-feedback-3" type="text" placeholder="@mail"
+                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,4}$" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="form-group">
+                                <button class="btn" type="submit">Получить консультацию</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 mt-4">
+                <p class="txt--rgl14">Нажимая кнопку, вы соглашаетесь с <a class="txt--clr1" href="{% url 'menu:policy' %}"
+                        target="_blank">политикой обработки персональных данных</a></p>
+            </div>
+        </div>
+    </div>
+</section>

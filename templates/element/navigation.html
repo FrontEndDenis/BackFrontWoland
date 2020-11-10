@@ -1,0 +1,300 @@
+<div class="city-line">
+    <div class="container-xl">
+        <div class="city-line__title txt--mdm24">Выберите свой город</div>
+        <div class="city-line__search">
+            <form class="search d-flex">
+                <input class="city-line__input input-srch city-search" type="search" id="input_city_search" placeholder="Введите город" onkeyup="filterFunction('input_city_search', 'ul_city_list')">
+                <button class="input-search">
+                    <svg class="svg-sprite-icon icon-search">
+                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#search"></use>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <div class="city-line__priority-list">
+            <ul class="line-list txt--rgl14">
+            {% for item in filials_list_base %}
+                <li><a href="{{ request.scheme }}://{% if item.subdomain_name %}{{ item.subdomain_name }}{% endif %}{{ current_url }}">{{ item.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        <ul class="city-line__full-list city-output-list4" id="ul_city_list">
+            {% for item in filials_list %}
+                <li><a href="{{ request.scheme }}://{% if item.subdomain_name %}{{ item.subdomain_name }}{% endif %}{{ current_url }}">{{ item.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <div class="city-line__close btn-link">закрыть
+            <svg class="svg-sprite-icon icon-close">
+                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<header>
+    <div class="header">
+        <div class="header__top-line d-flex align-items-center">
+            <div class="container-xl d-flex align-items-center">
+                <div class="top-line d-flex justify-content-between">
+                    <div class="top-line__left">
+                        <div class="top-line__time">
+                            <svg class="svg-sprite-icon icon-time">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#time"></use>
+                            </svg>Пн-Пт 9:00-18:00
+                        </div>
+                        <div class="top-line__city">
+                            <svg class="svg-sprite-icon icon-arrow-city">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow-city"></use>
+                            </svg>г. {{ current_filial.name }}
+                        </div>
+                    </div>
+                    <div class="top-line__right">
+                        <div class="top-line__mail">
+                            <svg class="svg-sprite-icon icon-mail">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#mail"></use>
+                            </svg><a href="mailto:{{ current_filial.email }}">{{ current_filial.email }}</a>
+                        </div>
+                    </div>
+                    <div class="top-line__m-buttons align-items-center">
+                        <div class="top-line__menu menu d-flex align-items-center justify-content-center"
+                            id="menu">
+                            <svg class="svg-sprite-icon icon-hamburger">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#hamburger"></use>
+                            </svg>
+                        </div>
+                        <div class="top-line__logo"><a href="/"><img
+                                    src="{{ static_url }}images/general/logo.svg" alt="Логотип"></a></div>
+                    </div>
+                    <div class="top-line__buttons align-items-center">
+                        <div class="top-line__m-city" data-toggle="modal" data-target="#modal10">
+                            <svg class="svg-sprite-icon icon-arrow-city">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow-city"></use>
+                            </svg>
+                        </div><a class="top-line__phone" href="tel:{{ current_filial.phone }}">
+                            <svg class="svg-sprite-icon icon-phone">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#phone"></use>
+                            </svg></a><a class="top-line__basket" href="{% url 'checkout:cart' %}">
+                            <svg class="svg-sprite-icon icon-basket">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#basket"></use>
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__middle-line d-flex align-items-center">
+            <div class="container-xl d-flex align-items-center">
+                <div class="middle-line d-flex align-items-center">
+                    <div class="middle-line__logo"><a href="/"><img
+                                src="{{ static_url }}images/general/logo.svg" alt="Логотип"></a></div>
+                    <div class="middle-line__search input-srch--big">
+                        <form class="search d-flex">
+                            <input class="middle-line__input input-srch" id="search" type="search"
+                                placeholder="Поиск по сайту">
+                            <button class="input-search">
+                                <svg class="svg-sprite-icon icon-search">
+                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#search"></use>
+                                </svg>
+                            </button>
+                            {% comment %} <div class="search__wrap-dropdown">
+                                <ul class="search__dropdown">
+                                    <li>Прессованный решетчатый настил 33х11/30х2</li>
+                                    <li>Прессованный решетчатый настил 33х11/30х2</li>
+                                    <li>Прессованный решетчатый настил 33х11/30х2</li>
+                                    <li>Прессованный решетчатый настил 33х11/30х2</li>
+                                    <li>Прессованный решетчатый настил 33х11/30х2</li>
+                                    <li>Прессованный решетчатый настил 33х11/30х2</li>
+                                </ul>
+                            </div> {% endcomment %}
+                        </form>
+                    </div>
+                    <div class="middle-line__phone"><span class="txt--mdm14">Отдел продаж:</span><a
+                            class="txt--bld16" href="tel:{{ current_filial.phone }}">
+                            <svg class="svg-sprite-icon icon-phone">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#phone"></use>
+                            </svg>{{ current_filial.phone }}</a><a class="mail txt--bld16" {{ current_filial.email }}>
+                            <svg class="svg-sprite-icon icon-mail">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#mail"></use>
+                            </svg>{{ current_filial.email }}</a></div>
+                    <div class="middle-line__callback d-flex align-items-center justify-content-center btn"
+                        data-toggle="modal" data-target="#modal6">
+                        <svg class="svg-sprite-icon icon-phone">
+                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#phone"></use>
+                        </svg><span>Обратный звонок</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__bottom-line">
+            <div class="container-xl d-flex">
+                <div class="bottom-line d-flex justify-content-between">
+                    <ul class="bottom-line__navigator-panel txt--rgl16">
+                        {% for item in main_menu_list %}
+                            {% if forloop.counter == 1 %}
+                                <li class="catalog-nav">
+                                    <a class="d-flex align-items-center justify-content-center"
+                                        href="{% url 'menu:menu' item.slug %}">
+                                        <svg class="svg-sprite-icon icon-hamburger">
+                                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#hamburger">
+                                            </use>
+                                        </svg><span>{{ item.name }}</span></a>
+                                    <div class="catalog-menu">
+                                        <div class="container-xl">
+                                            <ul class="catalog-menu__list">
+                                                {% for sub_item in item.get_child %}
+                                                    <li class="catalog-menu__item"><a href="{% url 'menu:menu' sub_item.slug %}" onmouseover="get_child_menu({{ sub_item.id }});">{{ sub_item.name }}</a>
+                                                        <div class="catalog-submenu">
+                                                            <ul class="catalog-submenu__list" id="menu_{{ sub_item.id }}">
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% else %}
+                                {% if not item.is_hidden_child and item.get_child %}
+                                    <li class="catalog-list"><a onmouseover="get_child_menu({{ item.id }});"
+                                            class="d-flex align-items-center justify-content-center" href="{% url 'menu:menu' item.slug %}">{{ item.name }}
+                                            <svg class="svg-sprite-icon icon-arrow">
+                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+                                            </svg></a>
+                                        <div class="catalog-list__wrap" >
+                                            <ul class="catalog-list__list" id="menu_{{ item.id }}">
+                                            </ul>
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <div class="bottom-line__basket d-flex align-items-center">
+                        <a class="basket d-flex align-items-center justify-content-center" href="{% url 'checkout:cart' %}">
+                        <svg class="svg-sprite-icon icon-basket">
+                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#basket"></use>
+                        </svg><span>Корзина:</span><span class="basket__count"><span name="cart_item_count">{{ cart_item_count }}</span> шт.</span></a>
+                        <div class="basket__basket-list">
+                            <div class="basket-list d-flex flex-column">
+                                <ul class="basket-list__list" id="cart_modal_block">
+                                    {% include 'cart/cart_modal_block.html'%}
+                                </ul>
+                                <a class="basket-list__basket btn" href="{% url 'checkout:cart' %}">В корзину</a>
+                            </div>
+                            {% comment %} <div class="basket-list d-flex flex-column">
+                                
+                                    {% for item in cart_items %}
+                                        <li>
+                                            <div class="item-card">
+                                                <div class="item-card__close">
+                                                    <svg class="svg-sprite-icon icon-close">
+                                                        <use
+                                                            xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close">
+                                                        </use>
+                                                    </svg>
+                                                </div><a class="item-card__title" href="{{ item.product.get_absolute_name }}">{{ item.product.name }}</a>
+                                                <div class="item-card__price">{% if item.product.price %}{{ item.product.price }}{% else %}по запросу{% endif %}</div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <a class="basket-list__basket btn" href="{% url 'checkout:cart' %}">В корзину</a>
+                            </div> {% endcomment %}
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mobile-menu">
+    <div class="mobile-menu__container">
+        <div class="mobile-menu__content">
+            <ul class="class">
+                {% for main_item in main_menu_list%}
+                <li><a{% if forloop.counter == 1%} class="mobile-menu__parent mobile-menu__catalog"{% endif %} href="{% url 'menu:menu' main_item.slug %}">{{ main_item.name }}</a>
+                    {% if forloop.counter == 1%}
+                    <ul class="class">
+                        <li><a class="mobile-menu__back" href="#">{{ main_item.name }}</a></li>
+                        {% for item in main_item.get_child %}
+                            <li><a class="mobile-menu__parent" href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a>
+                                    <ul class="m-class-2">
+                                    <li><a class="mobile-menu__back" href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a></li>
+                                    {% for sub_item in item.get_child %}
+                                        <li><a href="{% url 'menu:menu' sub_item.slug %}">{{ sub_item.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="mobile-menu__wrap-city">
+            <div class="mobile-menu__city">
+                <svg class="svg-sprite-icon icon-arrow-city">
+                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow-city"></use>
+                </svg>{{ current_filial.name }}
+            </div><a class="mobile-menu__link btn-link" href="#" data-toggle="modal"
+                data-target="#modal10">изменить
+                <svg class="svg-sprite-icon icon-arrow">
+                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+                </svg></a>
+        </div>
+        <div class="mobile-menu__contact">
+            <div class="mobile-menu__phone"><a href="tel:{{ current_filial.phone }}">{{ current_filial.phone }}</a></div>
+            <div class="mobile-menu__mail"><a href="mailto:name@mail.ru">name@mail.ru</a></div>
+            <div class="mobile-menu__time">Пн-Пт 9:00-18:00</div>
+        </div>
+        <div class="mobile-menu__button"><a class="d-flex align-items-center justify-content-center btn" href="#"
+                data-toggle="modal" data-target="#modal6">
+                <svg class="svg-sprite-icon icon-phone">
+                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#phone"></use>
+                </svg>Обратный звонок</a></div>
+    </div>
+    <div class="mobile-menu__overlay"></div>
+</div>
+{% comment %} 
+<div class="city-pop-up">
+    <div class="container-xl">
+        <div class="city-pop-up__position">
+            <div class="city-pop-up__wrap">
+                <div class="city-pop-up__title">Ваш город — Нижний Новгород?</div>
+                <div class="city-pop-up__buttons">
+                    <div class="city-pop-up__button btn btn--h40">Да, все верно</div>
+                    <div class="city-pop-up__open-city btn btn--h40 btn--gray">Нет, изменить</div>
+                </div>
+                <div class="city-pop-up__close">
+                    <svg class="svg-sprite-icon icon-close">
+                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+<script>
+    var menu_array = [];
+    var catalog_array = [];
+    function get_child_menu(menu_id)
+    {
+        if(menu_array.indexOf(menu_id) == -1)
+        {
+            menu_array.push(menu_id);
+            $.ajax({
+                type: 'GET',
+                url: "/menu_get_child/" + menu_id,
+                success: function (data) {
+                    $("#menu_"+menu_id).append(data);
+                },
+                error: function () {
+                    console.log("Возникла неизвестная ошибка get_child_menu");
+                }
+            });
+        }
+    }
+
+</script>

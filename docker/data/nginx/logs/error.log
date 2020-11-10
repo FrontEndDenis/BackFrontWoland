@@ -1,0 +1,6 @@
+2020/11/10 08:53:29 [error] 6#0: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.24.0.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.24.0.2:8000/", host: "localhost:8000"
+2020/11/10 08:53:32 [error] 6#0: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.24.0.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.24.0.2:8000/", host: "localhost:8000"
+2020/11/10 08:54:14 [error] 7#0: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:8000/", host: "localhost:8000"
+2020/11/10 08:55:04 [error] 7#0: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:8000/", host: "localhost:8000"
+2020/11/10 08:55:05 [error] 7#0: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:8000/", host: "localhost:8000"
+2020/11/10 08:55:05 [error] 7#0: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: _, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:8000/", host: "localhost:8000"

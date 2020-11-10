@@ -1,0 +1,11 @@
+{% comment %} {% for item in news_list %}
+    <div class="item">
+        <div class="img-box"><a href="{% url 'news:detail' item.slug %}"><img src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}"></a></div>
+        <div class="text">
+            <div class="date">{{ item.date }}</div>
+            <div class="name"><a href="{% url 'news:detail' item.slug %}">{{ item.name }}</a></div>
+            {{ item.description|safe }}
+            <a href="{% url 'news:detail' item.slug %}" class="btn blue-btn">Читать далее</a>
+        </div>
+    </div>
+{% endfor %} {% endcomment %}

@@ -1,0 +1,13 @@
+{% if robots_txt %}
+<pre>
+{{ robots_txt|safe }}
+</pre>
+{% else %}
+#<pre>
+User-agent: *
+
+Disallow: /
+
+#</pre>
+
+{% endif %}

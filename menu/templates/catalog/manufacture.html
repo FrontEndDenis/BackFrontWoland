@@ -1,0 +1,40 @@
+{% extends "catalog.html" %}
+{% block content %}  
+    {% include 'element/breadcrumb.html' %}
+    <section class="s-catalog-service p-service">
+        <div class="container-xl">
+            <h2 class="s-catalog-service__title txt--rgl24">Наше производство</h2>
+            <div class="row s-catalog-service__list">
+                {% for item in manufacture_list %}
+                <div class="col-lg-4 col-sm-6"><a class="service-card" href="{% url 'menu:product' item.slug %}">
+                        <div class="service-card__image"><img src="{{ media_url }}{{ item.image }}" alt=""></div>
+                        <div class="service-card__title">{{ item.name }}</div>
+                        <div class="service-card__text">{{ item.description_service }}</div>
+                        <div class="service-card__icon btn-arrow btn-arrow--h40">
+                            <svg class="svg-sprite-icon icon-arrow-nav">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow-nav"></use>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% include 'element/feedback.html'%}
+    <section class="s-text">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="s-text__title txt--rgl24">{{ current_menu.name }} в {{ current_filial.name_info }}</h2>
+                </div>
+                <div class="col-12 s-text__text">
+                    {{ current_menu.description|safe }}
+                </div>
+                {% comment %} <div class="col-12 s-text__dwl-content">
+                    <div class="btn btn--wdh180 btn--h40">Показать ещё</div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

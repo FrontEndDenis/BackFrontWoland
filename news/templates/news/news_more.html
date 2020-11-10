@@ -1,0 +1,55 @@
+{% for item in news_list %}
+    <div class="col-lg-4 col-sm-6">
+        <div class="news-card">
+            <div class="news-card__image"><img src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}">
+            </div>
+            <div class="news-card__content">
+                <div class="news-card__title">{{ item.name }}
+                </div>
+                <time class="news-card__date">{{ item.date }}</time>
+                <div class="news-card__hidden">
+                    <div class="news-card__text">{{ item.description|safe }}</div>
+                    <a class="news-card__button btn btn--h40 btn--gray"
+                        href="{% url 'news:detail' item.slug %}">читать далее
+                        <svg class="svg-sprite-icon icon-arrow">
+                            <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+
+{% comment %} <div class="p-news__download ds-hidden">
+    <div class="p-news__button btn btn--h40">Показать еще</div>
+</div> {% endcomment %}
+{% comment %} <script>
+    function get_news() {
+        var data_in = $('#get_news').serialize();
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'news:index' %}",
+            data: data_in,
+            success: function (data) {
+                $("#news-list").append(data);
+                var current_page = Number(document.getElementById('current_page').value);
+                if(current_page + 1 >= {{ count_num_page_news }})
+                {
+                    document.getElementById('show_more_button').style.display = 'none';
+                }
+                else
+                {
+                    document.getElementById('current_page').value = current_page + 1;
+                }
+            },
+            error: function () {
+                    document.getElementById('current_page').value = 1;
+            }
+        });
+    }
+</script>
+<form id="get_news">
+    {% csrf_token %}
+    <input type="hidden" name="current_page" id="current_page" value="1">
+</form> {% endcomment %}
