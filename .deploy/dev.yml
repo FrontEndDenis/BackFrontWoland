@@ -74,5 +74,5 @@
           - /var/www/woland/nginx/logs:/usr/local/nginx/logs
         networks:
           - name: woland-network
-        ports: 8000:8000
+        ports: 8001:8000
       with_sequence: count=1
