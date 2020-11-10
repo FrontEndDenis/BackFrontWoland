@@ -40,7 +40,7 @@
         force_kill: yes
         pull: yes
         name: "woland-app"
-        image: "registry.roiburo.ru/roiburo-llc/woland.new-app"
+        image: "registry.roiburo.ru/roiburo-llc/woland-app"
         state: present
     - name: Copy public
       shell: "docker cp woland-app:/app/public /var/www/woland"
@@ -49,7 +49,7 @@
         force_kill: yes
         pull: yes
         name: "woland-app"
-        image: "registry.roiburo.ru/roiburo-llc/woland.new-app"
+        image: "registry.roiburo.ru/roiburo-llc/woland-app"
         state: started
         restart: yes
         volumes:
@@ -66,7 +66,7 @@
         force_kill: yes
         pull: yes
         name: "woland-nginx"
-        image: "registry.roiburo.ru/roiburo-llc/woland.new-nginx"
+        image: "registry.roiburo.ru/roiburo-llc/woland-nginx"
         state: started
         restart: yes
         volumes:
