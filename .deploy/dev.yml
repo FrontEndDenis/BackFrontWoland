@@ -42,8 +42,8 @@
         name: "woland-app"
         image: "registry.roiburo.ru/roiburo-llc/woland-app"
         state: present
-    - name: Copy public
-      shell: "docker cp woland-app:/app/public /var/www/woland"
+    - name: Copy static
+      shell: "docker cp woland-app:/app/static /var/www/woland"
     - name: Run app
       docker_container:
         force_kill: yes
@@ -53,7 +53,7 @@
         state: started
         restart: yes
         volumes:
-          - /var/www/woland/public:/app/public
+          - /var/www/woland/static:/app/static
           - /var/www/woland/app/logs:/app/storage/logs
         networks:
           - name: woland-network
@@ -70,7 +70,7 @@
         state: started
         restart: yes
         volumes:
-          - /var/www/woland/public:/app
+          - /var/www/woland/static:/app
           - /var/www/woland/nginx/logs:/usr/local/nginx/logs
         networks:
           - name: woland-network
