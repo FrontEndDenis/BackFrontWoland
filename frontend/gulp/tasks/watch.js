@@ -1,6 +1,6 @@
 module.exports = function () {
     $.gulp.task('watch', function () {
-        $.gulp.watch(['./frontend/templates/**/*.pug', './frontend/blocks/**/*.pug']);
+        $.gulp.watch(['./frontend/templates/**/*.pug', './frontend/blocks/**/*.pug'], $.browserSync.reload);
         $.gulp.watch([
             './frontend/static/styles/**/*.scss',
             './frontend/blocks/**/*.scss',

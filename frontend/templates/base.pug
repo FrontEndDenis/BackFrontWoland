@@ -1,1 +1,7 @@
-| base
+html
+    head
+        | #{extra_scripts}
+    body
+        | #{csrf_token}
+        pre
+            - var asd = debug

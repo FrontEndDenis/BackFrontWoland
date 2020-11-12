@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import getpass
+import pypugjs.ext.django.templatetags
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,7 +43,7 @@ MEDIA_URL = '/media/'
 
 DATABASE_NAME = 'unisite'
 DATABASE_PASS = 'tkPoWm9skRfTg6ak'
-DEBUG = True
+
 if "unisite/unisite" in BASE_DIR:
     DEBUG = True
     PATH_PROJECT = '/home/unisite/unisite/'
@@ -117,6 +118,9 @@ TEMPLATES = [
                     'django.template.loaders.app_directories.Loader',
                 ))
             ],
+            'libraries': {
+                'asd':'pypugjs.ext.django.templatetags',
+            },
 
         },
     },
@@ -214,4 +218,4 @@ if DEBUG:
     ]
 
 
-    INTERNAL_IPS = ('127.0.0.1', '46.48.62.141',)
+    INTERNAL_IPS = ('127.0.0.1', '46.48.62.141', '172.29.0.2')

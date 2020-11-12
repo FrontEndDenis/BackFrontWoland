@@ -49,7 +49,7 @@ class IndexView(TemplateView):
         news_list = News.objects.filter(is_hidden=False)[:3]
         spec_list = Product.objects.filter(is_spec=True, is_hidden=False)[:SIZE_SALE_INDEX]
         service_list = Product.objects.filter(is_service=True, is_hidden=False)[:SIZE_SERVICE_INDEX]
-
+        ip = request.META.get('REMOTE_ADDR')
         return render(request, self.template_name, locals())
 
 
