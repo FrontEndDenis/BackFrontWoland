@@ -25,6 +25,8 @@ services:
       dockerfile: docker/nginx/Dockerfile
     volumes:
       - ../static:/app/static
-      - ./data/nginx/logs:/tmp/logs
+      - type: bind
+        target: /tmp/logs
+        source: ./data/nginx/logs
     ports:
       - ${WEB_PORT}:8000
