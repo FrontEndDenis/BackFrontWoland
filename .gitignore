@@ -6,3 +6,4 @@ build
 /*.exe.stackdump
 form.php
 robots.txt
+/venv
