@@ -1,7 +1,6 @@
 module.exports = [
     './frontend/gulp/tasks/fonts',
     './frontend/gulp/tasks/image',
-    './frontend/gulp/tasks/php',
     './frontend/gulp/tasks/scripts',
     './frontend/gulp/tasks/serve',
     './frontend/gulp/tasks/styles',
