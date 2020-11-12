@@ -1,0 +1,139 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 20px 0px 120px;
+	font-size: 14px;
+	font-weight: 600;
+	&__left {
+		display: flex;
+		align-items: center;
+	}
+	&__list {
+		display: flex;
+		align-items: center;
+		margin: 0px;
+		li {
+			&:not(:last-child) {margin-right: 5px;}
+		}
+		a, i {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 36px;
+			height: 36px;
+			color: $txt-black90 !important;
+			border-radius: 50%;
+			line-height: 150%;
+			user-select: none;
+			cursor: pointer;
+			&.current {
+				background: $accent-main;
+				color: $white !important;
+				&:hover {
+					background: $accent-main2;
+					color: $white !important;
+				}
+				&:active {
+					background: $accent-main3;
+					color: $white !important;
+				}
+			}
+			&:hover {color: $accent-main2 !important;}
+			&:active {color: $accent-main3 !important;}
+		}
+	}
+	&__prev, &__next {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		color: $txt-black90;
+		line-height: 150%;
+		user-select: none;
+		transition: .3s linear;
+		cursor: pointer;
+		svg {fill: $txt-black90;}
+		&:hover {
+			color: $accent-main2;
+			svg {fill: $accent-main2;}
+		}
+		&:active {
+			color: $accent-main3;
+			svg {fill: $accent-main3;}
+		}
+	}
+	&__prev {
+		margin-right: 16px;
+		svg {
+			transform: rotate(180deg);
+			margin-right: 6px;
+		}
+	}
+	&__next {
+		margin-left: 16px;
+		svg {margin-left: 6px;}
+	}
+	&__right {
+		display: flex;
+		align-items: center;
+	}
+	&__text {
+		margin-right: 12px;
+		color: $txt-gray;
+	}
+	&__fiuld {
+		position: relative;
+		input {
+			max-width: 96px;
+			width: 100%;
+			height: 40px;
+			padding: 7px 40px 7px 12px;
+			background: $white;
+			border-radius: 10px;
+			border: 1px solid $ui-mdm-gray;
+			font-size: 14px;
+			line-height: 150%;
+			}
+		button {
+			position: absolute;
+			top: 50%;
+			right: 7px;
+			width: 26px;
+			height: 26px;
+			padding: 0px;
+			transform: translateY(-50%);
+			svg {
+				width: 12px;
+				height: 12px;
+				fill: $white;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.pagination {
+		margin: 20px 0px 80px;
+	}
+}
+
+
+@media only screen and (max-width: 767px) {
+	.pagination {
+		margin: 20px 0px 60px;
+		flex-direction: column;
+		&__right {
+			justify-content: space-between;
+			width: 100%;
+			margin-top: 20px;
+		}
+		&__list {
+			a, i {
+				width: 30px;
+				height: 30px;
+			}
+		}
+		&__prev {margin-right: 6px;}
+		&__next {margin-left: 6px;}
+	}
+}

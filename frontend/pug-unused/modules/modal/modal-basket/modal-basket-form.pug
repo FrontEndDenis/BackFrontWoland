@@ -1,0 +1,55 @@
+.modal-basket__forms
+	.modal-basket__title.txt--bld24 Оформление заявки
+	.modal-basket__forms-text.txt--rgl14 Оставьте свои контактные данные и мы перезвоним вам в течение 15 минут, чтобы подвердить заявку.
+	.modal-basket__form-group.form-group
+		.form-group
+			label(for='modal-field-3') Ваше имя
+			input#modal-field-3.form-control(type='text', maxlength='50', placeholder='Имя')
+		.form-group
+			.modal-basket__select
+				.select
+					span Являюсь
+					.select__header
+						.select__text(value='юридическим лицом') юридическим лицом
+						.select__icon
+							+icon('arrow-down')
+					.select__body
+						.select__item юридическим лицом
+						.select__item физическим лицом
+	.modal-basket__form-group.form-group
+		.form-group
+			label(for='modal-field-4') Ваш телефон
+				.required *
+			input#modal-field-4.form-control(type='tel', placeholder='+7 (___) __-__-__', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
+			.invalid-feedback Введите телефон
+		.form-group
+			label(for='modal-field-5') Ваша почта
+				.required *
+			input#modal-field-5.form-control(type='text', placeholder='@mail', pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$', required)
+			.invalid-feedback Введите почту
+	.form-group
+		label(for='modal-field-6') Комментарий к заказу
+		textarea#modal-field-6(cols='30', rows='10', placeholder='Ваш комментарий')
+	.form-group
+		label.checkbox
+			input.form-control(type='checkbox', checked, required)
+			span.checkbox__text
+				.policy
+					| Даю согласие на 
+					a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
+	.form-group
+		.input-file
+			input#file(type='file', name='file')
+			.input-file__wrap
+				label(for='file')
+					.input-file__icon
+						+icon('clip')
+						+icon('document')
+					.input-file__content
+						.input-file__txt Добавить файл
+						.input-file__size до 10Mb
+				.input-file__reset
+					+icon('close')
+	.modal-basket__buttons
+		button.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='submit') Оформить заявку
+		button.modal-basket__prev-basket.btn.btn--h52.btn--wdh220.btn--br50.btn--gray.btn--m-wdh100(type='button') Вернуться к корзине

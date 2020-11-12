@@ -42,7 +42,7 @@ MEDIA_URL = '/media/'
 
 DATABASE_NAME = 'unisite'
 DATABASE_PASS = 'tkPoWm9skRfTg6ak'
-
+DEBUG = True
 if "unisite/unisite" in BASE_DIR:
     DEBUG = True
     PATH_PROJECT = '/home/unisite/unisite/'
@@ -95,12 +95,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'unisite.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/templates')],
+        # 'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -111,6 +110,14 @@ TEMPLATES = [
                 'text_block_url.views.text_block_url',
                 PROJECT_NAME + '.views.global_views',
             ],
+            'loaders': [
+                # PyPugJS part:   ##############################
+                ('pypugjs.ext.django.Loader', (
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ))
+            ],
+
         },
     },
 ]

@@ -7,6 +7,7 @@ USER 1000:1000
 
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app
+RUN python -m venv venv
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 COPY . /app

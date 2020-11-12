@@ -1,0 +1,45 @@
+.custom-product {
+	margin: 24px 0px 32px;
+	padding-top: 38px;
+	overflow: hidden;
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 24px 60px;
+		background: $ui-main-blue;
+		color: $white;
+		border-radius: 25px;
+	}
+	&__img {
+		position: relative;
+		max-width: 180px;
+		width: 100%;
+		height: 100%;
+		img {
+			position: absolute;
+			left: 0px;
+			bottom: -97px;
+		}
+	}
+	&__text {
+		margin: 0px 24px;
+		font-weight: 600;
+		height: 150%;
+	}
+	&__link {
+		svg {fill: $white;}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.custom-product {
+		&__content {
+			padding: 24px 20px;
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.custom-product {display: none;}
+}

@@ -1,0 +1,8 @@
+.DS_store
+node_modules
+.idea
+.vscode
+build
+/*.exe.stackdump
+form.php
+robots.txt

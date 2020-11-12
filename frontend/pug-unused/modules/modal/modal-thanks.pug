@@ -1,0 +1,19 @@
+#modal-thanks.modal.modal-right(tabindex='-1' aria-labelledby='modalRightLabel' aria-hidden='true')
+	.modal-dialog
+		.modal-content
+			.modal-w
+				.modal-w__close.modal-close.modal-close--txt(type='button' data-dismiss='modal')
+					+icon('close')
+					+icon('arrow-right-2')
+					.modal-close__text Обратный звонок
+				.modal-w__img
+					img(src='../../../static/images/general/logo-color.svg', alt='Велунд сталь')
+				.modal-w__title.txt--bld36 Мы скоро вам перезвоним!
+				.modal-w__text Спасибо вам за заполнение формы, мы свяжемся с вами в ближайшее время.
+				.modal-w__btn-close
+					button.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='button' data-dismiss='modal') Закрыть окно
+				.modal-w__write-us.write-us
+					.write-us__time
+						+icon('arrow-right')
+						span Мы работаем каждый день c 9:00 до 18:00
+					p Если вы оставили заявку в другое время, то мы перезвоним вам первым делом в рабочие часы.

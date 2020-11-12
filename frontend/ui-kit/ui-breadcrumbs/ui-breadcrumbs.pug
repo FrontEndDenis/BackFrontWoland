@@ -1,0 +1,15 @@
+mixin breadcrumbs-item(text, href, boolean, ...items)
+	li.breadcrumbs__item
+		if(href)
+			a.breadcrumbs__link(href=href)=text
+			if boolean == true
+				.breadcrumbs__icon
+					+icon('arrow-down')
+		else
+			span.breadcrumbs__text=text
+		if boolean == true
+			.breadcrumbs__wrap
+				ul.breadcrumbs__sidebar
+					each item in items
+						li
+							a(href='#')= item

@@ -7,3 +7,4 @@ openpyxl==3.0.5
 transliterate==1.10.2
 django-debug-toolbar==2.2
 django-debug-toolbar-template-timings==0.9
+pypugjs

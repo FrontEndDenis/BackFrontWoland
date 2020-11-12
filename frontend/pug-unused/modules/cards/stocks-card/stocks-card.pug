@@ -1,0 +1,57 @@
+mixin stocksCard(img, title, boolean, boolean2, specialClass='')
+	.stocks-card(class=`${specialClass}`)
+		.stocks-card__warning.warning
+			+icon('warning')
+			.warning__wrap
+				.warning__list
+					.warning__close
+						+icon('close')
+					.warning__item
+						.warning__property Марка
+						.warning__value 05Х16Н5АБ05Х16
+					.warning__item
+						.warning__property Марка
+						.warning__value 05Х16Н5АБ05Х16
+					.warning__item
+						.warning__property Марка
+						.warning__value 05Х16Н5АБ05Х16
+					.warning__item
+						.warning__property Тип соединения
+						.warning__value C цапковым концом под метрическую трубу
+					.warning__item
+						.warning__property Тип соединения
+						.warning__value C цапковым концом под метрическую трубу
+		if boolean == true
+			.stocks-card__wrap-img
+				.stocks-card__img
+					img(src=`../../../../static/images/content/${img}.jpg`, alt=`${title}`)
+				.stocks-card__icon
+					img(src='../../../../static/images/general/special.svg', alt='Спецпредложение')
+		else
+			.stocks-card__wrap-img
+				.stocks-card__img
+					img(src=`../../../../static/images/content/${img}.jpg`, alt=`${title}`)
+		a.stocks-card__title(href='#')=title
+		.stocks-card__specifications
+			.stocks-card__item
+				.stocks-card__property Мин. диаметр электрода
+				.stocks-card__value C цапковым концом под метрическую трубу
+			.stocks-card__item
+				.stocks-card__property Тип соединения
+				.stocks-card__value C цапковым концом под метрическую трубу
+			.stocks-card__item
+				.stocks-card__property Тип соединения
+				.stocks-card__value C цапковым концом под метрическую трубу
+			.stocks-card__wrap-item
+				.stocks-card__item
+					.stocks-card__property Цена
+					if boolean2 == true
+						.stocks-card__value.price 55 000 ₽/шт
+					else
+						.stocks-card__value.price.hint
+							| Договорная
+							+icon('hint')
+				.stocks-card__item
+					button.stocks-card__add-basket.btn.btn--circle(type='button')
+						.stocks-card__add-basket-txt В корзину
+						+icon('add-basket')

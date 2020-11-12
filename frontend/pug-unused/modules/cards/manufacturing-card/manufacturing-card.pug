@@ -1,0 +1,7 @@
+mixin manufacturingCard(title, img)
+	a.manufacturing-card(href='#')
+			.manufacturing-card__img
+				img(src=`../../../../static/images/content/${img}.png`, alt=`${title}`)
+			.manufacturing-card__title=title
+			.manufacturing-card__btn.btn.btn--circle.btn--trparent-svg
+				+icon('arrow-right')

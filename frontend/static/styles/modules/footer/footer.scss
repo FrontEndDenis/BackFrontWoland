@@ -1,0 +1,126 @@
+footer { flex: 0 0 auto; }
+
+.footer {
+	padding: 50px 0px 24px;
+	background: $ui-main-blue;
+	&__top {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__left {
+		flex: 1;
+		display: flex;
+	}
+	&__wrap-left {
+		flex: 1;
+		max-width: 302px;
+		margin-right: 24px;
+	}
+	&__logo {
+		margin-bottom: 32px;
+	}
+	&__social {
+		display: flex;
+		align-items: center;
+	}
+	&__social-link {
+		flex-shrink: 0;
+		padding: 4px;
+		&:not(:last-child) {margin-right: 8px;}
+	}
+	&__nav-list {
+		margin: 0px;
+		column-count: 2;
+		li {
+			&:not(:last-child) {margin-bottom: 16px;}
+			&:nth-child(1n+6) {margin-left: 100px;}
+		}
+		a {
+			color: $txt-white60;
+			&:hover, &:active {color: $white;}
+		}
+	}
+	&__contacts {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__col, &__right {
+		flex-shrink: 0;
+		.txt--mdm16 {
+			margin-bottom: 2px;
+			color: $white;
+		}
+		.txt--mdm14 {color: $txt-white60;}
+		a {display: block;}
+	}
+	&__address {margin-top: 40px;}
+	&__bottom {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-top: 60px;
+		color: $txt-white60;
+		a {
+			&:hover, &:active {color: $white;}
+		}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.footer {
+		&__wrap-left {
+			flex: 1;
+			max-width: 232px;
+			margin-right: 36px;
+		}
+		&__logo {margin-bottom: 24px;}
+		&__nav-list {
+			li {
+				&:nth-child(1n+6) {margin-left: 52px;}
+			}
+		}
+		&__address {margin-top: 40px;}
+	}
+}
+
+@media only screen and (max-width: 1023px) {
+	.footer {
+		&__top {display: block;}
+		&__wrap-left {margin-right: 120px;}
+		&__right {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 70px;
+		}
+		&__contacts {flex: 66.666666%;}
+		&__col {flex: 50%;}
+		&__address {
+			flex: 33.333333%;
+			margin: 0px;
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.footer {
+		padding: 32px 0px 48px;
+		&__left, &__right, &__contacts {display: block;}
+		&__wrap-left {
+			max-width: 100%;
+			margin: 0px 0px 46px;
+		}
+		&__logo {margin-bottom: 14px;}
+		&__nav-list {
+			li {
+				&:nth-child(1n+6) {margin-left: 40px;}
+			}
+		}
+		&__right {margin-top: 48px;}
+		&__col {margin-bottom: 22px;}
+		&__bottom {
+			display: block;
+			margin-top: 48px;
+		}
+		&__group {margin-bottom: 12px;}
+	}
+}

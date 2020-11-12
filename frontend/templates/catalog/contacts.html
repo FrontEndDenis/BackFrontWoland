@@ -1,0 +1,71 @@
+{% extends "catalog.html" %}
+{% block modal_and_form %}
+    {% include 'modal/modal7.html' %}
+{% endblock %}
+{% block extra_scripts %}
+    <script charset="utf-8" src="https://api-maps.yandex.ru/2.1/?apikey=d5f354d9-0b87-4702-bc6b-201ec476b09a&amp;lang=ru_RU"></script>
+    <script>ymaps.ready(init)</script>
+{% endblock %}
+{% block content %}  
+    {% include 'element/breadcrumb.html' %}      
+    <section class="s-contacts">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="txt--rgl30">Контакты</h1>
+                </div>
+                <div class="col-md-6 s-contacts__col">
+                    <div class="s-contacts__content d-flex">
+                        <ul class="s-contacts__list">
+                            <li>
+                                <div>Контактное лицо</div>
+                                <div>Отдел продаж</div>
+                            </li>
+                            <li>
+                                <div>Адрес</div>
+                                <div>{{ current_filial.address }}</div>
+                            </li>
+                            <li>
+                                <div>Телефон</div>
+                                <div><a href="tel:{{ current_filial.phone }}">{{ current_filial.phone }}</a></div>
+                            </li>
+                            <li>
+                                <div>E-mail</div>
+                                <div><a href="mailto:{{ current_filial.email }}">{{ current_filial.email }}</a></div>
+                            </li>
+                            <li>
+                                <div>Сайт компании</div>
+                                <div><a href="index.html">{{ project_settings.site_name }}</a></div>
+                            </li>
+                            <li>
+                                <div>Тип компании</div>
+                                <div>{{ project_settings.type_company }}</div>
+                            </li>
+                            <li>
+                                <div>Количество сотрудников</div>
+                                <div>{{ project_settings.count_staff }}</div>
+                            </li>
+                            <li>
+                                <div>Год основания</div>
+                                <div>{{ start_year }}</div>
+                            </li>
+                            <li>
+                                <div class="s-contacts__button btn btn--wdh224" data-toggle="modal" data-target="#modal7">
+                                    Связаться с нами</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="s-contacts__map">
+                        {{ current_filial.geo|safe }}
+                        {% comment %} <div id="ymap-ctrl-display">
+                            <div>Чтобы изменить масштаб, прокручивайте карту, удерживая клавишу Ctrl.</div>
+                        </div>
+                        <div id="map"></div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

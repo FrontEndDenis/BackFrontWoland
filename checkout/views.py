@@ -9,7 +9,7 @@ from .models import Order, OrderItem
 
 
 class CartView(TemplateView):
-    template_name = "cart/cart.html"
+    template_name = "cart/cart.pug"
 
     def get(self, request):
         cart_items = cart.get_cart_items(request)
@@ -22,7 +22,7 @@ class CartView(TemplateView):
 
 
 class ReceiptView(View):
-    template_name = "cart/receipt.html"
+    template_name = "cart/receipt.pug"
     def get(self, request):
         order_number = request.session.get('order_number', '')
         if order_number:
@@ -41,9 +41,9 @@ class CartCountView(View):
     def get(request):
         request.session.set_test_cookie()
         cart_item_count = cart.cart_distinct_item_count(request)
-        cart_empty_content = render(request, 'cart/cart_empty.html', locals()).content.decode()
-        cart_items_content = render(request, 'cart/cart_block.html', locals()).content.decode()
-        cart_modal_content = render(request, 'cart/cart_modal_block.html', locals()).content.decode()
+        cart_empty_content = render(request, 'cart/cart_empty.pug', locals()).content.decode()
+        cart_items_content = render(request, 'cart/cart_block.pug', locals()).content.decode()
+        cart_modal_content = render(request, 'cart/cart_modal_block.pug', locals()).content.decode()
         response_data = {'cart_item_count': cart_item_count,
                          'cart_modal_content': cart_modal_content,
                          'cart_empty_content': cart_empty_content,

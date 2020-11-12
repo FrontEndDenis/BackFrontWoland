@@ -48,7 +48,7 @@ def get_current_filial(request):
 
 
 class RobotsView(TemplateView):
-    template_name = "filials/robots.html"
+    template_name = "filials/robots.pug"
 
     def get(self, request):
         robots_txt = get_current_filial(request).robots

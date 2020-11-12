@@ -1,0 +1,6 @@
+.swiper-pagination-bullet {
+	&:focus, &:active, &:hover {
+		outline: none !important;
+		border: none !important;
+	}
+}

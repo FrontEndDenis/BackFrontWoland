@@ -1,0 +1,10 @@
+mixin newsCard(title, text, time, colorTheme='', boolean, img, bigClass='')
+	a.news-card(class=`${colorTheme}${bigClass}` href='#')
+		if boolean == true
+			.news-card__img
+				img(src=`../../../../static/images/content/${img}.jpg`, alt=`${title}`)
+		.news-card__title=title
+		.news-card__text=text
+		time.news-card__time(datetime='2012-12-23')=time
+		.news-card__btn.btn.btn--circle.btn--trparent-svg
+			+icon('arrow-right')

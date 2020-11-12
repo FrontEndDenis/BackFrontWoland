@@ -1,0 +1,10 @@
+mixin popularCategoriesCard(img, title)
+	a.popular-categories-card(href='#')
+		.popular-categories-card__wrap
+			.popular-categories-card__img
+				img(src=`../../../../static/images/content/${img}.jpg`, alt=`${title}`)
+			.popular-categories-card__content
+				.popular-categories-card__title=title
+				.popular-categories-card__link
+					| Перейти
+					+icon('arrow-right')

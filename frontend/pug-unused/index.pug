@@ -1,0 +1,24 @@
+extends template/main
+
+block variables
+	- var title = ''
+	- var description = ''
+
+include ../ui-kit/ui-breadcrumbs/ui-breadcrumbs
+
+block content
+	.container
+		ul
+			li
+				a(href='index2.html') Главная
+			li
+				a(href='catalog.html') Каталог
+			li
+				a(href='product-listing.html') Листинг
+
+block modal
+	include ./modules/modal/modal-city
+	include ./modules/modal/modal-callback
+	include ./modules/modal/modal-thanks
+	include ./modules/modal/modal-basket/modal-basket
+	include ./modules/modal/modal-search

@@ -1,0 +1,105 @@
+.basket-card {
+	position: relative;
+	display: flex;
+	padding: 16px 8px;
+	background: $white;
+	color: $txt-black90;
+	font-weight: 600;
+	border-bottom: 1px solid rgba($color: $ui-dark-gray, $alpha: 0.1);
+	z-index: 10;
+	&__img {
+		max-width: 40px;
+		width: 100%;
+		flex-shrink: 0;
+		margin-right: 16px;
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	&__title {
+		display: inline-block;
+		margin-bottom: 16px;
+		padding-right: 70px;
+		color: $txt-black90;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 135%;
+		&:hover {color: $accent-main2;}
+		&:active {color: $accent-main3;}
+	}
+	&__info {
+		display: flex;
+	}
+	&__item {
+		&:nth-child(1), &:nth-child(2) {
+			flex: 0 1 120px;
+			margin-right: 16px;
+		}
+		&:nth-child(3) {
+			flex: 0 1 79px;
+			margin-right: 36px;
+		}
+		&:last-child() {
+			display: flex;
+			align-items: center;
+		}
+		// flex: 1;
+		// &:not(:last-child) {margin-right: 12px;}
+	}
+	&__subtitle {
+		margin-bottom: 4px;
+		color: $txt-gray60;
+		font-size: 10px;
+		line-height: 135%;
+	}
+	&__text {
+		font-size: 12px;
+		line-height: 150%;
+	}
+	// &__number {
+	// 	// margin-top: 17px;
+	// 	// .input-number {justify-content: center;}
+	// }
+	&__close {
+		position: absolute;
+		top: 18px;
+		right: 8px;
+		color: $txt-gray60;
+		font-size: 12px;
+		line-height: 135%;
+		transition: .3s linear;
+		&:hover {color: $accent-main2;}
+		&:active {color: $accent-main3;}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.basket-card {
+		flex-direction: column;
+		padding: 24px 0px;
+		&__img {margin-bottom: 14px;}
+		&__title {padding-right: 0px;}
+		&__info {flex-wrap: wrap;}
+		&__item {
+			flex: 50%;
+			&:nth-child(1), &:nth-child(2), &:nth-child(3) {
+				flex: 50%;
+				margin-right: 0px;
+			}
+			&:nth-child(4) {
+				display: flex;
+				align-items: center;
+			}
+			&:not(:last-child) {margin-right: 0px;}
+			&:nth-child(2n) {padding-left: 12px;}
+			&:nth-child(1n + 3) {margin-top: 12px;}
+		}
+		&__number {
+			margin: 0px;
+			.input-number {justify-content: flex-start;}
+		}
+		&__close {
+			top: 28px;
+			right: 20px;
+		}
+	}
+}

@@ -10,7 +10,7 @@ class NewsView(TemplateView):
     """
     Класс для отображения главной страницы новостей
     """
-    template_name = "news/news.html"
+    template_name = "news/news.pug"
 
     def get(self, request):
         news_list = News.objects.filter(is_hidden=False)
@@ -19,7 +19,7 @@ class NewsView(TemplateView):
         return render(request, self.template_name, locals())
 
     def post(self, request):
-        template_name = "news/news_get.html"
+        template_name = "news/news_get.pug"
         page = 1
         try:
             page = int(request.POST['current_page'])
@@ -33,7 +33,7 @@ class NewsItemView(TemplateView):
     """
     Класс для отображеия главной страницы новостей
     """
-    template_name = "news/news_item.html"
+    template_name = "news/news_item.pug"
 
     def get(self, request, slug):
         news_item = get_object_or_404(News, slug=slug)

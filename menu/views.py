@@ -38,7 +38,7 @@ SIZE_SALE_INDEX = 6
 SIZE_SERVICE_INDEX = 6
 
 class IndexView(TemplateView):
-    template_name = "catalog/index.html"
+    template_name = "catalog/index.pug"
 
     def get(self, request):
         slider_list = Slider.objects.filter(is_hidden=False)
@@ -130,7 +130,7 @@ class MenuView(View):
 
 
 class MenuChildView(TemplateView):
-    template_name = "menu/get_child.html"
+    template_name = "menu/get_child.pug"
 
     def get(self, request, pk):
         child_menu = get_object_or_404(MenuCatalog, id=pk).get_child()
@@ -138,7 +138,7 @@ class MenuChildView(TemplateView):
 
 
 class ProductView(TemplateView):
-    template_name = "catalog/product.html"
+    template_name = "catalog/product.pug"
 
     def get(self, request, product_slug):
         product = get_object_or_404(Product, slug=product_slug)
@@ -146,7 +146,7 @@ class ProductView(TemplateView):
         html_static_text = get_static_text(request, locals(), PRODUCT_TEXT_SLUG)
         spec_list = Product.objects.filter(is_spec=True, is_hidden=False).exclude(slug=product.slug)[:SIZE_SALE_INDEX]
         if product.is_service:
-            self.template_name = "catalog/service.html"
+            self.template_name = "catalog/service.pug"
         return render(request, self.template_name, locals())
 
 
@@ -276,7 +276,7 @@ class CatalogView(TemplateView):
     """
     Класс для отображения страницы каталога
     """
-    template_name = "catalog/product_list.html"
+    template_name = "catalog/product_list.pug"
 
     def get(self, request, menu_slug):
         select_params = request.path[:-1]
@@ -731,7 +731,7 @@ class ProductGetPrice(View):
 
 
 class ProductAddView(View):
-    template_name = "product/get_add_product.html"
+    template_name = "product/get_add_product.pug"
     def post(self, request):
         post_data = request.POST
         product_slug = post_data.get('product_slug', '')
@@ -742,7 +742,7 @@ class ProductAddView(View):
 
 
 class ProductDelView(View):
-    template_name = "cart/cart_block.html"
+    template_name = "cart/cart_block.pug"
 
     def post(self, request):
         post_data = request.POST
@@ -751,5 +751,5 @@ class ProductDelView(View):
         cart.remove_from_cart(request)
         cart_items = cart.get_cart_items(request)
         if not cart_items:
-            self.template_name = "cart/cart_empty.html"
+            self.template_name = "cart/cart_empty.pug"
         return render(request, self.template_name, locals())

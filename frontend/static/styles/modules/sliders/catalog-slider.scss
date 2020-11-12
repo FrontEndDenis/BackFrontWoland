@@ -1,0 +1,27 @@
+.catalog-slider {
+	margin-left: -12px;
+	margin-right: -12px;
+	padding: 0px 12px;
+	&__item {padding: 35px 0px;}
+	&__prev {left: -19px;}
+	&__next {right: -19px;}
+}
+
+@media only screen and (max-width: 1439px) {
+	.catalog-slider {
+		&__prev {left: 0px}
+		&__next {right: 0px;}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.catalog-slider {
+		&__item {padding: 0px;}
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.catalog-slider {
+		padding-right: 20%;
+	}
+}

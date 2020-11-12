@@ -150,7 +150,7 @@ class AdminMIndexView(TemplateView):
     """
     Класс для отображения главной страницы
     """
-    template_name = "admin_m/index.html"
+    template_name = "admin_m/index.pug"
 
     def get(self, request):
         return render(request, self.template_name, locals())
@@ -160,7 +160,7 @@ class AdminMImportInfoView(TemplateView):
     """
     Класс для отображения страницы информации об импорте
     """
-    template_name = "admin_m/control/import/import_info.html"
+    template_name = "admin_m/control/import/import_info.pug"
 
     def get(self, request, import_info_slug):
         current_info = get_object_or_404(ImportData, id=import_info_slug)
@@ -172,7 +172,7 @@ class AdminMImportView(TemplateView):
     """
     Класс для отображения страницы импорта
     """
-    template_name = "admin_m/control/import/import.html"
+    template_name = "admin_m/control/import/import.pug"
 
     def get(self, request):
         items_list = ImportData.objects.all()
@@ -184,7 +184,7 @@ class AdminMImportView(TemplateView):
 
         return render(request, self.template_name, locals())
 
-    def post(self, request, template_name="admin_m/control/import/import_table.html"):
+    def post(self, request, template_name="admin_m/control/import/import_table.pug"):
         post_data = request.POST
         email = None
         try:

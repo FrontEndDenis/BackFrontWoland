@@ -1,0 +1,27 @@
+include ../../../modules/cards/popular-categories-card/popular-categories-card
+
+section.s-all-popular-categories
+	.container-xxl
+		h2.s-all-popular-categories__title.txt--bld24 Популярные категории
+		.s-all-popular-categories__slider
+			.popular-categories-slider.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						.popular-categories-slider__item
+							+popularCategoriesCard('basket-card', 'Алюминиевый')
+					.swiper-slide
+						.popular-categories-slider__item
+							+popularCategoriesCard('basket-card', 'Алюминиевый прессованный')
+					.swiper-slide
+						.popular-categories-slider__item
+							+popularCategoriesCard('basket-card', 'Алюминиевый прессованный профиль')
+					.swiper-slide
+						.popular-categories-slider__item
+							+popularCategoriesCard('basket-card', 'Алюминиевый прессованный')
+					.swiper-slide
+						.popular-categories-slider__item
+							+popularCategoriesCard('basket-card', 'Алюминиевый')
+			button.popular-categories-slider__prev.swiper-prev
+				+icon('arrow-right-2')
+			button.popular-categories-slider__next.swiper-next
+				+icon('arrow-right-2')

@@ -1,0 +1,60 @@
+@import "text/text";
+@import "icon/icon";
+@import "buttons/buttons";
+@import "elements/elements";
+@import "animate/animate";
+// Шапка сайта
+@import "header/header";
+// Подвал сайта
+@import "footer/footer";
+// Каталог в шапке
+@import "catalog-menu/catalog-menu";
+// Модальные окна
+@import "modal/modal";
+// Мобильное меню
+@import "mobile-menu/mobile-menu";
+// Секции на все страницы
+@import "s-all/s-all-popular-categories/s-all-popular-categories";
+@import "s-all/s-all-stocks/s-all-stocks";
+@import "s-all/s-all-news/s-all-news";
+@import "s-all/s-all-feedback/s-all-feedback";
+@import "s-all/s-all-gost/s-all-gost";
+@import "s-all/s-all-seotext/s-all-seotext";
+@import "s-all/s-all-city/s-all-city";
+@import "s-all/s-all-text/s-all-text";
+// Главная
+@import "index/s-main-slider";
+@import "index/s-main-catalog";
+@import "index/s-main-manufacturing";
+@import "index/s-main-work";
+@import "index/s-main-delivery";
+@import "index/s-main-answers";
+// Каталог
+@import "catalog/p-catalog-list";
+// Листинг
+@import "product-listing/p-product-listing";
+// Слайдеры
+@import "sliders/sliders";
+@import "sliders/popular-categories-slider";
+@import "sliders/main-slider";
+@import "sliders/catalog-slider";
+@import "sliders/manufacturing-slider";
+@import "sliders/stocks-slider";
+@import "sliders/news-slider";
+// Баннеры
+@import "slide-banner/slide-bannet";
+// Карточки
+@import "cards/basket-card/basket-card";
+@import "cards/catalog-card/catalog-card";
+@import "cards/manufacturing-card/manufacturing-card";
+@import "cards/stocks-card/stocks-card";
+@import "cards/news-card/news-card";
+@import "cards/popular-categories-card/popular-categories-card";
+// Пагинация
+@import "pagination/pagination";
+// Баннер деталей на заказ
+@import "custom-product/custom-product";
+// Боковай sidebar
+@import "scroll-sidebar/scroll-sidebar";
+// Ui-kit
+@import "../../../ui-kit/ui-breadcrumbs/ui-breadcrumbs"
