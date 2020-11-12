@@ -1,4 +1,4 @@
-include ../utils/mixins
+include ../../templates/utils/mixins
 block variables
 
 doctype html
@@ -21,11 +21,11 @@ html(lang="ru-RU")
 		<![endif]-->
 	body
 		.wrapper
-			include ../modules/header/header
+			include ../../templates/modules/header/header
 			.content
 				block content
-			include ../modules/footer/footer
-			include ../modules/mobile-menu/mobile-menu
+			include ../../templates/modules/footer/footer
+			include ../../templates/modules/mobile-menu/mobile-menu
 			block modal
 		script(src="static/js/libs.min.js")
 		script(src="static/js/main.js")

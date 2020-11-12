@@ -1,3 +1,11 @@
+mixin icon(name,mod)
+	if mod
+		svg(class="svg-sprite-icon icon-" + name + ' ' + mod)
+			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
+	else
+		svg(class="svg-sprite-icon icon-" + name)
+			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
+
 nav.mobile-menu
 	.mobile-menu__wrap
 		.mobile-menu__content
@@ -16,43 +24,43 @@ nav.mobile-menu
 								span Сталь
 								span.catalog-m-menu__icon
 									+icon('arrow-right-2')
-							include ./catalog-m-menu
+							include ./catalog-m-menu.pug
 						li.catalog-m-menu__item
 							a
 								span Цветные металлы
 								span.catalog-m-menu__icon
 									+icon('arrow-right-2')
-							include ./catalog-m-menu
+							include ./catalog-m-menu.pug
 						li.catalog-m-menu__item
 							a
 								span Чугун
 								span.catalog-m-menu__icon
 									+icon('arrow-right-2')
-							include ./catalog-m-menu
+							include ./catalog-m-menu.pug
 						li.catalog-m-menu__item
 							a
 								span Сплавы
 								span.catalog-m-menu__icon
 									+icon('arrow-right-2')
-							include ./catalog-m-menu
+							include ./catalog-m-menu.pug
 						li.catalog-m-menu__item
 							a
 								span Редкоземельные металлы
 								span.catalog-m-menu__icon
 									+icon('arrow-right-2')
-							include ./catalog-m-menu
+							include ./catalog-m-menu.pug
 						li.catalog-m-menu__item
 							a
 								span Оборудование
 								span.catalog-m-menu__icon
 									+icon('arrow-right-2')
-							include ./catalog-m-menu
+							include ./catalog-m-menu.pug
 						li.catalog-m-menu__item
 							a
 								span Полимеры
 								span.catalog-m-menu__icon
 									+icon('arrow-right-2')
-							include ./catalog-m-menu
+							include ./catalog-m-menu.pug
 				li.mobile-menu__item
 					a(href='#')
 						span Акции

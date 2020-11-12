@@ -180,7 +180,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'height': "300",
     'plugins': 'fullscreen',
     'content_css': "/static/css/style.css",
-    'forced_root_block' : '',
+    'forced_root_block': '',
 }
 
 # Static files (CSS, JavaScript, Images)
@@ -191,6 +191,12 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
 
 if DEBUG:
     INSTALLED_APPS += [
@@ -217,4 +223,4 @@ if DEBUG:
     ]
 
 
-    INTERNAL_IPS = ('127.0.0.1', '46.48.62.141', '172.29.0.2')
+    INTERNAL_IPS = ('127.0.0.1', '46.48.62.141', '172.29.0.2', '192.168.32.3')
