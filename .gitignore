@@ -7,3 +7,8 @@ build
 form.php
 robots.txt
 /venv
+/static/images/
+/static/js/
+/static/fonts/
+/static/css/
+/docket/data
