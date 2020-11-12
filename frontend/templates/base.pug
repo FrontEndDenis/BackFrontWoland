@@ -2,6 +2,7 @@ html
     head
         | #{extra_scripts}
     body
-        | #{csrf_token}
+        //| #{csrf_token}
         pre
-            - var asd = debug
+        - var test_var ='var'
+        | #{test_var}

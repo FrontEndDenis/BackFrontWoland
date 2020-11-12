@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import getpass
-import pypugjs.ext.django.templatetags
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -118,9 +117,9 @@ TEMPLATES = [
                     'django.template.loaders.app_directories.Loader',
                 ))
             ],
-            'libraries': {
-                'asd':'pypugjs.ext.django.templatetags',
-            },
+            'builtins': [
+                'pypugjs.ext.django.templatetags',
+            ],
 
         },
     },
