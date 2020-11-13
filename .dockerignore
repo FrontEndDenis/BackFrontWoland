@@ -2,4 +2,6 @@
 /docker/app/Dockerfile
 /docker/nginx/Dockerfile
 /docker/docker-compose.yml
+/node_modules
+/venv
 /.dockerignore
