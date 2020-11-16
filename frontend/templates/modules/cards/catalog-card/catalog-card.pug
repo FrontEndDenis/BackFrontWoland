@@ -1,39 +1,16 @@
-mixin catalogCard(title, countProduct, img)
-	.catalog-card
-		a.catalog-card__wrap(href='#')
-			.catalog-card__img
-				img(src=`../../../../static/images/content/${img}.jpg`, alt=`${title}`)
-			.catalog-card__content
-				.catalog-card__count=countProduct
-				.catalog-card__title=title
-			.catalog-card__btn.btn.btn--circle
-				+icon('arrow-right')
-		.catalog-card__hidden
-			a.catalog-card__h-title(href='#')=title
-			.catalog-card__h-wrap
-				ul.catalog-card__list
+.catalog-card
+	a.catalog-card__wrap(href=product.href)
+		.catalog-card__img
+			img(src=product.thumb, alt=product.title)
+		.catalog-card__content
+			.catalog-card__count=product.count
+			.catalog-card__title=product.title
+		.catalog-card__btn.btn.btn--circle
+			+icon('arrow-right')
+	.catalog-card__hidden
+		a.catalog-card__h-title(href=product.href) #{product.title}
+		.catalog-card__h-wrap
+			ul.catalog-card__list
+				each category in product.categories
 					li
-						a(href='#') Конструкционные стали
-					li
-						a(href='#') Инструментальные стали
-					li
-						a(href='#') Литейная сталь
-					li
-						a(href='#') Нержавеющие трубы
-					li
-						a(href='#') Нержавеющий пруток
-					li
-						a(href='#') Нержавеющий квадрат
-					li
-						a(href='#') Нержавеющий шестигранник
-
-mixin catalogCard2(title, countProduct, img)
-	.catalog-card
-		a.catalog-card__wrap(href='#')
-			.catalog-card__img
-				img(src=`../../../../static/images/content/${img}.jpg`, alt=`${title}`)
-			.catalog-card__content
-				.catalog-card__count=countProduct
-				.catalog-card__title=title
-			.catalog-card__btn.btn.btn--circle
-				+icon('arrow-right')
+						a(href=category.href) #{category.name}

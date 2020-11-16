@@ -3,7 +3,7 @@ mixin icon(name,mod)
         svg(class="svg-sprite-icon icon")
             use(xlink:href="/static/images/svg/symbol/sprite.svg#" )
     else
-        svg(class="svg-sprite-icon icon")
+        svg(class="svg-sprite-icon icon" + name)
             use(xlink:href="/static/images/svg/symbol/sprite.svg" )
 
 .bottom-line
