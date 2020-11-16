@@ -1,10 +1,9 @@
-//- mixin popularCategoriesCard(img, title)
-a.popular-categories-card(href='#')
+a.popular-categories-card(href=category.slug)
 	.popular-categories-card__wrap
 		.popular-categories-card__img
-			img(src='../../../../static/images/content/basket-card.jpg', alt='Алюминиевый')
+			img(src=category.image, alt=category.name)
 		.popular-categories-card__content
-			.popular-categories-card__title=title
+			.popular-categories-card__title=category.name
 			.popular-categories-card__link
 				| Перейти
 				+icon('arrow-right')

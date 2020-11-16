@@ -1,11 +1,11 @@
 .slide-banner
 	.slide-banner__content
 		h2.slide-banner__title.txt--bld48
-			| Бесплатная доставка 
+			| #{slider.name}
 			br
-			| при покупке от 50 000 ₽
-		a.slide-banner__link(href='#')
+			| #{slider.text}
+		a.slide-banner__link(href=slider.url)
 			| Подробнее
 			+icon('arrow-right')
 	.slide-banner__img
-		img(src='../../../static/images/general/f-logo.svg', alt='')
+		img(src=slider.image, alt='')

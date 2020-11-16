@@ -1,4 +1,3 @@
-
 import json
 import re
 from django.utils.text import slugify
@@ -26,7 +25,6 @@ ID_TYPE_CATEGORY_LIST = 7
 
 MAX_COUNT_PRODUCTS = 21
 
-
 PRODUCT_LIST_TITLE_PAGE = 'product_list_title_page'
 PRODUCT_LIST_META_DESCRIPTION = 'product_list_meta_description'
 PRODUCT_LIST_META_KEYWORDS = 'product_list_meta_keywords'
@@ -36,6 +34,8 @@ PRODUCT_TEXT_SLUG = 'product_text'
 
 SIZE_SALE_INDEX = 6
 SIZE_SERVICE_INDEX = 6
+SIZE_CATEGORIES_INDEX = 6
+
 
 class IndexView(TemplateView):
     template_name = "catalog/index.pug"
@@ -49,6 +49,8 @@ class IndexView(TemplateView):
         news_list = News.objects.filter(is_hidden=False)[:3]
         spec_list = Product.objects.filter(is_spec=True, is_hidden=False)[:SIZE_SALE_INDEX]
         service_list = Product.objects.filter(is_service=True, is_hidden=False)[:SIZE_SERVICE_INDEX]
+        categories_list = MenuCatalog.objects.filter()[:10]
+
         ip = request.META.get('REMOTE_ADDR')
         return render(request, self.template_name, locals())
 
@@ -69,6 +71,7 @@ def get_sort_type(sort_type, product_list):
         sort_type_str = 'По цене (дорогие)'
     return sort_type_str, product_list
 
+
 class MenuView(View):
     def get(self, request, menu_slug):
         try:
@@ -86,15 +89,33 @@ class MenuView(View):
             product_list = Product.objects.filter(is_spec=True)
         if current_menu.type_menu_id == ID_TYPE_CATEGORY_LIST:
             product_list = Product.objects.filter(catalog=current_menu)
-            marka_filter = list(map(itemgetter(0), groupby(product_list.values('marka__name', 'marka__slug').order_by('marka__name').annotate(dcount=Count('marka__name')))))
-            standart_filter = list(map(itemgetter(0), groupby(product_list.values('standart__name', 'standart__slug').order_by('standart__name').annotate(dcount=Count('standart__name')))))
-            param_1_filter = sorted(list(map(itemgetter(0), groupby(product_list.filter(param_1_slug__isnull=False).values('param_1', 'param_1_slug').annotate(dcount=Count('param_1_slug'))))), key=key_sort)
-            param_2_filter = sorted(list(map(itemgetter(0), groupby(product_list.filter(param_2_slug__isnull=False).values('param_2', 'param_2_slug').annotate(dcount=Count('param_2_slug'))))), key=key_sort)
-            param_3_filter = sorted(list(map(itemgetter(0), groupby(product_list.filter(param_3_slug__isnull=False).values('param_3', 'param_3_slug').annotate(dcount=Count('param_3_slug'))))), key=key_sort)
-            param_4_filter = sorted(list(map(itemgetter(0), groupby(product_list.filter(param_4_slug__isnull=False).values('param_4', 'param_4_slug').annotate(dcount=Count('param_4_slug'))))), key=key_sort)
-            param_5_filter = sorted(list(map(itemgetter(0), groupby(product_list.filter(param_5_slug__isnull=False).values('param_5', 'param_5_slug').annotate(dcount=Count('param_5_slug'))))), key=key_sort)
-            param_6_filter = sorted(list(map(itemgetter(0), groupby(product_list.filter(param_6_slug__isnull=False).values('param_6', 'param_6_slug').annotate(dcount=Count('param_6_slug'))))), key=key_sort)
-            param_7_filter = sorted(list(map(itemgetter(0), groupby(product_list.filter(param_7_slug__isnull=False).values('param_7', 'param_7_slug').annotate(dcount=Count('param_7_slug'))))), key=key_sort)
+            marka_filter = list(map(itemgetter(0), groupby(
+                product_list.values('marka__name', 'marka__slug').order_by('marka__name').annotate(
+                    dcount=Count('marka__name')))))
+            standart_filter = list(map(itemgetter(0), groupby(
+                product_list.values('standart__name', 'standart__slug').order_by('standart__name').annotate(
+                    dcount=Count('standart__name')))))
+            param_1_filter = sorted(list(map(itemgetter(0), groupby(
+                product_list.filter(param_1_slug__isnull=False).values('param_1', 'param_1_slug').annotate(
+                    dcount=Count('param_1_slug'))))), key=key_sort)
+            param_2_filter = sorted(list(map(itemgetter(0), groupby(
+                product_list.filter(param_2_slug__isnull=False).values('param_2', 'param_2_slug').annotate(
+                    dcount=Count('param_2_slug'))))), key=key_sort)
+            param_3_filter = sorted(list(map(itemgetter(0), groupby(
+                product_list.filter(param_3_slug__isnull=False).values('param_3', 'param_3_slug').annotate(
+                    dcount=Count('param_3_slug'))))), key=key_sort)
+            param_4_filter = sorted(list(map(itemgetter(0), groupby(
+                product_list.filter(param_4_slug__isnull=False).values('param_4', 'param_4_slug').annotate(
+                    dcount=Count('param_4_slug'))))), key=key_sort)
+            param_5_filter = sorted(list(map(itemgetter(0), groupby(
+                product_list.filter(param_5_slug__isnull=False).values('param_5', 'param_5_slug').annotate(
+                    dcount=Count('param_5_slug'))))), key=key_sort)
+            param_6_filter = sorted(list(map(itemgetter(0), groupby(
+                product_list.filter(param_6_slug__isnull=False).values('param_6', 'param_6_slug').annotate(
+                    dcount=Count('param_6_slug'))))), key=key_sort)
+            param_7_filter = sorted(list(map(itemgetter(0), groupby(
+                product_list.filter(param_7_slug__isnull=False).values('param_7', 'param_7_slug').annotate(
+                    dcount=Count('param_7_slug'))))), key=key_sort)
 
             page = 1
             current_filter_url = request.path
@@ -111,8 +132,8 @@ class MenuView(View):
                     paginator_min = 1
                     paginator_max = 10
                 else:
-                    paginator_min = max(int(page)-5, 1)
-                    paginator_max = min(int(page)+5, paginator.num_pages)
+                    paginator_min = max(int(page) - 5, 1)
+                    paginator_max = min(int(page) + 5, paginator.num_pages)
 
             except PageNotAnInteger:
                 product_list = paginator.page(1)
@@ -160,7 +181,7 @@ def key_sort(arg):
     except:
         title = list(arg.values())[0]
     try:
-        res = float(title.replace(",","."))
+        res = float(title.replace(",", "."))
     except:
         res = title
     return res
@@ -170,6 +191,7 @@ class GetFilterUrl(View):
     """
     Класс обрабатывает запрос на получение url при выбранных фильтрах
     """
+
     @staticmethod
     def post(request):
         postdatatmp = request.POST.copy()
@@ -238,11 +260,9 @@ class GetFilterUrl(View):
             sort_type = postdatatmp['sort_type']
         except:
             pass
-        
+
         current_menu = MenuCatalog.objects.only('slug').get(slug=menu_slug)
-        new_url = "/"+current_menu.slug
-
-
+        new_url = "/" + current_menu.slug
 
         if current_marka:
             new_url += '/{}'.format(current_marka)
@@ -267,7 +287,7 @@ class GetFilterUrl(View):
         if sort_type:
             new_url = "?sort={}".format(sort_type)
 
-        response_data = {'url': new_url,}
+        response_data = {'url': new_url, }
 
         return HttpResponse(json.dumps(response_data), content_type="application/json")
 
@@ -291,7 +311,7 @@ class CatalogView(TemplateView):
         if current_filter_url.find("page/") > 0:
             current_filter_url = current_filter_url[:current_filter_url.find("page/")]
 
-        #Фильтр по выбранным полям
+        # Фильтр по выбранным полям
         marka = None
         gost = None
         page = 1
@@ -305,14 +325,14 @@ class CatalogView(TemplateView):
 
         current_marka = None
         current_standart = None
-        if select_params == "/"+menu_slug:
-            select_params=None
+        if select_params == "/" + menu_slug:
+            select_params = None
 
         if select_params:
             reg_exp = re.compile("[/]")
             params = re.split(reg_exp, select_params)
             params = params[2:len(params)]
-            current_index = 0 #если current_index=-1, значит достигнут конец параметров (для переключения страниц)
+            current_index = 0  # если current_index=-1, значит достигнут конец параметров (для переключения страниц)
             size_f = ["p_1", "p_2", "p_3", "p_4", "p_5", "p_6", "p_7", "page"]
             if params:
                 if params[-1] in size_f:
@@ -382,24 +402,24 @@ class CatalogView(TemplateView):
                                     raise Http404()
                         else:
                             raise Http404()
-                while current_index > 0 and current_index < len(params)-1:
+                while current_index > 0 and current_index < len(params) - 1:
                     if params[current_index] in size_f:
                         if params[current_index] == "p_1":
-                            param_1 = params[current_index+1]
+                            param_1 = params[current_index + 1]
                         if params[current_index] == "p_2":
-                            param_2 = params[current_index+1]
+                            param_2 = params[current_index + 1]
                         if params[current_index] == "p_3":
-                            param_3 = params[current_index+1]
+                            param_3 = params[current_index + 1]
                         if params[current_index] == "p_4":
-                            param_4 = params[current_index+1]
+                            param_4 = params[current_index + 1]
                         if params[current_index] == "p_5":
-                            param_5 = params[current_index+1]
+                            param_5 = params[current_index + 1]
                         if params[current_index] == "p_6":
-                            param_6 = params[current_index+1]
+                            param_6 = params[current_index + 1]
                         if params[current_index] == "p_7":
-                            param_7 = params[current_index+1]
+                            param_7 = params[current_index + 1]
                         if params[current_index] == "page":
-                            page = params[current_index+1]
+                            page = params[current_index + 1]
                         current_index += 2
                     else:
                         raise Http404()
@@ -427,7 +447,6 @@ class CatalogView(TemplateView):
             sort_type = request.GET['sort']
         except:
             sort_type = ""
-            
 
         filter_s_list = {}
         product_list = Product.objects.filter(catalog=current_menu)
@@ -459,7 +478,7 @@ class CatalogView(TemplateView):
 
             product_list = product_list.filter(filter_s_base)
 
-            #Формирование списка допустимых марок и ГОСТов
+            # Формирование списка допустимых марок и ГОСТов
             marka_filter = []
             standart_filter = []
             param_1_filter = []
@@ -470,40 +489,51 @@ class CatalogView(TemplateView):
             param_6_filter = []
             param_7_filter = []
 
-
             if current_marka:
                 filter_s_base = Q()
                 for filter_item in filter_s_list:
                     if filter_item != 'marka':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.select_related("marka").filter(filter_s_base).only('marka__name', 'marka__slug').values('marka__name', 'marka__slug').order_by('marka__name').annotate(dcount=Count('marka__name'))
+                product_list_tmp = Product.objects.select_related("marka").filter(filter_s_base).only('marka__name',
+                                                                                                      'marka__slug').values(
+                    'marka__name', 'marka__slug').order_by('marka__name').annotate(dcount=Count('marka__name'))
                 marka_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 str_filter_name += " {}".format(current_marka.name)
             else:
-                marka_filter = list(map(itemgetter(0), groupby(product_list.only('marka__name', 'marka__slug').values('marka__name', 'marka__slug').order_by('marka__name').annotate(dcount=Count('marka__name')))))
+                marka_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('marka__name', 'marka__slug').values('marka__name', 'marka__slug').order_by(
+                        'marka__name').annotate(dcount=Count('marka__name')))))
 
             if current_standart:
                 filter_s_base = Q()
                 for filter_item in filter_s_list:
                     if filter_item != 'standart':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.select_related("standart").filter(filter_s_base).only('standart__name', 'standart__slug').values('standart__name', 'standart__slug').order_by('standart__name').annotate(dcount=Count('standart__name'))
+                product_list_tmp = Product.objects.select_related("standart").filter(filter_s_base).only(
+                    'standart__name', 'standart__slug').values('standart__name', 'standart__slug').order_by(
+                    'standart__name').annotate(dcount=Count('standart__name'))
                 standart_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 str_filter_name += " {}".format(current_standart.name)
             else:
-                standart_filter = list(map(itemgetter(0), groupby(product_list.only('standart__name', 'standart__slug').values('standart__name', 'standart__slug').order_by('standart__name').annotate(dcount=Count('standart__name')))))
+                standart_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('standart__name', 'standart__slug').values('standart__name',
+                                                                                 'standart__slug').order_by(
+                        'standart__name').annotate(dcount=Count('standart__name')))))
 
             if param_1:
                 filter_s_base = Q()
                 for filter_item in filter_s_list:
                     if filter_item != 'param_1':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.filter(filter_s_base).only('param_1', 'param_1_slug').values('param_1', 'param_1_slug').order_by('param_1').annotate(dcount=Count('param_1'))
+                product_list_tmp = Product.objects.filter(filter_s_base).only('param_1', 'param_1_slug').values(
+                    'param_1', 'param_1_slug').order_by('param_1').annotate(dcount=Count('param_1'))
                 param_1_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 param_1_name = product_list_tmp.filter(param_1_slug=param_1).first()['param_1']
                 str_filter_name += " {}".format(param_1_name)
             else:
-                param_1_filter = list(map(itemgetter(0), groupby(product_list.only('param_1', 'param_1_slug').values('param_1', 'param_1_slug').order_by('param_1').annotate(dcount=Count('param_1')))))
+                param_1_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('param_1', 'param_1_slug').values('param_1', 'param_1_slug').order_by(
+                        'param_1').annotate(dcount=Count('param_1')))))
             param_1_filter = sorted(param_1_filter, key=key_sort)
 
             if param_2:
@@ -511,12 +541,15 @@ class CatalogView(TemplateView):
                 for filter_item in filter_s_list:
                     if filter_item != 'param_2':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.filter(filter_s_base).only('param_2', 'param_2_slug').values('param_2', 'param_2_slug').order_by('param_2').annotate(dcount=Count('param_2'))
+                product_list_tmp = Product.objects.filter(filter_s_base).only('param_2', 'param_2_slug').values(
+                    'param_2', 'param_2_slug').order_by('param_2').annotate(dcount=Count('param_2'))
                 param_2_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 param_2_name = product_list_tmp.filter(param_2_slug=param_2).first()['param_2']
                 str_filter_name += " {}".format(param_2_name)
             else:
-                param_2_filter = list(map(itemgetter(0), groupby(product_list.only('param_2', 'param_2_slug').values('param_2', 'param_2_slug').order_by('param_2').annotate(dcount=Count('param_2')))))
+                param_2_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('param_2', 'param_2_slug').values('param_2', 'param_2_slug').order_by(
+                        'param_2').annotate(dcount=Count('param_2')))))
             param_2_filter = sorted(param_2_filter, key=key_sort)
 
             if param_3:
@@ -524,12 +557,15 @@ class CatalogView(TemplateView):
                 for filter_item in filter_s_list:
                     if filter_item != 'param_3':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.filter(filter_s_base).only('param_3', 'param_3_slug').values('param_3', 'param_3_slug').order_by('param_3').annotate(dcount=Count('param_3'))
+                product_list_tmp = Product.objects.filter(filter_s_base).only('param_3', 'param_3_slug').values(
+                    'param_3', 'param_3_slug').order_by('param_3').annotate(dcount=Count('param_3'))
                 param_3_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 param_3_name = product_list_tmp.filter(param_3_slug=param_3).first()['param_3']
                 str_filter_name += " {}".format(param_3_name)
             else:
-                param_3_filter = list(map(itemgetter(0), groupby(product_list.only('param_3', 'param_3_slug').values('param_3', 'param_3_slug').order_by('param_3').annotate(dcount=Count('param_3')))))
+                param_3_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('param_3', 'param_3_slug').values('param_3', 'param_3_slug').order_by(
+                        'param_3').annotate(dcount=Count('param_3')))))
             param_3_filter = sorted(param_3_filter, key=key_sort)
 
             if param_4:
@@ -537,12 +573,15 @@ class CatalogView(TemplateView):
                 for filter_item in filter_s_list:
                     if filter_item != 'param_4':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.filter(filter_s_base).only('param_4', 'param_4_slug').values('param_4', 'param_4_slug').order_by('param_4').annotate(dcount=Count('param_4'))
+                product_list_tmp = Product.objects.filter(filter_s_base).only('param_4', 'param_4_slug').values(
+                    'param_4', 'param_4_slug').order_by('param_4').annotate(dcount=Count('param_4'))
                 param_4_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 param_4_name = product_list_tmp.filter(param_4_slug=param_4).first()['param_4']
                 str_filter_name += " {}".format(param_4_name)
             else:
-                param_4_filter = list(map(itemgetter(0), groupby(product_list.only('param_4', 'param_4_slug').values('param_4', 'param_4_slug').order_by('param_4').annotate(dcount=Count('param_4')))))
+                param_4_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('param_4', 'param_4_slug').values('param_4', 'param_4_slug').order_by(
+                        'param_4').annotate(dcount=Count('param_4')))))
             param_4_filter = sorted(param_4_filter, key=key_sort)
 
             if param_5:
@@ -550,12 +589,15 @@ class CatalogView(TemplateView):
                 for filter_item in filter_s_list:
                     if filter_item != 'param_5':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.filter(filter_s_base).only('param_5', 'param_5_slug').values('param_5', 'param_5_slug').order_by('param_5').annotate(dcount=Count('param_5'))
+                product_list_tmp = Product.objects.filter(filter_s_base).only('param_5', 'param_5_slug').values(
+                    'param_5', 'param_5_slug').order_by('param_5').annotate(dcount=Count('param_5'))
                 param_5_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 param_5_name = product_list_tmp.filter(param_5_slug=param_5).first()['param_5']
                 str_filter_name += " {}".format(param_5_name)
             else:
-                param_5_filter = list(map(itemgetter(0), groupby(product_list.only('param_5', 'param_5_slug').values('param_5', 'param_5_slug').order_by('param_5').annotate(dcount=Count('param_5')))))
+                param_5_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('param_5', 'param_5_slug').values('param_5', 'param_5_slug').order_by(
+                        'param_5').annotate(dcount=Count('param_5')))))
             param_5_filter = sorted(param_5_filter, key=key_sort)
 
             if param_6:
@@ -563,12 +605,15 @@ class CatalogView(TemplateView):
                 for filter_item in filter_s_list:
                     if filter_item != 'param_6':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.filter(filter_s_base).only('param_6', 'param_6_slug').values('param_6', 'param_6_slug').order_by('param_6').annotate(dcount=Count('param_6'))
+                product_list_tmp = Product.objects.filter(filter_s_base).only('param_6', 'param_6_slug').values(
+                    'param_6', 'param_6_slug').order_by('param_6').annotate(dcount=Count('param_6'))
                 param_6_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 param_6_name = product_list_tmp.filter(param_6_slug=param_6).first()['param_6']
                 str_filter_name += " {}".format(param_6_name)
             else:
-                param_6_filter = list(map(itemgetter(0), groupby(product_list.only('param_6', 'param_6_slug').values('param_6', 'param_6_slug').order_by('param_6').annotate(dcount=Count('param_6')))))
+                param_6_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('param_6', 'param_6_slug').values('param_6', 'param_6_slug').order_by(
+                        'param_6').annotate(dcount=Count('param_6')))))
             param_6_filter = sorted(param_6_filter, key=key_sort)
 
             if param_7:
@@ -576,18 +621,21 @@ class CatalogView(TemplateView):
                 for filter_item in filter_s_list:
                     if filter_item != 'param_7':
                         filter_s_base &= filter_s_list[filter_item]
-                product_list_tmp = Product.objects.filter(filter_s_base).only('param_7', 'param_7_slug').values('param_7', 'param_7_slug').order_by('param_7').annotate(dcount=Count('param_7'))
+                product_list_tmp = Product.objects.filter(filter_s_base).only('param_7', 'param_7_slug').values(
+                    'param_7', 'param_7_slug').order_by('param_7').annotate(dcount=Count('param_7'))
                 param_7_filter = list(map(itemgetter(0), groupby(product_list_tmp)))
                 param_7_name = product_list_tmp.filter(param_7_slug=param_7).first()['param_7']
                 str_filter_name += " {}".format(param_7_name)
             else:
-                param_7_filter = list(map(itemgetter(0), groupby(product_list.only('param_7', 'param_7_slug').values('param_7', 'param_7_slug').order_by('param_7').annotate(dcount=Count('param_7')))))
+                param_7_filter = list(map(itemgetter(0), groupby(
+                    product_list.only('param_7', 'param_7_slug').values('param_7', 'param_7_slug').order_by(
+                        'param_7').annotate(dcount=Count('param_7')))))
             param_7_filter = sorted(param_7_filter, key=key_sort)
 
             if sort_type:
                 sort_type_str, product_list = get_sort_type(sort_type, product_list)
 
-            #Формирование списка схожих товаров
+            # Формирование списка схожих товаров
             # if current_menu.parent:
             #     MetallCategoriesSimilar = []
             #     MetallCategoriesSimilarAll = MenuCatalog.objects.filter(parent=current_menu.parent.id, isHidden=False)
@@ -608,25 +656,25 @@ class CatalogView(TemplateView):
             #                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[max(0,counterTmp-3):counterTmp]
             #             counterTmp = counterTmp+1
             #     metall_categories_similar = MetallCategoriesSimilar
-                # Формирование списка схожих производств/услуг
-                # UslugiSimilar = []
-                # UslugiSimilarAll = MenuCatalog.objects.filter(parent=current_menu.parent.id, isHidden=False)
-                # counterTmpUslugi = 0
-                # if (len(UslugiSimilarAll) > 1):
-                #     for itemTmp in UslugiSimilarAll:
-                #         if itemTmp == current_menu:
-                #             if (counterTmpUslugi > 1 and counterTmpUslugi < len(UslugiSimilarAll) - 2):
-                #                 UslugiSimilar = UslugiSimilarAll[counterTmpUslugi-2:counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:min(counterTmpUslugi+5,len(UslugiSimilarAll))]
-                #             elif counterTmpUslugi == 1:
-                #                 UslugiSimilar = UslugiSimilarAll[0:1]+UslugiSimilarAll[2:min(7,len(UslugiSimilarAll))]
-                #             elif counterTmpUslugi == 0:
-                #                 UslugiSimilar = UslugiSimilarAll[1:min(7, len(UslugiSimilarAll))]
-                #             elif counterTmpUslugi == len(UslugiSimilarAll)-2:
-                #                 UslugiSimilar = UslugiSimilarAll[max(0, counterTmpUslugi-7):counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:len(UslugiSimilarAll)]
-                #             elif counterTmpUslugi == len(UslugiSimilarAll)-1:
-                #                 UslugiSimilar = UslugiSimilarAll[max(0,counterTmpUslugi-6):counterTmpUslugi]
-                #         counterTmpUslugi = counterTmpUslugi+1
-                # uslugi_similar = UslugiSimilar
+            # Формирование списка схожих производств/услуг
+            # UslugiSimilar = []
+            # UslugiSimilarAll = MenuCatalog.objects.filter(parent=current_menu.parent.id, isHidden=False)
+            # counterTmpUslugi = 0
+            # if (len(UslugiSimilarAll) > 1):
+            #     for itemTmp in UslugiSimilarAll:
+            #         if itemTmp == current_menu:
+            #             if (counterTmpUslugi > 1 and counterTmpUslugi < len(UslugiSimilarAll) - 2):
+            #                 UslugiSimilar = UslugiSimilarAll[counterTmpUslugi-2:counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:min(counterTmpUslugi+5,len(UslugiSimilarAll))]
+            #             elif counterTmpUslugi == 1:
+            #                 UslugiSimilar = UslugiSimilarAll[0:1]+UslugiSimilarAll[2:min(7,len(UslugiSimilarAll))]
+            #             elif counterTmpUslugi == 0:
+            #                 UslugiSimilar = UslugiSimilarAll[1:min(7, len(UslugiSimilarAll))]
+            #             elif counterTmpUslugi == len(UslugiSimilarAll)-2:
+            #                 UslugiSimilar = UslugiSimilarAll[max(0, counterTmpUslugi-7):counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:len(UslugiSimilarAll)]
+            #             elif counterTmpUslugi == len(UslugiSimilarAll)-1:
+            #                 UslugiSimilar = UslugiSimilarAll[max(0,counterTmpUslugi-6):counterTmpUslugi]
+            #         counterTmpUslugi = counterTmpUslugi+1
+            # uslugi_similar = UslugiSimilar
 
             # marka_filter_list = marka_filter_list.select_related('marka', 'gost')
             # paginatorMin = 1
@@ -656,12 +704,11 @@ class CatalogView(TemplateView):
             #     # If page is out of range (e.g. 9999), deliver last page of results.
             #     marka_filter_list = paginator.page(paginator.num_pages)
 
-        #Определение верхнего главного каталога для бокового меню
+        # Определение верхнего главного каталога для бокового меню
         # current_menu_main = current_menu
         # while current_menu_main.parent:
         #     current_menu_main = current_menu_main.parent
         # dopTextBlockUrl = TextBlockUrl.objects.filter(url=request.path, isHidden=False)
-
 
         paginator_min = 1
         paginator_max = 10
@@ -672,8 +719,8 @@ class CatalogView(TemplateView):
                 paginator_min = 1
                 paginator_max = 10
             else:
-                paginator_min = max(int(page)-5, 1)
-                paginator_max = min(int(page)+5, paginator.num_pages)
+                paginator_min = max(int(page) - 5, 1)
+                paginator_max = min(int(page) + 5, paginator.num_pages)
 
         except PageNotAnInteger:
             product_list = paginator.page(1)
@@ -699,7 +746,7 @@ class CatalogView(TemplateView):
 
         return render(request, self.template_name, locals())
 
-    
+
 class ProductGetView(View):
 
     def get(self, request, pk):
@@ -732,6 +779,7 @@ class ProductGetPrice(View):
 
 class ProductAddView(View):
     template_name = "product/get_add_product.pug"
+
     def post(self, request):
         post_data = request.POST
         product_slug = post_data.get('product_slug', '')
