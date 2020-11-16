@@ -1,14 +1,14 @@
-const modalList = {
-	basket: new bootstrap.Modal(document.getElementById('modal-basket')),
-	search: new bootstrap.Modal(document.getElementById('modal-search')),
-	city: new bootstrap.Modal(document.getElementById('modal-city')),
-	callback: new bootstrap.Modal(document.getElementById('modal-callback')),
+// const modalList = {
+// 	basket: new bootstrap.Modal(document.getElementById('modal-basket')),
+// 	search: new bootstrap.Modal(document.getElementById('modal-search')),
+// 	city: new bootstrap.Modal(document.getElementById('modal-city')),
+// 	callback: new bootstrap.Modal(document.getElementById('modal-callback')),
 	
-}
+// }
 
-if(document.getElementById('modal-filters')) {
-	modalList['filters'] = new bootstrap.Modal(document.getElementById('modal-filters'));
-}
+// if(document.getElementById('modal-filters')) {
+// 	modalList['filters'] = new bootstrap.Modal(document.getElementById('modal-filters'));
+// }
 
 svg4everybody();
 

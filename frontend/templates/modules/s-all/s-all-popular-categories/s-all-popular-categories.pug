@@ -1,5 +1,3 @@
-include ../..lar-categories-card/popular-categories-card
-
 section.s-all-popular-categories
 	.container-xxl
 		h2.s-all-popular-categories__title.txt--bld24 Популярные категории
@@ -8,19 +6,19 @@ section.s-all-popular-categories
 				.swiper-wrapper
 					.swiper-slide
 						.popular-categories-slider__item
-							+popularCategoriesCard('basket-card', 'Алюминиевый')
+							include ../../cards/popular-categories-card/popular-categories-card
 					.swiper-slide
 						.popular-categories-slider__item
-							+popularCategoriesCard('basket-card', 'Алюминиевый прессованный')
+							include ../../cards/popular-categories-card/popular-categories-card
 					.swiper-slide
 						.popular-categories-slider__item
-							+popularCategoriesCard('basket-card', 'Алюминиевый прессованный профиль')
+							include ../../cards/popular-categories-card/popular-categories-card
 					.swiper-slide
 						.popular-categories-slider__item
-							+popularCategoriesCard('basket-card', 'Алюминиевый прессованный')
+							include ../../cards/popular-categories-card/popular-categories-card
 					.swiper-slide
 						.popular-categories-slider__item
-							+popularCategoriesCard('basket-card', 'Алюминиевый')
+							include ../../cards/popular-categories-card/popular-categories-card
 			button.popular-categories-slider__prev.swiper-prev
 				+icon('arrow-right-2')
 			button.popular-categories-slider__next.swiper-next

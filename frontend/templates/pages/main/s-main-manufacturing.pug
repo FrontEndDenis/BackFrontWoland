@@ -1,0 +1,36 @@
+include ../../../templates/modules/cards/manufacturing-card/manufacturing-card
+
+section.s-main-manufacturing
+	.container-xxl
+		.s-main-manufacturing__content
+			.s-main-manufacturing__img
+				img(src='../../../static/images/general/logo-manufacturing.svg', alt='Велунд')
+			.s-main-manufacturing__header
+				h2.txt--bld40 Производство
+				a.link.link--w(href='#')
+					span Все производство
+					+icon('arrow-right-2')
+			.row
+				.offset-xl-3.offset-md-4.col-xl-9.col-md-8
+					.s-main-manufacturing__slider
+						.manufacturing-slider.swiper-container
+							.swiper-wrapper
+								.swiper-slide
+									.manufacturing-slider__item
+										+manufacturingCard('Производство нержавеющих труб', 'manufacturing-card')
+								.swiper-slide
+									.manufacturing-slider__item
+										+manufacturingCard('Производство нержавеющих труб', 'manufacturing-card')
+								.swiper-slide
+									.manufacturing-slider__item
+										+manufacturingCard('Производство нержавеющих труб', 'manufacturing-card')
+								.swiper-slide
+									.manufacturing-slider__item
+										+manufacturingCard('Производство нержавеющих труб', 'manufacturing-card')
+								.swiper-slide
+									.manufacturing-slider__item
+										+manufacturingCard('Производство нержавеющих труб', 'manufacturing-card')
+						button.manufacturing-slider__prev.swiper-prev
+							+icon('arrow-right-2')
+						button.manufacturing-slider__next.swiper-next
+							+icon('arrow-right-2')
