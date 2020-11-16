@@ -4,7 +4,7 @@ section.s-main-slider
 			.main-slider.swiper-container
 				.swiper-wrapper
 					each slider in slider_list
-						.swiper-slide
+						.swiper-slide(data-title=slider.name)
 							.main-slider__item
 								include ./main-slide/slide-banner
 			.s-main-slider__wrap-pagination
