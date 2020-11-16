@@ -1,16 +1,34 @@
 .catalog-card
-	a.catalog-card__wrap(href=product.href)
+	a.catalog-card__wrap(href='#')
 		.catalog-card__img
-			img(src=product.thumb, alt=product.title)
+			img(src='../../../../static/images/content/img.jpg', alt='')
 		.catalog-card__content
-			.catalog-card__count=product.count
-			.catalog-card__title=product.title
+			.catalog-card__count 12 видов
+			.catalog-card__title Сталь
 		.catalog-card__btn.btn.btn--circle
 			+icon('arrow-right')
 	.catalog-card__hidden
-		a.catalog-card__h-title(href=product.href) #{product.title}
+		a.catalog-card__h-title(href='#') Сталь
 		.catalog-card__h-wrap
 			ul.catalog-card__list
-				each category in product.categories
-					li
-						a(href=category.href) #{category.name}
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				li
+					a(href='#') Конструкционные стали
+				//- each category in product.categories
+				//- 	li
+				//- 		a(href=category.href) #{category.name}
