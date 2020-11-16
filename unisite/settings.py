@@ -119,6 +119,7 @@ TEMPLATES = [
             ],
             'builtins': [
                 'pypugjs.ext.django.templatetags',
+                'utils.frontend.mixins',
             ],
 
         },
