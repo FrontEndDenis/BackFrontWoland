@@ -1,18 +1,19 @@
 #scroll-sidebar-filters.scroll-sidebar
 	.scroll-sidebar__left
+		h4#scroll-sidebar-title-page.scroll-sidebar__title-list
 		ul#scroll-sidebar-filters-list
 	.scroll-sidebar__right
 		h3.scroll-sidebar__title Хотите узнать цену?
 		p.scroll-sidebar__text Наш менеджер свяжется с вами и рассчитает цену того, что вам нужно:
 		form.scroll-sidebar__form.needs-validation(action='', method='get', novalidate)
 			.form-group
-				input.form-control(type='tel', placeholder='Ваш телефон', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
-				button.btn.btn--circle(type='submit')
-					+icon('arrow-right')
+					input.form-control(type='tel', placeholder='Ваш телефон', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
+					button.btn.btn--circle(type='submit')
+						+icon('arrow-right')
 			.form-group
 				label.checkbox
 					input.form-control(type='checkbox', checked, required)
 					span.checkbox__text
 						.policy
-							| Даю согласие на
+							| Даю согласие на 
 							a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
