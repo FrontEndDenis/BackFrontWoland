@@ -19,7 +19,7 @@ def register_mixin(name=''):
 def icon(name, additional_class=''):
 	name = str(name)
 	additional_class = str(additional_class)
-	return "<svg class='svg-sprite-icon icon-{0} {1}'><use xlink:href='static/images/svg/symbol/sprite.svg#{0}'></use></svg>".format(
+	return "<svg class='svg-sprite-icon icon-{0} {1}'><use xlink:href='/static/images/svg/symbol/sprite.svg#{0}'></use></svg>".format(
 		name,
 		additional_class
 	)
