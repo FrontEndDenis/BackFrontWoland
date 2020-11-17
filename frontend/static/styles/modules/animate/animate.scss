@@ -1,130 +1,124 @@
 .fade-in {
-  animation: fadeIn .3s ease-in-out both;
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+	animation: fadeIn .3s ease-in-out both;
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
 }
 
 .fade-out {
-  animation: fadeOut .3s ease-in-out both;
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-      transform: scale(1);
-    }
-    to {
-      opacity: 0;
-      transform: scale(.95);
-    }
-  }
+	animation: fadeOut .3s ease-in-out both;
+	@keyframes fadeOut {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(.95);
+		}
+	}
 }
 
 .fade-in-scale {
-  animation: fadeInScale .5s ease-in-out both;
-  @keyframes fadeInScale {
-    from {
-      opacity: 0;
-      transform: scale(1.05);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+	animation: fadeInScale .5s ease-in-out both;
+	@keyframes fadeInScale {
+		from {
+			opacity: 0;
+			transform: scale(1.05);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
 }
 
 .fade-in-scale-top {
-  animation: fadeInScaleTop .5s ease-in-out both;
-  @keyframes fadeInScaleTop {
-    from {
-      opacity: 0;
-      transform: scale(.2);
-      top: -300px;
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-      top: -22px;
-    }
-  }
+	animation: fadeInScaleTop .5s ease-in-out both;
+	@keyframes fadeInScaleTop {
+		from {
+			opacity: 0;
+			transform: scale(.2);
+			top: -300px;
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+			top: -22px;
+		}
+	}
 }
 
 .fade-in-scale-bottom {
-  animation: fadeInScaleBottom .5s ease-in-out both;
-  @keyframes fadeInScaleBottom {
-    from {
-      opacity: 1;
-      transform: scale(1);
-      top: -22px;
-    }
-    to {
-      opacity: 0;
-      transform: scale(.5);
-      top: 152px;
-    }
-  }
+	animation: fadeInScaleBottom .5s ease-in-out both;
+	@keyframes fadeInScaleBottom {
+		from {
+			opacity: 1;
+			transform: scale(1);
+			top: -22px;
+		}
+		to {
+			opacity: 0;
+			transform: scale(.5);
+			top: 152px;
+		}
+	}
 }
 
 .right-left {
-  @keyframes rightLeft {
-    from {
-      margin: 0px;
-    }
-    25% {
-      margin-left: 4px;
-    }
-    75% {
-      margin-left: 0px;
-      margin-right: 4px;
-    }
-    to {
-      margin: 0px;
-    }
-  }
+	@keyframes rightLeft {
+		from {margin: 0px;}
+		25% {margin-left: 4px;}
+		75% {
+			margin-left: 0px;
+			margin-right: 4px;
+		}
+		to {margin: 0px;}
+	}
 }
 
 @media only screen and (max-width: 767px) {
-  .fade-in-scale-top {
-    animation: fadeInScaleTop .5s ease-in-out both;
-    @keyframes fadeInScaleTop {
-      from {
-        opacity: 0;
-        transform: scale(.5);
-        top: -22px;
-        left: 0%;
-        transform: translateX(-50%);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-        top: -22px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-  }
-  .fade-in-scale-bottom {
-    animation: fadeInScaleBottom .5s ease-in-out both;
-    @keyframes fadeInScaleBottom {
-      from {
-        opacity: 1;
-        transform: scale(1);
-        top: -22px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      to {
-        opacity: 0;
-        transform: scale(.5);
-        top: -22px;
-        left: 100%;
-        transform: translateX(-50%);
-      }
-    }
-  }
+	.fade-in-scale-top {
+		animation: fadeInScaleTop .5s ease-in-out both;
+		@keyframes fadeInScaleTop {
+			from {
+				opacity: 0;
+				transform: scale(.5);
+				top: -22px;
+				left: 0%;
+				transform: translateX(-50%);
+			}
+			to {
+				opacity: 1;
+				transform: scale(1);
+				top: -22px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
+	.fade-in-scale-bottom {
+		animation: fadeInScaleBottom .5s ease-in-out both;
+		@keyframes fadeInScaleBottom {
+			from {
+				opacity: 1;
+				transform: scale(1);
+				top: -22px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			to {
+				opacity: 0;
+				transform: scale(.5);
+				top: -22px;
+				left: 100%;
+				transform: translateX(-50%);
+			}
+		}
+	}
 }
