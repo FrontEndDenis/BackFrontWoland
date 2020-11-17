@@ -15,22 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+
 from filials.views import RobotsView
 from . import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('robots.txt', RobotsView.as_view(), name = 'robot'),
-    path('cart/', include('checkout.urls')),
-    path('admin_m/', include('admin_m.urls')),
-    path('news/', include('news.urls')),
-    path('', include('menu.urls')),
+	path('admin/', admin.site.urls),
+	path('robots.txt', RobotsView.as_view(), name='robot'),
+	path('cart/', include('checkout.urls')),
+	path('admin_m/', include('admin_m.urls')),
+	path('news/', include('news.urls')),
+	path('', include('menu.urls')),
 ]
 
 if settings.DEBUG:
-    import debug_toolbar
-    from django.conf.urls.static import static
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+	import debug_toolbar
+	from django.conf.urls.static import static
+	
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+	urlpatterns = [
+					  path('__debug__/', include(debug_toolbar.urls)),
+				  ] + urlpatterns
