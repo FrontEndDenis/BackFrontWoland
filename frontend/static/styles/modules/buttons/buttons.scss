@@ -120,6 +120,51 @@ button[disabled] {
 	transform-origin: 50% 0;
 }
 
+.checkbox {
+	$btnWidth: 16px;
+	$switchWidth: 40px;
+	$switchHeight: 22px;
+	$padding: 3px;
+	display: none;
+	& + label {
+		display: inline-block;
+		position: relative;
+		width: $switchWidth;
+		height: $switchHeight;
+		margin: 0;
+		padding: $padding;
+		background: $ui-dark-gray30;
+		background-size: (($switchWidth * 2) + 50) 100%;
+		border-radius: 50px;
+		transition: all .3s linear;
+		cursor: pointer;
+		&::after {
+			content: '';
+			position: absolute;
+			left: $padding;
+			top: $padding;
+			width: $btnWidth;
+			height: $btnWidth;
+			background: $white;
+			border-radius: 50%;
+			transition: left .3s linear, transform 150ms linear, width .3s linear;
+		}
+		&:active {
+			&::after {transform: scale(0.90);}
+		}
+		&:hover {
+			background: rgba($color: $accent-main, $alpha: .4);
+		}
+	}
+	&:checked + label {
+		background-position-x: -($switchWidth + 50);
+		background: $accent-main2;
+		&::after {
+			left: ($switchWidth - $btnWidth - $padding);
+		}
+	}
+}
+
 .download-button {margin-top: 32px;}
 
 @media only screen and (max-width: 1023px) {

@@ -219,3 +219,198 @@
 		}
 	}
 }
+
+
+
+
+
+
+// .stocks-card {
+// 	display: -webkit-box;
+// 	display: -ms-flexbox;
+// 	display: flex;
+// 	-webkit-box-orient: vertical;
+// 	-webkit-box-direction: normal;
+// 		-ms-flex-direction: column;
+// 			flex-direction: column;
+// 	position: relative;
+// 	min-height: 299px;
+// 	padding: 20px;
+// 	background: #fff;
+// 	color: rgba(39, 49, 66, 0.9);
+// 	border-radius: 25px;
+// 	-webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+// 			box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+// 	-webkit-transition: .3s box-shadow linear;
+// 	-o-transition: .3s box-shadow linear;
+// 	transition: .3s box-shadow linear; }
+// 	.stocks-card__warning {
+// 	  position: absolute;
+// 	  top: 20px;
+// 	  right: 20px;
+// 	  z-index: 3;
+// 	  line-height: 16px; }
+// 	  .stocks-card__warning:hover svg {
+// 		fill: #2bba93; }
+// 	  .stocks-card__warning:active svg {
+// 		fill: #2ca483; }
+// 	.stocks-card__wrap-img {
+// 	  position: relative; }
+// 	.stocks-card__img {
+// 	  max-width: 40px;
+// 	  border-radius: 10px;
+// 	  overflow: hidden; }
+// 	.stocks-card__icon {
+// 	  position: absolute;
+// 	  top: 18px;
+// 	  left: 26px;
+// 	  z-index: 2; }
+// 	.stocks-card__title {
+// 	  display: inline-block;
+// 	  margin: 20px 0px 16px;
+// 	  font-weight: 700;
+// 	  line-height: 120%;
+// 	  -webkit-transition: .3s linear;
+// 	  -o-transition: .3s linear;
+// 	  transition: .3s linear; }
+// 	  .stocks-card__title:hover {
+// 		color: #2bba93; }
+// 	  .stocks-card__title:active {
+// 		color: #2ca483; }
+// 	.stocks-card__specifications {
+// 	  -webkit-box-flex: 1;
+// 		  -ms-flex: 1;
+// 			  flex: 1;
+// 	  display: -webkit-box;
+// 	  display: -ms-flexbox;
+// 	  display: flex;
+// 	  -webkit-box-orient: vertical;
+// 	  -webkit-box-direction: normal;
+// 		  -ms-flex-direction: column;
+// 			  flex-direction: column;
+// 	  padding-top: 16px;
+// 	  border-top: 1px solid #f2f3f5; }
+// 	.stocks-card__item {
+// 	  font-weight: 600; }
+// 	  .stocks-card__item:not(:last-child) {
+// 		margin-bottom: 16px; }
+// 	  .stocks-card__item:last-child {
+// 		-webkit-box-flex: 1;
+// 			-ms-flex: 1;
+// 				flex: 1;
+// 		display: -webkit-box;
+// 		display: -ms-flexbox;
+// 		display: flex;
+// 		-webkit-box-orient: vertical;
+// 		-webkit-box-direction: normal;
+// 			-ms-flex-direction: column;
+// 				flex-direction: column;
+// 		-webkit-box-pack: end;
+// 			-ms-flex-pack: end;
+// 				justify-content: flex-end;
+// 		margin-top: 8px; }
+// 	.stocks-card__property {
+// 	  margin-bottom: 4px;
+// 	  color: rgba(125, 131, 142, 0.6);
+// 	  font-size: 10px;
+// 	  line-height: 135%;
+// 	  text-transform: uppercase; }
+// 	.stocks-card__value {
+// 	  font-size: 12px;
+// 	  line-height: 135%; }
+// 	  .stocks-card__value.price {
+// 		font-size: 16px;
+// 		font-weight: 700; }
+// 	  .stocks-card__value.hint {
+// 		display: -webkit-box;
+// 		display: -ms-flexbox;
+// 		display: flex;
+// 		-webkit-box-align: center;
+// 			-ms-flex-align: center;
+// 				align-items: center; }
+// 		.stocks-card__value.hint svg {
+// 		  width: 16px;
+// 		  height: 16px;
+// 		  margin-left: 2px; }
+// 		.stocks-card__value.hint:hover svg {
+// 		  fill: #2bba93; }
+// 		.stocks-card__value.hint:active svg {
+// 		  fill: #2ca483; }
+// 	.stocks-card__add-basket {
+// 	  position: absolute;
+// 	  bottom: 20px;
+// 	  right: 20px;
+// 	  padding: 4px; }
+// 	.stocks-card:hover, .stocks-card:active {
+// 	  -webkit-box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1);
+// 			  box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1); }
+  
+//   .warning__wrap {
+// 	display: none;
+// 	position: absolute;
+// 	padding: 20px 0px; }
+// 	.warning__wrap.active {
+// 	  display: block; }
+// 	.warning__wrap.fixed {
+// 	  position: fixed; }
+  
+//   .warning__list {
+// 	position: relative;
+// 	width: 190px;
+// 	padding: 28px 12px 12px;
+// 	background: #fff;
+// 	border-radius: 10px;
+// 	-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+// 			box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+// 	-webkit-transition: .3s linear;
+// 	-o-transition: .3s linear;
+// 	transition: .3s linear; }
+// 	.warning__list:hover {
+// 	  -webkit-box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1);
+// 			  box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1); }
+  
+//   .warning__close {
+// 	display: none;
+// 	-webkit-box-align: center;
+// 		-ms-flex-align: center;
+// 			align-items: center;
+// 	-webkit-box-pack: center;
+// 		-ms-flex-pack: center;
+// 			justify-content: center;
+// 	position: absolute;
+// 	top: 10px;
+// 	right: 10px;
+// 	width: 20px;
+// 	height: 20px;
+// 	cursor: pointer; }
+// 	.warning__close svg {
+// 	  width: 10px;
+// 	  height: 10px;
+// 	  fill: rgba(125, 131, 142, 0.3) !important; }
+// 	.warning__close:hover svg {
+// 	  fill: #2bba93 !important; }
+// 	.warning__close:active svg {
+// 	  fill: #2ca483 !important; }
+  
+//   .warning__item {
+// 	font-weight: 600; }
+// 	.warning__item:not(:last-child) {
+// 	  margin-bottom: 10px; }
+  
+//   .warning__property {
+// 	margin-bottom: 4px;
+// 	color: rgba(125, 131, 142, 0.6);
+// 	font-size: 10px;
+// 	line-height: 135%; }
+  
+//   .warning__value {
+// 	color: rgba(39, 49, 66, 0.9);
+// 	font-size: 12px;
+// 	line-height: 135%; }
+  
+//   @media only screen and (max-width: 1199px) {
+// 	.warning__close {
+// 	  display: -webkit-box;
+// 	  display: -ms-flexbox;
+// 	  display: flex; } }
+  

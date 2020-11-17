@@ -1,14 +1,6 @@
-mixin icon(name,mod)
-	if mod
-		svg(class="svg-sprite-icon icon-" + name + ' ' + mod)
-			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
-	else
-		svg(class="svg-sprite-icon icon-" + name)
-			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
-
 footer.footer
 	.container-xxl
-		.row
+		//- .row
 			.col-3
 			.col-4
 		.footer__top

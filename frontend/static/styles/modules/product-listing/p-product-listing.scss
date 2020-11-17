@@ -17,11 +17,19 @@
 			padding: 10px 16px;
 			white-space: nowrap;
 			&:not(:last-child) {margin-right: 10px;}
-			&.active {
+			span {
+				margin-left: 6px;
+				color: $white;
+			}
+			&.value {
 				padding-right: 35px;
 				background: $accent-main;
 				color: $txt-white60;
 				svg {display: block;}
+				&.filter {
+					padding: 10px 16px;
+					color: $white;
+				}
 				&:hover {
 					background: $accent-main2;
 					color: $white;
@@ -31,6 +39,7 @@
 					color: $white;
 				}
 			}
+			
 		}
 		svg {
 			display: none;

@@ -187,11 +187,7 @@ function isMobile() {
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
 	}
-	if (isMobile.any()) {
-		return true
-	} else {
-		return false
-	}
+	return (isMobile.any()) ? true : false;
 }
 
 // Анимации
@@ -206,7 +202,6 @@ function animateCSS(element, animation) {
 			node.classList.remove('animation', ...animationName.split(' '));
 			resolve('Animation ended');
 		}
-
 		node.addEventListener('animationend', handleAnimationEnd, { once: true });
 	});
 }
@@ -563,12 +558,11 @@ function select() {
 	let selectHeader = document.querySelectorAll('.select__header'),
 		selectItem = document.querySelectorAll('.select__item');
 
-	selectHeader.forEach(item => {
-		item.addEventListener('click', selectToggle)
-	});
-	selectItem.forEach(item => {
-		item.addEventListener('click', selectChoose)
-	});
+	const enumeration = (el, fn) => el.forEach(item => item.addEventListener('click', fn));
+
+	enumeration(selectHeader, selectToggle);
+	enumeration(selectItem, selectChoose);
+
 	function selectToggle() {
 		this.parentElement.classList.toggle('active');
 	}
@@ -637,9 +631,7 @@ function accordionEvent() {
 	acc.forEach(item => {
 		item.addEventListener('click', (evt) => {
 			evt.preventDefault();
-
 			let panel = item.nextElementSibling;
-
 			const hideAll = () => accordion.hideAll();
 
 			if (item.classList.contains('accordion--hide')) hideAll();
@@ -737,9 +729,7 @@ function mobileMenu() {
 	menuBtn.addEventListener('click', () => {
 		(menuBtn.classList.contains('open')) ? closeMenu() : showMenu();
 	});
-	over.addEventListener('click', () => {
-		closeMenu();
-	})
+	over.addEventListener('click', () => closeMenu())
 }
 mobileMenu()
 
@@ -776,18 +766,13 @@ function catalogMobMenu() {
 		block.style.transform = 'translate(0)';
 	}
 
-	const fade = item => {
+	const hide = item => {
 		let block = item.closest('.catalog-m-menu__sub')
 		block.style.transform = 'translate(100%)';
 	}
 
-	items.forEach(item => {
-		item.addEventListener('click', () => show(item))
-	});
-
-	prev.forEach(item => {
-		item.addEventListener('click', () => fade(item))
-	})
+	items.forEach(item => item.addEventListener('click', () => show(item)));
+	prev.forEach(item => item.addEventListener('click', () => hide(item)));
 }
 catalogMobMenu();
 
@@ -808,9 +793,7 @@ function heightCatalogCard() {
 		scrollList.style.maxHeight = heightCalc + 'px';
 	}
 
-	cards.forEach(item => {
-		calcHeight(item)
-	})
+	cards.forEach(item => calcHeight(item));
 }
 heightCatalogCard()
 
@@ -823,11 +806,11 @@ function howWork() {
 
 	let index = 0;
 
-	function addClass(elem, ind) {
+	const addClass = (elem, ind) => {
 		elem[ind].classList.add('active');
 	}
 
-	function searchActive() {
+	const searchActive = () => {
 		items.forEach(item => {
 			item.classList.remove('active');
 			accordion.hide(item);
@@ -846,15 +829,11 @@ function howWork() {
 		index = Number(elem.getAttribute('data-id'));
 		if (!images[index].classList.contains('active')) {
 			searchActive();
-			allClass(index);
+			addClass(items, index);
+			addClass(images, index);
+			animateCSS(images[index], 'fade-in-scale-top');
+			accordion.show(items[index]);
 		}
-	}
-	
-	function allClass(index) {
-		addClass(items, index);
-		addClass(images, index);
-		animateCSS(images[index], 'fade-in-scale-top');
-		accordion.show(items[index]);
 	}
 
 	items.forEach(item => {
@@ -887,11 +866,11 @@ let listenedElements = [];
 window.onscroll = function () {
 	listenedElements.forEach(item => {
 		let result = isOnVisibleSpace(item.el);
-		if (item.el.isOnVisibleSpace && !result) {
-			item.el.isOnVisibleSpace = false;
-			item.outVisibleSpace(item.el);
-			return;
-		}
+		// if (item.el.isOnVisibleSpace && !result) {
+		// 	item.el.isOnVisibleSpace = false;
+		// 	item.outVisibleSpace(item.el);
+		// 	return;
+		// }
 		if (!item.el.isOnVisibleSpace && result) {
 			item.el.isOnVisibleSpace = true;
 			item.inVisibleSpace(item.el);
@@ -906,11 +885,10 @@ function onVisibleSpaceListener(elementId, cbIn, cbOut) {
 	listenedElements.push({
 		el: el,
 		inVisibleSpace: cbIn,
-		outVisibleSpace: cbOut
+		// outVisibleSpace: cbOut
 	});
 }
-
-onVisibleSpaceListener('.s-main-delivery__text', el => {animationTruck(true)},el => {});
+onVisibleSpaceListener('.s-main-delivery__text', el => {animationTruck(true)});
 
 // Высота карточек
 function heightStocksCard(el) {
@@ -924,8 +902,6 @@ function heightStocksCard(el) {
 	});
 	cards.forEach(card => card.style.minHeight = maxHeightCard + 'px')
 }
-
-
 
 function allCardHeight() {
 	heightStocksCard('.stocks-card');
@@ -946,15 +922,11 @@ function descriptionStocksCard() {
 		isHidden(element);
 		if(countHidden(element).right > 0) {
 			element.style.right = 0 + 'px';
-			element.classList.remove('fixed');
 		}
 		element.classList.remove('fixed');
 	}
 
-	const hide = elem => {
-		elem.querySelector('.warning__wrap').classList.remove('active');
-		
-	}
+	const hide = elem => elem.querySelector('.warning__wrap').classList.remove('active');
 
 	desc.forEach(el => {
 		if(isMobile()) {
@@ -974,23 +946,19 @@ descriptionStocksCard()
 
 // Положение элемента в окне
 function isHidden(element) {
-	const elementRect = element.getBoundingClientRect();
-	const elementHidesUp = elementRect.top < 0;
-	const elementHidesLeft = elementRect.left < 0;
-	const elementHidesDown = elementRect.bottom > window.innerHeight;
-	const elementHidesRight = elementRect.right > window.innerWidth;
-	const elementHides = elementHidesUp || elementHidesLeft || elementHidesDown || elementHidesRight;
+	const elementRect = element.getBoundingClientRect(),
+		elementHides = elementRect.top < 0 || elementRect.left < 0 || elementRect.bottom > window.innerHeight || elementRect.right > window.innerWidth;
 	return elementHides;
 }
 
 function countHidden(element) {
-	const elementRect = element.getBoundingClientRect();
-	const elementHides = { 
-		// up: Math.max(0,0 - elementRect.top),
-		// left: Math.max(0,0 - elementRect.left),
-		// down: Math.max(0,elementRect.bottom - window.innerHeight),
-		right: Math.max(0,elementRect.right - window.innerWidth)
-	};
+	const elementRect = element.getBoundingClientRect(),
+		elementHides = { 
+			// up: Math.max(0,0 - elementRect.top),
+			// left: Math.max(0,0 - elementRect.left),
+			// down: Math.max(0,elementRect.bottom - window.innerHeight),
+			right: Math.max(0,elementRect.right - window.innerWidth)
+		};
 	return elementHides;
 }
 
@@ -999,6 +967,7 @@ function breadCrumbs() {
 	if(isMobile()) return
 	
 	const elems = document.querySelectorAll('.breadcrumbs__item');
+	if(elems == null) return
 
 	const show = (item, block) => {
 		item.classList.add('active');
@@ -1270,36 +1239,256 @@ function sidebar() {
 }
 sidebar();
 
-// Открытие модального фильтра
-function openModalFilters() {
-	const btns = document.querySelectorAll('.p-product-listing__filters button:not(.filter-price)');
 
-	btns.forEach(btn => {
-		btn.addEventListener('click', () => {
-			modalList.filters.show();
-			openFiltersAccordion(btn.getAttribute('data-filter'))
+
+
+
+// Фильтры
+function filters() {
+	const filtersModal = document.getElementById('modal-filters');
+	if(filtersModal == null) return
+
+	// Открытие модального фильтра
+	function openModalFilters() {
+		const btns = document.querySelectorAll('.p-product-listing__filters button:not(.filter-price)');
+
+		btns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				modalList.filters.show();
+				openFiltersAccordion(btn.getAttribute('data-filter'))
+			})
 		})
-	})
-}
-openModalFilters();
+	}
+	openModalFilters();
 
-// Открытие аккордиона в модальном окне фильтров
-function openFiltersAccordion(value) {
-	const acc = document.querySelectorAll('.modal-f__header');
+	// Открытие аккордиона в модальном окне фильтров
+	function openFiltersAccordion(value) {
+		const acc = document.querySelectorAll('.modal-f__header.accordion');
 
-	acc.forEach(el => accordion.hide(el));
+		acc.forEach(el => accordion.hide(el));
 
-	acc.forEach(el => {
-		if(el.getAttribute('data-filter') == value) {
-			el.classList.add('active');
-			accordion.show(el);
+		acc.forEach(el => {
+			if(el.getAttribute('data-filter') == value) {
+				el.classList.add('active');
+				accordion.show(el);
+			}
+		})
+	}
+
+	// Скрывать элементы фильтров модалки
+	function hideElModalFilter() {
+		const uls = document.querySelectorAll('.modal-f__list');
+
+		const createMore = (el, ind) => {
+			if(ind <= 0) return
+			let more = `<div class='modal-f__more'><span>Еще </span><span>${ind}</span></div>`;
+			el.insertAdjacentHTML('afterend', more);
 		}
-	})
-}
+		const hide = el => {
+			let li = el.querySelectorAll('li'),
+				ind = 0;
+			for(let i=4; i < li.length; i++) {
+				li[i].style.display = 'none';
+				ind = i;
+			}
+			(!el.closest('.modal-f__panel').querySelector('.modal-f__more')) ? 
+				createMore(el, ind-3) : 
+				el.closest('.modal-f__panel').querySelector('.modal-f__more').style.display = 'block';
+		}
 
-// Скрывать элементы фильтров модалки
-function hideElModalFilter() {
-	const ul = document.querySelectorAll('.modal-f__list');
+		uls.forEach(item => hide(item))
 
-	ul.forEach(item => hide(item))
+		const show = el => {
+			let li = el.previousSibling.querySelectorAll('li');
+			li.forEach(l => l.style.display = 'block')
+		};
+
+		const toggleEl = el => {
+			if (el.classList.contains('active')) {
+				hide(el.previousSibling);
+				el.querySelector('span').textContent = 'Еще ';
+				el.previousElementSibling.previousElementSibling.classList.remove('search');
+			} else {
+				show(el);
+				el.querySelector('span').textContent = 'Скрыть ';
+				el.previousElementSibling.previousElementSibling.classList.add('search');
+			accordion.show(el.closest('.modal-f__panel').previousElementSibling)
+			}
+			el.classList.toggle('active')
+		}
+
+		const btns = document.querySelectorAll('.modal-f__more');
+		
+		btns.forEach(btn => {
+			btn.addEventListener('click', () => toggleEl(btn))
+		});
+		addFilterElem(uls);
+	}
+	hideElModalFilter();
+
+	// Добавление выбранного фильтра
+	function addFilterElem(ul) {
+
+		const addShowBattunValue = (text, attr) => {
+			const btns = document.querySelectorAll('.p-product-listing__filters button');
+
+			let index = 0;
+
+			btns.forEach((btn, ind) => {
+				if(btn.getAttribute('data-filter') == attr) index = ind;
+			});
+
+			btns[index].classList.add('value');
+			if(index === 0) return
+			if(btns[index].querySelector('span')) btns[index].querySelector('span').remove();
+			btns[index].querySelector('svg').insertAdjacentHTML('beforebegin', text)
+		}
+
+		const addShowSidebarValue = (titlePage, key, text, attr) => {
+			const sidebar = document.querySelector('#scroll-sidebar-filters'),
+				left = sidebar.querySelector('.scroll-sidebar__left'),
+				title = `<h4 class="scroll-sidebar__title-list">${titlePage}</h4>`,
+				ul = document.querySelector('#scroll-sidebar-filters-list'),
+				li = `<li data-filter="${attr}">${key}${text}</li>`;
+
+			let index = -1,
+				items = ul.querySelectorAll('li');
+			
+			if(!sidebar.classList.contains('value')) {
+				sidebar.classList.add('value');
+				left.insertAdjacentHTML('afterbegin', title);
+			}
+
+			if(items) {
+				items.forEach((item, ind) => {
+					if(item.getAttribute('data-filter') == attr) index = ind;
+				});
+
+				(index != -1) ? items[index].innerHTML = li : ul.insertAdjacentHTML('beforeend', li);
+			} else {
+				ul.insertAdjacentHTML('beforeend', li);
+			}
+			
+		}
+
+		const addShowHeaderValue = (item, text) => {
+			const headerModalText = item.querySelector('.modal-f__wrap-text')
+			if(item.classList.contains('value')) {
+				headerModalText.querySelector('.modal-f__text').nextElementSibling.innerHTML = text
+			} else {
+				headerModalText.insertAdjacentHTML('beforeend', text);
+				item.classList.add('value');
+			}
+		}
+
+		const createValue = (text) => {
+			return `<span>${text}</span>`
+		}
+
+		const addLogic = item => {
+			const titleKeyText = createValue(item.closest('.modal-f__item').querySelector('.modal-f__text span').textContent),
+				valueText = createValue(item.textContent),
+				pageTitle = document.querySelector('.p-product-listing__title .txt--bld40').textContent,
+				attr = item.closest('.modal-f__item').querySelector('.modal-f__header').getAttribute('data-filter'),
+				headerModal = item.closest('.modal-f__item').querySelector('.modal-f__header');
+
+			addShowHeaderValue(headerModal, valueText);
+			addShowSidebarValue(pageTitle, titleKeyText, valueText, attr);
+			addShowBattunValue(valueText, attr);
+		}
+
+		const addActive = item => {
+			const svg = `<svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="static/images/svg/symbol/sprite.svg#arrow-right"></use></svg>`
+			item.classList.add('active');
+			item.insertAdjacentHTML('afterbegin', svg)
+		}
+
+		const removeActive = collection => {
+			collection.forEach(item=> {
+				item.classList.remove('active')
+				if(item.querySelector('svg')) item.querySelector('svg').remove()
+			})
+		}
+
+		const addEvents = elem => {
+			const li = elem.querySelectorAll('li a');
+
+			li.forEach(item => item.addEventListener('click', () => {
+				removeActive(li)
+				addLogic(item)
+				addActive(item);
+			}))
+		}
+
+		ul.forEach(item => addEvents(item))
+	}
+
+
+
+
+
+
+
+	// Удаление элемента в модальном окне
+	function removeListitem(item) {
+		const parent = item.closest('.modal-f__item'),
+			list = parent.querySelectorAll('.modal-f__list a');
+
+		item.classList.remove('value')
+		item.querySelector('.modal-f__text').nextElementSibling.remove();
+
+		list.forEach(a => {
+			if(a.classList.contains('active')) {
+				a.classList.remove('active');
+				a.querySelector('svg').remove();
+			}
+		})
+	}
+
+	function removeModalEl(el) {
+		// const parent = el.closest('.modal-f__item').querySelector('.modal-f__header');
+		removeListitem(el.closest('.modal-f__item').querySelector('.modal-f__header'));
+	}
+
+	const btnModalDelete = () => {
+		const btns = document.querySelectorAll('.modal-f__delete');
+	
+		btns.forEach(btn => btn.addEventListener('click', (e) => {
+			const attr = btn.closest('.modal-f__header').getAttribute('data-filter');
+			e.stopPropagation();
+			e.preventDefault();
+			removeModalEl(btn);
+			removeAllLocation(attr);
+		}));
+	}
+	btnModalDelete();
+
+	function removeFilterBtnPage(el) {
+		el.closest('button').classList.remove('value')
+		el.querySelector('span').remove();
+	}
+
+	const btnFilterPage = () => {
+		const btns = document.querySelectorAll('.p-product-listing__filters .filter__delete')
+		btns.forEach(btn => btn.addEventListener('click', (e) => {
+			const attr = btn.closest('button').getAttribute('data-filter');
+			e.stopPropagation();
+			e.preventDefault();
+			removeFilterBtnPage(btn);
+			removeAllLocation(attr);
+		}));
+	}
+	btnFilterPage();
+
+	function removeAllLocation(attr, classNames) {
+		const elements = document.querySelectorAll(`*[data-filter='${attr}']`);
+		elements.forEach(elem => {
+			if(elem === classNames) {
+				removeListitem(elem);
+			} else {
+				removeFilterBtnPage(elem.querySelector('.filter__delete'))
+			}
+		});
+	}
 }
+filters()
