@@ -1,192 +1,267 @@
 button[disabled] {
-	opacity: .5;
+  opacity: .5;
 }
 
 .btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 44px;
-	padding: 10px 12px;
-	background: $accent-main;
-	color: $white;
-	border-radius: 5px;
-	font-size: 14px;
-	line-height: 150%;
-	font-weight: 500;
-	transition: .3s linear;
-	cursor: pointer;
-	&:hover {
-		background: $accent-main2;
-		color: $white;
-	}
-	&:active {
-		background: $accent-main3;
-		color: $white;
-	}
-	&--gray {
-		background: $ui-mdm-gray;
-		color: $txt-black;
-		&:hover {
-			background: $ui-mdm-gray2;
-			color: $txt-black;
-		}
-		&:active {
-			background: $ui-mdm-gray3;
-			color: $txt-black;
-		}
-	}
-	&--wdh185 {max-width: 185px;}
-	&--wdh190 {max-width: 190px;}
-	&--wdh220 {max-width: 220px;}
-	&--circle {
-		max-width: 40px;
-		height: 40px;
-		padding: 11px;
-		border-radius: 50%;
-	}
-	&--svg {margin-left: 4px;}
-	&--h40 {height: 40px}
-	&--h52 {height: 52px}
-	&--white5 {
-		background: $ui-white5;
-		&:hover, &:active {background: $ui-white10}
-	}
-	&--trparent {
-		background: transparent;
-		&:hover, &:active {
-			background: $ui-white10;
-		}
-	}
-	&--trparent-svg {
-		background: transparent;
-		&:hover {
-			background: $accent-main2;
-			svg {fill: $white;}
-		}
-		&:active {
-			background: $accent-main3;
-			svg {fill: $white;}
-		}
-	}
-	&--br50 {border-radius: 50px;}
-	&--link {
-		display: inline-block;
-		width: auto;
-		height: auto;
-		padding: 0;
-		background: transparent;
-		color: $txt-gray;
-		&:hover {
-			background: transparent;
-			color: $accent-main2;
-		}
-		&:hover {
-			background: transparent;
-			color: $accent-main3;
-		}
-	}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  padding: 10px 12px;
+  background: $accent-main;
+  color: $white;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 500;
+  transition: .3s linear;
+  cursor: pointer;
+
+  &:hover {
+    background: $accent-main2;
+    color: $white;
+  }
+
+  &:active {
+    background: $accent-main3;
+    color: $white;
+  }
+
+  &--gray {
+    background: $ui-mdm-gray;
+    color: $txt-black;
+
+    &:hover {
+      background: $ui-mdm-gray2;
+      color: $txt-black;
+    }
+
+    &:active {
+      background: $ui-mdm-gray3;
+      color: $txt-black;
+    }
+  }
+
+  &--wdh185 {
+    max-width: 185px;
+  }
+
+  &--wdh190 {
+    max-width: 190px;
+  }
+
+  &--wdh220 {
+    max-width: 220px;
+  }
+
+  &--circle {
+    max-width: 40px;
+    height: 40px;
+    padding: 11px;
+    border-radius: 50%;
+  }
+
+  &--svg {
+    margin-left: 4px;
+  }
+
+  &--h40 {
+    height: 40px
+  }
+
+  &--h52 {
+    height: 52px
+  }
+
+  &--white5 {
+    background: $ui-white5;
+
+    &:hover, &:active {
+      background: $ui-white10
+    }
+  }
+
+  &--trparent {
+    background: transparent;
+
+    &:hover, &:active {
+      background: $ui-white10;
+    }
+  }
+
+  &--trparent-svg {
+    background: transparent;
+
+    &:hover {
+      background: $accent-main2;
+
+      svg {
+        fill: $white;
+      }
+    }
+
+    &:active {
+      background: $accent-main3;
+
+      svg {
+        fill: $white;
+      }
+    }
+  }
+
+  &--br50 {
+    border-radius: 50px;
+  }
+
+  &--link {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: transparent;
+    color: $txt-gray;
+
+    &:hover {
+      background: transparent;
+      color: $accent-main2;
+    }
+
+    &:hover {
+      background: transparent;
+      color: $accent-main3;
+    }
+  }
 }
 
 .swiper-prev, .swiper-next {
-	position: absolute;
-	top: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 44px;
-	height: 44px;
-	background: $white;
-	border-radius: 50%;
-	box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.25);
-	transform: translateY(-50%);
-	z-index: 2;
-	svg {
-		height: 14px;
-		fill: $ui-main-blue;
-	}
-	&:hover {
-		svg {fill: $accent-main2;}
-	}
-	&:active {
-		svg {fill: $accent-main3;}
-	}
-	&.swiper-button-disabled {display: none;}
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: $white;
+  border-radius: 50%;
+  box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.25);
+  transform: translateY(-50%);
+  z-index: 2;
+
+  svg {
+    height: 14px;
+    fill: $ui-main-blue;
+  }
+
+  &:hover {
+    svg {
+      fill: $accent-main2;
+    }
+  }
+
+  &:active {
+    svg {
+      fill: $accent-main3;
+    }
+  }
+
+  &.swiper-button-disabled {
+    display: none;
+  }
 }
 
 .swiper-prev {
-	transform: rotate(-180deg) translateY(-50%);
-	transform-origin: 50% 0;
+  transform: rotate(-180deg) translateY(-50%);
+  transform-origin: 50% 0;
 }
 
 .checkbox {
-	$btnWidth: 16px;
-	$switchWidth: 40px;
-	$switchHeight: 22px;
-	$padding: 3px;
-	display: none;
-	& + label {
-		display: inline-block;
-		position: relative;
-		width: $switchWidth;
-		height: $switchHeight;
-		margin: 0;
-		padding: $padding;
-		background: $ui-dark-gray30;
-		background-size: (($switchWidth * 2) + 50) 100%;
-		border-radius: 50px;
-		transition: all .3s linear;
-		cursor: pointer;
-		&::after {
-			content: '';
-			position: absolute;
-			left: $padding;
-			top: $padding;
-			width: $btnWidth;
-			height: $btnWidth;
-			background: $white;
-			border-radius: 50%;
-			transition: left .3s linear, transform 150ms linear, width .3s linear;
-		}
-		&:active {
-			&::after {transform: scale(0.90);}
-		}
-		&:hover {
-			background: rgba($color: $accent-main, $alpha: .4);
-		}
-	}
-	&:checked + label {
-		background-position-x: -($switchWidth + 50);
-		background: $accent-main2;
-		&::after {
-			left: ($switchWidth - $btnWidth - $padding);
-		}
-	}
+  $btnWidth: 16px;
+  $switchWidth: 40px;
+  $switchHeight: 22px;
+  $padding: 3px;
+  display: none;
+
+  & + label {
+    display: inline-block;
+    position: relative;
+    width: $switchWidth;
+    height: $switchHeight;
+    margin: 0;
+    padding: $padding;
+    background: $ui-dark-gray30;
+    background-size: (($switchWidth * 2) + 50) 100%;
+    border-radius: 50px;
+    transition: all .3s linear;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: $padding;
+      top: $padding;
+      width: $btnWidth;
+      height: $btnWidth;
+      background: $white;
+      border-radius: 50%;
+      transition: left .3s linear, transform 150ms linear, width .3s linear;
+    }
+
+    &:active {
+      &::after {
+        transform: scale(0.90);
+      }
+    }
+
+    &:hover {
+      background: rgba($color: $accent-main, $alpha: .4);
+    }
+  }
+
+  &:checked + label {
+    background-position-x: -($switchWidth + 50);
+    background: $accent-main2;
+
+    &::after {
+      left: ($switchWidth - $btnWidth - $padding);
+    }
+  }
 }
 
-.download-button {margin-top: 32px;}
+.download-button {
+  margin-top: 32px;
+}
 
 @media only screen and (max-width: 1023px) {
-	.btn {
-		&--link {
-			height: 40px;
-			padding: 10px 0px;
-			text-align: center;
-		}
-		&--trparent {
-			&:hover {background: transparent;}
-			&:active {background: $ui-white10}
-		}
-	}
+  .btn {
+    &--link {
+      height: 40px;
+      padding: 10px 0px;
+      text-align: center;
+    }
+
+    &--trparent {
+      &:hover {
+        background: transparent;
+      }
+
+      &:active {
+        background: $ui-white10
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {
-	.btn {
-		&--m-wdh100 {max-width: 100%;}
-	}
+  .btn {
+    &--m-wdh100 {
+      max-width: 100%;
+    }
+  }
 }
 
 @media only screen and (max-width: 575px) {
-	.swiper-prev, .swiper-next {display: none;}
+  .swiper-prev, .swiper-next {
+    display: none;
+  }
 }

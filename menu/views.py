@@ -224,37 +224,37 @@ class GetFilterUrl(View):
 		
 		try:
 			param_1 = postdatatmp['filter_param_1']
-			# param_1_lat = param_slugify(param_7)
+		# param_1_lat = param_slugify(param_7)
 		except:
 			pass
 		try:
 			param_2 = postdatatmp['filter_param_2']
-			# param_2_lat = param_slugify(param_7)
+		# param_2_lat = param_slugify(param_7)
 		except:
 			pass
 		try:
 			param_3 = postdatatmp['filter_param_3']
-			# param_3_lat = param_slugify(param_7)
+		# param_3_lat = param_slugify(param_7)
 		except:
 			pass
 		try:
 			param_4 = postdatatmp['filter_param_4']
-			# param_4_lat = param_slugify(param_7)
+		# param_4_lat = param_slugify(param_7)
 		except:
 			pass
 		try:
 			param_5 = postdatatmp['filter_param_5']
-			# param_5_lat = param_slugify(param_7)
+		# param_5_lat = param_slugify(param_7)
 		except:
 			pass
 		try:
 			param_6 = postdatatmp['filter_param_6']
-			# param_6_lat = param_slugify(param_7)
+		# param_6_lat = param_slugify(param_7)
 		except:
 			pass
 		try:
 			param_7 = postdatatmp['filter_param_7']
-			# param_7_lat = param_slugify(param_7)
+		# param_7_lat = param_slugify(param_7)
 		except:
 			pass
 		try:
@@ -635,75 +635,75 @@ class CatalogView(TemplateView):
 			
 			if sort_type:
 				sort_type_str, product_list = get_sort_type(sort_type, product_list)
-			
-			# Формирование списка схожих товаров
-			# if current_menu.parent:
-			#     MetallCategoriesSimilar = []
-			#     MetallCategoriesSimilarAll = MenuCatalog.objects.filter(parent=current_menu.parent.id, isHidden=False)
-			#     counterTmp = 0
-			#     if(len(MetallCategoriesSimilarAll)>1):
-			#         for itemTmp in MetallCategoriesSimilarAll:
-			#             if itemTmp == current_menu:
-			#                 #MetallCategoriesSimilar = MetallCategoriesSimilarAll[0:counterTmp] + MetallCategoriesSimilarAll[counterTmp+1:len(MetallCategoriesSimilarAll)]
-			#                 if(counterTmp>1 and counterTmp<len(MetallCategoriesSimilarAll)-2):
-			#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[counterTmp-2:counterTmp]+MetallCategoriesSimilarAll[counterTmp+1:min(counterTmp+3,len(MetallCategoriesSimilarAll))]
-			#                 elif counterTmp == 1:
-			#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[0:1]+MetallCategoriesSimilarAll[2:min(7,len(MetallCategoriesSimilarAll))]
-			#                 elif counterTmp == 0:
-			#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[1:min(7,len(MetallCategoriesSimilarAll))]
-			#                 elif counterTmp == len(MetallCategoriesSimilarAll)-2:
-			#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[max(0,counterTmp-2):counterTmp] + MetallCategoriesSimilarAll[counterTmp+1:len(MetallCategoriesSimilarAll)]
-			#                 elif counterTmp == len(MetallCategoriesSimilarAll)-1:
-			#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[max(0,counterTmp-3):counterTmp]
-			#             counterTmp = counterTmp+1
-			#     metall_categories_similar = MetallCategoriesSimilar
-			# Формирование списка схожих производств/услуг
-			# UslugiSimilar = []
-			# UslugiSimilarAll = MenuCatalog.objects.filter(parent=current_menu.parent.id, isHidden=False)
-			# counterTmpUslugi = 0
-			# if (len(UslugiSimilarAll) > 1):
-			#     for itemTmp in UslugiSimilarAll:
-			#         if itemTmp == current_menu:
-			#             if (counterTmpUslugi > 1 and counterTmpUslugi < len(UslugiSimilarAll) - 2):
-			#                 UslugiSimilar = UslugiSimilarAll[counterTmpUslugi-2:counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:min(counterTmpUslugi+5,len(UslugiSimilarAll))]
-			#             elif counterTmpUslugi == 1:
-			#                 UslugiSimilar = UslugiSimilarAll[0:1]+UslugiSimilarAll[2:min(7,len(UslugiSimilarAll))]
-			#             elif counterTmpUslugi == 0:
-			#                 UslugiSimilar = UslugiSimilarAll[1:min(7, len(UslugiSimilarAll))]
-			#             elif counterTmpUslugi == len(UslugiSimilarAll)-2:
-			#                 UslugiSimilar = UslugiSimilarAll[max(0, counterTmpUslugi-7):counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:len(UslugiSimilarAll)]
-			#             elif counterTmpUslugi == len(UslugiSimilarAll)-1:
-			#                 UslugiSimilar = UslugiSimilarAll[max(0,counterTmpUslugi-6):counterTmpUslugi]
-			#         counterTmpUslugi = counterTmpUslugi+1
-			# uslugi_similar = UslugiSimilar
-			
-			# marka_filter_list = marka_filter_list.select_related('marka', 'gost')
-			# paginatorMin = 1
-			# paginatorMax = 10
-			# paginator = Paginator(marka_filter_list, SIZE_PAGE)
-			
-			# if page == 1 or page > paginator.num_pages:
-			#     return HttpResponsePermanentRedirect("/" + current_menu.slug + "/")
-			# if page == 0:
-			#     page = 1
-			
-			# try:
-			#     marka_filter_list = paginator.page(page)
-			
-			#     if int(page) < 5:
-			#         paginatorMin = 1
-			#         paginatorMax = 10
-			#     else:
-			#         paginatorMin = max(int(page)-5,1)
-			#         paginatorMax = min(int(page)+5,paginator.num_pages)
-			
-			# except PageNotAnInteger:
-			#     # If page is not an integer, deliver first page.
-			#     marka_filter_list = paginator.page(1)
-			
-			# except EmptyPage:
-			#     # If page is out of range (e.g. 9999), deliver last page of results.
-			#     marka_filter_list = paginator.page(paginator.num_pages)
+		
+		# Формирование списка схожих товаров
+		# if current_menu.parent:
+		#     MetallCategoriesSimilar = []
+		#     MetallCategoriesSimilarAll = MenuCatalog.objects.filter(parent=current_menu.parent.id, isHidden=False)
+		#     counterTmp = 0
+		#     if(len(MetallCategoriesSimilarAll)>1):
+		#         for itemTmp in MetallCategoriesSimilarAll:
+		#             if itemTmp == current_menu:
+		#                 #MetallCategoriesSimilar = MetallCategoriesSimilarAll[0:counterTmp] + MetallCategoriesSimilarAll[counterTmp+1:len(MetallCategoriesSimilarAll)]
+		#                 if(counterTmp>1 and counterTmp<len(MetallCategoriesSimilarAll)-2):
+		#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[counterTmp-2:counterTmp]+MetallCategoriesSimilarAll[counterTmp+1:min(counterTmp+3,len(MetallCategoriesSimilarAll))]
+		#                 elif counterTmp == 1:
+		#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[0:1]+MetallCategoriesSimilarAll[2:min(7,len(MetallCategoriesSimilarAll))]
+		#                 elif counterTmp == 0:
+		#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[1:min(7,len(MetallCategoriesSimilarAll))]
+		#                 elif counterTmp == len(MetallCategoriesSimilarAll)-2:
+		#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[max(0,counterTmp-2):counterTmp] + MetallCategoriesSimilarAll[counterTmp+1:len(MetallCategoriesSimilarAll)]
+		#                 elif counterTmp == len(MetallCategoriesSimilarAll)-1:
+		#                     MetallCategoriesSimilar = MetallCategoriesSimilarAll[max(0,counterTmp-3):counterTmp]
+		#             counterTmp = counterTmp+1
+		#     metall_categories_similar = MetallCategoriesSimilar
+		# Формирование списка схожих производств/услуг
+		# UslugiSimilar = []
+		# UslugiSimilarAll = MenuCatalog.objects.filter(parent=current_menu.parent.id, isHidden=False)
+		# counterTmpUslugi = 0
+		# if (len(UslugiSimilarAll) > 1):
+		#     for itemTmp in UslugiSimilarAll:
+		#         if itemTmp == current_menu:
+		#             if (counterTmpUslugi > 1 and counterTmpUslugi < len(UslugiSimilarAll) - 2):
+		#                 UslugiSimilar = UslugiSimilarAll[counterTmpUslugi-2:counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:min(counterTmpUslugi+5,len(UslugiSimilarAll))]
+		#             elif counterTmpUslugi == 1:
+		#                 UslugiSimilar = UslugiSimilarAll[0:1]+UslugiSimilarAll[2:min(7,len(UslugiSimilarAll))]
+		#             elif counterTmpUslugi == 0:
+		#                 UslugiSimilar = UslugiSimilarAll[1:min(7, len(UslugiSimilarAll))]
+		#             elif counterTmpUslugi == len(UslugiSimilarAll)-2:
+		#                 UslugiSimilar = UslugiSimilarAll[max(0, counterTmpUslugi-7):counterTmpUslugi]+UslugiSimilarAll[counterTmpUslugi+1:len(UslugiSimilarAll)]
+		#             elif counterTmpUslugi == len(UslugiSimilarAll)-1:
+		#                 UslugiSimilar = UslugiSimilarAll[max(0,counterTmpUslugi-6):counterTmpUslugi]
+		#         counterTmpUslugi = counterTmpUslugi+1
+		# uslugi_similar = UslugiSimilar
+		
+		# marka_filter_list = marka_filter_list.select_related('marka', 'gost')
+		# paginatorMin = 1
+		# paginatorMax = 10
+		# paginator = Paginator(marka_filter_list, SIZE_PAGE)
+		
+		# if page == 1 or page > paginator.num_pages:
+		#     return HttpResponsePermanentRedirect("/" + current_menu.slug + "/")
+		# if page == 0:
+		#     page = 1
+		
+		# try:
+		#     marka_filter_list = paginator.page(page)
+		
+		#     if int(page) < 5:
+		#         paginatorMin = 1
+		#         paginatorMax = 10
+		#     else:
+		#         paginatorMin = max(int(page)-5,1)
+		#         paginatorMax = min(int(page)+5,paginator.num_pages)
+		
+		# except PageNotAnInteger:
+		#     # If page is not an integer, deliver first page.
+		#     marka_filter_list = paginator.page(1)
+		
+		# except EmptyPage:
+		#     # If page is out of range (e.g. 9999), deliver last page of results.
+		#     marka_filter_list = paginator.page(paginator.num_pages)
 		
 		# Определение верхнего главного каталога для бокового меню
 		# current_menu_main = current_menu

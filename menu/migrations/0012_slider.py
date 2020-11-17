@@ -4,27 +4,27 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0011_auto_20200929_2132'),
-    ]
-
-    operations = [
-        migrations.CreateModel(
-            name='Slider',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order_number', models.FloatField(blank=True, null=True, verbose_name='Порядковый номер')),
-                ('name', models.CharField(max_length=256, verbose_name='Название')),
-                ('text', models.CharField(blank=True, max_length=256, null=True, verbose_name='Текст')),
-                ('button_text', models.CharField(blank=True, editable=False, max_length=256, null=True, verbose_name='Название кнопки')),
-                ('url', models.CharField(blank=True, max_length=256, null=True, verbose_name='Ссылка')),
-                ('image', models.ImageField(upload_to='uploads/images', verbose_name='Картинка')),
-                ('isHidden', models.BooleanField(blank=True, verbose_name='Скрыть')),
-            ],
-            options={
-                'verbose_name_plural': 'Слайдер',
-                'ordering': ['order_number'],
-            },
-        ),
-    ]
+	dependencies = [
+		('menu', '0011_auto_20200929_2132'),
+	]
+	
+	operations = [
+		migrations.CreateModel(
+			name='Slider',
+			fields=[
+				('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+				('order_number', models.FloatField(blank=True, null=True, verbose_name='Порядковый номер')),
+				('name', models.CharField(max_length=256, verbose_name='Название')),
+				('text', models.CharField(blank=True, max_length=256, null=True, verbose_name='Текст')),
+				('button_text', models.CharField(blank=True, editable=False, max_length=256, null=True,
+												 verbose_name='Название кнопки')),
+				('url', models.CharField(blank=True, max_length=256, null=True, verbose_name='Ссылка')),
+				('image', models.ImageField(upload_to='uploads/images', verbose_name='Картинка')),
+				('isHidden', models.BooleanField(blank=True, verbose_name='Скрыть')),
+			],
+			options={
+				'verbose_name_plural': 'Слайдер',
+				'ordering': ['order_number'],
+			},
+		),
+	]

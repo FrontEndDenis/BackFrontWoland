@@ -12,18 +12,21 @@
                 </table>
                 <button type="button" class="hissen-xs btn btn-blue buy-more" onclick="location.href='/catalog/'">Выбрать еще</button>
              {% endcomment %}
- <div class="basket-cards__list">
+<div class="basket-cards__list">
     {% for item in cart_items %}
         <div class="basket-cards__item">
             <div class="product-card basket-card">
                 <div class="product-card__left">
-                    <div class="product-card__image"><img src="{{ media_url }}{{ item.product.image }}" alt="{{ item.product.name }}"></div>
+                    <div class="product-card__image"><img src="{{ media_url }}{{ item.product.image }}"
+                                                          alt="{{ item.product.name }}"></div>
                 </div>
                 <div class="product-card__right">
                     <div class="product-card__top-line">
                         <div class="product-card__article">Арт. {{ item.product.id }}</div>
                         <div class="product-card__presence presence">В наличии</div>
-                    </div><a class="product-card__title" href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                    </div>
+                    <a class="product-card__title"
+                       href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
                     <div class="product-card__buttons column">
                         <div class="product-card__price">по запросу</div>
                         <div class="product-card__input-number input-number">
@@ -32,8 +35,9 @@
                                     <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#minus"></use>
                                 </svg>
                             </div>
-                            <input class="input-number__field" type="text" value="{{ item.quantity }}" pattern="^[0-9]+$"
-                                inputmode="numeric">
+                            <input class="input-number__field" type="text" value="{{ item.quantity }}"
+                                   pattern="^[0-9]+$"
+                                   inputmode="numeric">
                             <div class="input-number__plus">
                                 <svg class="svg-sprite-icon icon-plus">
                                     <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#plus"></use>
@@ -50,4 +54,4 @@
             </div>
         </div>
     {% endfor %}
- </div>
+</div>

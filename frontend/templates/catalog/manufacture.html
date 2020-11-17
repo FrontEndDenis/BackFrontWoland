@@ -1,12 +1,12 @@
 {% extends "catalog.html" %}
-{% block content %}  
+{% block content %}
     {% include 'element/breadcrumb.html' %}
     <section class="s-catalog-service p-service">
         <div class="container-xl">
             <h2 class="s-catalog-service__title txt--rgl24">Наше производство</h2>
             <div class="row s-catalog-service__list">
                 {% for item in manufacture_list %}
-                <div class="col-lg-4 col-sm-6"><a class="service-card" href="{% url 'menu:product' item.slug %}">
+                    <div class="col-lg-4 col-sm-6"><a class="service-card" href="{% url 'menu:product' item.slug %}">
                         <div class="service-card__image"><img src="{{ media_url }}{{ item.image }}" alt=""></div>
                         <div class="service-card__title">{{ item.name }}</div>
                         <div class="service-card__text">{{ item.description_service }}</div>
@@ -16,7 +16,7 @@
                             </svg>
                         </div>
                     </a>
-                </div>
+                    </div>
                 {% endfor %}
             </div>
         </div>

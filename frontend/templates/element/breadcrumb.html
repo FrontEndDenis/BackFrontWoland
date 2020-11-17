@@ -4,10 +4,10 @@
             <div class="col-12">
                 <ul class="bread-crumbs__list d-flex">
                     <li><a href="/" title="Главная">Главная<span></span></a></li>
-                    {% if news_item %} 
+                    {% if news_item %}
                         <li><a href={% url 'news:index' %}>Новости</a><span></span></li>
-                        <li>{{ news_item.name }}<span></span></li>		
-                    {% elif news_list %}    				    
+                        <li>{{ news_item.name }}<span></span></li>
+                    {% elif news_list %}
                         <li>Новости</li>
                     {% elif current_menu.parent %}
                         {% if current_menu.parent.parent.parent.parent %}
@@ -39,7 +39,7 @@
                     {% else %}
                         <li>{{ current_menu.name }}<span></span></li>
                     {% endif %}
-                    
+
                 </ul>
             </div>
         </div>

@@ -1,31 +1,32 @@
 {% extends "catalog.html" %}
 {% block content %}
     <div class="content">
-      <div class="bread-crumbs">
-          <div class="container-xl">
-              <div class="row">
-                  <div class="col-12">
-                      <ul class="bread-crumbs__list d-flex">
-                          <li><a href="/" title="Главная">Главная<span></span></a></li>
-                          <li>Корзина</li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <section class="p-basket">
-          <div class="container-xl">
-            <div class="row" id="cart_content">
-              {% if cart_items %}
-                <div class="col-12 mb-4">
-                  <h1 class="p-basket__title txt--rgl30">Корзина</h1>
-                  <div class="result d-flex align-items-center txt--rgl24">
-                    <div class="result__title">Товаров в корзине:</div>
-                    <div class="result__output-value txt--clr1" name="cart_item_count">{{ cart_item_count }}</div>
-                  </div>
+        <div class="bread-crumbs">
+            <div class="container-xl">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="bread-crumbs__list d-flex">
+                            <li><a href="/" title="Главная">Главная<span></span></a></li>
+                            <li>Корзина</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                  {% comment %} <div class="p-basket__add-card">
+            </div>
+        </div>
+        <section class="p-basket">
+            <div class="container-xl">
+                <div class="row" id="cart_content">
+                    {% if cart_items %}
+                        <div class="col-12 mb-4">
+                            <h1 class="p-basket__title txt--rgl30">Корзина</h1>
+                            <div class="result d-flex align-items-center txt--rgl24">
+                                <div class="result__title">Товаров в корзине:</div>
+                                <div class="result__output-value txt--clr1"
+                                     name="cart_item_count">{{ cart_item_count }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            {% comment %} <div class="p-basket__add-card">
                     <div class="add-card">
                       <form class="search d-flex justify-content-between" action="">
                         <input class="add-card__search-field input-srch" type="search" placeholder="Добавить товар по артикулу или названию">
@@ -48,90 +49,114 @@
                       </form>
                     </div>
                   </div> {% endcomment %}
-                  <div class="p-basket__basket-cards basket-cards" id="cart_items_content">
-                    {% include 'cart/cart_block.html'%}
-                  </div>
+                            <div class="p-basket__basket-cards basket-cards" id="cart_items_content">
+                                {% include 'cart/cart_block.html' %}
+                            </div>
 
 
+                        </div>
+                        <div class="col-md-5">
+                            <div class="p-basket__place-order">
+                                <div class="place-order" id="place-order">
+                                    <div class="place-order__title txt--rgl24">Оформление заказа</div>
+                                    <div class="place-order__text">После оформления заказа наш менеджер свяжется с вами
+                                        для подтверждения заказа и уточнения всех деталей.
+                                    </div>
+                                    <div class="place-order__text">По всем вопросам: <a class="txt--clr1"
+                                                                                        href="tel:{{ current_filial.phone }}">{{ current_filial.phone }}</a>
+                                    </div>
+                                    <div class="place-order__content">
+                                        <form class="needs-validation" id="order-form" action="javascript:void(null);"
+                                              onsubmit="cart_checkout();" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="place-order__checkout-list">
+                                                <div class="place-order__item form-group">
+                                                    <label class="place-order__label" for="place-order-field-1">Ваше
+                                                        имя</label>
+                                                    <input class="place-order__checkout-field" id="place-order-field-1"
+                                                           name="name" type="text" maxlength="50" placeholder="Имя"
+                                                           required>
+                                                </div>
+                                                <div class="place-order__item form-group">
+                                                    <label class="place-order__label" for="place-order-field-2">Ваш
+                                                        телефон
+                                                        <div class="required">*</div>
+                                                    </label>
+                                                    <input class="place-order__checkout-field form-control" name="phone"
+                                                           id="place-order-field-2" type="tel"
+                                                           placeholder="+7 (___) ___ - __ -__"
+                                                           pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" minlength="18"
+                                                           inputmode="numeric" required>
+                                                </div>
+                                                <div class="place-order__item form-group">
+                                                    <label class="place-order__label" for="place-order-field-3">Ваша
+                                                        почта
+                                                        <div class="required">*</div>
+                                                    </label>
+                                                    <input class="place-order__checkout-field form-control" name="email"
+                                                           id="place-order-field-3" type="text" placeholder="@mail"
+                                                           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,4}$"
+                                                           required>
+                                                </div>
+                                                <div class="place-order__item form-group">
+                                                    <label class="place-order__label" for="place-order-field-4">Ваш
+                                                        комментарий</label>
+                                                    <textarea class="place-order__checkout-field" name="comment"
+                                                              id="place-order-field-4" maxlength="100"
+                                                              placeholder="Комментарий к заказу"></textarea>
+                                                </div>
+                                                <div class="place-order__button button-file">
+                                                    <input id="input__file" name="file" type="file" multiple="">
+                                                    <label class="button-file__button btn btn--gray" for="input__file">
+                                                        <svg class="svg-sprite-icon icon-file">
+                                                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#file"></use>
+                                                        </svg>
+                                                        <span class="button-file__text">Прикрепить документ</span>
+                                                    </label>
+                                                    <div class="button-file__clear">
+                                                        <svg class="svg-sprite-icon icon-close">
+                                                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <button class="place-order__button btn" type="submit">Оформить заказ
+                                                </button>
+                                                <div class="place-order__policy txt--rgl12">Нажимая кнопку оформить
+                                                    заказ, вы соглашаетесь с <a class="txt--clr1" href="policy.html"
+                                                                                target="_blank">правилами обработки
+                                                        персональных данных</a></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        {% include 'cart/cart_empty.html' %}
+                    {% endif %}
                 </div>
-                <div class="col-md-5">
-                  <div class="p-basket__place-order">
-                    <div class="place-order" id="place-order">
-                      <div class="place-order__title txt--rgl24">Оформление заказа</div>
-                      <div class="place-order__text">После оформления заказа наш менеджер свяжется с вами для подтверждения заказа и уточнения всех деталей.</div>
-                      <div class="place-order__text">По всем вопросам: <a class="txt--clr1" href="tel:{{ current_filial.phone }}">{{ current_filial.phone }}</a></div>
-                      <div class="place-order__content">
-                        <form class="needs-validation" id="order-form" action="javascript:void(null);" onsubmit="cart_checkout();" enctype="multipart/form-data">
-                          {% csrf_token %}
-                          <div class="place-order__checkout-list">
-                            <div class="place-order__item form-group">
-                              <label class="place-order__label" for="place-order-field-1">Ваше имя</label>
-                              <input class="place-order__checkout-field" id="place-order-field-1" name="name" type="text" maxlength="50" placeholder="Имя" required>
-                            </div>
-                            <div class="place-order__item form-group">
-                              <label class="place-order__label" for="place-order-field-2">Ваш телефон
-                                <div class="required">*</div>
-                              </label>
-                              <input class="place-order__checkout-field form-control" name="phone" id="place-order-field-2" type="tel" placeholder="+7 (___) ___ - __ -__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" minlength="18" inputmode="numeric" required>
-                            </div>
-                            <div class="place-order__item form-group">
-                              <label class="place-order__label" for="place-order-field-3">Ваша почта
-                                <div class="required">*</div>
-                              </label>
-                              <input class="place-order__checkout-field form-control" name="email" id="place-order-field-3" type="text" placeholder="@mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,4}$" required>
-                            </div>
-                            <div class="place-order__item form-group">
-                              <label class="place-order__label" for="place-order-field-4">Ваш комментарий</label>
-                              <textarea class="place-order__checkout-field" name="comment" id="place-order-field-4" maxlength="100" placeholder="Комментарий к заказу"></textarea>
-                            </div>
-                            <div class="place-order__button button-file">
-                              <input id="input__file" name="file" type="file" multiple="">
-                              <label class="button-file__button btn btn--gray" for="input__file">
-                                <svg class="svg-sprite-icon icon-file">
-                                  <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#file"></use>
-                                </svg><span class="button-file__text">Прикрепить документ</span>
-                              </label>
-                              <div class="button-file__clear">
-                                <svg class="svg-sprite-icon icon-close">
-                                  <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
-                                </svg>
-                              </div>
-                            </div>
-                            <button class="place-order__button btn" type="submit">Оформить заказ</button>
-                            <div class="place-order__policy txt--rgl12">Нажимая кнопку оформить заказ, вы соглашаетесь с <a class="txt--clr1" href="policy.html" target="_blank">правилами обработки персональных данных</a></div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {% else %}
-                {% include 'cart/cart_empty.html' %}
-              {% endif %}
             </div>
-          </div>
         </section>
-    {% include 'element/payment_delivery_block.html'%}
-  </div>
+        {% include 'element/payment_delivery_block.html' %}
+    </div>
 
-<script type="text/javascript" language="javascript">
-    function cart_checkout()
-    {
-        form_data = new FormData(document.getElementById('order-form'));
-        $.ajax({
-          url: '{% url 'checkout:send_form_order' %}',
-          type: 'POST',
-          contentType: false,
-          processData: false,
-          data: form_data,
-          dataType: 'json',
-          success: function(data) {
-              location.href = '{% url 'checkout:receipt' %}';
-          },
-          error:  function(xhr, str){
-              alert('Возникла ошибка: ' + xhr.responseCode);
-          }
-        });
-    }
-</script>
+    <script type="text/javascript" language="javascript">
+        function cart_checkout() {
+            form_data = new FormData(document.getElementById('order-form'));
+            $.ajax({
+                url: '{% url 'checkout:send_form_order' %}',
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: form_data,
+                dataType: 'json',
+                success: function (data) {
+                    location.href = '{% url 'checkout:receipt' %}';
+                },
+                error: function (xhr, str) {
+                    alert('Возникла ошибка: ' + xhr.responseCode);
+                }
+            });
+        }
+    </script>
 {% endblock %}

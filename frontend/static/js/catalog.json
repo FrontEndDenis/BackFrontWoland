@@ -1,728 +1,728 @@
 [
-	{
-		"name": "Сталь",
-		"sitePath": "/catalogue/stal/",
-		"childs": [
-			{
-				"name": "Конструкционные стали",
-				"sitePath": "/catalogue/stal/",
-				"childs": [
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					}
-				]
-			}
-		]
-	},
-	{
-		"name": "Цветные металлы",
-		"sitePath": "/catalogue/stal/",
-		"childs": [
-			{
-				"name": "Инструментальные стали",
-				"sitePath": "/catalogue/stal/",
-				"childs": [
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					}
-				]
-			}
-		]
-	},
-	{
-		"name": "Чугун",
-		"sitePath": "/catalogue/stal/",
-		"childs": [
-			{
-				"name": "Литейная сталь",
-				"sitePath": "/catalogue/stal/",
-				"childs": [
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					},
-					{
-						"name": "Штукатурки",
-						"sitePath": "/catalogue/shtukaturki/",
-						"childs": [
-							{
-								"name": "Штукатурки для внутренних работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
-							},
-							{
-								"name": "Штукатурки для наружных работ",
-								"sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
-							},
-							{
-								"name": "Декоративные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
-							},
-							{
-								"name": "Механизированные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
-							},
-							{
-								"name": "Теплоизоляционные штукатурки",
-								"sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
-							},
-							{
-								"name": "Штукатурка гипсовая",
-								"sitePath": "/catalogue/shtukaturki/gipsovaya/"
-							},
-							{
-								"name": "Штукатурка цементная",
-								"sitePath": "/catalogue/shtukaturki/cementnaya/"
-							},
-							{
-								"name": "Штукатурки AXTON",
-								"sitePath": "/catalogue/shtukaturki/axton/"
-							},
-							{
-								"name": "Ротбанд",
-								"sitePath": "/catalogue/shtukaturki/rotband/"
-							},
-							{
-								"name": "Штукатурки KNAUF",
-								"sitePath": "/catalogue/shtukaturki/knauf/"
-							}
-						]
-					}
-				]
-			}
-		]
-	}
+  {
+    "name": "Сталь",
+    "sitePath": "/catalogue/stal/",
+    "childs": [
+      {
+        "name": "Конструкционные стали",
+        "sitePath": "/catalogue/stal/",
+        "childs": [
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Цветные металлы",
+    "sitePath": "/catalogue/stal/",
+    "childs": [
+      {
+        "name": "Инструментальные стали",
+        "sitePath": "/catalogue/stal/",
+        "childs": [
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Чугун",
+    "sitePath": "/catalogue/stal/",
+    "childs": [
+      {
+        "name": "Литейная сталь",
+        "sitePath": "/catalogue/stal/",
+        "childs": [
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          },
+          {
+            "name": "Штукатурки",
+            "sitePath": "/catalogue/shtukaturki/",
+            "childs": [
+              {
+                "name": "Штукатурки для внутренних работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-vnutrennih-rabot/"
+              },
+              {
+                "name": "Штукатурки для наружных работ",
+                "sitePath": "/catalogue/shtukaturki/dlya-naruzhnyh-rabot/"
+              },
+              {
+                "name": "Декоративные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/dekorativnye-shtukaturki/"
+              },
+              {
+                "name": "Механизированные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/mehanizirovannye/"
+              },
+              {
+                "name": "Теплоизоляционные штукатурки",
+                "sitePath": "/catalogue/shtukaturki/teploizolyacionnye/"
+              },
+              {
+                "name": "Штукатурка гипсовая",
+                "sitePath": "/catalogue/shtukaturki/gipsovaya/"
+              },
+              {
+                "name": "Штукатурка цементная",
+                "sitePath": "/catalogue/shtukaturki/cementnaya/"
+              },
+              {
+                "name": "Штукатурки AXTON",
+                "sitePath": "/catalogue/shtukaturki/axton/"
+              },
+              {
+                "name": "Ротбанд",
+                "sitePath": "/catalogue/shtukaturki/rotband/"
+              },
+              {
+                "name": "Штукатурки KNAUF",
+                "sitePath": "/catalogue/shtukaturki/knauf/"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ]

@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0004_auto_20200922_0656'),
-    ]
-
-    operations = [
-        migrations.RemoveField(
-            model_name='menucatalog',
-            name='text_service',
-        ),
-    ]
+	dependencies = [
+		('menu', '0004_auto_20200922_0656'),
+	]
+	
+	operations = [
+		migrations.RemoveField(
+			model_name='menucatalog',
+			name='text_service',
+		),
+	]

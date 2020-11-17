@@ -3,133 +3,169 @@
 @import "utils/fonts";
 
 *, *::before, *::after {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-	font-size: $base-font-size;
-	margin-right: 0 !important;
+  font-size: $base-font-size;
+  margin-right: 0 !important;
 }
 
 body {
-	color: $txt-black;
-	scroll-behavior: smooth;
-	text-rendering: optimizeSpeed;
-	font-weight: 400;
-	letter-spacing: 0.02rem;
-	font-family: 'Montserrat-custom', Roboto, 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Cantarell, 'Helvetica Neue';
-	overflow-x: hidden;
-	h1, h2, h3, h4, h5, h6 {margin: 0}
+  color: $txt-black;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  font-weight: 400;
+  letter-spacing: 0.02rem;
+  font-family: 'Montserrat-custom', Roboto, 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Cantarell, 'Helvetica Neue';
+  overflow-x: hidden;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0
+  }
 }
 
 ul[class],
 ol[class] {
-	list-style: none;
-	padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 img {
-	max-width: 100%;
-	display: block;
-	object-fit: cover;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 input,
 button,
 textarea,
-select {font: inherit}
+select {
+  font: inherit
+}
 
 input, textarea {
-	color: $txt-black;
-	font-family: 'Montserrat-custom', Roboto, 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Cantarell, 'Helvetica Neue';
-	font-size: 15px;
-	font-weight: 500;
-	line-height: 150%;
-	outline: none;
-	resize: none;
-	border-radius: 0;
-	-webkit-border-radius: 0;
-	-webkit-appearance: none;
-	transition: .3s linear;
-	&::placeholder {
-		color: $txt-gray60;
-		font-family: 'Montserrat-custom', Roboto, 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Cantarell, 'Helvetica Neue';
-		font-size: 16px;
-		font-weight: 500;
-		line-height: 150%;
-		transition: .3s linear;
-	}
-	&:focus, &:active {
-		outline: none !important;
-		box-shadow: none !important;
-		&::placeholder {color: $txt-gray60;}
-		&:hover {
-			&::placeholder {color: $txt-gray60;}
-		}
-	}
-	&:hover {
-		&::placeholder {color: $txt-gray;}
-	}
-	&::-ms-clear, 
-	&::-ms-reveal {
-		display: none;
-		width: 0;
-		height: 0;
-	}
-	&::-webkit-search-decoration,
-	&::-webkit-search-cancel-button,
-	&::-webkit-search-results-button,
-	&::-webkit-search-results-decoration {display: none}
-	&::-webkit-outer-spin-button,
-	&::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0
-	}
+  color: $txt-black;
+  font-family: 'Montserrat-custom', Roboto, 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Cantarell, 'Helvetica Neue';
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 150%;
+  outline: none;
+  resize: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+  transition: .3s linear;
+
+  &::placeholder {
+    color: $txt-gray60;
+    font-family: 'Montserrat-custom', Roboto, 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Cantarell, 'Helvetica Neue';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    transition: .3s linear;
+  }
+
+  &:focus, &:active {
+    outline: none !important;
+    box-shadow: none !important;
+
+    &::placeholder {
+      color: $txt-gray60;
+    }
+
+    &:hover {
+      &::placeholder {
+        color: $txt-gray60;
+      }
+    }
+  }
+
+  &:hover {
+    &::placeholder {
+      color: $txt-gray;
+    }
+  }
+
+  &::-ms-clear,
+  &::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+  }
 }
 
 button {
-	padding: 0;
-	border: none;
-	font: inherit;
-	color: inherit;
-	background-color: transparent;
-	-webkit-appearance: none;
-	cursor: pointer;
-	&:active, &:focus {outline: none}
-	&::-moz-focus-inner {border: 0}
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  &:active, &:focus {
+    outline: none
+  }
+
+  &::-moz-focus-inner {
+    border: 0
+  }
 }
 
 a {
-	color: inherit;
-	transition: .3s linear;
-	text-decoration: none;
-	&:hover, &:active {
-		text-decoration: none;
-		color: inherit;
-	}
+  color: inherit;
+  transition: .3s linear;
+  text-decoration: none;
+
+  &:hover, &:active {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 section {
-	margin-bottom: 120px;
+  margin-bottom: 120px;
 }
 
-svg {transition: .3s linear}
+svg {
+  transition: .3s linear
+}
 
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
-.content {flex: 1 0 auto}
+.content {
+  flex: 1 0 auto
+}
 
 @media only screen and (max-width: 1199px) {
-	section {margin-bottom: 80px;}
+  section {
+    margin-bottom: 80px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
-	section {margin-bottom: 60px;}
+  section {
+    margin-bottom: 60px;
+  }
 }
 
 //Модули

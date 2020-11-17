@@ -4,24 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+	initial = True
 
-    initial = True
+	dependencies = [
+	]
 
-    dependencies = [
-    ]
-
-    operations = [
-        migrations.CreateModel(
-            name='StaticText',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('slug', models.SlugField(max_length=1024, verbose_name='Латинское название [системное]')),
-                ('text', models.TextField(blank=True, default='', null=True, verbose_name='HTML текст')),
-                ('comment', models.CharField(blank=True, default='', max_length=1024, null=True, verbose_name='Комментарий')),
-            ],
-            options={
-                'verbose_name_plural': 'Статические тексты',
-                'ordering': ['id'],
-            },
-        ),
-    ]
+	operations = [
+		migrations.CreateModel(
+			name='StaticText',
+			fields=[
+				('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+				('slug', models.SlugField(max_length=1024, verbose_name='Латинское название [системное]')),
+				('text', models.TextField(blank=True, default='', null=True, verbose_name='HTML текст')),
+				('comment',
+				 models.CharField(blank=True, default='', max_length=1024, null=True, verbose_name='Комментарий')),
+			],
+			options={
+				'verbose_name_plural': 'Статические тексты',
+				'ordering': ['id'],
+			},
+		),
+	]

@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0012_slider'),
-    ]
-
-    operations = [
-        migrations.RenameField(
-            model_name='slider',
-            old_name='isHidden',
-            new_name='is_hidden',
-        ),
-        migrations.AlterField(
-            model_name='slider',
-            name='button_text',
-            field=models.CharField(blank=True, max_length=256, null=True, verbose_name='Название кнопки'),
-        ),
-    ]
+	dependencies = [
+		('menu', '0012_slider'),
+	]
+	
+	operations = [
+		migrations.RenameField(
+			model_name='slider',
+			old_name='isHidden',
+			new_name='is_hidden',
+		),
+		migrations.AlterField(
+			model_name='slider',
+			name='button_text',
+			field=models.CharField(blank=True, max_length=256, null=True, verbose_name='Название кнопки'),
+		),
+	]

@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('filials', '0002_auto_20200922_0141'),
-    ]
-
-    operations = [
-        migrations.AlterField(
-            model_name='filials',
-            name='robots',
-            field=models.TextField(blank=True, null=True, verbose_name='Содержимое robots.txt'),
-        ),
-    ]
+	dependencies = [
+		('filials', '0002_auto_20200922_0141'),
+	]
+	
+	operations = [
+		migrations.AlterField(
+			model_name='filials',
+			name='robots',
+			field=models.TextField(blank=True, null=True, verbose_name='Содержимое robots.txt'),
+		),
+	]

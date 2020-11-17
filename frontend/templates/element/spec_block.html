@@ -3,58 +3,69 @@
         <div class="s-spacial-offer__head">
             <h2 class="s-spacial-offer__title txt--rgl24">Спецпредложения</h2><a
                 class="s-spacial-offer__link btn-link" href="/spec/">все
-                <svg class="svg-sprite-icon icon-arrow">
-                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                </svg></a>
+            <svg class="svg-sprite-icon icon-arrow">
+                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+            </svg>
+        </a>
         </div>
         <div class="s-spacial-offer__list owl-carousel slider-two">
             {% for item in spec_list %}
-              <div class="s-spacial-offer__item">
-                <div class="spacial-offer-card spacial">
-                  <div class="spacial-badge">спецпредложение</div>
-                  <div class="spacial-offer-card__image"><img src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}"></div>
-                  <div class="spacial-offer-card__offer-content">
-                    <div class="spacial-offer-card__header">
-                      <div class="spacial-offer-card__top-line">
-                        <div class="spacial-offer-card__article">Арт.{{ item.id }}</div>
-                        {% if product.available %}<div class="spacial-offer-card__presence presence">В наличии</div>{% endif %}
-                      </div><a class="spacial-offer-card__title" href="{% url 'menu:product' item.slug %}">{{ item.name }}</a>
-                    </div>
-                    <div class="spacial-offer-card__bottom">
-                        {% if item.price %}
-                            <div class="spacial-offer-card__price">{{ item.price }}</div>
-                            <div class="spacial-offer-card__buttons">
-                                <div class="spacial-offer-card__learn-price btn" data-toggle="modal" data-target="#modal5" title="Добавить в корзину">В корзину</div>
-                                <div class="spacial-offer-card__fast btn--wrap" data-toggle="modal" data-target="#modal2" title="Заказать в один клик">
-                                <div class="btn--faster">
-                                    <svg class="svg-sprite-icon icon-learn-price">
-                                    <use xlink:href="static/images/svg/symbol/sprite.svg#learn-price"></use>
-                                    </svg>
+                <div class="s-spacial-offer__item">
+                    <div class="spacial-offer-card spacial">
+                        <div class="spacial-badge">спецпредложение</div>
+                        <div class="spacial-offer-card__image"><img src="{{ media_url }}{{ item.image }}"
+                                                                    alt="{{ item.name }}"></div>
+                        <div class="spacial-offer-card__offer-content">
+                            <div class="spacial-offer-card__header">
+                                <div class="spacial-offer-card__top-line">
+                                    <div class="spacial-offer-card__article">Арт.{{ item.id }}</div>
+                                    {% if product.available %}
+                                        <div class="spacial-offer-card__presence presence">В наличии</div>{% endif %}
                                 </div>
-                                </div>
+                                <a class="spacial-offer-card__title"
+                                   href="{% url 'menu:product' item.slug %}">{{ item.name }}</a>
                             </div>
-                        {% else %}
-                            <div class="spacial-offer-card__price">по запросу</div>
-                            <div class="spacial-offer-card__buttons">
-                                <div class="s-product__basket btn btn--h40" data-toggle="modal" data-target="#modal5"
-                                    title="Добавить в корзину">Узнать цену</div>
-                                <div class="s-product__fast btn--faster" data-toggle="modal" data-target="#modal2"
-                                    title="Заказать в один клик">
-                                    <svg class="svg-sprite-icon icon-learn-price">
-                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price"></use>
-                                    </svg>
-                                </div>
+                            <div class="spacial-offer-card__bottom">
+                                {% if item.price %}
+                                    <div class="spacial-offer-card__price">{{ item.price }}</div>
+                                    <div class="spacial-offer-card__buttons">
+                                        <div class="spacial-offer-card__learn-price btn" data-toggle="modal"
+                                             data-target="#modal5" title="Добавить в корзину">В корзину
+                                        </div>
+                                        <div class="spacial-offer-card__fast btn--wrap" data-toggle="modal"
+                                             data-target="#modal2" title="Заказать в один клик">
+                                            <div class="btn--faster">
+                                                <svg class="svg-sprite-icon icon-learn-price">
+                                                    <use xlink:href="static/images/svg/symbol/sprite.svg#learn-price"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="spacial-offer-card__price">по запросу</div>
+                                    <div class="spacial-offer-card__buttons">
+                                        <div class="s-product__basket btn btn--h40" data-toggle="modal"
+                                             data-target="#modal5"
+                                             title="Добавить в корзину">Узнать цену
+                                        </div>
+                                        <div class="s-product__fast btn--faster" data-toggle="modal"
+                                             data-target="#modal2"
+                                             title="Заказать в один клик">
+                                            <svg class="svg-sprite-icon icon-learn-price">
+                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                {% endif %}
                             </div>
-                        {% endif %}
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             {% endfor %}
         </div>
         <div class="row">
             <div class="col-12"><a class="s-spacial-offer__link-button btn btn--h40 btn--wdh180"
-                    href="spacial.html">Все спецпредложения</a></div>
+                                   href="spacial.html">Все спецпредложения</a></div>
         </div>
     </div>
 </section>

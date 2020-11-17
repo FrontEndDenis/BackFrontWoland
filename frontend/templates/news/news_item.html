@@ -3,28 +3,29 @@
 {% block meta_keywords %}{{ news_item.name }}{% endblock %}
 {% block title_page %}{{ news_item.name }}{% endblock %}
 {% block content %}
-{% include 'element/breadcrumb.html' %}	
-<section class="p-inner-news">
-    <div class="container-xl">
-        <article class="p-inner-news__article">
-            <h1>{{ news_item.name }}</h1>
-            <time>{{ news_item.date }}</time>
-            <img src="{{ media_url }}{{ news_item.image }}" alt="{{ news_item.name }}">
-            {{ news_item.text|safe }}
-        </article>
-        <div class="p-inner-news__all-news"><a class="p-inner-news__link btn-link" href="{% url 'news:index' %}">
+    {% include 'element/breadcrumb.html' %}
+    <section class="p-inner-news">
+        <div class="container-xl">
+            <article class="p-inner-news__article">
+                <h1>{{ news_item.name }}</h1>
+                <time>{{ news_item.date }}</time>
+                <img src="{{ media_url }}{{ news_item.image }}" alt="{{ news_item.name }}">
+                {{ news_item.text|safe }}
+            </article>
+            <div class="p-inner-news__all-news"><a class="p-inner-news__link btn-link" href="{% url 'news:index' %}">
                 <svg class="svg-sprite-icon icon-arrow">
                     <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
-                </svg>вернуться ко всем новостям</a></div>
-    </div>
-</section>
-<section class="s-news">
-    <div class="container-xl">
-        <h2 class="s-news__title txt--rgl24">Другие новости</h2>
-        <div class="s-news__list owl-carousel slider-three">
-            {% include 'news/news_more.html' %}
+                </svg>
+                вернуться ко всем новостям</a></div>
         </div>
-    </div>
-</section>
-	
+    </section>
+    <section class="s-news">
+        <div class="container-xl">
+            <h2 class="s-news__title txt--rgl24">Другие новости</h2>
+            <div class="s-news__list owl-carousel slider-three">
+                {% include 'news/news_more.html' %}
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

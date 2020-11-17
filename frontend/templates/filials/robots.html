@@ -1,9 +1,10 @@
 {% if robots_txt %}
-<pre>
+    <pre>
 {{ robots_txt|safe }}
 </pre>
 {% else %}
-#<pre>
+    #
+    <pre>
 User-agent: *
 
 Disallow: /

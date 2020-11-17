@@ -9,18 +9,20 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="footer__logo"><a class="logo" href="index.html"><img
-                                src="{{ static_url }}images/general/logo.svg" alt="Логотип"></a></div>
+                            src="{{ static_url }}images/general/logo.svg" alt="Логотип"></a></div>
                     <div class="footer__communicating">
                         <div class="footer__phone txt--bld16"><a class="d-flex align-items-center"
-                                href="tel:{{ current_filial.phone }}">
-                                <svg class="svg-sprite-icon icon-phone">
-                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#phone"></use>
-                                </svg>{{ current_filial.phone }}</a></div>
+                                                                 href="tel:{{ current_filial.phone }}">
+                            <svg class="svg-sprite-icon icon-phone">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#phone"></use>
+                            </svg>
+                            {{ current_filial.phone }}</a></div>
                         <div class="footer__mail txt--bld16"><a class="d-flex align-items-center"
-                                href="mailto:{{ current_filial.email }}">
-                                <svg class="svg-sprite-icon icon-mail">
-                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#mail"></use>
-                                </svg>{{ current_filial.email }}</a></div>
+                                                                href="mailto:{{ current_filial.email }}">
+                            <svg class="svg-sprite-icon icon-mail">
+                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#mail"></use>
+                            </svg>
+                            {{ current_filial.email }}</a></div>
                         <div class="footer__work txt--bld16 ds-hidden">Пн-Пт 9:00-18:00</div>
                     </div>
                     <div class="footer__button btn" data-toggle="modal" data-target="#modal6">Обратный звонок</div>

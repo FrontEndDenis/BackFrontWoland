@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0006_menucatalog_text_service'),
-    ]
-
-    operations = [
-        migrations.AddField(
-            model_name='menucatalog',
-            name='image',
-            field=models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка'),
-        ),
-        migrations.AlterField(
-            model_name='product',
-            name='is_hidden',
-            field=models.BooleanField(default=False, verbose_name='Скрыть'),
-        ),
-    ]
+	dependencies = [
+		('menu', '0006_menucatalog_text_service'),
+	]
+	
+	operations = [
+		migrations.AddField(
+			model_name='menucatalog',
+			name='image',
+			field=models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка'),
+		),
+		migrations.AlterField(
+			model_name='product',
+			name='is_hidden',
+			field=models.BooleanField(default=False, verbose_name='Скрыть'),
+		),
+	]

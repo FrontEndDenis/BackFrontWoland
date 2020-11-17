@@ -1,6 +1,6 @@
 const imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache'),
-    imgCompress  = require('imagemin-jpeg-recompress'),
+    imgCompress = require('imagemin-jpeg-recompress'),
     imgPATH = {
         "input": ["./frontend/static/images/**/*.{png,jpg,gif,svg}",
             '!./frontend/static/images/svg/*'],

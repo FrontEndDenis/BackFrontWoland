@@ -5,8 +5,9 @@
         </div>
         <div class="s-catalog-slider__list owl-carousel slider-five">
             {% for item in current_menu.parent.get_child %}
-            {% if item != current_menu %}
-                <div class="s-catalog-slider__item"><a class="category-card big" href="{% url 'menu:menu' item.slug %}"><img
+                {% if item != current_menu %}
+                    <div class="s-catalog-slider__item"><a class="category-card big"
+                                                           href="{% url 'menu:menu' item.slug %}"><img
                             src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}">
                         <div class="category-card__button"><span>{{ item.name }}</span>
                             <div class="btn-arrow">
@@ -16,8 +17,8 @@
                             </div>
                         </div>
                     </a>
-                </div>
-            {% endif %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

@@ -3,11 +3,12 @@
     {% include 'modal/modal7.html' %}
 {% endblock %}
 {% block extra_scripts %}
-    <script charset="utf-8" src="https://api-maps.yandex.ru/2.1/?apikey=d5f354d9-0b87-4702-bc6b-201ec476b09a&amp;lang=ru_RU"></script>
+    <script charset="utf-8"
+            src="https://api-maps.yandex.ru/2.1/?apikey=d5f354d9-0b87-4702-bc6b-201ec476b09a&amp;lang=ru_RU"></script>
     <script>ymaps.ready(init)</script>
 {% endblock %}
 {% block content %}
-    {% include 'element/breadcrumb.html' %}      
+    {% include 'element/breadcrumb.html' %}
     <section class="s-contacts">
         <div class="container-xl">
             <div class="row">
@@ -50,8 +51,10 @@
                                 <div>{{ start_year }}</div>
                             </li>
                             <li>
-                                <div class="s-contacts__button btn btn--wdh224" data-toggle="modal" data-target="#modal7">
-                                    Связаться с нами</div>
+                                <div class="s-contacts__button btn btn--wdh224" data-toggle="modal"
+                                     data-target="#modal7">
+                                    Связаться с нами
+                                </div>
                             </li>
                         </ul>
                     </div>

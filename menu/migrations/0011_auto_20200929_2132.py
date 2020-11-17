@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0010_product_description_service'),
-    ]
-
-    operations = [
-        migrations.AlterField(
-            model_name='menucatalog',
-            name='name',
-            field=models.CharField(max_length=255, unique=True, verbose_name='Название пункта'),
-        ),
-        migrations.AlterField(
-            model_name='menucatalog',
-            name='slug',
-            field=models.SlugField(blank=True, max_length=255, unique=True, verbose_name='Название латинское'),
-        ),
-    ]
+	dependencies = [
+		('menu', '0010_product_description_service'),
+	]
+	
+	operations = [
+		migrations.AlterField(
+			model_name='menucatalog',
+			name='name',
+			field=models.CharField(max_length=255, unique=True, verbose_name='Название пункта'),
+		),
+		migrations.AlterField(
+			model_name='menucatalog',
+			name='slug',
+			field=models.SlugField(blank=True, max_length=255, unique=True, verbose_name='Название латинское'),
+		),
+	]

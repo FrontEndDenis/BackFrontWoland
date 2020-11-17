@@ -15,27 +15,29 @@
                             <div class="modal-forms__item form-group">
                                 <label class="modal-forms__label" for="modal-field-7">Ваше имя</label>
                                 <input class="modal-forms__field" id="modal-field-7" type="text" maxlength="50"
-                                    placeholder="Имя">
+                                       placeholder="Имя">
                             </div>
                             <div class="modal-forms__item form-group">
                                 <label class="modal-forms__label" for="modal-field-8">Ваша почта
                                     <div class="required">*</div>
                                 </label>
                                 <input class="modal-forms__field form-control" id="modal-field-8" type="text"
-                                    placeholder="@mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,4}$"
-                                    required>
+                                       placeholder="@mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,4}$"
+                                       required>
                             </div>
                             <div class="modal-forms__item form-group">
                                 <label class="modal-forms__label" for="modal-field-9">Ваше сообщение</label>
                                 <textarea class="modal-forms__field" id="modal-field-9" maxlength="100"
-                                    placeholder="Сообщение"></textarea>
+                                          placeholder="Сообщение"></textarea>
                             </div>
                             <button class="modal-forms__button btn" type="submit">Отправить</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-body__policy">Нажимая кнопку отправить, вы соглашаетесь с <a class="txt--clr1"
-                        href="{% url 'menu:policy' %}" target="_blank">политикой обработки персональных данных</a></div>
+                                                                                               href="{% url 'menu:policy' %}"
+                                                                                               target="_blank">политикой
+                    обработки персональных данных</a></div>
             </div>
         </div>
     </div>

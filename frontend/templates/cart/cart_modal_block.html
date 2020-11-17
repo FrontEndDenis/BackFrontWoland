@@ -4,11 +4,13 @@
             <div class="item-card__close" onclick="product_del('{{ item.id }}');window.location.reload();">
                 <svg class="svg-sprite-icon icon-close">
                     <use
-                        xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close">
+                            xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close">
                     </use>
                 </svg>
-            </div><a class="item-card__title" href="{{ item.product.get_absolute_name }}">{{ item.product.name }}</a>
-            <div class="item-card__price">{% if item.product.price %}{{ item.product.price }}{% else %}по запросу{% endif %}</div>
+            </div>
+            <a class="item-card__title" href="{{ item.product.get_absolute_name }}">{{ item.product.name }}</a>
+            <div class="item-card__price">
+                {% if item.product.price %}{{ item.product.price }}{% else %}по запросу{% endif %}</div>
         </div>
     </li>
 {% endfor %}

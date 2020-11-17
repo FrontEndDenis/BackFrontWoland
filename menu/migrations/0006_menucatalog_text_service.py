@@ -4,15 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0005_remove_menucatalog_text_service'),
-    ]
-
-    operations = [
-        migrations.AddField(
-            model_name='menucatalog',
-            name='text_service',
-            field=models.CharField(blank=True, default='', max_length=255, null=True, verbose_name='Текст для карточки услуги'),
-        ),
-    ]
+	dependencies = [
+		('menu', '0005_remove_menucatalog_text_service'),
+	]
+	
+	operations = [
+		migrations.AddField(
+			model_name='menucatalog',
+			name='text_service',
+			field=models.CharField(blank=True, default='', max_length=255, null=True,
+								   verbose_name='Текст для карточки услуги'),
+		),
+	]

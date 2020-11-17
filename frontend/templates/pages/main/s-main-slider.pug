@@ -1,11 +1,11 @@
 section.s-main-slider
-	.container-xxl
-		.s-main-slider__wrap
-			.main-slider.swiper-container
-				.swiper-wrapper
-					each slider in slider_list
-						.swiper-slide(data-title=slider.name)
-							.main-slider__item
-								include ./main-slide/slide-banner
-			.s-main-slider__wrap-pagination
-				.s-main-slider__pagination
+    .container-xxl
+        .s-main-slider__wrap
+            .main-slider.swiper-container
+                .swiper-wrapper
+                    each slider in slider_list
+                        .swiper-slide(data-title=slider.name)
+                            .main-slider__item
+                                include ./main-slide/slide-banner
+            .s-main-slider__wrap-pagination
+                .s-main-slider__pagination

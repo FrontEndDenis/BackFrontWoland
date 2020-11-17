@@ -1,91 +1,91 @@
 include ../../../templates/modules/cards/stocks-card/stocks-card
 
 .breadcrumbs
-	.container-xxl
-		ul.breadcrumbs__list
-			+breadcrumbs-item('Каталог','catalog.html')
-			+breadcrumbs-item('Категория', '#', true, 'Сталь', 'Чугун', 'Медь')
-			+breadcrumbs-item('Подкатегория', '#', true, 'Трубы', 'Фланцевые листы', 'Алюминиевый прессованный профиль')
-			+breadcrumbs-item('Товар')
+    .container-xxl
+        ul.breadcrumbs__list
+            +breadcrumbs-item('Каталог','catalog.html')
+            +breadcrumbs-item('Категория', '#', true, 'Сталь', 'Чугун', 'Медь')
+            +breadcrumbs-item('Подкатегория', '#', true, 'Трубы', 'Фланцевые листы', 'Алюминиевый прессованный профиль')
+            +breadcrumbs-item('Товар')
 
 section.p-product-listing
-	.container-xxl
-		h1.p-product-listing__title.txt--bld40 Стальной фланец
-			.count-listing 250
-		.p-product-listing__filters
-			button.btn.btn--br50.btn--gray(data-filter='all') Все фильтры
-				+icon('close')
-			button.filter-price.btn.btn--br50.btn--gray Только с ценой
-				+icon('close')
-			button.btn.btn--br50.btn--gray(data-filter='mark') Марка
-				+icon('close')
-			button.btn.btn--br50.btn--gray(data-filter='gost') ГОСТ
-				+icon('close')
-			button.btn.btn--br50.btn--gray(data-filter='height') Высота
-				+icon('close')
-			button.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
-				+icon('close')
-		.row
-			.col-xl-9
-				.row
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Короткое название', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Короткое название', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
-					.col-12
-						.custom-product
-							.custom-product__content
-								.custom-product__img
-									img(src='../../../static/images/general/logo-cust-prod.svg', alt='Велунд')
-								p.custom-product__text Мы можем сделать изделие на заказ из любого металла
-								a.custom-product__link.btn.btn--circle(href='#')
-									+icon('arrow-right')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Короткое название', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Короткое название', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
-					.col-lg-3.col-md-4.col-sm-6
-						+stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
-					.col-12
-						.download-button.btn.btn--gray.btn--br50 Показать еще
-						include ../../../templates/modules/pagination/pagination
-			.col-xl-3
-				include ../../../templates/modules/scroll-sidebar/scroll-sidebar-listing
+    .container-xxl
+        h1.p-product-listing__title.txt--bld40 Стальной фланец
+            .count-listing 250
+        .p-product-listing__filters
+            button.btn.btn--br50.btn--gray(data-filter='all') Все фильтры
+                +icon('close')
+            button.filter-price.btn.btn--br50.btn--gray Только с ценой
+                +icon('close')
+            button.btn.btn--br50.btn--gray(data-filter='mark') Марка
+                +icon('close')
+            button.btn.btn--br50.btn--gray(data-filter='gost') ГОСТ
+                +icon('close')
+            button.btn.btn--br50.btn--gray(data-filter='height') Высота
+                +icon('close')
+            button.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+                +icon('close')
+        .row
+            .col-xl-9
+                .row
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Короткое название', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Короткое название', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
+                    .col-12
+                        .custom-product
+                            .custom-product__content
+                                .custom-product__img
+                                    img(src='../../../static/images/general/logo-cust-prod.svg', alt='Велунд')
+                                p.custom-product__text Мы можем сделать изделие на заказ из любого металла
+                                a.custom-product__link.btn.btn--circle(href='#')
+                                    +icon('arrow-right')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Короткое название', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', false, true)
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык с соединительным выступом', true, true, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Короткое название', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, false, 'special')
+                    .col-lg-3.col-md-4.col-sm-6
+                        +stocksCard('basket-card', 'Стальной плоский фланец приварной встык', true, true, 'special')
+                    .col-12
+                        .download-button.btn.btn--gray.btn--br50 Показать еще
+                        include ../../../templates/modules/pagination/pagination
+            .col-xl-3
+                include ../../../templates/modules/scroll-sidebar/scroll-sidebar-listing

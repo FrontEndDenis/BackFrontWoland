@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+	dependencies = [
+		('project_settings', '0001_initial'),
+	]
 
-    dependencies = [
-        ('project_settings', '0001_initial'),
-    ]
-
-    operations = [
-        migrations.AddField(
-            model_name='projectsettings',
-            name='text_body',
-            field=models.TextField(blank=True, null=True, verbose_name='Блок в body (внизу)'),
-        ),
-        migrations.AddField(
-            model_name='projectsettings',
-            name='text_head',
-            field=models.TextField(blank=True, null=True, verbose_name='Блок в head (внизу)'),
-        ),
-    ]
+	operations = [
+		migrations.AddField(
+			model_name='projectsettings',
+			name='text_body',
+			field=models.TextField(blank=True, null=True, verbose_name='Блок в body (внизу)'),
+		),
+		migrations.AddField(
+			model_name='projectsettings',
+			name='text_head',
+			field=models.TextField(blank=True, null=True, verbose_name='Блок в head (внизу)'),
+		),
+	]

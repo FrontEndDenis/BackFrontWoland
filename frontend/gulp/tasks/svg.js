@@ -1,11 +1,11 @@
 const svgSprite = require('gulp-svg-sprite'),
-      svgmin = require('gulp-svgmin'),
-      cheerio = require('gulp-cheerio'),
-      replace = require('gulp-replace'),
-      svgPath = {
-          "input": "./frontend/static/images/svg/*.svg",
-          "output": "./static/images/svg/"
-      };
+    svgmin = require('gulp-svgmin'),
+    cheerio = require('gulp-cheerio'),
+    replace = require('gulp-replace'),
+    svgPath = {
+        "input": "./frontend/static/images/svg/*.svg",
+        "output": "./static/images/svg/"
+    };
 
 module.exports = function () {
     $.gulp.task('svg', () => {

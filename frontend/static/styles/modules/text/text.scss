@@ -1,47 +1,84 @@
 .txt {
-	&--bld48, &--bld40, &--bld36, &--bld32, &--bld24, &--bld20, &--bld18, &--smbld18, &--mdm18, &--rgl18 {
-		line-height: 125%;
-	}
-	&--smbld12, &--mdm12, &--rgl12 {
-		line-height: 135%;
-	}
-	&--bld48, &--bld40, &--bld36, &--bld32, &--bld24, &--bld20, &--bld18 {
-		font-weight: 700;
-	}
-	&--smbld18, &--smbld16, &--smbld14, &--smbld12 {
-		font-weight: 600;
-	}
-	&--mdm18, &--mdm16, &--mdm14, &--mdm12 {
-		font-weight: 500;
-	}
-	&--bld48 {font-size: 48px}
-	&--bld40 {font-size: 40px}
-	&--bld36 {font-size: 36px}
-	&--bld32 {font-size: 32px}
-	&--bld24 {font-size: 24px}
-	&--bld24 {font-size: 24px}
-	&--bld20 {font-size: 20px}
-	&--bld18, &--smbld18, &--mdm18, &--rgl18 {font-size: 18px}
-	&--smbld14, &--mdm14, &--rgl14 {
-		font-size: 14px;
-	}
-	&--smbld12, &--mdm12, &--rgl12 {font-size: 12px}
-	&--clr1 {
-		display: inline;
-		color: $accent-main;
-		&:hover {
-			color: $accent-main2;
-			text-decoration: underline;
-		}
-		&:active {
-			color: $accent-main;
-			text-decoration: none;
-		}
-	}
+  &--bld48, &--bld40, &--bld36, &--bld32, &--bld24, &--bld20, &--bld18, &--smbld18, &--mdm18, &--rgl18 {
+    line-height: 125%;
+  }
+
+  &--smbld12, &--mdm12, &--rgl12 {
+    line-height: 135%;
+  }
+
+  &--bld48, &--bld40, &--bld36, &--bld32, &--bld24, &--bld20, &--bld18 {
+    font-weight: 700;
+  }
+
+  &--smbld18, &--smbld16, &--smbld14, &--smbld12 {
+    font-weight: 600;
+  }
+
+  &--mdm18, &--mdm16, &--mdm14, &--mdm12 {
+    font-weight: 500;
+  }
+
+  &--bld48 {
+    font-size: 48px
+  }
+
+  &--bld40 {
+    font-size: 40px
+  }
+
+  &--bld36 {
+    font-size: 36px
+  }
+
+  &--bld32 {
+    font-size: 32px
+  }
+
+  &--bld24 {
+    font-size: 24px
+  }
+
+  &--bld24 {
+    font-size: 24px
+  }
+
+  &--bld20 {
+    font-size: 20px
+  }
+
+  &--bld18, &--smbld18, &--mdm18, &--rgl18 {
+    font-size: 18px
+  }
+
+  &--smbld14, &--mdm14, &--rgl14 {
+    font-size: 14px;
+  }
+
+  &--smbld12, &--mdm12, &--rgl12 {
+    font-size: 12px
+  }
+
+  &--clr1 {
+    display: inline;
+    color: $accent-main;
+
+    &:hover {
+      color: $accent-main2;
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: $accent-main;
+      text-decoration: none;
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {
-	.txt {
-		&--bld40 {font-size: 24px;}
-	}
+  .txt {
+    &--bld40 {
+      font-size: 24px;
+    }
+  }
 }

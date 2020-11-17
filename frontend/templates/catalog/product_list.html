@@ -1,50 +1,50 @@
 {% extends "catalog.html" %}
 {% load catalog_tags %}
 {% block meta_description %}
-  {% if text_block_url.keywords_description %}
-    {{ text_block_url.keywords_description|my_safe:current_filial }}
-  {% comment %} {% elif current_menu.keywords_description %}
+    {% if text_block_url.keywords_description %}
+        {{ text_block_url.keywords_description|my_safe:current_filial }}
+        {% comment %} {% elif current_menu.keywords_description %}
     {{ current_menu.keywords_description|my_safe:current_filial }} {% endcomment %}
-  {% elif product_list_meta_description %}
-    {{ product_list_meta_description }}
-  {% else %}
-    Купить {{ str_filter_name }} в {{ current_filial.name_info }}
-  {% endif %}
+    {% elif product_list_meta_description %}
+        {{ product_list_meta_description }}
+    {% else %}
+        Купить {{ str_filter_name }} в {{ current_filial.name_info }}
+    {% endif %}
 {% endblock %}
 {% block meta_keywords %}
-  {% if text_block_url.keywords %}
-    {{ text_block_url.keywords|my_safe:current_filial }}
-  {% comment %} {% elif current_menu.keywords %}
+    {% if text_block_url.keywords %}
+        {{ text_block_url.keywords|my_safe:current_filial }}
+        {% comment %} {% elif current_menu.keywords %}
     {{ current_menu.keywords|my_safe:current_filial }} {% endcomment %}
-  {% elif product_list_meta_keywords %}
-    {{ product_list_meta_keywords }}
-  {% else %}
-    {{ str_filter_name }}
-  {% endif %}
+    {% elif product_list_meta_keywords %}
+        {{ product_list_meta_keywords }}
+    {% else %}
+        {{ str_filter_name }}
+    {% endif %}
 {% endblock %}
 {% block title_page %}
     {% if text_block_url.title_main %}
-      {{ text_block_url.title_main|my_safe:current_filial }}
-    {% comment %} {% elif current_menu.title_main %}
+        {{ text_block_url.title_main|my_safe:current_filial }}
+        {% comment %} {% elif current_menu.title_main %}
       {{ current_menu.title_main|my_safe:current_filial }} {% endcomment %}
     {% elif product_list_title_page %}
-      {{ product_list_title_page }}
+        {{ product_list_title_page }}
     {% else %}
-      {{ str_filter_name }}
+        {{ str_filter_name }}
     {% endif %}
 {% endblock %}
-{% block content %}   
+{% block content %}
     {% include 'element/breadcrumb.html' %}
     <section class="s-product-list">
         <div class="container-xl">
             <div class="row product-list">
                 <div class="col-12">
                     <h1 class="product-list__s-title txt--rgl30">
-                      {% if text_block_url.h1 %}
-                        {{ text_block_url.h1 }}
-                      {% else %}
-                        {{ str_filter_name }}
-                      {% endif %}    
+                        {% if text_block_url.h1 %}
+                            {{ text_block_url.h1 }}
+                        {% else %}
+                            {{ str_filter_name }}
+                        {% endif %}
                     </h1>
                 </div>
                 <div class="col-12">
@@ -55,305 +55,380 @@
                         <div class="col-lg-9 col-md-8">
                             <div class="row">
                                 <div class="col-12 product-list__filters">
-                                  <form id="filter_form" name="filter_form" method="post" action="">
-                                    <input type="hidden" name="menu_slug" value="{{ current_menu.slug }}">
-                                    <input type="hidden" name="filter_marka" id="filter_marka" value="{{ current_marka.slug }}">
-                                    <input type="hidden" name="filter_standart" id="filter_standart" value="{{ current_standart.slug }}">
-                                    <input type="hidden" name="filter_param_1" id="filter_param_1" value="{{ param_1 }}">
-                                    <input type="hidden" name="filter_param_2" id="filter_param_2" value="{{ param_2 }}">
-                                    <input type="hidden" name="filter_param_3" id="filter_param_3" value="{{ param_3 }}">
-                                    <input type="hidden" name="filter_param_4" id="filter_param_4" value="{{ param_4 }}">
-                                    <input type="hidden" name="filter_param_5" id="filter_param_5" value="{{ param_5 }}">
-                                    <input type="hidden" name="filter_param_6" id="filter_param_6" value="{{ param_6 }}">
-                                    <input type="hidden" name="filter_param_7" id="filter_param_7" value="{{ param_7 }}">
-                                    <input type="hidden" name="sort_type" id="sort_type" value="{{ sort_type }}">
-                                    {% csrf_token %}
-                                    <div class="filters">
-                                        <div class="filters__list">
-                                            {% if current_menu.label_param1 %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if param_1 %}{{ param_1_name }}{% else %}{{ current_menu.label_param1 }}{% endif %}{% if current_menu.ed_izm_param1 %}, {{ current_menu.ed_izm_param1 }}{% endif %}<span class="filters__value"></span>
+                                    <form id="filter_form" name="filter_form" method="post" action="">
+                                        <input type="hidden" name="menu_slug" value="{{ current_menu.slug }}">
+                                        <input type="hidden" name="filter_marka" id="filter_marka"
+                                               value="{{ current_marka.slug }}">
+                                        <input type="hidden" name="filter_standart" id="filter_standart"
+                                               value="{{ current_standart.slug }}">
+                                        <input type="hidden" name="filter_param_1" id="filter_param_1"
+                                               value="{{ param_1 }}">
+                                        <input type="hidden" name="filter_param_2" id="filter_param_2"
+                                               value="{{ param_2 }}">
+                                        <input type="hidden" name="filter_param_3" id="filter_param_3"
+                                               value="{{ param_3 }}">
+                                        <input type="hidden" name="filter_param_4" id="filter_param_4"
+                                               value="{{ param_4 }}">
+                                        <input type="hidden" name="filter_param_5" id="filter_param_5"
+                                               value="{{ param_5 }}">
+                                        <input type="hidden" name="filter_param_6" id="filter_param_6"
+                                               value="{{ param_6 }}">
+                                        <input type="hidden" name="filter_param_7" id="filter_param_7"
+                                               value="{{ param_7 }}">
+                                        <input type="hidden" name="sort_type" id="sort_type" value="{{ sort_type }}">
+                                        {% csrf_token %}
+                                        <div class="filters">
+                                            <div class="filters__list">
+                                                {% if current_menu.label_param1 %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if param_1 %}{{ param_1_name }}{% else %}
+                                                                    {{ current_menu.label_param1 }}{% endif %}
+                                                                        {% if current_menu.ed_izm_param1 %},
+                                                                            {{ current_menu.ed_izm_param1 }}{% endif %}<span
+                                                                    class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
                                                         </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in param_1_filter %}
-                                                                    {% if item.param_1 %}
-                                                                        <li onclick="document.getElementById('filter_param_1').value='{{ item.param_1_slug }}';get_filter_url();">
-                                                                            <label>
-                                                                                <a href="#"><span>{{ item.param_1 }}</span></a>
-                                                                            </label>
-                                                                        </li>
-                                                                    {% endif %}
-                                                                {% endfor %}
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in param_1_filter %}
+                                                                        {% if item.param_1 %}
+                                                                            <li onclick="document.getElementById('filter_param_1').value='{{ item.param_1_slug }}';get_filter_url();">
+                                                                                <label>
+                                                                                    <a href="#"><span>{{ item.param_1 }}</span></a>
+                                                                                </label>
+                                                                            </li>
+                                                                        {% endif %}
+                                                                    {% endfor %}
 
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_1').value='';get_filter_url();">Сбросить
-                                                                фильтр</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if current_menu.label_param2 %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if param_2 %}{{ param_2_name }}{% else %}{{ current_menu.label_param2 }}{% endif %}{% if current_menu.ed_izm_param2 %}, {{ current_menu.ed_izm_param2 }}{% endif %}<span class="filters__value"></span>
-                                                        </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in param_2_filter %}
-                                                                    {% if item.param_2 %}
-                                                                        <li onclick="document.getElementById('filter_param_2').value='{{ item.param_2_slug }}';get_filter_url();">
-                                                                            <label>
-                                                                                 <a href="#"><span>{{ item.param_2 }}</span></a>
-                                                                            </label>
-                                                                        </li>
-                                                                    {% endif %}
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_2').value='';get_filter_url();">Сбросить
-                                                                фильтр</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if current_menu.label_param3 %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if param_3 %}{{ param_3_name }}{% else %}{{ current_menu.label_param3 }}{% endif %}{% if current_menu.ed_izm_param3 %}, {{ current_menu.ed_izm_param3 }}{% endif %}<span class="filters__value"></span>
-                                                        </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in param_3_filter %}
-                                                                    <li onclick="document.getElementById('filter_param_3').value='{{ item.param_3_slug }}';get_filter_url();">
-                                                                        <label>
-                                                                            <a href="#"><span>{{ item.param_3 }}</span></a>
-                                                                        </label>
-                                                                    </li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_3').value='';get_filter_url();">Сбросить
-                                                                фильтр</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if current_menu.label_param4 %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if param_4 %}{{ param_4_name }}{% else %}{{ current_menu.label_param4 }}{% endif %}{% if current_menu.ed_izm_param4 %}, {{ current_menu.ed_izm_param4 }}{% endif %}<span class="filters__value"></span>
-                                                        </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in param_4_filter %}
-                                                                    <li onclick="document.getElementById('filter_param_4').value='{{ item.param_4_slug }}';get_filter_url();">
-                                                                        <label>
-                                                                            <a href="#"><span>{{ item.param_4 }}</span></a>
-                                                                        </label>
-                                                                    </li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_4').value='';get_filter_url();">Сбросить
-                                                                фильтр</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if current_menu.label_param5 %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if param_5 %}{{ param_5_name }}{% else %}{{ current_menu.label_param5 }}{% endif %}{% if current_menu.ed_izm_param5 %}, {{ current_menu.ed_izm_param5 }}{% endif %}<span class="filters__value"></span>
-                                                        </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in param_5_filter %}
-                                                                    <li onclick="document.getElementById('filter_param_5').value='{{ item.param_5_slug }}';get_filter_url();">
-                                                                        <label>
-                                                                            <a href="#"><span>{{ item.param_5 }}</span></a>
-                                                                        </label>
-                                                                    </li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_5').value='';get_filter_url();">Сбросить
-                                                                фильтр</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if current_menu.label_param6 %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if param_6 %}{{ param_6_name }}{% else %}{{ current_menu.label_param6 }}{% endif %}{% if current_menu.ed_izm_param6 %}, {{ current_menu.ed_izm_param6 }}{% endif %}<span class="filters__value"></span>
-                                                        </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in param_6_filter %}
-                                                                    <li onclick="document.getElementById('filter_param_6').value='{{ item.param_6_slug }}';get_filter_url();">
-                                                                        <label>
-                                                                            <a href="#"><span>{{ item.param_6 }}</span></a>
-                                                                        </label>
-                                                                    </li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_6').value='';get_filter_url();">Сбросить
-                                                                фильтр</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if current_menu.label_param7 %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if param_7 %}{{ param_7_name }}{% else %}{{ current_menu.label_param7 }}{% endif %}{% if current_menu.ed_izm_param7 %}, {{ current_menu.ed_izm_param7 }}{% endif %}<span class="filters__value"></span>
-                                                        </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in param_7_filter %}
-                                                                    <li onclick="document.getElementById('filter_param_7').value='{{ item.param_7_slug }}';get_filter_url();">
-                                                                        <label>
-                                                                            <a href="#"><span>{{ item.param_7 }}</span></a>
-                                                                        </label>
-                                                                    </li>
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_7').value='';get_filter_url();">Сбросить
-                                                                фильтр</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                             {% if not current_menu.is_hide_marka %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if current_marka %}{{ current_marka.name }}{% else %}Марка{% endif %}<span class="filters__value"></span>
-                                                        </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
-                                                        </div>
-                                                    </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in marka_filter %}
-                                                                    {% if item.marka__name %}
-                                                                        <li onclick="document.getElementById('filter_marka').value='{{ item.marka__slug }}';get_filter_url();">
-                                                                            <label>
-                                                                                <a href="#"><span>{{ item.marka__name }}</span></a>
-                                                                            </label>
-                                                                        </li>
-                                                                    {% endif %}
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_marka').value='';get_filter_url();">
-                                                              Сбросить фильтр
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_param_1').value='';get_filter_url();">
+                                                                    Сбросить
+                                                                    фильтр
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            {% endif %}
-                                            {% if not current_menu.is_hide_standart %}
-                                                <div class="filters__item">
-                                                    <div class="filters__wrap">
-                                                        <div class="filters__title">{% if current_standart %}{{ current_standart.name }}{% else %}ГОСТ{% endif %}<span class="filters__value"></span>
+                                                {% endif %}
+                                                {% if current_menu.label_param2 %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if param_2 %}{{ param_2_name }}{% else %}
+                                                                    {{ current_menu.label_param2 }}{% endif %}
+                                                                        {% if current_menu.ed_izm_param2 %},
+                                                                            {{ current_menu.ed_izm_param2 }}{% endif %}<span
+                                                                    class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
                                                         </div>
-                                                        <div class="filters__icon">
-                                                            <svg class="svg-sprite-icon icon-arrow">
-                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                                                </use>
-                                                            </svg>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in param_2_filter %}
+                                                                        {% if item.param_2 %}
+                                                                            <li onclick="document.getElementById('filter_param_2').value='{{ item.param_2_slug }}';get_filter_url();">
+                                                                                <label>
+                                                                                    <a href="#"><span>{{ item.param_2 }}</span></a>
+                                                                                </label>
+                                                                            </li>
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_param_2').value='';get_filter_url();">
+                                                                    Сбросить
+                                                                    фильтр
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="filters__panel">
-                                                        <div class="filters-panel">
-                                                            <ul class="filters-panel__list">
-                                                                {% for item in standart_filter %}
-                                                                    {% if item.standart__name %}
-                                                                        <li onclick="document.getElementById('filter_standart').value='{{ item.standart__slug }}';get_filter_url();">
+                                                {% endif %}
+                                                {% if current_menu.label_param3 %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if param_3 %}{{ param_3_name }}{% else %}
+                                                                    {{ current_menu.label_param3 }}{% endif %}
+                                                                        {% if current_menu.ed_izm_param3 %},
+                                                                            {{ current_menu.ed_izm_param3 }}{% endif %}<span
+                                                                    class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in param_3_filter %}
+                                                                        <li onclick="document.getElementById('filter_param_3').value='{{ item.param_3_slug }}';get_filter_url();">
                                                                             <label>
-                                                                                <a href="#"><span>{{ item.standart__name }}</span></a>
+                                                                                <a href="#"><span>{{ item.param_3 }}</span></a>
                                                                             </label>
                                                                         </li>
-                                                                    {% endif %}
-                                                                {% endfor %}
-                                                            </ul>
-                                                            <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_standart').value='';get_filter_url();">
-                                                            Сбросить фильтр</div>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_param_3').value='';get_filter_url();">
+                                                                    Сбросить
+                                                                    фильтр
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            {% endif %}
+                                                {% endif %}
+                                                {% if current_menu.label_param4 %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if param_4 %}{{ param_4_name }}{% else %}
+                                                                    {{ current_menu.label_param4 }}{% endif %}
+                                                                        {% if current_menu.ed_izm_param4 %},
+                                                                            {{ current_menu.ed_izm_param4 }}{% endif %}<span
+                                                                    class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in param_4_filter %}
+                                                                        <li onclick="document.getElementById('filter_param_4').value='{{ item.param_4_slug }}';get_filter_url();">
+                                                                            <label>
+                                                                                <a href="#"><span>{{ item.param_4 }}</span></a>
+                                                                            </label>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_param_4').value='';get_filter_url();">
+                                                                    Сбросить
+                                                                    фильтр
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if current_menu.label_param5 %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if param_5 %}{{ param_5_name }}{% else %}
+                                                                    {{ current_menu.label_param5 }}{% endif %}
+                                                                        {% if current_menu.ed_izm_param5 %},
+                                                                            {{ current_menu.ed_izm_param5 }}{% endif %}<span
+                                                                    class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in param_5_filter %}
+                                                                        <li onclick="document.getElementById('filter_param_5').value='{{ item.param_5_slug }}';get_filter_url();">
+                                                                            <label>
+                                                                                <a href="#"><span>{{ item.param_5 }}</span></a>
+                                                                            </label>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_param_5').value='';get_filter_url();">
+                                                                    Сбросить
+                                                                    фильтр
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if current_menu.label_param6 %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if param_6 %}{{ param_6_name }}{% else %}
+                                                                    {{ current_menu.label_param6 }}{% endif %}
+                                                                        {% if current_menu.ed_izm_param6 %},
+                                                                            {{ current_menu.ed_izm_param6 }}{% endif %}<span
+                                                                    class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in param_6_filter %}
+                                                                        <li onclick="document.getElementById('filter_param_6').value='{{ item.param_6_slug }}';get_filter_url();">
+                                                                            <label>
+                                                                                <a href="#"><span>{{ item.param_6 }}</span></a>
+                                                                            </label>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_param_6').value='';get_filter_url();">
+                                                                    Сбросить
+                                                                    фильтр
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if current_menu.label_param7 %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if param_7 %}{{ param_7_name }}{% else %}
+                                                                    {{ current_menu.label_param7 }}{% endif %}
+                                                                        {% if current_menu.ed_izm_param7 %},
+                                                                            {{ current_menu.ed_izm_param7 }}{% endif %}<span
+                                                                    class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in param_7_filter %}
+                                                                        <li onclick="document.getElementById('filter_param_7').value='{{ item.param_7_slug }}';get_filter_url();">
+                                                                            <label>
+                                                                                <a href="#"><span>{{ item.param_7 }}</span></a>
+                                                                            </label>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_param_7').value='';get_filter_url();">
+                                                                    Сбросить
+                                                                    фильтр
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if not current_menu.is_hide_marka %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">
+                                                                {% if current_marka %}{{ current_marka.name }}{% else %}
+                                                                    Марка{% endif %}<span class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in marka_filter %}
+                                                                        {% if item.marka__name %}
+                                                                            <li onclick="document.getElementById('filter_marka').value='{{ item.marka__slug }}';get_filter_url();">
+                                                                                <label>
+                                                                                    <a href="#"><span>{{ item.marka__name }}</span></a>
+                                                                                </label>
+                                                                            </li>
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_marka').value='';get_filter_url();">
+                                                                    Сбросить фильтр
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                {% if not current_menu.is_hide_standart %}
+                                                    <div class="filters__item">
+                                                        <div class="filters__wrap">
+                                                            <div class="filters__title">{% if current_standart %}
+                                                                {{ current_standart.name }}{% else %}
+                                                                ГОСТ{% endif %}<span class="filters__value"></span>
+                                                            </div>
+                                                            <div class="filters__icon">
+                                                                <svg class="svg-sprite-icon icon-arrow">
+                                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                                    </use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="filters__panel">
+                                                            <div class="filters-panel">
+                                                                <ul class="filters-panel__list">
+                                                                    {% for item in standart_filter %}
+                                                                        {% if item.standart__name %}
+                                                                            <li onclick="document.getElementById('filter_standart').value='{{ item.standart__slug }}';get_filter_url();">
+                                                                                <label>
+                                                                                    <a href="#"><span>{{ item.standart__name }}</span></a>
+                                                                                </label>
+                                                                            </li>
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </ul>
+                                                                <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                                     onclick="document.getElementById('filter_standart').value='';get_filter_url();">
+                                                                    Сбросить фильтр
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="filters__buttons">
+                                                <a href={% url 'menu:menu' current_menu.slug %}>
+                                                    <div class="filters__clear btn btn--h40 btn--gray">Сбросить все
+                                                    </div>
+                                                </a>
+                                                {% comment %} <div class="filters__apply btn btn--h40">Применить</div> {% endcomment %}
+                                            </div>
                                         </div>
-                                        <div class="filters__buttons">
-                                            <a href={% url 'menu:menu' current_menu.slug %}><div class="filters__clear btn btn--h40 btn--gray">Сбросить все</div></a>
-                                            {% comment %} <div class="filters__apply btn btn--h40">Применить</div> {% endcomment %}
-                                        </div>
-                                    </div>
-                                  </form>
+                                    </form>
                                 </div>
                                 <div class="col-12 product-list__m-buttons">
                                     <div class="m-buttons">
                                         <div class="m-buttons__list">
                                             <div class="m-buttons__filters btn btn--h40" data-toggle="modal"
-                                                data-target="#modal11">Показать фильтр
+                                                 data-target="#modal11">Показать фильтр
                                                 <svg class="svg-sprite-icon icon-m-hamburger">
                                                     <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#m-hamburger"></use>
                                                 </svg>
@@ -364,16 +439,26 @@
                                 <div class="col-12 product-list__view">
                                     <div class="view d-flex align-items-center justify-content-between txt--ds3">
                                         <div class="view__sort sort">
-                                            <div class="sort__title d-flex align-items-center">{% if sort_type_str %}{{ sort_type_str }}{% else %}По популярности (возрастание){% endif %}
+                                            <div class="sort__title d-flex align-items-center">
+                                                {% if sort_type_str %}{{ sort_type_str }}{% else %}По популярности
+                                                    (возрастание){% endif %}
                                                 <svg class="svg-sprite-icon icon-arrow">
                                                     <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
                                                 </svg>
                                             </div>
                                             <ul class="sort__dropdown">
-                                                <li onclick="document.getElementById('sort_type').value='1';get_filter_url();">По имени (А-Я)</li>
-                                                <li onclick="document.getElementById('sort_type').value='2';get_filter_url();">По имени (Я-А)</li>
-                                                <li onclick="document.getElementById('sort_type').value='3';get_filter_url();">По цене (дешевые)</li>
-                                                <li onclick="document.getElementById('sort_type').value='4';get_filter_url();">По цене (дорогие)</li>
+                                                <li onclick="document.getElementById('sort_type').value='1';get_filter_url();">
+                                                    По имени (А-Я)
+                                                </li>
+                                                <li onclick="document.getElementById('sort_type').value='2';get_filter_url();">
+                                                    По имени (Я-А)
+                                                </li>
+                                                <li onclick="document.getElementById('sort_type').value='3';get_filter_url();">
+                                                    По цене (дешевые)
+                                                </li>
+                                                <li onclick="document.getElementById('sort_type').value='4';get_filter_url();">
+                                                    По цене (дорогие)
+                                                </li>
                                             </ul>
                                         </div>
                                         <ul class="view__display d-flex align-items-center">
@@ -404,46 +489,60 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="product-list__item">
                                                     <div class="spacial-offer-card{% if item.is_spec %} spacial{% endif %}">
-                                                        {% if item.is_spec %}<div class="spacial-badge">спецпредложение</div>{% endif %}
+                                                        {% if item.is_spec %}
+                                                            <div class="spacial-badge">спецпредложение</div>{% endif %}
                                                         <div class="spacial-offer-card__image"><img
-                                                                src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}"></div>
+                                                                src="{{ media_url }}{{ item.image }}"
+                                                                alt="{{ item.name }}"></div>
                                                         <div class="spacial-offer-card__offer-content">
                                                             <div class="spacial-offer-card__header">
                                                                 <div class="spacial-offer-card__top-line">
-                                                                    <div class="spacial-offer-card__article">Арт.{{ item.id }}</div>
+                                                                    <div class="spacial-offer-card__article">
+                                                                        Арт.{{ item.id }}</div>
                                                                     {% if item.available %}
-                                                                         <div class="product-card__presence presence">В наличии</div>
-                                                                    {% else %}<div class="spacial-offer-card__presence not-presence">Нет в
-                                                                        наличии</div>
+                                                                        <div class="product-card__presence presence">В
+                                                                            наличии
+                                                                        </div>
+                                                                    {% else %}
+                                                                        <div class="spacial-offer-card__presence not-presence">
+                                                                            Нет в
+                                                                            наличии
+                                                                        </div>
                                                                     {% endif %}
-                                                                    
-                                                                </div><a class="spacial-offer-card__title"
-                                                                    href="{% url 'menu:product' item.slug %}">{{ item.name }}</a>
+
+                                                                </div>
+                                                                <a class="spacial-offer-card__title"
+                                                                   href="{% url 'menu:product' item.slug %}">{{ item.name }}</a>
                                                             </div>
                                                             <div class="spacial-offer-card__bottom">
                                                                 <div class="spacial-offer-card__price">по запросу</div>
                                                                 <div class="spacial-offer-card__buttons">
                                                                     <div class="spacial-offer-card__learn-price btn"
-                                                                        data-toggle="modal" data-target="#modal"
-                                                                        title="Узнать цену" onclick="product_get_price({{ item.id }});">Узнать цену</div>
+                                                                         data-toggle="modal" data-target="#modal"
+                                                                         title="Узнать цену"
+                                                                         onclick="product_get_price({{ item.id }});">
+                                                                        Узнать цену
+                                                                    </div>
                                                                     <div class="spacial-offer-card__in-basket btn--wrap"
-                                                                        data-toggle="modal" data-target="#modal5"
-                                                                        title="Добавить в корзину" onclick="product_add_cart('{{ item.slug }}');">
+                                                                         data-toggle="modal" data-target="#modal5"
+                                                                         title="Добавить в корзину"
+                                                                         onclick="product_add_cart('{{ item.slug }}');">
                                                                         <div class="btn--basket">
                                                                             <svg class="svg-sprite-icon icon-basket">
                                                                                 <use
-                                                                                    xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#basket">
+                                                                                        xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#basket">
                                                                                 </use>
                                                                             </svg>
                                                                         </div>
                                                                     </div>
                                                                     <div class="spacial-offer-card__fast btn--wrap"
-                                                                        data-toggle="modal" data-target="#modal2"
-                                                                        title="Заказать в один клик" onclick="product_get_fast({{ item.id }});">
+                                                                         data-toggle="modal" data-target="#modal2"
+                                                                         title="Заказать в один клик"
+                                                                         onclick="product_get_fast({{ item.id }});">
                                                                         <div class="btn--faster">
                                                                             <svg class="svg-sprite-icon icon-learn-price">
                                                                                 <use
-                                                                                    xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price">
+                                                                                        xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price">
                                                                                 </use>
                                                                             </svg>
                                                                         </div>
@@ -458,54 +557,56 @@
                                     </div>
                                     {% comment %} <div class="product-list__dwnld download-content btn btn--h40 btn--gray">Загрузить ещё
                                     </div> {% endcomment %}
-                                    
+
 
 
 
                                     {% if product_list.paginator %}
-                                      <div class="product-list__nav nav-content">
-                                        <div class="p-navigator">
-                                          {% if product_list.has_previous %}
-                                            <a href="{{ current_filter_url }}{% if product_list.previous_page_number > 1 %}page/{{ product_list.previous_page_number }}/{% endif %}">
-                                              <div class="p-navigator__prev">
-                                                  <svg class="svg-sprite-icon icon-arrow">
-                                                      <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                                                  </svg>
-                                              </div>
-                                            </a>
-                                          {% endif %}
+                                        <div class="product-list__nav nav-content">
+                                            <div class="p-navigator">
+                                                {% if product_list.has_previous %}
+                                                    <a href="
+                                                            {{ current_filter_url }}{% if product_list.previous_page_number > 1 %}page/{{ product_list.previous_page_number }}/{% endif %}">
+                                                        <div class="p-navigator__prev">
+                                                            <svg class="svg-sprite-icon icon-arrow">
+                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                {% endif %}
 
-                                          <ul class="p-navigator__list">
-                                            {% for num in product_list.paginator.page_range %}
-                                              {% if num > paginator_min and num < paginator_max or forloop.counter == 1 or forloop.revcounter == 1 %}
-                                                {% if forloop.revcounter == 1 and paginator_max < forloop.counter %}
-                                                    <li><a>...</a></li>
+                                                <ul class="p-navigator__list">
+                                                    {% for num in product_list.paginator.page_range %}
+                                                        {% if num > paginator_min and num < paginator_max or forloop.counter == 1 or forloop.revcounter == 1 %}
+                                                            {% if forloop.revcounter == 1 and paginator_max < forloop.counter %}
+                                                                <li><a>...</a></li>
+                                                            {% endif %}
+                                                            {% ifequal num product_list.number %}
+                                                                <li class="active"><a href="#">{{ num }}</a></li>
+                                                            {% else %}
+                                                                <li><a href="
+                                                                        {{ current_filter_url }}{% if num > 1 %}page/{{ num }}/{% endif %}">{{ num }}</a>
+                                                                </li>
+                                                            {% endifequal %}
+                                                            {% if forloop.counter == 1 and paginator_min > 2 %}
+                                                                <li><a>...</a></li>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                                {% if product_list.has_next %}
+                                                    <a href="{{ current_filter_url }}page/{{ product_list.next_page_number }}/">
+                                                        <div class="p-navigator__next">
+                                                            <svg class="svg-sprite-icon icon-arrow">
+                                                                <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+                                                            </svg>
+                                                        </div>
+                                                    </a>
                                                 {% endif %}
-                                                {% ifequal num product_list.number %}
-                                                    <li class="active"><a href="#">{{ num }}</a></li>
-                                                {% else %}
-                                                    <li><a href="{{ current_filter_url }}{% if num > 1 %}page/{{ num }}/{% endif %}">{{ num }}</a></li>
-                                                {% endifequal %}
-                                                {% if forloop.counter == 1 and paginator_min > 2 %}
-                                                    <li><a>...</a></li>
-                                                {% endif %}
-                                              {% endif %}
-                                            {% endfor %}
-                                          </ul>
-                                          {% if product_list.has_next %}
-                                            <a href="{{ current_filter_url }}page/{{ product_list.next_page_number }}/">
-                                              <div class="p-navigator__next">
-                                                  <svg class="svg-sprite-icon icon-arrow">
-                                                      <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                                                  </svg>
-                                              </div>
-                                            </a>
-                                          {% endif %}
+                                            </div>
                                         </div>
-                                      </div>
                                     {% endif %}
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -513,13 +614,15 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
     {% include 'element/spec_block.html' %}
     <section class="s-text">
         <div class="container-xl">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="s-text__title txt--rgl24">{{ str_filter_name }} купить в {{ current_filial.name_info }}</h2>
+                    <h2 class="s-text__title txt--rgl24">{{ str_filter_name }} купить
+                        в {{ current_filial.name_info }}</h2>
                 </div>
                 <div class="col-12 s-text__text">
                     {{ product_list_description|safe }}
@@ -528,329 +631,388 @@
                 <div class="col-12 s-text__dwl-content">
                     {% comment %} <div class="btn btn--wdh180 btn--h40">Показать ещё</div>
                 </div> {% endcomment %}
-            </div>
-        </div>
-    </section>
-      <div class="modal-filters modal fade" id="modal11" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog--wdh320" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="modal-body__close" data-dismiss="modal" aria-label="close">Фильтр продукции
-                <svg class="svg-sprite-icon icon-close">
-                  <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
-                </svg>
-              </div>
-              <div class="modal-body__filters">
-                <div class="m-filters">
-                  <div class="filters">
-                    <div class="filters__list">
-
-
-                      {% if current_menu.label_param1 %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if param_1 %}{{ param_1_name }}{% else %}{{ current_menu.label_param1 }}{% endif %}{% if current_menu.ed_izm_param1 %}, {{ current_menu.ed_izm_param1 }}{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in param_1_filter %}
-                                              {% if item.param_1 %}
-                                                  <li onclick="document.getElementById('filter_param_1').value='{{ item.param_1_slug }}';get_filter_url();">
-                                                      <label>
-                                                          <a href="#"><span>{{ item.param_1 }}</span></a>
-                                                      </label>
-                                                  </li>
-                                              {% endif %}
-                                          {% endfor %}
-
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_1').value='';get_filter_url();">Сбросить
-                                          фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                      {% if current_menu.label_param2 %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if param_2 %}{{ param_2_name }}{% else %}{{ current_menu.label_param2 }}{% endif %}{% if current_menu.ed_izm_param2 %}, {{ current_menu.ed_izm_param2 }}{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in param_2_filter %}
-                                              {% if item.param_2 %}
-                                                  <li onclick="document.getElementById('filter_param_2').value='{{ item.param_2_slug }}';get_filter_url();">
-                                                      <label>
-                                                            <a href="#"><span>{{ item.param_2 }}</span></a>
-                                                      </label>
-                                                  </li>
-                                              {% endif %}
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_2').value='';get_filter_url();">Сбросить
-                                          фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                      {% if current_menu.label_param3 %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if param_3 %}{{ param_3_name }}{% else %}{{ current_menu.label_param3 }}{% endif %}{% if current_menu.ed_izm_param3 %}, {{ current_menu.ed_izm_param3 }}{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in param_3_filter %}
-                                              <li onclick="document.getElementById('filter_param_3').value='{{ item.param_3_slug }}';get_filter_url();">
-                                                  <label>
-                                                      <a href="#"><span>{{ item.param_3 }}</span></a>
-                                                  </label>
-                                              </li>
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_3').value='';get_filter_url();">Сбросить
-                                          фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                      {% if current_menu.label_param4 %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if param_4 %}{{ param_4_name }}{% else %}{{ current_menu.label_param4 }}{% endif %}{% if current_menu.ed_izm_param4 %}, {{ current_menu.ed_izm_param4 }}{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in param_4_filter %}
-                                              <li onclick="document.getElementById('filter_param_4').value='{{ item.param_4_slug }}';get_filter_url();">
-                                                  <label>
-                                                      <a href="#"><span>{{ item.param_4 }}</span></a>
-                                                  </label>
-                                              </li>
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_4').value='';get_filter_url();">Сбросить
-                                          фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                      {% if current_menu.label_param5 %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if param_5 %}{{ param_5_name }}{% else %}{{ current_menu.label_param5 }}{% endif %}{% if current_menu.ed_izm_param5 %}, {{ current_menu.ed_izm_param5 }}{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in param_5_filter %}
-                                              <li onclick="document.getElementById('filter_param_5').value='{{ item.param_5_slug }}';get_filter_url();">
-                                                  <label>
-                                                      <a href="#"><span>{{ item.param_5 }}</span></a>
-                                                  </label>
-                                              </li>
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_5').value='';get_filter_url();">Сбросить
-                                          фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                      {% if current_menu.label_param6 %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if param_6 %}{{ param_6_name }}{% else %}{{ current_menu.label_param6 }}{% endif %}{% if current_menu.ed_izm_param6 %}, {{ current_menu.ed_izm_param6 }}{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in param_6_filter %}
-                                              <li onclick="document.getElementById('filter_param_6').value='{{ item.param_6_slug }}';get_filter_url();">
-                                                  <label>
-                                                      <a href="#"><span>{{ item.param_6 }}</span></a>
-                                                  </label>
-                                              </li>
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_6').value='';get_filter_url();">Сбросить
-                                          фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                      {% if current_menu.label_param7 %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if param_7 %}{{ param_7_name }}{% else %}{{ current_menu.label_param7 }}{% endif %}{% if current_menu.ed_izm_param7 %}, {{ current_menu.ed_izm_param7 }}{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in param_7_filter %}
-                                              <li onclick="document.getElementById('filter_param_7').value='{{ item.param_7_slug }}';get_filter_url();">
-                                                  <label>
-                                                      <a href="#"><span>{{ item.param_7 }}</span></a>
-                                                  </label>
-                                              </li>
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_param_7').value='';get_filter_url();">Сбросить
-                                          фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                        {% if not current_menu.is_hide_marka %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if current_marka %}{{ current_marka.name }}{% else %}Марка{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in marka_filter %}
-                                              {% if item.marka__name %}
-                                                  <li onclick="document.getElementById('filter_marka').value='{{ item.marka__slug }}';get_filter_url();">
-                                                      <label>
-                                                          <a href="#"><span>{{ item.marka__name }}</span></a>
-                                                      </label>
-                                                  </li>
-                                              {% endif %}
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_marka').value='';get_filter_url();">
-                                        Сбросить фильтр
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-                      {% if not current_menu.is_hide_standart %}
-                          <div class="filters__item">
-                              <div class="filters__wrap">
-                                  <div class="filters__title">{% if current_standart %}{{ current_standart.name }}{% else %}ГОСТ{% endif %}<span class="filters__value"></span>
-                                  </div>
-                                  <div class="filters__icon">
-                                      <svg class="svg-sprite-icon icon-arrow">
-                                          <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
-                                          </use>
-                                      </svg>
-                                  </div>
-                              </div>
-                              <div class="filters__panel">
-                                  <div class="filters-panel">
-                                      <ul class="filters-panel__list">
-                                          {% for item in standart_filter %}
-                                              {% if item.standart__name %}
-                                                  <li onclick="document.getElementById('filter_standart').value='{{ item.standart__slug }}';get_filter_url();">
-                                                      <label>
-                                                          <a href="#"><span>{{ item.standart__name }}</span></a>
-                                                      </label>
-                                                  </li>
-                                              {% endif %}
-                                          {% endfor %}
-                                      </ul>
-                                      <div class="filters-panel__button btn btn--h40 btn--gray" onclick="document.getElementById('filter_standart').value='';get_filter_url();">
-                                      Сбросить фильтр</div>
-                                  </div>
-                              </div>
-                          </div>
-                      {% endif %}
-
-                      
-                    </div>
-                    <div class="filters__buttons">
-                      <a href={% url 'menu:menu' current_menu.slug %}><div class="filters__clear btn btn--h40 btn--gray">Сбросить все</div></a>
-                      {% comment %} <div class="filters__apply btn btn--h40">Применить</div> {% endcomment %}
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
+    </section>
+    <div class="modal-filters modal fade" id="modal11" tabindex="-1" role="dialog" aria-labelledby="modal"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog--wdh320" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-body__close" data-dismiss="modal" aria-label="close">Фильтр продукции
+                        <svg class="svg-sprite-icon icon-close">
+                            <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
+                        </svg>
+                    </div>
+                    <div class="modal-body__filters">
+                        <div class="m-filters">
+                            <div class="filters">
+                                <div class="filters__list">
+
+
+                                    {% if current_menu.label_param1 %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">{% if param_1 %}{{ param_1_name }}{% else %}
+                                                    {{ current_menu.label_param1 }}{% endif %}
+                                                        {% if current_menu.ed_izm_param1 %},
+                                                            {{ current_menu.ed_izm_param1 }}{% endif %}<span
+                                                        class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in param_1_filter %}
+                                                            {% if item.param_1 %}
+                                                                <li onclick="document.getElementById('filter_param_1').value='{{ item.param_1_slug }}';get_filter_url();">
+                                                                    <label>
+                                                                        <a href="#"><span>{{ item.param_1 }}</span></a>
+                                                                    </label>
+                                                                </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_param_1').value='';get_filter_url();">
+                                                        Сбросить
+                                                        фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if current_menu.label_param2 %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">{% if param_2 %}{{ param_2_name }}{% else %}
+                                                    {{ current_menu.label_param2 }}{% endif %}
+                                                        {% if current_menu.ed_izm_param2 %},
+                                                            {{ current_menu.ed_izm_param2 }}{% endif %}<span
+                                                        class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in param_2_filter %}
+                                                            {% if item.param_2 %}
+                                                                <li onclick="document.getElementById('filter_param_2').value='{{ item.param_2_slug }}';get_filter_url();">
+                                                                    <label>
+                                                                        <a href="#"><span>{{ item.param_2 }}</span></a>
+                                                                    </label>
+                                                                </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_param_2').value='';get_filter_url();">
+                                                        Сбросить
+                                                        фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if current_menu.label_param3 %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">{% if param_3 %}{{ param_3_name }}{% else %}
+                                                    {{ current_menu.label_param3 }}{% endif %}
+                                                        {% if current_menu.ed_izm_param3 %},
+                                                            {{ current_menu.ed_izm_param3 }}{% endif %}<span
+                                                        class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in param_3_filter %}
+                                                            <li onclick="document.getElementById('filter_param_3').value='{{ item.param_3_slug }}';get_filter_url();">
+                                                                <label>
+                                                                    <a href="#"><span>{{ item.param_3 }}</span></a>
+                                                                </label>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_param_3').value='';get_filter_url();">
+                                                        Сбросить
+                                                        фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if current_menu.label_param4 %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">{% if param_4 %}{{ param_4_name }}{% else %}
+                                                    {{ current_menu.label_param4 }}{% endif %}
+                                                        {% if current_menu.ed_izm_param4 %},
+                                                            {{ current_menu.ed_izm_param4 }}{% endif %}<span
+                                                        class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in param_4_filter %}
+                                                            <li onclick="document.getElementById('filter_param_4').value='{{ item.param_4_slug }}';get_filter_url();">
+                                                                <label>
+                                                                    <a href="#"><span>{{ item.param_4 }}</span></a>
+                                                                </label>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_param_4').value='';get_filter_url();">
+                                                        Сбросить
+                                                        фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if current_menu.label_param5 %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">{% if param_5 %}{{ param_5_name }}{% else %}
+                                                    {{ current_menu.label_param5 }}{% endif %}
+                                                        {% if current_menu.ed_izm_param5 %},
+                                                            {{ current_menu.ed_izm_param5 }}{% endif %}<span
+                                                        class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in param_5_filter %}
+                                                            <li onclick="document.getElementById('filter_param_5').value='{{ item.param_5_slug }}';get_filter_url();">
+                                                                <label>
+                                                                    <a href="#"><span>{{ item.param_5 }}</span></a>
+                                                                </label>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_param_5').value='';get_filter_url();">
+                                                        Сбросить
+                                                        фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if current_menu.label_param6 %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">{% if param_6 %}{{ param_6_name }}{% else %}
+                                                    {{ current_menu.label_param6 }}{% endif %}
+                                                        {% if current_menu.ed_izm_param6 %},
+                                                            {{ current_menu.ed_izm_param6 }}{% endif %}<span
+                                                        class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in param_6_filter %}
+                                                            <li onclick="document.getElementById('filter_param_6').value='{{ item.param_6_slug }}';get_filter_url();">
+                                                                <label>
+                                                                    <a href="#"><span>{{ item.param_6 }}</span></a>
+                                                                </label>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_param_6').value='';get_filter_url();">
+                                                        Сбросить
+                                                        фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if current_menu.label_param7 %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">{% if param_7 %}{{ param_7_name }}{% else %}
+                                                    {{ current_menu.label_param7 }}{% endif %}
+                                                        {% if current_menu.ed_izm_param7 %},
+                                                            {{ current_menu.ed_izm_param7 }}{% endif %}<span
+                                                        class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in param_7_filter %}
+                                                            <li onclick="document.getElementById('filter_param_7').value='{{ item.param_7_slug }}';get_filter_url();">
+                                                                <label>
+                                                                    <a href="#"><span>{{ item.param_7 }}</span></a>
+                                                                </label>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_param_7').value='';get_filter_url();">
+                                                        Сбросить
+                                                        фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if not current_menu.is_hide_marka %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">
+                                                    {% if current_marka %}{{ current_marka.name }}{% else %}
+                                                        Марка{% endif %}<span class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in marka_filter %}
+                                                            {% if item.marka__name %}
+                                                                <li onclick="document.getElementById('filter_marka').value='{{ item.marka__slug }}';get_filter_url();">
+                                                                    <label>
+                                                                        <a href="#"><span>{{ item.marka__name }}</span></a>
+                                                                    </label>
+                                                                </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_marka').value='';get_filter_url();">
+                                                        Сбросить фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if not current_menu.is_hide_standart %}
+                                        <div class="filters__item">
+                                            <div class="filters__wrap">
+                                                <div class="filters__title">
+                                                    {% if current_standart %}{{ current_standart.name }}{% else %}
+                                                        ГОСТ{% endif %}<span class="filters__value"></span>
+                                                </div>
+                                                <div class="filters__icon">
+                                                    <svg class="svg-sprite-icon icon-arrow">
+                                                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow">
+                                                        </use>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="filters__panel">
+                                                <div class="filters-panel">
+                                                    <ul class="filters-panel__list">
+                                                        {% for item in standart_filter %}
+                                                            {% if item.standart__name %}
+                                                                <li onclick="document.getElementById('filter_standart').value='{{ item.standart__slug }}';get_filter_url();">
+                                                                    <label>
+                                                                        <a href="#"><span>{{ item.standart__name }}</span></a>
+                                                                    </label>
+                                                                </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                    <div class="filters-panel__button btn btn--h40 btn--gray"
+                                                         onclick="document.getElementById('filter_standart').value='';get_filter_url();">
+                                                        Сбросить фильтр
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+
+                                </div>
+                                <div class="filters__buttons">
+                                    <a href={% url 'menu:menu' current_menu.slug %}>
+                                        <div class="filters__clear btn btn--h40 btn--gray">Сбросить все</div>
+                                    </a>
+                                    {% comment %} <div class="filters__apply btn btn--h40">Применить</div> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
     </div>
 
-  <script type="text/javascript" language="javascript">
-    function get_filter_url() {
-        formData = new FormData($(filter_form).get(0));
-        $.ajax({
-          url: "{% url 'menu:get_filter_url' %}",
-          type: 'POST',
-          contentType: false, 
-          processData: false, 
-          data: formData,
-          dataType: 'json',
-          success: function(data) {
-              location.href = data['url'];
-          },
-          error:  function(xhr, str){
-              alert('Возникла ошибка: ' + xhr.responseCode);
-          }
-        });
-    }
+    <script type="text/javascript" language="javascript">
+        function get_filter_url() {
+            formData = new FormData($(filter_form).get(0));
+            $.ajax({
+                url: "{% url 'menu:get_filter_url' %}",
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: formData,
+                dataType: 'json',
+                success: function (data) {
+                    location.href = data['url'];
+                },
+                error: function (xhr, str) {
+                    alert('Возникла ошибка: ' + xhr.responseCode);
+                }
+            });
+        }
     </script>
 
 {% endblock %}

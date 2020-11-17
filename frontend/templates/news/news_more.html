@@ -10,10 +10,11 @@
                 <div class="news-card__hidden">
                     <div class="news-card__text">{{ item.description|safe }}</div>
                     <a class="news-card__button btn btn--h40 btn--gray"
-                        href="{% url 'news:detail' item.slug %}">читать далее
+                       href="{% url 'news:detail' item.slug %}">читать далее
                         <svg class="svg-sprite-icon icon-arrow">
                             <use xlink:href="static/images/svg/symbol/sprite.svg#arrow"></use>
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>

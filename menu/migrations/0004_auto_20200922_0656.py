@@ -4,15 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0003_auto_20200922_0654'),
-    ]
-
-    operations = [
-        migrations.AlterField(
-            model_name='menucatalog',
-            name='text_service',
-            field=models.CharField(blank=True, default='', max_length=255, null=True, verbose_name='Текст для карточки услуги'),
-        ),
-    ]
+	dependencies = [
+		('menu', '0003_auto_20200922_0654'),
+	]
+	
+	operations = [
+		migrations.AlterField(
+			model_name='menucatalog',
+			name='text_service',
+			field=models.CharField(blank=True, default='', max_length=255, null=True,
+								   verbose_name='Текст для карточки услуги'),
+		),
+	]

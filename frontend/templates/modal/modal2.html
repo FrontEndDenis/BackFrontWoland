@@ -9,7 +9,8 @@
                 </div>
                 <div class="modal-body__title">Закажите товар в один клик</div>
                 <div class="modal-body__modal-forms">
-                    <form class="needs-validation" id="click_mod" action="javascript:void(0);" onsubmit="fast_order_product();">
+                    <form class="needs-validation" id="click_mod" action="javascript:void(0);"
+                          onsubmit="fast_order_product();">
                         {% csrf_token %}
                         <input type="hidden" id="fast_order_product_id" value="">
                         <input type="hidden" name="comment" id="fast_order_product_name" value="">
@@ -17,22 +18,27 @@
                         <div class="modal-forms">
                             <div class="modal-forms__item form-group">
                                 <label class="modal-forms__label" for="modal-field-3">Ваше имя</label>
-                                <input class="modal-forms__field" id="modal-field-3" type="text" maxlength="50" placeholder="Имя" name="name" required>
+                                <input class="modal-forms__field" id="modal-field-3" type="text" maxlength="50"
+                                       placeholder="Имя" name="name" required>
                             </div>
                             <div class="modal-forms__item form-group">
                                 <label class="modal-forms__label" for="modal-field-4">Ваш телефон
                                     <div class="required">*</div>
                                 </label>
                                 <input class="modal-forms__field form-control" id="modal-field-4" type="tel"
-                                    placeholder="+7(___)___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" minlength="16"
-                                    inputmode="numeric" name="phone" required>
+                                       placeholder="+7(___)___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}"
+                                       minlength="16"
+                                       inputmode="numeric" name="phone" required>
                             </div>
-                            <button class="modal-forms__button btn" type="submit" id="click_mod_submit">Отправить</button>
+                            <button class="modal-forms__button btn" type="submit" id="click_mod_submit">Отправить
+                            </button>
                         </div>
                     </form>
                 </div>
-                <div class="modal-body__policy">Нажимая кнопку отправить, вы соглашаетесь с <a class="txt--clr1" href="{% url 'menu:policy' %}"
-                        target="_blank">политикой обработки персональных данных</a></div>
+                <div class="modal-body__policy">Нажимая кнопку отправить, вы соглашаетесь с <a class="txt--clr1"
+                                                                                               href="{% url 'menu:policy' %}"
+                                                                                               target="_blank">политикой
+                    обработки персональных данных</a></div>
             </div>
 
         </div>
@@ -40,39 +46,40 @@
 </div>
 
 <script>
-    function product_get_fast(product_id)
-    {
-		$.ajax({
-			type: 'GET',
-			url: "/product_get_fast/" + product_id,
-			success: function (data) {
+    function product_get_fast(product_id) {
+        $.ajax({
+            type: 'GET',
+            url: "/product_get_fast/" + product_id,
+            success: function (data) {
                 document.getElementById('fast_order_product_name').value = data['name'];
                 document.getElementById('fast_order_product_id').value = data['id'];
-			},
-			error: function () {
-				console.log("Возникла неизвестная ошибка product_get_fast");
-			}
-		});
+            },
+            error: function () {
+                console.log("Возникла неизвестная ошибка product_get_fast");
+            }
+        });
     }
-    function fast_order_product()
-    {
+
+    function fast_order_product() {
         form_data = new FormData($(click_mod).get(0));
         product_id = document.getElementById('fast_order_product_id').value;
 
-		$.ajax({
-			type: 'POST',
+        $.ajax({
+            type: 'POST',
             data: form_data,
-            contentType: false, 
+            contentType: false,
             processData: false,
-			url: "/product_get_fast/" + product_id,
-			success: function (data) {
+            url: "/product_get_fast/" + product_id,
+            success: function (data) {
                 $('#fast-modal-close').click();
-                setTimeout(() => { $('#modal_thanks').click(); }, 500);
+                setTimeout(() => {
+                    $('#modal_thanks').click();
+                }, 500);
                 {% comment %} location.href="{% url 'checkout:receipt' %}"; {% endcomment %}
-			},
-			error: function () {
-				console.log("Возникла неизвестная ошибка product_get_add");
-			}
-		});
+            },
+            error: function () {
+                console.log("Возникла неизвестная ошибка product_get_add");
+            }
+        });
     }
 </script>

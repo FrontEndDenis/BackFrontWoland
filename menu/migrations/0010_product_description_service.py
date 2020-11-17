@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0009_auto_20200928_0523'),
-    ]
-
-    operations = [
-        migrations.AddField(
-            model_name='product',
-            name='description_service',
-            field=models.CharField(blank=True, max_length=256, null=True, verbose_name='Описание (услуга)'),
-        ),
-    ]
+	dependencies = [
+		('menu', '0009_auto_20200928_0523'),
+	]
+	
+	operations = [
+		migrations.AddField(
+			model_name='product',
+			name='description_service',
+			field=models.CharField(blank=True, max_length=256, null=True, verbose_name='Описание (услуга)'),
+		),
+	]

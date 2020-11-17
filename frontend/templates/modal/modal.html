@@ -11,7 +11,8 @@
                 <div class="modal-body__subtitle">Вы хотите узнать стоимость:</div>
                 <div class="modal-body__product-title" id="get_price_product_title"></div>
                 <div class="modal-body__modal-forms">
-                    <form class="needs-validation" id="click_mod_get_price" action="javascript:void(0);" onsubmit="get_price_product();">
+                    <form class="needs-validation" id="click_mod_get_price" action="javascript:void(0);"
+                          onsubmit="get_price_product();">
                         {% csrf_token %}
                         <input type="hidden" id="get_price_product_id" value="">
                         <input type="hidden" name="comment" id="get_price_product_name" value="">
@@ -20,62 +21,65 @@
                             <div class="modal-forms__item form-group">
                                 <label class="modal-forms__label" for="modal-field-1">Ваше имя</label>
                                 <input class="modal-forms__field" id="modal-field-1" type="text" maxlength="50"
-                                    placeholder="Имя" name="name" required>
+                                       placeholder="Имя" name="name" required>
                             </div>
                             <div class="modal-forms__item form-group">
                                 <label class="modal-forms__label" for="modal-field-2">Ваш телефон
                                     <div class="required">*</div>
                                 </label>
                                 <input class="modal-forms__field form-control" id="modal-field-2" type="tel"
-                                    placeholder="+7(___)___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}"
-                                    minlength="16" inputmode="numeric" name="phone" required>
+                                       placeholder="+7(___)___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}"
+                                       minlength="16" inputmode="numeric" name="phone" required>
                             </div>
                             <button class="modal-forms__button btn" type="submit">Узнать цену</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-body__policy">Нажимая кнопку узнать цену, вы соглашаетесь с <a class="txt--clr1"
-                        href="{% url 'menu:policy' %}" target="_blank">политикой обработки персональных данных</a></div>
+                                                                                                 href="{% url 'menu:policy' %}"
+                                                                                                 target="_blank">политикой
+                    обработки персональных данных</a></div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    function product_get_price(product_id)
-    {
-		$.ajax({
-			type: 'GET',
-			url: "/product_get_price/" + product_id,
-			success: function (data) {
+    function product_get_price(product_id) {
+        $.ajax({
+            type: 'GET',
+            url: "/product_get_price/" + product_id,
+            success: function (data) {
                 document.getElementById('get_price_product_title').innerText = data['name'];
                 document.getElementById('get_price_product_name').value = data['name'];
                 document.getElementById('get_price_product_id').value = data['id'];
-			},
-			error: function () {
-				console.log("Возникла неизвестная ошибка product_get_fast");
-			}
-		});
+            },
+            error: function () {
+                console.log("Возникла неизвестная ошибка product_get_fast");
+            }
+        });
     }
-    function get_price_product()
-    {
+
+    function get_price_product() {
         form_data = new FormData($(click_mod_get_price).get(0));
         product_id = document.getElementById('get_price_product_id').value;
 
-		$.ajax({
-			type: 'POST',
+        $.ajax({
+            type: 'POST',
             data: form_data,
-            contentType: false, 
+            contentType: false,
             processData: false,
-			url: "/product_get_price/" + product_id,
-			success: function (data) {
+            url: "/product_get_price/" + product_id,
+            success: function (data) {
                 $('#get_price_modal_close').click();
-                setTimeout(() => { $('#modal_thanks').click(); }, 500);
+                setTimeout(() => {
+                    $('#modal_thanks').click();
+                }, 500);
                 {% comment %} location.href="{% url 'checkout:receipt' %}"; {% endcomment %}
-			},
-			error: function () {
-				console.log("Возникла неизвестная ошибка product_get_add");
-			}
-		});
+            },
+            error: function () {
+                console.log("Возникла неизвестная ошибка product_get_add");
+            }
+        });
     }
 </script>

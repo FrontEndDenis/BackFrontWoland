@@ -1,47 +1,69 @@
 .s-main-answers {
-	&__text {margin: 20px 0px 26px;}
-	&__item {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 22px 0px;
-		border-bottom: 2px solid rgba($color: $ui-dark-gray, $alpha: .1);
-		font-size: 24px;
-		font-weight: 700;
-		line-height: 125%;
-		svg {
-			flex-shrink: 0;
-			width: 22px;
-			height: 22px;
-			margin-left: 12px;
-			fill: $txt-black;
-		}
-		&:hover {
-			color: $accent-main2;
-			svg {fill: $accent-main2;}
-		}
-		&:active {
-			color: $accent-main3;
-			svg {fill: $accent-main3;}
-		}
-	}
+  &__text {
+    margin: 20px 0px 26px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0px;
+    border-bottom: 2px solid rgba($color: $ui-dark-gray, $alpha: .1);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 125%;
+
+    svg {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-left: 12px;
+      fill: $txt-black;
+    }
+
+    &:hover {
+      color: $accent-main2;
+
+      svg {
+        fill: $accent-main2;
+      }
+    }
+
+    &:active {
+      color: $accent-main3;
+
+      svg {
+        fill: $accent-main3;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {
-	.s-main-answers {
-		&__text {margin: 20px 0px 12px;}
-		&__item {
-			padding: 12px 0px;
-			border-bottom-width: 1px;
-			font-size: 16px;
-			font-weight: 600;
-			line-height: 150%;
-			svg {
-				width: 15px;
-				height: 15px;
-			}
-		}
-		.txt--bld40 {font-size: 24px;}
-		.txt--rgl18 {font-size: 16px;}
-	}
+  .s-main-answers {
+    &__text {
+      margin: 20px 0px 12px;
+    }
+
+    &__item {
+      padding: 12px 0px;
+      border-bottom-width: 1px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 150%;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    .txt--bld40 {
+      font-size: 24px;
+    }
+
+    .txt--rgl18 {
+      font-size: 16px;
+    }
+  }
 }

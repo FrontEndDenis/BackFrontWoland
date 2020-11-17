@@ -1,6 +1,9 @@
 .tabs-content {
-    &__item {
-        display: none;
-        &.is-active { display: block; }
+  &__item {
+    display: none;
+
+    &.is-active {
+      display: block;
     }
+  }
 }

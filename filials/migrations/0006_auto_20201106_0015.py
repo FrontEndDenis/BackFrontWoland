@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('filials', '0005_filials_order_number'),
-    ]
-
-    operations = [
-        migrations.AlterField(
-            model_name='filials',
-            name='geo',
-            field=models.TextField(blank=True, null=True, verbose_name='Код карты'),
-        ),
-    ]
+	dependencies = [
+		('filials', '0005_filials_order_number'),
+	]
+	
+	operations = [
+		migrations.AlterField(
+			model_name='filials',
+			name='geo',
+			field=models.TextField(blank=True, null=True, verbose_name='Код карты'),
+		),
+	]

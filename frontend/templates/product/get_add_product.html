@@ -8,11 +8,13 @@
     <div class="modal-body__card">
         <div class="product-card modal-card">
             <div class="product-card__left">
-                <div class="product-card__image"><img src="{{ media_url }}{{ product.image }}" alt="{{ product.name }}"></div>
+                <div class="product-card__image"><img src="{{ media_url }}{{ product.image }}" alt="{{ product.name }}">
+                </div>
                 <div class="product-card__content">
                     <div class="product-card__top-line">
                         <div class="product-card__article">Арт. {{ product.id }}</div>
-                    </div><a class="product-card__title" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                    </div>
+                    <a class="product-card__title" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
                 </div>
             </div>
             <div class="product-card__right">
@@ -21,7 +23,8 @@
         </div>
     </div>
     <div class="modal-body__buttons d-flex flex-column flex-sm-row"><a class="modal-body__basket btn btn--wdh224"
-            href="{% url 'checkout:cart' %}">Оформить заказ</a>
+                                                                       href="{% url 'checkout:cart' %}">Оформить
+        заказ</a>
         <div class="btn btn--wdh224 btn--gray" data-dismiss="modal" aria-label="close">Продолжить</div>
     </div>
 </div>

@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
-    dependencies = [
-        ('menu', '0013_auto_20200929_2250'),
-    ]
-
-    operations = [
-        migrations.AddField(
-            model_name='product',
-            name='is_manufacture',
-            field=models.BooleanField(default=False, verbose_name='Производство'),
-        ),
-    ]
+	dependencies = [
+		('menu', '0013_auto_20200929_2250'),
+	]
+	
+	operations = [
+		migrations.AddField(
+			model_name='product',
+			name='is_manufacture',
+			field=models.BooleanField(default=False, verbose_name='Производство'),
+		),
+	]

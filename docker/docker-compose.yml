@@ -6,19 +6,19 @@ services:
       context: ../
       dockerfile: docker/app/Dockerfile
     volumes:
-    - ../:/app
-#  mariadb:
-#    user: me
-#    build:
-#      context: ../
-#      dockerfile: docker/mariadb/Dockerfile
-#    ports:
-#    - 13306:3306
-#    environment:
-#      MYSQL_RANDOM_ROOT_PASSWORD: 1
-#      MYSQL_USER: woland
-#      MYSQL_PASSWORD: woland
-#      MYSQL_DATABASE: woland
+      - ../:/app
+  #  mariadb:
+  #    user: me
+  #    build:
+  #      context: ../
+  #      dockerfile: docker/mariadb/Dockerfile
+  #    ports:
+  #    - 13306:3306
+  #    environment:
+  #      MYSQL_RANDOM_ROOT_PASSWORD: 1
+  #      MYSQL_USER: woland
+  #      MYSQL_PASSWORD: woland
+  #      MYSQL_DATABASE: woland
   nginx:
     build:
       context: ../

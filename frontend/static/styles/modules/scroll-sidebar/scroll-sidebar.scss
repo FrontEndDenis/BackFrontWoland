@@ -1,111 +1,149 @@
 .scroll-sidebar {
-	position: sticky;
-	top: 165px;
-	width: 100%;
-	margin-bottom: 120px;
-	padding: 32px 24px;
-	background: $ui-lgh-gray;
-	color: $txt-black90;
-	border-radius: 20px;
-	transition: .3s linear;
-	&__left {
-		display: none;
-		margin-bottom: 24px;
-		border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
-	}
-	&__title {
-		margin-bottom: 16px;
-		color: $txt-black;
-		font-size: 24px;
-		font-weight: 700;
-		line-height: 125%;
-	}
-	&__text {
-		margin-bottom: 24px;
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 150%;
-	}
-	&__title-list {
-		margin-bottom: 16px;
-		font-size: 16px;
-		font-weight: 700;
-		line-height: 125%;
-	}
-	ul:not([class]) {
-		margin-bottom: 24px;
-		font-size: 14px;
-		font-weight: 500;
-		li {
-			&::after {
-				top: 8px;
-				transform: translateY(0);
-			}
-		}
-		span {
-			&:first-child {
-				margin-right: 4px;
-				color: $txt-gray;
-			}
-		}
-	}
-	&__form {
-		.form-group {
-			margin: 0px;
-			input {padding-right: 58px;}
-			button {
-				position: absolute;
-				top: 50%;
-				right: 9px;
-				transform: translateY(-50%);
-				svg {fill: $white;}
-			}
-			&:not(:last-child) {margin-bottom: 16px;}
-		}
-	}
-	&.hide-header {top: 24px;}
-	&.value {
-		.scroll-sidebar__left {display: block;}
-	}
+  position: sticky;
+  top: 165px;
+  width: 100%;
+  margin-bottom: 120px;
+  padding: 32px 24px;
+  background: $ui-lgh-gray;
+  color: $txt-black90;
+  border-radius: 20px;
+  transition: .3s linear;
+
+  &__left {
+    display: none;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    color: $txt-black;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 125%;
+  }
+
+  &__text {
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  &__title-list {
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 125%;
+  }
+
+  ul:not([class]) {
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+
+    li {
+      &::after {
+        top: 8px;
+        transform: translateY(0);
+      }
+    }
+
+    span {
+      &:first-child {
+        margin-right: 4px;
+        color: $txt-gray;
+      }
+    }
+  }
+
+  &__form {
+    .form-group {
+      margin: 0px;
+
+      input {
+        padding-right: 58px;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        right: 9px;
+        transform: translateY(-50%);
+
+        svg {
+          fill: $white;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &.hide-header {
+    top: 24px;
+  }
+
+  &.value {
+    .scroll-sidebar__left {
+      display: block;
+    }
+  }
 }
 
 @media only screen and (max-width: 1199px) {
-	.scroll-sidebar {
-		display: flex;
-		position: relative;
-		top: 0px;
-		margin-bottom: 80px;
-		padding: 32px 40px;
-		border-radius: 25px;
-		&__left {
-			flex-direction: column;
-			justify-content: center;
-			max-width: 246px;
-			margin-right: 24px;
-			margin-bottom: 0px;
-			border-bottom: none;
-			border-right: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
-		}
-		&__right {width: 100%;}
-		&.hide-header {top: 0px;}
-		&.value {display: flex;}
-	}
+  .scroll-sidebar {
+    display: flex;
+    position: relative;
+    top: 0px;
+    margin-bottom: 80px;
+    padding: 32px 40px;
+    border-radius: 25px;
+
+    &__left {
+      flex-direction: column;
+      justify-content: center;
+      max-width: 246px;
+      margin-right: 24px;
+      margin-bottom: 0px;
+      border-bottom: none;
+      border-right: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
+    }
+
+    &__right {
+      width: 100%;
+    }
+
+    &.hide-header {
+      top: 0px;
+    }
+
+    &.value {
+      display: flex;
+    }
+  }
 }
 
 
 @media only screen and (max-width: 767px) {
-	.scroll-sidebar {
-		display: block;
-		margin-bottom: 60px;
-		padding: 32px 24px;
-		border-radius: 20px;
-		&__left {
-			max-width: 100%;
-			margin-right: 0px;
-			margin-bottom: 24px;
-			border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
-			border-right: none;
-		}
-		&.value {display: block;}
-	}
+  .scroll-sidebar {
+    display: block;
+    margin-bottom: 60px;
+    padding: 32px 24px;
+    border-radius: 20px;
+
+    &__left {
+      max-width: 100%;
+      margin-right: 0px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
+      border-right: none;
+    }
+
+    &.value {
+      display: block;
+    }
+  }
 }
