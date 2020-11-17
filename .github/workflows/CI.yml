@@ -5,33 +5,37 @@ on:
     branches:
       - master
 jobs:
-  push:
+  build_app:
     runs-on: self-hosted
     if: github.event_name == 'push'
-
     steps:
-    - id: container_name
-      uses: ASzc/change-string-case-action@v1
-      with:
-        string: ${{ github.repository }}
-    - uses: actions/checkout@v2
-    - name: Dockerize app
-      uses: whoan/docker-build-with-cache-action@v5
-      with:
-        image_name: ${{ steps.container_name.outputs.lowercase }}-app
-        username: none
-        password: none
-        registry: registry.roiburo.ru
-        context: .
-        dockerfile: docker/app/Dockerfile
-    - name: Dockerize nginx
-      uses: whoan/docker-build-with-cache-action@v5
-      with:
-        image_name: ${{ steps.container_name.outputs.lowercase }}-nginx
-        username: none
-        password: none
-        registry: registry.roiburo.ru
-        context: .
-        dockerfile: docker/nginx/Dockerfile
-    - name: Deploy
-      run: ansible-playbook -i /etc/ansible/hosts-dev .deploy/dev.yml
+      - name: Dockerize app
+        uses: whoan/docker-build-with-cache-action@v5
+        with:
+          image_name: roiburo-llc/woland-app
+          username: none
+          password: none
+          registry: registry.roiburo.ru
+          context: .
+          dockerfile: docker/app/Dockerfile
+  build_nginx:
+    runs-on: self-hosted
+    if: github.event_name == 'push'
+    steps:
+      - name: Dockerize nginx
+        uses: whoan/docker-build-with-cache-action@v5
+        with:
+          image_name: roiburo-llc/woland-nginx
+          username: none
+          password: none
+          registry: registry.roiburo.ru
+          context: .
+          dockerfile: docker/nginx/Dockerfile
+  deploy:
+    runs-on: self-hosted
+    if: github.event_name == 'push'
+    needs: [build_nginx, build_app]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy
+        run: ansible-playbook -i /etc/ansible/hosts-dev .deploy/dev.yml
