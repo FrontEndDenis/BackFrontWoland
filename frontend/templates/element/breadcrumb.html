@@ -1,47 +1,47 @@
 <div class="bread-crumbs">
-    <div class="container-xl">
-        <div class="row">
-            <div class="col-12">
-                <ul class="bread-crumbs__list d-flex">
-                    <li><a href="/" title="Главная">Главная<span></span></a></li>
-                    {% if news_item %}
-                        <li><a href={% url 'news:index' %}>Новости</a><span></span></li>
-                        <li>{{ news_item.name }}<span></span></li>
-                    {% elif news_list %}
-                        <li>Новости</li>
-                    {% elif current_menu.parent %}
-                        {% if current_menu.parent.parent.parent.parent %}
-                            <li>
-                                <a href="{% url 'menu:menu' current_menu.parent.parent.parent.parent.slug %}">{{ current_menu.parent.parent.parent.parent.name }}<span></span></a>
-                            </li>
-                        {% endif %}
-                        {% if current_menu.parent.parent.parent %}
-                            <li>
-                                <a href="{% url 'menu:menu' current_menu.parent.parent.parent.slug %}">{{ current_menu.parent.parent.parent.name }}<span></span></a>
-                            </li>
-                        {% endif %}
-                        {% if current_menu.parent.parent %}
-                            <li>
-                                <a href="{% url 'menu:menu' current_menu.parent.parent.slug %}">{{ current_menu.parent.parent.name }}<span></span></a>
-                            </li>
-                        {% endif %}
-                        <li>
-                            <a href="{% url 'menu:menu' current_menu.parent.slug %}">{{ current_menu.parent.name }}<span></span></a>
-                        </li>
-                        {% if product %}
-                            <li>
-                                <a href="{% url 'menu:menu' current_menu.slug %}">{{ current_menu.name }}<span></span></a>
-                            </li>
-                            <li>{{ product.name }}<span></span></li>
-                        {% else %}
-                            <li>{{ current_menu.name }}<span></span></li>
-                        {% endif %}
-                    {% else %}
-                        <li>{{ current_menu.name }}<span></span></li>
-                    {% endif %}
+	<div class="container-xl">
+		<div class="row">
+			<div class="col-12">
+				<ul class="bread-crumbs__list d-flex">
+					<li><a href="/" title="Главная">Главная<span></span></a></li>
+					{% if news_item %}
+						<li><a href={% url 'news:index' %}>Новости</a><span></span></li>
+						<li>{{ news_item.name }}<span></span></li>
+					{% elif news_list %}
+						<li>Новости</li>
+					{% elif current_menu.parent %}
+						{% if current_menu.parent.parent.parent.parent %}
+							<li>
+								<a href="{% url 'menu:menu' current_menu.parent.parent.parent.parent.slug %}">{{ current_menu.parent.parent.parent.parent.name }}<span></span></a>
+							</li>
+						{% endif %}
+						{% if current_menu.parent.parent.parent %}
+							<li>
+								<a href="{% url 'menu:menu' current_menu.parent.parent.parent.slug %}">{{ current_menu.parent.parent.parent.name }}<span></span></a>
+							</li>
+						{% endif %}
+						{% if current_menu.parent.parent %}
+							<li>
+								<a href="{% url 'menu:menu' current_menu.parent.parent.slug %}">{{ current_menu.parent.parent.name }}<span></span></a>
+							</li>
+						{% endif %}
+						<li>
+							<a href="{% url 'menu:menu' current_menu.parent.slug %}">{{ current_menu.parent.name }}<span></span></a>
+						</li>
+						{% if product %}
+							<li>
+								<a href="{% url 'menu:menu' current_menu.slug %}">{{ current_menu.name }}<span></span></a>
+							</li>
+							<li>{{ product.name }}<span></span></li>
+						{% else %}
+							<li>{{ current_menu.name }}<span></span></li>
+						{% endif %}
+					{% else %}
+						<li>{{ current_menu.name }}<span></span></li>
+					{% endif %}
 
-                </ul>
-            </div>
-        </div>
-    </div>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>

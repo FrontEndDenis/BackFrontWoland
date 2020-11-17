@@ -1,23 +1,23 @@
 section.s-all-feedback
-    .container-xxl
-        .s-all-feedback__content
-            .row
-                .offset-md-1.col-md-11
-                    .s-all-feedback__wrap
-                        form.s-all-feedback__form.needs-validation(action='', method='get', novalidate)
-                            h2.s-all-feedback__title.txt--bld40 Остались вопросы?
-                            .s-all-feedback__text Во время консультации ваш менеджер ответит на все вопросы
-                            .form-group
-                                input.form-control(type='tel', placeholder='Ваш телефон', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
-                                button.btn.btn--circle(type='submit')
-                                    +icon('arrow-right')
-                            .form-group
-                                label.checkbox
-                                    input.form-control(type='checkbox', checked, required)
-                                    span.checkbox__text
-                                        .policy
-                                            | Даю согласие на
-                                            a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
-                        .s-all-feedback__img
-                            .s-all-feedback__ellipse
-                            img(src='../../../../static/images/content/manager.png', alt='Менеджер')
+	.container-xxl
+		.s-all-feedback__content
+			.row
+				.offset-md-1.col-md-11
+					.s-all-feedback__wrap
+						form.s-all-feedback__form.needs-validation(action='', method='get', novalidate)
+							h2.s-all-feedback__title.txt--bld40 Остались вопросы?
+							.s-all-feedback__text Во время консультации ваш менеджер ответит на все вопросы
+							.form-group
+								input.form-control(type='tel', placeholder='Ваш телефон', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
+								button.btn.btn--circle(type='submit')
+									+icon('arrow-right')
+							.form-group
+								label.checkbox
+									input.form-control(type='checkbox', checked, required)
+									span.checkbox__text
+										.policy
+											| Даю согласие на
+											a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
+						.s-all-feedback__img
+							.s-all-feedback__ellipse
+							img(src='../../../../static/images/content/manager.png', alt='Менеджер')

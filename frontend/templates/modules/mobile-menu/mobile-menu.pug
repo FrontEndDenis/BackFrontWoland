@@ -1,100 +1,100 @@
 mixin icon(name,mod)
-    if mod
-        svg(class="svg-sprite-icon icon-" + name + ' ' + mod)
-            use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
-    else
-        svg(class="svg-sprite-icon icon-" + name)
-            use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
+	if mod
+		svg(class="svg-sprite-icon icon-" + name + ' ' + mod)
+			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
+	else
+		svg(class="svg-sprite-icon icon-" + name)
+			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
 
 nav.mobile-menu
-    .mobile-menu__wrap
-        .mobile-menu__content
-            button.mobile-menu__city(data-toggle='modal' data-target='#modal-city')
-                .mobile-menu__city-title Нижний Новгород
-                .mobile-menu__change Изменить
-            ul.mobile-menu__list
-                li.mobile-menu__item
-                    a.accordion
-                        span Каталог
-                        span.mobile-menu__icon
-                            +icon('arrow-down')
-                    ul.catalog-m-menu.accordion-panel
-                        li.catalog-m-menu__item
-                            a
-                                span Сталь
-                                span.catalog-m-menu__icon
-                                    +icon('arrow-right-2')
-                            include ./catalog-m-menu.pug
-                        li.catalog-m-menu__item
-                            a
-                                span Цветные металлы
-                                span.catalog-m-menu__icon
-                                    +icon('arrow-right-2')
-                            include ./catalog-m-menu.pug
-                        li.catalog-m-menu__item
-                            a
-                                span Чугун
-                                span.catalog-m-menu__icon
-                                    +icon('arrow-right-2')
-                            include ./catalog-m-menu.pug
-                        li.catalog-m-menu__item
-                            a
-                                span Сплавы
-                                span.catalog-m-menu__icon
-                                    +icon('arrow-right-2')
-                            include ./catalog-m-menu.pug
-                        li.catalog-m-menu__item
-                            a
-                                span Редкоземельные металлы
-                                span.catalog-m-menu__icon
-                                    +icon('arrow-right-2')
-                            include ./catalog-m-menu.pug
-                        li.catalog-m-menu__item
-                            a
-                                span Оборудование
-                                span.catalog-m-menu__icon
-                                    +icon('arrow-right-2')
-                            include ./catalog-m-menu.pug
-                        li.catalog-m-menu__item
-                            a
-                                span Полимеры
-                                span.catalog-m-menu__icon
-                                    +icon('arrow-right-2')
-                            include ./catalog-m-menu.pug
-                li.mobile-menu__item
-                    a(href='#')
-                        span Акции
-                        span.mobile-menu__icon
-                            +icon('star')
-                li.mobile-menu__item
-                    a(href='#') Производство
-                li.mobile-menu__item
-                    a(href='#') Услуги
-                li.mobile-menu__item
-                    a(href='#') Доставка
-                li.mobile-menu__item
-                    a.accordion
-                        span Компания
-                        span.mobile-menu__icon
-                            +icon('arrow-down')
-                    ul.catalog-m-menu.accordion-panel
-                        li.catalog-m-menu__item
-                            a(href='#') О нас
-                        li.catalog-m-menu__item
-                            a(href='#') Блог
-                        li.catalog-m-menu__item
-                            a(href='#') Новости
-                        li.catalog-m-menu__item
-                            a(href='#') Вакансии
-                li.mobile-menu__item
-                    a(href='#') Контакты
-            .mobile-menu__contacts
-                .mobile-menu__phone
-                    a.txt--smbld16(href='tel:+73439999999') 8 (343) 999 99 99
-                .mobile-menu__phone
-                    a.txt--smbld14(href='tel:+78009999999') 8 (800) 999 99 99
-                a.mobile-menu__mail.txt--smbld16(href='mailto:petropavlovsk@gkws.kz') petropavlovsk@gkws.kz
-                button.mobile-menu__callback.btn.btn--h52.btn--br50(type='button', data-toggle='modal' data-target='#modal-callback')
-                    +icon('phone')
-                    span Обратный звонок
-    .mobile-menu__overlay
+	.mobile-menu__wrap
+		.mobile-menu__content
+			button.mobile-menu__city(data-toggle='modal' data-target='#modal-city')
+				.mobile-menu__city-title Нижний Новгород
+				.mobile-menu__change Изменить
+			ul.mobile-menu__list
+				li.mobile-menu__item
+					a.accordion
+						span Каталог
+						span.mobile-menu__icon
+							+icon('arrow-down')
+					ul.catalog-m-menu.accordion-panel
+						li.catalog-m-menu__item
+							a
+								span Сталь
+								span.catalog-m-menu__icon
+									+icon('arrow-right-2')
+							include ./catalog-m-menu.pug
+						li.catalog-m-menu__item
+							a
+								span Цветные металлы
+								span.catalog-m-menu__icon
+									+icon('arrow-right-2')
+							include ./catalog-m-menu.pug
+						li.catalog-m-menu__item
+							a
+								span Чугун
+								span.catalog-m-menu__icon
+									+icon('arrow-right-2')
+							include ./catalog-m-menu.pug
+						li.catalog-m-menu__item
+							a
+								span Сплавы
+								span.catalog-m-menu__icon
+									+icon('arrow-right-2')
+							include ./catalog-m-menu.pug
+						li.catalog-m-menu__item
+							a
+								span Редкоземельные металлы
+								span.catalog-m-menu__icon
+									+icon('arrow-right-2')
+							include ./catalog-m-menu.pug
+						li.catalog-m-menu__item
+							a
+								span Оборудование
+								span.catalog-m-menu__icon
+									+icon('arrow-right-2')
+							include ./catalog-m-menu.pug
+						li.catalog-m-menu__item
+							a
+								span Полимеры
+								span.catalog-m-menu__icon
+									+icon('arrow-right-2')
+							include ./catalog-m-menu.pug
+				li.mobile-menu__item
+					a(href='#')
+						span Акции
+						span.mobile-menu__icon
+							+icon('star')
+				li.mobile-menu__item
+					a(href='#') Производство
+				li.mobile-menu__item
+					a(href='#') Услуги
+				li.mobile-menu__item
+					a(href='#') Доставка
+				li.mobile-menu__item
+					a.accordion
+						span Компания
+						span.mobile-menu__icon
+							+icon('arrow-down')
+					ul.catalog-m-menu.accordion-panel
+						li.catalog-m-menu__item
+							a(href='#') О нас
+						li.catalog-m-menu__item
+							a(href='#') Блог
+						li.catalog-m-menu__item
+							a(href='#') Новости
+						li.catalog-m-menu__item
+							a(href='#') Вакансии
+				li.mobile-menu__item
+					a(href='#') Контакты
+			.mobile-menu__contacts
+				.mobile-menu__phone
+					a.txt--smbld16(href='tel:+73439999999') 8 (343) 999 99 99
+				.mobile-menu__phone
+					a.txt--smbld14(href='tel:+78009999999') 8 (800) 999 99 99
+				a.mobile-menu__mail.txt--smbld16(href='mailto:petropavlovsk@gkws.kz') petropavlovsk@gkws.kz
+				button.mobile-menu__callback.btn.btn--h52.btn--br50(type='button', data-toggle='modal' data-target='#modal-callback')
+					+icon('phone')
+					span Обратный звонок
+	.mobile-menu__overlay

@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
 	dependencies = [
 		('project_settings', '0002_auto_20200922_0022'),
 	]
-
+	
 	operations = [
 		migrations.AddField(
 			model_name='projectsettings',

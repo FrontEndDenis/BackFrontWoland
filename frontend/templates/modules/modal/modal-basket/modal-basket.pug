@@ -1,18 +1,18 @@
 #modal-basket.modal.modal-right(tabindex='-1' aria-labelledby='modalRightLabel' aria-hidden='true')
-    .modal-dialog.modal-dialog--wdh708
-        .modal-content
-            form.modal-basket.needs-validation(action='', method='get', novalidate)
-                .modal-basket__section.modal-basket__basket-list
-                    button.modal-basket__close.modal-close(type='button' data-dismiss='modal')
-                        +icon('close')
-                    .modal-basket__header
-                        .modal-basket__title.txt--bld24 Корзина
-                        .modal-basket__count-product Нет товаров
-                    .modal-basket__basket-item.modal-basket__basket-product-list
-                        include ./modal-basket-product-list.pug
-                    .modal-basket__basket-item.modal-basket__clear
-                        include ./modal-basket-confirm.pug
-                    .modal-basket__basket-item.modal-basket__not
-                        include ./modal-basket-not.pug
-                .modal-basket__section.modal-basket__form
-                    include ./modal-basket-form.pug
+	.modal-dialog.modal-dialog--wdh708
+		.modal-content
+			form.modal-basket.needs-validation(action='', method='get', novalidate)
+				.modal-basket__section.modal-basket__basket-list
+					button.modal-basket__close.modal-close(type='button' data-dismiss='modal')
+						+icon('close')
+					.modal-basket__header
+						.modal-basket__title.txt--bld24 Корзина
+						.modal-basket__count-product Нет товаров
+					.modal-basket__basket-item.modal-basket__basket-product-list
+						include ./modal-basket-product-list.pug
+					.modal-basket__basket-item.modal-basket__clear
+						include ./modal-basket-confirm.pug
+					.modal-basket__basket-item.modal-basket__not
+						include ./modal-basket-not.pug
+				.modal-basket__section.modal-basket__form
+					include ./modal-basket-form.pug

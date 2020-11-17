@@ -1,24 +1,24 @@
 extends template/main
 
 block variables
-    - var title = ''
-    - var description = ''
+	- var title = ''
+	- var description = ''
 
 include ../ui-kit/ui-breadcrumbs/ui-breadcrumbs
 
 block content
-    .container
-        ul
-            li
-                a(href='index2.html') Главная
-            li
-                a(href='catalog.html') Каталог
-            li
-                a(href='product-listing.html') Листинг
+	.container
+		ul
+			li
+				a(href='index2.html') Главная
+			li
+				a(href='catalog.html') Каталог
+			li
+				a(href='product-listing.html') Листинг
 
 block modal
-    include ../templates/modules/modal/modal-city
-    include ../templates/modules/modal/modal-callback
-    include ../templates/modules/modal/modal-thanks
-    include ../templates/modules/modal/modal-basket/modal-basket
-    include ../templates/modules/modal/modal-search
+	include ../templates/modules/modal/modal-city
+	include ../templates/modules/modal/modal-callback
+	include ../templates/modules/modal/modal-thanks
+	include ../templates/modules/modal/modal-basket/modal-basket
+	include ../templates/modules/modal/modal-search

@@ -7,10 +7,10 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 	initial = True
-
+	
 	dependencies = [
 	]
-
+	
 	operations = [
 		migrations.CreateModel(
 			name='ProjectSettings',
@@ -38,7 +38,8 @@ class Migration(migrations.Migration):
 				('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
 				('name', models.CharField(max_length=1024, verbose_name='Название')),
 				(
-				'image', models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка')),
+					'image',
+					models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка')),
 				('project_settings',
 				 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='project_settings.ProjectSettings')),
 			],

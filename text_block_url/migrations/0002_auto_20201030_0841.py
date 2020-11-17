@@ -7,7 +7,7 @@ class Migration(migrations.Migration):
 	dependencies = [
 		('text_block_url', '0001_initial'),
 	]
-
+	
 	operations = [
 		migrations.AddField(
 			model_name='textblockurl',

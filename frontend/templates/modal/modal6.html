@@ -1,66 +1,66 @@
 <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog--wdh414 modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body d-flex flex-column">
-                <div class="modal-body__close" data-dismiss="modal" aria-label="close" id="modal_close_order_callback">
-                    <svg class="svg-sprite-icon icon-close">
-                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
-                    </svg>
-                </div>
-                <div class="modal-body__title">Обратный звонок</div>
-                <div class="modal-body__text">Оставьте заявку и мы вам перезвоним</div>
-                <div class="modal-body__modal-forms">
-                    <form class="needs-validation" id="order_callback_form" action="javascript:void(0);"
-                          onsubmit="func_order_callback_form();">
-                        {% csrf_token %}
-                        <input type="hidden" name="email" value="">
-                        <div class="modal-forms">
-                            <div class="modal-forms__item form-group">
-                                <label class="modal-forms__label" for="modal-field-5">Ваше имя</label>
-                                <input class="modal-forms__field" id="modal-field-5" type="text" maxlength="50"
-                                       name="name" placeholder="Имя" required>
-                            </div>
-                            <div class="modal-forms__item form-group">
-                                <label class="modal-forms__label" for="modal-field-6">Ваш телефон
-                                    <div class="required">*</div>
-                                </label>
-                                <input class="modal-forms__field form-control" id="modal-field-6" type="tel"
-                                       placeholder="+7(___)___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}"
-                                       minlength="16"
-                                       inputmode="numeric" name="phone" required>
-                            </div>
-                            <button class="modal-forms__button btn" type="submit">Отправить</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-body__policy">Нажимая кнопку отправить, вы соглашаетесь с <a class="txt--clr1"
-                                                                                               href="{% url 'menu:policy' %}"
-                                                                                               target="_blank">политикой
-                    обработки персональных данных</a></div>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog modal-dialog--wdh414 modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-body d-flex flex-column">
+				<div class="modal-body__close" data-dismiss="modal" aria-label="close" id="modal_close_order_callback">
+					<svg class="svg-sprite-icon icon-close">
+						<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
+					</svg>
+				</div>
+				<div class="modal-body__title">Обратный звонок</div>
+				<div class="modal-body__text">Оставьте заявку и мы вам перезвоним</div>
+				<div class="modal-body__modal-forms">
+					<form class="needs-validation" id="order_callback_form" action="javascript:void(0);"
+						  onsubmit="func_order_callback_form();">
+						{% csrf_token %}
+						<input type="hidden" name="email" value="">
+						<div class="modal-forms">
+							<div class="modal-forms__item form-group">
+								<label class="modal-forms__label" for="modal-field-5">Ваше имя</label>
+								<input class="modal-forms__field" id="modal-field-5" type="text" maxlength="50"
+									   name="name" placeholder="Имя" required>
+							</div>
+							<div class="modal-forms__item form-group">
+								<label class="modal-forms__label" for="modal-field-6">Ваш телефон
+									<div class="required">*</div>
+								</label>
+								<input class="modal-forms__field form-control" id="modal-field-6" type="tel"
+									   placeholder="+7(___)___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}"
+									   minlength="16"
+									   inputmode="numeric" name="phone" required>
+							</div>
+							<button class="modal-forms__button btn" type="submit">Отправить</button>
+						</div>
+					</form>
+				</div>
+				<div class="modal-body__policy">Нажимая кнопку отправить, вы соглашаетесь с <a class="txt--clr1"
+																							   href="{% url 'menu:policy' %}"
+																							   target="_blank">политикой
+					обработки персональных данных</a></div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script>
-    function func_order_callback_form() {
-        form_data = new FormData($(order_callback_form).get(0));
-        $.ajax({
-            type: 'POST',
-            data: form_data,
-            contentType: false,
-            processData: false,
-            url: "{% url 'checkout:order_callback' %}",
-            success: function (data) {
-                $('#modal_close_order_callback').click();
-                setTimeout(() => {
-                    $('#modal_thanks').click();
-                }, 500);
-                {% comment %} location.href="{% url 'checkout:receipt' %}"; {% endcomment %}
-            },
-            error: function () {
-                console.log("Возникла неизвестная ошибка order_callback");
-            }
-        });
-    }
+	function func_order_callback_form() {
+		form_data = new FormData($(order_callback_form).get(0));
+		$.ajax({
+			type: 'POST',
+			data: form_data,
+			contentType: false,
+			processData: false,
+			url: "{% url 'checkout:order_callback' %}",
+			success: function (data) {
+				$('#modal_close_order_callback').click();
+				setTimeout(() => {
+					$('#modal_thanks').click();
+				}, 500);
+				{% comment %} location.href="{% url 'checkout:receipt' %}"; {% endcomment %}
+			},
+			error: function () {
+				console.log("Возникла неизвестная ошибка order_callback");
+			}
+		});
+	}
 </script>

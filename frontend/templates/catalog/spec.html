@@ -1,218 +1,218 @@
 {% extends "catalog.html" %}
 {% block content %}
-    {% include 'element/breadcrumb.html' %}
-    <section class="s-product-list">
-        <div class="container-xl">
-            <div class="row product-list">
-                <div class="col-12">
-                    <h1 class="product-list__s-title txt--rgl30">{{ current_menu.name }}</h1>
-                </div>
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-4 product-list__submenu submenu-hidden">
-                            <div class="result-search__submenu-title txt--rgl20">Категории</div>
-                            <div class="submenu submenu-value">
-                                <ul class="submenu__list txt--rgl14">
-                                    <li class="submenu__title result-search-value"><a href="#">Трубы нержавеющие</a>
-                                        <div class="search-count">1115</div>
-                                    </li>
-                                    <li class="submenu__title result-search-value"><a href="#">Трубы алюминиевые</a>
-                                        <div class="search-count">11</div>
-                                    </li>
-                                    <li class="submenu__title result-search-value active"><a href="#">Трубы
-                                        бесшовные</a>
-                                        <div class="search-count">12</div>
-                                    </li>
-                                    <li class="submenu__title result-search-value"><a href="#">Трубы горячекатанные</a>
-                                        <div class="search-count">113</div>
-                                    </li>
-                                    <li class="submenu__title result-search-value"><a href="#">Трубы холоднокатанные</a>
-                                        <div class="search-count">1114</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-9 col-md-8">
-                            <div class="row">
-                                <div class="col-12 product-list__m-buttons">
-                                    <div class="m-buttons">
-                                        <div class="m-buttons__list">
-                                            <div class="m-buttons__filters btn btn--h40" data-toggle="modal"
-                                                 data-target="#modal11">Показать фильтр
-                                                <svg class="svg-sprite-icon icon-m-hamburger">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#m-hamburger"></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 product-list__view">
-                                    <div class="view d-flex align-items-center justify-content-between txt--ds3">
-                                        <div class="view__sort sort">
-                                            <div class="sort__title d-flex align-items-center">По популярности
-                                                (возрастание)
-                                                <svg class="svg-sprite-icon icon-arrow">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                                                </svg>
-                                            </div>
-                                            <ul class="sort__dropdown">
-                                                <li>По имени (А-Я)</li>
-                                                <li>По имени (Я-А)</li>
-                                                <li>По цене (дешевые)</li>
-                                                <li>По цене (дорогие)</li>
-                                            </ul>
-                                        </div>
-                                        <ul class="view__display d-flex align-items-center">
-                                            <li class="view__display-1 active">
-                                                <svg class="svg-sprite-icon icon-view">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#view"></use>
-                                                </svg>
-                                            </li>
-                                            <li class="view__display-2">
-                                                <svg class="svg-sprite-icon icon-view-2">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#view-2"></use>
-                                                </svg>
-                                            </li>
-                                            <li class="view__display-3">
-                                                <svg class="svg-sprite-icon icon-view-3">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#view-3"></use>
-                                                </svg>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+	{% include 'element/breadcrumb.html' %}
+	<section class="s-product-list">
+		<div class="container-xl">
+			<div class="row product-list">
+				<div class="col-12">
+					<h1 class="product-list__s-title txt--rgl30">{{ current_menu.name }}</h1>
+				</div>
+				<div class="col-12">
+					<div class="row">
+						<div class="col-lg-3 col-md-4 product-list__submenu submenu-hidden">
+							<div class="result-search__submenu-title txt--rgl20">Категории</div>
+							<div class="submenu submenu-value">
+								<ul class="submenu__list txt--rgl14">
+									<li class="submenu__title result-search-value"><a href="#">Трубы нержавеющие</a>
+										<div class="search-count">1115</div>
+									</li>
+									<li class="submenu__title result-search-value"><a href="#">Трубы алюминиевые</a>
+										<div class="search-count">11</div>
+									</li>
+									<li class="submenu__title result-search-value active"><a href="#">Трубы
+										бесшовные</a>
+										<div class="search-count">12</div>
+									</li>
+									<li class="submenu__title result-search-value"><a href="#">Трубы горячекатанные</a>
+										<div class="search-count">113</div>
+									</li>
+									<li class="submenu__title result-search-value"><a href="#">Трубы холоднокатанные</a>
+										<div class="search-count">1114</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-9 col-md-8">
+							<div class="row">
+								<div class="col-12 product-list__m-buttons">
+									<div class="m-buttons">
+										<div class="m-buttons__list">
+											<div class="m-buttons__filters btn btn--h40" data-toggle="modal"
+												 data-target="#modal11">Показать фильтр
+												<svg class="svg-sprite-icon icon-m-hamburger">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#m-hamburger"></use>
+												</svg>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 product-list__view">
+									<div class="view d-flex align-items-center justify-content-between txt--ds3">
+										<div class="view__sort sort">
+											<div class="sort__title d-flex align-items-center">По популярности
+												(возрастание)
+												<svg class="svg-sprite-icon icon-arrow">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+												</svg>
+											</div>
+											<ul class="sort__dropdown">
+												<li>По имени (А-Я)</li>
+												<li>По имени (Я-А)</li>
+												<li>По цене (дешевые)</li>
+												<li>По цене (дорогие)</li>
+											</ul>
+										</div>
+										<ul class="view__display d-flex align-items-center">
+											<li class="view__display-1 active">
+												<svg class="svg-sprite-icon icon-view">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#view"></use>
+												</svg>
+											</li>
+											<li class="view__display-2">
+												<svg class="svg-sprite-icon icon-view-2">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#view-2"></use>
+												</svg>
+											</li>
+											<li class="view__display-3">
+												<svg class="svg-sprite-icon icon-view-3">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#view-3"></use>
+												</svg>
+											</li>
+										</ul>
+									</div>
+								</div>
 
 
-                                <div class="col-12 product-list__content">
-                                    <div class="row">
+								<div class="col-12 product-list__content">
+									<div class="row">
 
-                                        {% for item in product_list %}
-                                            <div class="col-lg-4 col-sm-6">
-                                                <div class="product-list__item">
-                                                    <div class="spacial-offer-card{% if item.is_spec %} spacial{% endif %}">
-                                                        {% if item.is_spec %}
-                                                            <div class="spacial-badge">спецпредложение</div>{% endif %}
-                                                        <div class="spacial-offer-card__image"><img
-                                                                src="{{ media_url }}{{ item.image }}" alt=""></div>
-                                                        <div class="spacial-offer-card__offer-content">
-                                                            <div class="spacial-offer-card__header">
-                                                                <div class="spacial-offer-card__top-line">
-                                                                    <div class="spacial-offer-card__article">
-                                                                        Арт.{{ item.id }}</div>
-                                                                    {% if item.available %}
-                                                                        <div class="product-card__presence presence">В
-                                                                            наличии
-                                                                        </div>
-                                                                    {% else %}
-                                                                        <div class="spacial-offer-card__presence not-presence">
-                                                                            Нет в
-                                                                            наличии
-                                                                        </div>
-                                                                    {% endif %}
+										{% for item in product_list %}
+											<div class="col-lg-4 col-sm-6">
+												<div class="product-list__item">
+													<div class="spacial-offer-card{% if item.is_spec %} spacial{% endif %}">
+														{% if item.is_spec %}
+															<div class="spacial-badge">спецпредложение</div>{% endif %}
+														<div class="spacial-offer-card__image"><img
+																src="{{ media_url }}{{ item.image }}" alt=""></div>
+														<div class="spacial-offer-card__offer-content">
+															<div class="spacial-offer-card__header">
+																<div class="spacial-offer-card__top-line">
+																	<div class="spacial-offer-card__article">
+																		Арт.{{ item.id }}</div>
+																	{% if item.available %}
+																		<div class="product-card__presence presence">В
+																			наличии
+																		</div>
+																	{% else %}
+																		<div class="spacial-offer-card__presence not-presence">
+																			Нет в
+																			наличии
+																		</div>
+																	{% endif %}
 
-                                                                </div>
-                                                                <a class="spacial-offer-card__title"
-                                                                   href="{% url 'menu:product' item.slug %}">{{ item.name }}</a>
-                                                            </div>
-                                                            <div class="spacial-offer-card__bottom">
-                                                                <div class="spacial-offer-card__price">по запросу</div>
-                                                                <div class="spacial-offer-card__buttons">
-                                                                    <div class="spacial-offer-card__learn-price btn"
-                                                                         data-toggle="modal" data-target="#modal"
-                                                                         title="Узнать цену">Узнать цену
-                                                                    </div>
-                                                                    <div class="spacial-offer-card__in-basket btn--wrap"
-                                                                         data-toggle="modal" data-target="#modal5"
-                                                                         title="Добавить в корзину">
-                                                                        <div class="btn--basket">
-                                                                            <svg class="svg-sprite-icon icon-basket">
-                                                                                <use
-                                                                                        xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#basket">
-                                                                                </use>
-                                                                            </svg>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="spacial-offer-card__fast btn--wrap"
-                                                                         data-toggle="modal" data-target="#modal2"
-                                                                         title="Заказать в один клик">
-                                                                        <div class="btn--faster">
-                                                                            <svg class="svg-sprite-icon icon-learn-price">
-                                                                                <use
-                                                                                        xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price">
-                                                                                </use>
-                                                                            </svg>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                    <div class="product-list__dwnld download-content btn btn--h40 btn--gray">Загрузить
-                                        ещё
-                                    </div>
-                                    <div class="product-list__nav nav-content">
-                                        <div class="p-navigator">
-                                            <ul class="p-navigator__list">
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">...</a></li>
-                                                <li><a href="#">34</a></li>
-                                            </ul>
-                                            <div class="p-navigator__next">
-                                                <svg class="svg-sprite-icon icon-arrow">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div class="p-navigator">
-                                            <div class="p-navigator__prev">
-                                                <svg class="svg-sprite-icon icon-arrow">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                                                </svg>
-                                            </div>
-                                            <ul class="p-navigator__list">
-                                                <li><a href="#">1</a></li>
-                                                <li class="active"><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">...</a></li>
-                                                <li><a href="#">34</a></li>
-                                            </ul>
-                                            <div class="p-navigator__next">
-                                                <svg class="svg-sprite-icon icon-arrow">
-                                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    {% include 'element/feedback.html' %}
-    <section class="s-text">
-        <div class="container-xl">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="s-text__title txt--rgl24">{{ current_menu.name }} в {{ current_filial.name_info }}</h2>
-                </div>
-                <div class="col-12 s-text__text">
-                    {{ current_menu.description|safe }}
-                </div>
-                <div class="col-12 s-text__dwl-content">
-                    {% comment %} <div class="btn btn--wdh180 btn--h40">Показать ещё</div>
+																</div>
+																<a class="spacial-offer-card__title"
+																   href="{% url 'menu:product' item.slug %}">{{ item.name }}</a>
+															</div>
+															<div class="spacial-offer-card__bottom">
+																<div class="spacial-offer-card__price">по запросу</div>
+																<div class="spacial-offer-card__buttons">
+																	<div class="spacial-offer-card__learn-price btn"
+																		 data-toggle="modal" data-target="#modal"
+																		 title="Узнать цену">Узнать цену
+																	</div>
+																	<div class="spacial-offer-card__in-basket btn--wrap"
+																		 data-toggle="modal" data-target="#modal5"
+																		 title="Добавить в корзину">
+																		<div class="btn--basket">
+																			<svg class="svg-sprite-icon icon-basket">
+																				<use
+																						xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#basket">
+																				</use>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="spacial-offer-card__fast btn--wrap"
+																		 data-toggle="modal" data-target="#modal2"
+																		 title="Заказать в один клик">
+																		<div class="btn--faster">
+																			<svg class="svg-sprite-icon icon-learn-price">
+																				<use
+																						xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#learn-price">
+																				</use>
+																			</svg>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										{% endfor %}
+									</div>
+									<div class="product-list__dwnld download-content btn btn--h40 btn--gray">Загрузить
+										ещё
+									</div>
+									<div class="product-list__nav nav-content">
+										<div class="p-navigator">
+											<ul class="p-navigator__list">
+												<li class="active"><a href="#">1</a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">...</a></li>
+												<li><a href="#">34</a></li>
+											</ul>
+											<div class="p-navigator__next">
+												<svg class="svg-sprite-icon icon-arrow">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+												</svg>
+											</div>
+										</div>
+										<div class="p-navigator">
+											<div class="p-navigator__prev">
+												<svg class="svg-sprite-icon icon-arrow">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+												</svg>
+											</div>
+											<ul class="p-navigator__list">
+												<li><a href="#">1</a></li>
+												<li class="active"><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">...</a></li>
+												<li><a href="#">34</a></li>
+											</ul>
+											<div class="p-navigator__next">
+												<svg class="svg-sprite-icon icon-arrow">
+													<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+												</svg>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{% include 'element/feedback.html' %}
+	<section class="s-text">
+		<div class="container-xl">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="s-text__title txt--rgl24">{{ current_menu.name }} в {{ current_filial.name_info }}</h2>
+				</div>
+				<div class="col-12 s-text__text">
+					{{ current_menu.description|safe }}
+				</div>
+				<div class="col-12 s-text__dwl-content">
+					{% comment %} <div class="btn btn--wdh180 btn--h40">Показать ещё</div>
                 </div> {% endcomment %}
-                </div>
-            </div>
-    </section>
+				</div>
+			</div>
+	</section>
 {% endblock %}

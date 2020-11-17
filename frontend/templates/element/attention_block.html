@@ -1,25 +1,25 @@
 <section class="s-catalog-slider">
-    <div class="container-xl">
-        <div class="s-catalog-slider__head">
-            <h2 class="s-catalog-slider__title txt--rgl24">Вас может заинтересовать</h2>
-        </div>
-        <div class="s-catalog-slider__list owl-carousel slider-five">
-            {% for item in current_menu.parent.get_child %}
-                {% if item != current_menu %}
-                    <div class="s-catalog-slider__item"><a class="category-card big"
-                                                           href="{% url 'menu:menu' item.slug %}"><img
-                            src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}">
-                        <div class="category-card__button"><span>{{ item.name }}</span>
-                            <div class="btn-arrow">
-                                <svg class="svg-sprite-icon icon-arrow">
-                                    <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </div>
+	<div class="container-xl">
+		<div class="s-catalog-slider__head">
+			<h2 class="s-catalog-slider__title txt--rgl24">Вас может заинтересовать</h2>
+		</div>
+		<div class="s-catalog-slider__list owl-carousel slider-five">
+			{% for item in current_menu.parent.get_child %}
+				{% if item != current_menu %}
+					<div class="s-catalog-slider__item"><a class="category-card big"
+														   href="{% url 'menu:menu' item.slug %}"><img
+							src="{{ media_url }}{{ item.image }}" alt="{{ item.name }}">
+						<div class="category-card__button"><span>{{ item.name }}</span>
+							<div class="btn-arrow">
+								<svg class="svg-sprite-icon icon-arrow">
+									<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#arrow"></use>
+								</svg>
+							</div>
+						</div>
+					</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
 </section>

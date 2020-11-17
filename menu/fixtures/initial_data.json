@@ -1,66 +1,66 @@
 [
   {
-    "model": "menu.TypeMenu",
-    "pk": 1,
-    "fields": {
-      "name": "Каталог",
-      "template": "catalog/catalog.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 1,
+	"fields": {
+	  "name": "Каталог",
+	  "template": "catalog/catalog.html"
+	}
   },
   {
-    "model": "menu.TypeMenu",
-    "pk": 2,
-    "fields": {
-      "name": "Услуги",
-      "template": "catalog/uslugi.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 2,
+	"fields": {
+	  "name": "Услуги",
+	  "template": "catalog/uslugi.html"
+	}
   },
   {
-    "model": "menu.TypeMenu",
-    "pk": 3,
-    "fields": {
-      "name": "Спецпредложения",
-      "template": "catalog/spec.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 3,
+	"fields": {
+	  "name": "Спецпредложения",
+	  "template": "catalog/spec.html"
+	}
   },
   {
-    "model": "menu.TypeMenu",
-    "pk": 4,
-    "fields": {
-      "name": "Информация",
-      "template": "catalog/info.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 4,
+	"fields": {
+	  "name": "Информация",
+	  "template": "catalog/info.html"
+	}
   },
   {
-    "model": "menu.TypeMenu",
-    "pk": 5,
-    "fields": {
-      "name": "Контакты",
-      "template": "catalog/contacts.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 5,
+	"fields": {
+	  "name": "Контакты",
+	  "template": "catalog/contacts.html"
+	}
   },
   {
-    "model": "menu.TypeMenu",
-    "pk": 6,
-    "fields": {
-      "name": "Категория",
-      "template": "catalog/category.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 6,
+	"fields": {
+	  "name": "Категория",
+	  "template": "catalog/category.html"
+	}
   },
   {
-    "model": "menu.TypeMenu",
-    "pk": 7,
-    "fields": {
-      "name": "Категория с продуктами",
-      "template": "catalog/product_list.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 7,
+	"fields": {
+	  "name": "Категория с продуктами",
+	  "template": "catalog/product_list.html"
+	}
   },
   {
-    "model": "menu.TypeMenu",
-    "pk": 8,
-    "fields": {
-      "name": "Производство",
-      "template": "catalog/manufacture.html"
-    }
+	"model": "menu.TypeMenu",
+	"pk": 8,
+	"fields": {
+	  "name": "Производство",
+	  "template": "catalog/manufacture.html"
+	}
   }
 ]

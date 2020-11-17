@@ -3,15 +3,15 @@
 {% block meta_keywords %}Новости{% endblock %}
 {% block title_page %}Новости{% endblock %}
 {% block content %}
-    {% include 'element/breadcrumb.html' %}
-    <section class="p-news">
-        <div class="container-xl">
-            <h1 class="txt--rgl30">Новости</h1>
-            <div class="p-news__list">
-                <div class="row">
-                    {% include 'news/news_more.html' %}
-                </div>
-            </div>
-        </div>
-    </section>
+	{% include 'element/breadcrumb.html' %}
+	<section class="p-news">
+		<div class="container-xl">
+			<h1 class="txt--rgl30">Новости</h1>
+			<div class="p-news__list">
+				<div class="row">
+					{% include 'news/news_more.html' %}
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}

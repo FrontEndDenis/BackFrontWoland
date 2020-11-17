@@ -1,5 +1,5 @@
 {% for item in child_menu %}
-    <li>
-        <a href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a>
-    </li>
+	<li>
+		<a href="{% url 'menu:menu' item.slug %}">{{ item.name }}</a>
+	</li>
 {% endfor %}

@@ -1,4 +1,4 @@
 <svg class="circle-progress" width="48" height="48" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <circle class="circle-progress__circle" cx="24" cy="24" r="22"/>
-    <circle class="circle-progress__bar" cx="24" cy="24" r="22"/>
+	<circle class="circle-progress__circle" cx="24" cy="24" r="22"/>
+	<circle class="circle-progress__bar" cx="24" cy="24" r="22"/>
 </svg>

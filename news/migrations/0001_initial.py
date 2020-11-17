@@ -22,7 +22,8 @@ class Migration(migrations.Migration):
 				('description', tinymce.models.HTMLField(verbose_name='Описание')),
 				('text', tinymce.models.HTMLField(verbose_name='Текст')),
 				(
-				'image', models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка')),
+					'image',
+					models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка')),
 				('title_main',
 				 models.CharField(blank=True, max_length=1024, null=True, verbose_name='Заголовок страницы')),
 				('keywords', models.TextField(blank=True, null=True, verbose_name='Ключевые слова (мета)')),

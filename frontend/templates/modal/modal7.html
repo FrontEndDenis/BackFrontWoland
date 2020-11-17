@@ -1,44 +1,44 @@
 <div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog--wdh414 modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body d-flex flex-column">
-                <div class="modal-body__close" data-dismiss="modal" aria-label="close">
-                    <svg class="svg-sprite-icon icon-close">
-                        <use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
-                    </svg>
-                </div>
-                <div class="modal-body__title">Связаться с нами</div>
-                <div class="modal-body__text">Оставьте нам своё сообщение и мы свяжемся с вами</div>
-                <div class="modal-body__modal-forms">
-                    <form class="needs-validation" action="" novalidate>
-                        <div class="modal-forms">
-                            <div class="modal-forms__item form-group">
-                                <label class="modal-forms__label" for="modal-field-7">Ваше имя</label>
-                                <input class="modal-forms__field" id="modal-field-7" type="text" maxlength="50"
-                                       placeholder="Имя">
-                            </div>
-                            <div class="modal-forms__item form-group">
-                                <label class="modal-forms__label" for="modal-field-8">Ваша почта
-                                    <div class="required">*</div>
-                                </label>
-                                <input class="modal-forms__field form-control" id="modal-field-8" type="text"
-                                       placeholder="@mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,4}$"
-                                       required>
-                            </div>
-                            <div class="modal-forms__item form-group">
-                                <label class="modal-forms__label" for="modal-field-9">Ваше сообщение</label>
-                                <textarea class="modal-forms__field" id="modal-field-9" maxlength="100"
-                                          placeholder="Сообщение"></textarea>
-                            </div>
-                            <button class="modal-forms__button btn" type="submit">Отправить</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-body__policy">Нажимая кнопку отправить, вы соглашаетесь с <a class="txt--clr1"
-                                                                                               href="{% url 'menu:policy' %}"
-                                                                                               target="_blank">политикой
-                    обработки персональных данных</a></div>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog modal-dialog--wdh414 modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-body d-flex flex-column">
+				<div class="modal-body__close" data-dismiss="modal" aria-label="close">
+					<svg class="svg-sprite-icon icon-close">
+						<use xlink:href="{{ static_url }}images/svg/symbol/sprite.svg#close"></use>
+					</svg>
+				</div>
+				<div class="modal-body__title">Связаться с нами</div>
+				<div class="modal-body__text">Оставьте нам своё сообщение и мы свяжемся с вами</div>
+				<div class="modal-body__modal-forms">
+					<form class="needs-validation" action="" novalidate>
+						<div class="modal-forms">
+							<div class="modal-forms__item form-group">
+								<label class="modal-forms__label" for="modal-field-7">Ваше имя</label>
+								<input class="modal-forms__field" id="modal-field-7" type="text" maxlength="50"
+									   placeholder="Имя">
+							</div>
+							<div class="modal-forms__item form-group">
+								<label class="modal-forms__label" for="modal-field-8">Ваша почта
+									<div class="required">*</div>
+								</label>
+								<input class="modal-forms__field form-control" id="modal-field-8" type="text"
+									   placeholder="@mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,4}$"
+									   required>
+							</div>
+							<div class="modal-forms__item form-group">
+								<label class="modal-forms__label" for="modal-field-9">Ваше сообщение</label>
+								<textarea class="modal-forms__field" id="modal-field-9" maxlength="100"
+										  placeholder="Сообщение"></textarea>
+							</div>
+							<button class="modal-forms__button btn" type="submit">Отправить</button>
+						</div>
+					</form>
+				</div>
+				<div class="modal-body__policy">Нажимая кнопку отправить, вы соглашаетесь с <a class="txt--clr1"
+																							   href="{% url 'menu:policy' %}"
+																							   target="_blank">политикой
+					обработки персональных данных</a></div>
+			</div>
+		</div>
+	</div>
 </div>

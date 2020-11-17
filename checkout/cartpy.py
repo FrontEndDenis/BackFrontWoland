@@ -176,7 +176,9 @@ def task_send_mail_order(order, request):
 		thr.start()
 	except:
 		pass
-	# send_mail_order(serializers.serialize('json', [order]), get_current_filial(request).id)
+
+
+# send_mail_order(serializers.serialize('json', [order]), get_current_filial(request).id)
 
 
 def send_client_zayavka(email, order, fio, product=None):

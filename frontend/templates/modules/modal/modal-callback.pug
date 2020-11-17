@@ -1,32 +1,32 @@
 #modal-callback.modal.modal-right(tabindex='-1' aria-labelledby='modalRightLabel' aria-hidden='true')
-    .modal-dialog
-        .modal-content
-            .modal-w
-                .modal-w__close.modal-close.modal-close--txt(type='button' data-dismiss='modal')
-                    +icon('close')
-                    +icon('arrow-right-2')
-                    .modal-close__text Обратный звонок
-                .modal-w__title.txt--bld36 Нужен обратный звонок?
-                .modal-w__text Оставьте свои контактные данные и мы перезвоним вам в течение 15 минут
-                form.modal-w__form.needs-validation(action='', method='get', novalidate)
-                    .form-group
-                        label(for='modal-field-1') Ваше имя
-                        input#modal-field-1.form-control(type='text', maxlength='50', placeholder='Имя')
-                    .form-group
-                        label(for='modal-field-2') Ваш телефон
-                            .required *
-                        input#modal-field-2.form-control(type='tel', placeholder='+7 (___) __-__-__', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
-                        .invalid-feedback Введите телефон
-                    .form-group
-                        label.checkbox
-                            input.form-control(type='checkbox', checked, required)
-                            span.checkbox__text
-                                .policy
-                                    | Даю согласие на
-                                    a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
-                    button.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='submit') Перезвоните мне
-                .modal-w__write-us.write-us
-                    p Так же вы можете написать нам на почту по любому вопросу или предложению
-                    a.write-us__mail(href='mailto:name@velund.ru')
-                        +icon('arrow-right')
-                        | name@velund.ru
+	.modal-dialog
+		.modal-content
+			.modal-w
+				.modal-w__close.modal-close.modal-close--txt(type='button' data-dismiss='modal')
+					+icon('close')
+					+icon('arrow-right-2')
+					.modal-close__text Обратный звонок
+				.modal-w__title.txt--bld36 Нужен обратный звонок?
+				.modal-w__text Оставьте свои контактные данные и мы перезвоним вам в течение 15 минут
+				form.modal-w__form.needs-validation(action='', method='get', novalidate)
+					.form-group
+						label(for='modal-field-1') Ваше имя
+						input#modal-field-1.form-control(type='text', maxlength='50', placeholder='Имя')
+					.form-group
+						label(for='modal-field-2') Ваш телефон
+							.required *
+						input#modal-field-2.form-control(type='tel', placeholder='+7 (___) __-__-__', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
+						.invalid-feedback Введите телефон
+					.form-group
+						label.checkbox
+							input.form-control(type='checkbox', checked, required)
+							span.checkbox__text
+								.policy
+									| Даю согласие на
+									a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
+					button.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='submit') Перезвоните мне
+				.modal-w__write-us.write-us
+					p Так же вы можете написать нам на почту по любому вопросу или предложению
+					a.write-us__mail(href='mailto:name@velund.ru')
+						+icon('arrow-right')
+						| name@velund.ru

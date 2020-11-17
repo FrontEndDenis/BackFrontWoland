@@ -6,10 +6,10 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 	initial = True
-
+	
 	dependencies = [
 	]
-
+	
 	operations = [
 		migrations.CreateModel(
 			name='TextBlockUrl',
@@ -21,7 +21,8 @@ class Migration(migrations.Migration):
 				('date', models.DateTimeField(blank=True, editable=False, null=True, verbose_name='Дата')),
 				('text', tinymce.models.HTMLField(blank=True, null=True, verbose_name='Текст')),
 				(
-				'image', models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка')),
+					'image',
+					models.ImageField(blank=True, null=True, upload_to='uploads/images', verbose_name='Картинка')),
 				('isHidden', models.BooleanField(blank=True, verbose_name='Скрыть')),
 			],
 			options={

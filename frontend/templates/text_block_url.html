@@ -1,9 +1,9 @@
 {% for item in dop_text_block_url %}
-    <h2>{{ item.name }}</h2>
-    {% if item.image %}
-        <img style="width: 250px" src="/media/{{ item.image }}" alt="{{ item.name }}">
-    {% endif %}
-    {% if item.text %}
-        {{ item.text|safe }}
-    {% endif %}
+	<h2>{{ item.name }}</h2>
+	{% if item.image %}
+		<img style="width: 250px" src="/media/{{ item.image }}" alt="{{ item.name }}">
+	{% endif %}
+	{% if item.text %}
+		{{ item.text|safe }}
+	{% endif %}
 {% endfor %}
