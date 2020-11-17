@@ -5,9 +5,20 @@ section.s-all-popular-categories
 			.popular-categories-slider.swiper-container
 				.swiper-wrapper
 					.swiper-slide
-						each category in categories_list
-							.popular-categories-slider__item
-								include ../../cards/popular-categories-card/popular-categories-card
+						.popular-categories-slider__item
+							include ../../cards/popular-categories-card/popular-categories-card
+					.swiper-slide
+						.popular-categories-slider__item
+							include ../../cards/popular-categories-card/popular-categories-card
+					.swiper-slide
+						.popular-categories-slider__item
+							include ../../cards/popular-categories-card/popular-categories-card
+					.swiper-slide
+						.popular-categories-slider__item
+							include ../../cards/popular-categories-card/popular-categories-card
+					.swiper-slide
+						.popular-categories-slider__item
+							include ../../cards/popular-categories-card/popular-categories-card
 			button.popular-categories-slider__prev.swiper-prev
 				+icon('arrow-right-2')
 			button.popular-categories-slider__next.swiper-next

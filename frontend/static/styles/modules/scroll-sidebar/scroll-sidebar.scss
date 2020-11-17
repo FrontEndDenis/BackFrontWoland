@@ -8,6 +8,11 @@
 	color: $txt-black90;
 	border-radius: 20px;
 	transition: .3s linear;
+	&__left {
+		display: none;
+		margin-bottom: 24px;
+		border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
+	}
 	&__title {
 		margin-bottom: 16px;
 		color: $txt-black;
@@ -28,7 +33,7 @@
 		line-height: 125%;
 	}
 	ul:not([class]) {
-		margin-bottom: 28px;
+		margin-bottom: 24px;
 		font-size: 14px;
 		font-weight: 500;
 		li {
@@ -59,24 +64,48 @@
 		}
 	}
 	&.hide-header {top: 24px;}
+	&.value {
+		.scroll-sidebar__left {display: block;}
+	}
 }
 
 @media only screen and (max-width: 1199px) {
 	.scroll-sidebar {
+		display: flex;
 		position: relative;
 		top: 0px;
 		margin-bottom: 80px;
+		padding: 32px 40px;
 		border-radius: 25px;
-		.scroll-sidebar__title-list, ul:not([class]) {display: none;}
+		&__left {
+			flex-direction: column;
+			justify-content: center;
+			max-width: 246px;
+			margin-right: 24px;
+			margin-bottom: 0px;
+			border-bottom: none;
+			border-right: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
+		}
+		&__right {width: 100%;}
 		&.hide-header {top: 0px;}
+		&.value {display: flex;}
 	}
 }
 
 
 @media only screen and (max-width: 767px) {
 	.scroll-sidebar {
+		display: block;
 		margin-bottom: 60px;
+		padding: 32px 24px;
 		border-radius: 20px;
-		.scroll-sidebar__title-list, ul:not([class]) {display: block;}
+		&__left {
+			max-width: 100%;
+			margin-right: 0px;
+			margin-bottom: 24px;
+			border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
+			border-right: none;
+		}
+		&.value {display: block;}
 	}
 }
