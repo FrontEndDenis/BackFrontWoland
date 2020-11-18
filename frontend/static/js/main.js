@@ -3,10 +3,10 @@ const modalList = {
 	search: new bootstrap.Modal(document.getElementById('modal-search')),
 	city: new bootstrap.Modal(document.getElementById('modal-city')),
 	callback: new bootstrap.Modal(document.getElementById('modal-callback')),
-	
+
 }
 
-if(document.getElementById('modal-filters')) {
+if (document.getElementById('modal-filters')) {
 	modalList['filters'] = new bootstrap.Modal(document.getElementById('modal-filters'));
 }
 
@@ -160,6 +160,33 @@ function slidersInit() {
 			nextEl: '.news-slider__next',
 		},
 	})
+	const productThumbs = new Swiper('.product-slider-thumbs', {
+		direction: 'vertical',
+		slidesPerView: 3,
+		spaceBetween: 24,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+	});
+	const product = new Swiper('.product-slider', {
+		thumbs: {
+			swiper: productThumbs,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+		},
+		breakpoints: {
+			0: {
+				direction: 'horizontal',
+			},
+			767: {
+				direction: 'vertical',
+			}
+		},
+		navigation: {
+			prevEl: '.product-slider__prev',
+			nextEl: '.product-slider__next',
+		},
+	});
 }
 slidersInit();
 
@@ -170,7 +197,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		headerFixed();
 		allCardHeight();
 		descriptionStocksCard();
-		gostWidth();
+		lineWidth('.s-all-gost__item', '.s-all-gost__more');
+		lineWidth('.product-content__mark', '.product-content__more');
 		sidebar();
 	};
 });
@@ -227,14 +255,14 @@ function headerFixed() {
 	const mediaQuery = window.matchMedia('(min-width: 1024px)');
 	if (mediaQuery.matches) {
 		const header = document.querySelector('.header'),
-		offsetHeight = header.offsetHeight;
+			offsetHeight = header.offsetHeight;
 
 		window.addEventListener('load', () => {
 			const height = window.innerHeight;
 			let lostY = 0;
 
 			document.addEventListener('scroll', () => {
-				if (lostY >=900) {
+				if (lostY >= 900) {
 					if (window.scrollY > lostY) {
 						header.classList.add('hide');
 					} else {
@@ -785,7 +813,7 @@ function heightCatalogCard() {
 			scrollList = elem.querySelector('.catalog-card__list'),
 			titleCard = elem.querySelector('.catalog-card__h-title');
 
-		if(!hiddenCard) return
+		if (!hiddenCard) return
 
 		let heightCalc = 0;
 
@@ -802,7 +830,7 @@ function howWork() {
 	const items = document.querySelectorAll('.s-main-work__item .s-main-work__header'),
 		images = document.querySelectorAll('.s-main-work__block img');
 
-	if(items.length == 0) return
+	if (items.length == 0) return
 
 	let index = 0;
 
@@ -819,7 +847,7 @@ function howWork() {
 			if (img.classList.contains('active')) {
 				animateCSS(img, 'fade-in-scale-bottom');
 				img.addEventListener('animationend', () => {
-						img.classList.remove('active')
+					img.classList.remove('active')
 				}, { once: true });
 			}
 		})
@@ -881,14 +909,14 @@ window.onscroll = function () {
 
 function onVisibleSpaceListener(elementId, cbIn, cbOut) {
 	let el = document.querySelector(elementId);
-	if(el == null) return
+	if (el == null) return
 	listenedElements.push({
 		el: el,
 		inVisibleSpace: cbIn,
 		// outVisibleSpace: cbOut
 	});
 }
-onVisibleSpaceListener('.s-main-delivery__text', el => {animationTruck(true)});
+onVisibleSpaceListener('.s-main-delivery__text', el => { animationTruck(true) });
 
 // Высота карточек
 function heightStocksCard(el) {
@@ -913,14 +941,14 @@ allCardHeight();
 function descriptionStocksCard() {
 	const desc = document.querySelectorAll('.stocks-card__warning'),
 		btns = document.querySelectorAll('.warning__close');
-	if(desc.length == 0) return
+	if (desc.length == 0) return
 
 	const show = elem => {
 		let element = elem.querySelector('.warning__wrap');
 		desc.forEach(el => el.querySelector('.warning__wrap').classList.remove('active'))
 		element.classList.add('active', 'fixed');
 		isHidden(element);
-		if(countHidden(element).right > 0) {
+		if (countHidden(element).right > 0) {
 			element.style.right = 0 + 'px';
 		}
 		element.classList.remove('fixed');
@@ -929,7 +957,7 @@ function descriptionStocksCard() {
 	const hide = elem => elem.querySelector('.warning__wrap').classList.remove('active');
 
 	desc.forEach(el => {
-		if(isMobile()) {
+		if (isMobile()) {
 			el.addEventListener('click', () => show(el));
 		} else {
 			el.addEventListener('mouseenter', () => show(el));
@@ -953,21 +981,21 @@ function isHidden(element) {
 
 function countHidden(element) {
 	const elementRect = element.getBoundingClientRect(),
-		elementHides = { 
+		elementHides = {
 			// up: Math.max(0,0 - elementRect.top),
 			// left: Math.max(0,0 - elementRect.left),
 			// down: Math.max(0,elementRect.bottom - window.innerHeight),
-			right: Math.max(0,elementRect.right - window.innerWidth)
+			right: Math.max(0, elementRect.right - window.innerWidth)
 		};
 	return elementHides;
 }
 
 // Компания
 function breadCrumbs() {
-	if(isMobile()) return
-	
+	if (isMobile()) return
+
 	const elems = document.querySelectorAll('.breadcrumbs__item');
-	if(elems == null) return
+	if (elems == null) return
 
 	const show = (item, block) => {
 		item.classList.add('active');
@@ -981,7 +1009,7 @@ function breadCrumbs() {
 	elems.forEach(elem => {
 		elem.addEventListener('mouseenter', () => {
 			const block = elem.querySelector('.breadcrumbs__sidebar');
-			if(block) show(elem, block)
+			if (block) show(elem, block)
 		}, false);
 		elem.addEventListener('mouseleave', () => {
 			hide(elem)
@@ -994,39 +1022,39 @@ breadCrumbs();
 const Pagination = {
 	code: '',
 
-	Extend: function(data) {
+	Extend: function (data) {
 		data = data || {};
 		Pagination.size = data.size || 300;
 		Pagination.page = data.page || 1;
 		Pagination.step = data.step || 2;
 	},
 
-	Add: function(s, f) {
+	Add: function (s, f) {
 		for (let i = s; i < f; i++) {
 			Pagination.code += '<li><a>' + i + '</a></li>';
 		}
 	},
 
-	Last: function() {
+	Last: function () {
 		Pagination.code += '<li><i>...</i></li><li><a>' + Pagination.size + '</a></li>';
 	},
 
-	First: function() {
+	First: function () {
 		Pagination.code += '<li><a>1</a></li><li><i>...</i></li>';
 	},
 
-	Click: function() {
+	Click: function () {
 		Pagination.page = +this.innerHTML;
 		Pagination.Start();
 	},
 
-	Input: function(n) {
-		if(n > Pagination.size || n < 1) return
+	Input: function (n) {
+		if (n > Pagination.size || n < 1) return
 		Pagination.page = n;
 		Pagination.Start();
 	},
 
-	Prev: function() {
+	Prev: function () {
 		Pagination.page--;
 		if (Pagination.page < 1) {
 			Pagination.page = 1;
@@ -1034,7 +1062,7 @@ const Pagination = {
 		Pagination.Start();
 	},
 
-	Next: function() {
+	Next: function () {
 		Pagination.page++;
 		if (Pagination.page > Pagination.size) {
 			Pagination.page = Pagination.size;
@@ -1042,7 +1070,7 @@ const Pagination = {
 		Pagination.Start();
 	},
 
-	Bind: function() {
+	Bind: function () {
 		let a = Pagination.e.getElementsByTagName('a');
 		for (let i = 0; i < a.length; i++) {
 			if (+a[i].innerHTML === Pagination.page) a[i].className = 'current';
@@ -1050,14 +1078,14 @@ const Pagination = {
 		}
 	},
 
-	Finish: function() {
+	Finish: function () {
 		Pagination.e.innerHTML = Pagination.code;
 		Pagination.code = '';
 		Pagination.Bind();
 		Pagination.ShowButtons()
 	},
 
-	Start: function() {
+	Start: function () {
 		if (Pagination.size < Pagination.step * 2 + 4) {
 			Pagination.Add(1, Pagination.size + 1);
 		}
@@ -1067,7 +1095,7 @@ const Pagination = {
 		}
 		else if (Pagination.page > Pagination.size - Pagination.step * 2) {
 			Pagination.First();
-			Pagination.Add(Pagination.size - Pagination.step * 2 , Pagination.size + 1);
+			Pagination.Add(Pagination.size - Pagination.step * 2, Pagination.size + 1);
 		}
 		else {
 			Pagination.First();
@@ -1077,7 +1105,7 @@ const Pagination = {
 		Pagination.Finish();
 	},
 
-	ShowButtons: function() {
+	ShowButtons: function () {
 		const next = document.querySelector('.pagination__next'),
 			prev = document.querySelector('.pagination__prev');
 		if (Pagination.page == 1) {
@@ -1094,39 +1122,39 @@ const Pagination = {
 		}
 	},
 
-	Fuild: function() {
+	Fuild: function () {
 		const fuild = document.querySelector('.pagination__fiuld input');
 		Pagination.Input(+fuild.value);
 	},
 
-	Buttons: function(e) {
+	Buttons: function (e) {
 		let nav = e.getElementsByTagName('a'),
 			btn = document.querySelector('.pagination__fiuld button'),
 			fuild = document.querySelector('.pagination__fiuld input');
 		nav[0].addEventListener('click', Pagination.Prev, false);
 		nav[1].addEventListener('click', Pagination.Next, false);
 		btn.addEventListener('click', Pagination.Fuild, false);
-		fuild.addEventListener('keydown', function(e) {
+		fuild.addEventListener('keydown', function (e) {
 			if (e.keyCode === 13) {
 				Pagination.Input(+fuild.value);
 			}
 		});
 	},
 
-	Create: function(e) {
+	Create: function (e) {
 		let prevTxt = 'Назад',
 			nextTxt = 'Вперед';
 
 		if (document.documentElement.clientWidth < 767) {
 			prevTxt = '',
-			nextTxt = '';
+				nextTxt = '';
 		}
 
 		let html = [
 			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
 			`<ul class='pagination__list'></ul>`,  // pagination container
 			`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
-			],
+		],
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
 							<span class='pagination__text'>Перейти на страницу</span>
@@ -1136,22 +1164,22 @@ const Pagination = {
 							</div>
 						</div>`
 		e.innerHTML = block;
-		if(Pagination.size > 7) {
+		if (Pagination.size > 7) {
 			e.insertAdjacentHTML('beforeend', blockRight)
 		}
 		Pagination.e = e.getElementsByTagName('ul')[0];
 		Pagination.Buttons(e);
 	},
 
-	Init: function(e, data) {
-		if(e == null) return
+	Init: function (e, data) {
+		if (e == null) return
 		Pagination.Extend(data);
 		Pagination.Create(e);
 		Pagination.Start();
 	}
 };
 
-const init = function() {
+const init = function () {
 	Pagination.Init(document.getElementById('pagination'), {
 		size: 30, // pages size
 		page: 1,  // selected page
@@ -1162,50 +1190,46 @@ const init = function() {
 document.addEventListener('DOMContentLoaded', init, false);
 
 // Проверка на видимость
-function isVisible(e) {return e.offsetWidth > 0 || e.offsetHeight > 0;}
+function isVisible(e) { return e.offsetWidth > 0 || e.offsetHeight > 0; }
 
-//Гост и марки
-function gostWidth() {
-	const navs = document.querySelectorAll('.s-all-gost__item');
+// Ширина в 1 строку
+function lineWidth(classItem, classBtn) {
+	const navs = document.querySelectorAll(classItem);
 
-	if(navs == 0) return;
+	if (navs == 0) return;
 
 	const toggleShow = (el, style) => {
 		let li = el.closest('ul').querySelectorAll('li');
 		li.forEach(l => l.style.display = style)
 	};
 
-	const hideEl = el =>  {
+	const hideEl = el => {
 		let li = el.querySelectorAll('ul li'),
-				wCont = el.clientWidth - 100,
-				calc = 0,
-				index = 0,
-				index2 = 0;
-			li.forEach((l, ind) => {
-				calc += l.clientWidth;
-				if (calc < wCont) {
-					index = ind;
-				} else {
-					li[ind].style.display = 'none';
-					index2 = ind;
-				}
-			});
-			(!el.querySelector('.s-all-gost__more')) ? 
-				createEl(li, (index2 - index)) : 
-				el.querySelector('.s-all-gost__more').style.display = 'inline-block'
+			wCont = el.clientWidth - 100,
+			calc = 0,
+			index = 0,
+			index2 = 0;
+		li.forEach((l, ind) => {
+			calc += l.clientWidth;
+			if (calc < wCont) {
+				index = ind;
+			} else {
+				li[ind].style.display = 'none';
+				index2 = ind;
+			}
+		});
+		(!el.querySelector(classBtn)) ?
+			createEl(li, (index2 - index)) :
+			el.querySelector(classBtn).style.display = 'inline-block'
 	};
 
 	const createEl = (el, ind) => {
-		if(ind <= 0) return
-		let more = `<li class='s-all-gost__more'><span>Еще </span><span>${ind}</span></li>`;
+		if (ind <= 0) return
+		let more = `<li class='${classBtn.split('.').join('')}'><span>Еще </span><span>${ind}</span></li>`;
 		el[ind].closest('ul').insertAdjacentHTML('beforeend', more);
 	}
 
-	const calcF = () => {
-		navs.forEach(nav => {
-			hideEl(nav);
-		});
-	}
+	const calcF = () => navs.forEach(nav => hideEl(nav));
 	calcF();
 
 	const toggleEl = el => {
@@ -1219,19 +1243,20 @@ function gostWidth() {
 		el.classList.toggle('active')
 	}
 
-	let btns = document.querySelectorAll('.s-all-gost__more');
+	let btns = document.querySelectorAll(classBtn);
 	btns.forEach(btn => btn.addEventListener('click', () => toggleEl(btn)))
 }
-gostWidth()
+lineWidth('.s-all-gost__item', '.s-all-gost__more')
+lineWidth('.product-content__mark', '.product-content__more')
 
 // Scroll-sidebar
 function sidebar() {
 	if (document.documentElement.clientWidth > 1199) {
 		const sidebare = document.querySelector('.scroll-sidebar'),
-		header = document.querySelector('header');
+			header = document.querySelector('header');
 
-		if(sidebare == null) return
-		
+		if (sidebare == null) return
+
 		addEventListener('scroll', () => {
 			(header.classList.contains('hide')) ? sidebare.classList.add('hide-header') : sidebare.classList.remove('hide-header')
 		});
@@ -1239,14 +1264,10 @@ function sidebar() {
 }
 sidebar();
 
-
-
-
-
 // Фильтры
 function filters() {
 	const filtersModal = document.getElementById('modal-filters');
-	if(filtersModal == null) return
+	if (filtersModal == null) return
 
 	let arrAttr = [];
 
@@ -1270,7 +1291,7 @@ function filters() {
 		acc.forEach(el => accordion.hide(el));
 
 		acc.forEach(el => {
-			if(el.getAttribute('data-filter') == value) {
+			if (el.getAttribute('data-filter') == value) {
 				el.classList.add('active');
 				accordion.show(el);
 			}
@@ -1282,19 +1303,19 @@ function filters() {
 		const uls = document.querySelectorAll('.modal-f__list');
 
 		const createMore = (el, ind) => {
-			if(ind <= 0) return
+			if (ind <= 0) return
 			let more = `<div class='modal-f__more'><span>Еще </span><span>${ind}</span></div>`;
 			el.insertAdjacentHTML('afterend', more);
 		}
 		const hide = el => {
 			let li = el.querySelectorAll('li'),
 				ind = 0;
-			for(let i=4; i < li.length; i++) {
+			for (let i = 4; i < li.length; i++) {
 				li[i].style.display = 'none';
 				ind = i;
 			}
-			(!el.closest('.modal-f__panel').querySelector('.modal-f__more')) ? 
-				createMore(el, ind-3) : 
+			(!el.closest('.modal-f__panel').querySelector('.modal-f__more')) ?
+				createMore(el, ind - 3) :
 				el.closest('.modal-f__panel').querySelector('.modal-f__more').style.display = 'block';
 		}
 
@@ -1314,13 +1335,13 @@ function filters() {
 				show(el);
 				el.querySelector('span').textContent = 'Скрыть ';
 				el.previousElementSibling.previousElementSibling.classList.add('search');
-			accordion.show(el.closest('.modal-f__panel').previousElementSibling)
+				accordion.show(el.closest('.modal-f__panel').previousElementSibling)
 			}
 			el.classList.toggle('active')
 		}
 
 		const btns = document.querySelectorAll('.modal-f__more');
-		
+
 		btns.forEach(btn => {
 			btn.addEventListener('click', () => toggleEl(btn))
 		});
@@ -1337,17 +1358,17 @@ function filters() {
 			let index = 0;
 
 			btns.forEach((btn, ind) => {
-				if(btn.getAttribute('data-filter') == attr) index = ind;
+				if (btn.getAttribute('data-filter') == attr) index = ind;
 			});
 
 			btns[index].classList.add('value');
 
-			if(index === 0) {
-				if(arrAttr.indexOf(attr) === -1) return arrAttr.push(attr);
+			if (index === 0) {
+				if (arrAttr.indexOf(attr) === -1) return arrAttr.push(attr);
 				return
 			};
 
-			if(btns[index].querySelector('span')) btns[index].querySelector('span').remove();
+			if (btns[index].querySelector('span')) btns[index].querySelector('span').remove();
 			btns[index].querySelector('.filter__delete').insertAdjacentHTML('beforebegin', text)
 		}
 
@@ -1360,15 +1381,15 @@ function filters() {
 
 			let index = -1,
 				items = ul.querySelectorAll('li');
-			
-			if(!sidebar.classList.contains('value')) {
+
+			if (!sidebar.classList.contains('value')) {
 				sidebar.classList.add('value');
 				title.append(titlePage);
 			}
 
-			if(items) {
+			if (items) {
 				items.forEach((item, ind) => {
-					if(item.getAttribute('data-filter') == attr) index = ind;
+					if (item.getAttribute('data-filter') == attr) index = ind;
 				});
 
 				(index != -1) ? items[index].innerHTML = li : ul.insertAdjacentHTML('beforeend', li);
@@ -1378,7 +1399,7 @@ function filters() {
 
 			document.addEventListener('changeSidebarList', () => {
 				let li = ul.querySelectorAll('li');
-				if(li.length <= 0) {
+				if (li.length <= 0) {
 					sidebar.classList.remove('value');
 					title.innerHTML = '';
 				}
@@ -1387,7 +1408,7 @@ function filters() {
 
 		const addShowHeaderValue = (item, text) => {
 			const headerModalText = item.querySelector('.modal-f__wrap-text')
-			if(item.classList.contains('value')) {
+			if (item.classList.contains('value')) {
 				headerModalText.querySelector('.modal-f__text').nextElementSibling.innerHTML = text
 			} else {
 				headerModalText.insertAdjacentHTML('beforeend', text);
@@ -1418,9 +1439,9 @@ function filters() {
 		}
 
 		const removeActive = collection => {
-			collection.forEach(item=> {
+			collection.forEach(item => {
 				item.classList.remove('active')
-				if(item.querySelector('svg')) item.querySelector('svg').remove()
+				if (item.querySelector('svg')) item.querySelector('svg').remove()
 			})
 		}
 
@@ -1448,7 +1469,7 @@ function filters() {
 		item.querySelector('.modal-f__text').nextElementSibling.remove();
 
 		list.forEach(a => {
-			if(a.classList.contains('active')) {
+			if (a.classList.contains('active')) {
 				a.classList.remove('active');
 				a.querySelector('svg').remove();
 			}
@@ -1461,7 +1482,7 @@ function filters() {
 
 	const btnModalDelete = () => {
 		const btns = document.querySelectorAll('.modal-f__delete');
-	
+
 		btns.forEach(btn => btn.addEventListener('click', (e) => {
 			const attr = btn.closest('.modal-f__header').getAttribute('data-filter');
 			e.stopPropagation();
@@ -1493,13 +1514,13 @@ function filters() {
 	function removeAllLocation(attr, classNames) {
 		const elements = document.querySelectorAll(`*[data-filter='${attr}']`);
 		elements.forEach(elem => {
-			if(elem.classList.contains(classNames)) {
-				if(elem.classList.contains('filter')) {
+			if (elem.classList.contains(classNames)) {
+				if (elem.classList.contains('filter')) {
 					removeFilterBtnPage(elem.querySelector('.filter__delete'))
-				} else if(elem.classList.contains('modal-f__header')) {
+				} else if (elem.classList.contains('modal-f__header')) {
 					removeListitem(elem);
 				}
-			} else if(elem.classList.contains('scroll-sidebar__item')) {
+			} else if (elem.classList.contains('scroll-sidebar__item')) {
 				elem.remove();
 				document.dispatchEvent(new Event('changeSidebarList'));
 			}
@@ -1508,7 +1529,7 @@ function filters() {
 
 	function removeAllbtn(attr) {
 		arrAttr = arrAttr.filter(item => item !== attr);
-		if(arrAttr.length <= 0) document.querySelector('[data-filter="all"]').classList.remove('value')
+		if (arrAttr.length <= 0) document.querySelector('[data-filter="all"]').classList.remove('value')
 	}
 }
 filters()

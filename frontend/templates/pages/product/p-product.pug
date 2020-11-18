@@ -1,0 +1,18 @@
+.breadcrumbs
+	.container-xxl
+		ul.breadcrumbs__list
+			//- +breadcrumbs-item('Каталог','catalog.html')
+			//- +breadcrumbs-item('Категория', '#', true, 'Сталь', 'Чугун', 'Медь')
+			//- +breadcrumbs-item('Подкатегория', '#', true, 'Трубы', 'Фланцевые листы', 'Алюминиевый прессованный профиль')
+			//- +breadcrumbs-item('Товар')
+
+section.p-product
+	.container-xxl
+		.row
+			.col-xl-9
+				h1.p-product__title.txt--bld40 Стальной плоский фланец приварной встык с соединительным выступом
+			.col-12
+				.row
+					.col-xl-9
+						include ./product-content
+					.col-xl-3

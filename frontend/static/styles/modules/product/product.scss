@@ -1,0 +1,104 @@
+.p-product {
+	&__title {margin-bottom: 32px;}
+}
+
+.product-content {
+	padding: 48px 60px 40px;
+	background: $white;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 25px;
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 60px;
+		margin-bottom: 32px;
+		border-bottom: 1px solid $ui-mdm-gray;
+	}
+	&__slider {display: flex;}
+	&__thumbs {
+		flex-shrink: 0;
+		position: relative;
+		margin-right: 32px;
+	}
+	&__description {max-width: 254px;}
+	&__title {margin-bottom: 24px;}
+	&__list {
+		li {
+			margin-bottom: 24px;
+			font-weight: 600;
+			span {
+				display: block;
+				&:first-child {
+					margin-bottom: 4px;
+					color: $txt-gray60;
+					font-size: 12px;
+					line-height: 135%;
+				}
+				&:last-child {
+					color: $txt-black90;
+					font-size: 14px;
+					line-height: 135%;
+				}
+			}
+		}
+	}
+	&__more-description {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 150%;
+		&:hover {text-decoration: none;}
+	}
+	&__mark {
+		ul {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			margin: 0px;
+			padding: 0px;
+		}
+		li {
+			margin-bottom: 10px !important;
+			&::after {display: none;}
+			&:not(:last-child) {margin-right: 10px;}
+			& > a {
+				display: inline-block;
+				padding: 6px 12px;
+				background: $ui-mdm-gray;
+				border-radius: 50px;
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 150%;
+				&:hover {background: $ui-mdm-gray2}
+				&:active {background: $ui-mdm-gray3}
+			}
+		}
+	}
+	&__mark-title {margin-bottom: 20px;}
+	&__more {
+		display: inline;
+		color: $txt-black;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 150%;
+		transition: .3s linear;
+		cursor: pointer;
+		span {
+			&:last-child {
+				color: $accent-main;
+				transition: .3s linear;
+			}
+		}
+		&:hover {
+			color: $accent-main2;
+			span {
+				&:last-child {color: $accent-main2;}
+			}
+		}
+		&:active {
+			color: $accent-main3;
+			span {
+				&:last-child {color: $accent-main3;}
+			}
+		}
+	}
+}

@@ -33,6 +33,8 @@
 @import "catalog/p-catalog-list";
 // Листинг
 @import "product-listing/p-product-listing";
+// Страница товара
+@import "product/product";
 // Слайдеры
 @import "sliders/sliders";
 @import "sliders/popular-categories-slider";
@@ -41,6 +43,7 @@
 @import "sliders/manufacturing-slider";
 @import "sliders/stocks-slider";
 @import "sliders/news-slider";
+@import "sliders/product-slider";
 // Баннеры
 @import "slide-banner/slide-bannet";
 // Карточки
