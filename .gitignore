@@ -12,3 +12,4 @@ robots.txt
 /static/fonts/
 /static/css/
 /docket/data
+*/**/__pycache__
