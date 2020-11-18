@@ -66,7 +66,7 @@
 		color: $txt-gray60;
 		font-size: 12px;
 		line-height: 135%;
-		transition: .3s linear;
+		transition: .2s ease;
 		&:hover {color: $accent-main2;}
 		&:active {color: $accent-main3;}
 	}

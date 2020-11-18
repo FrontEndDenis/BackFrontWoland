@@ -3,6 +3,7 @@
 }
 
 .product-content {
+	margin-bottom: 60px;
 	padding: 48px 60px 40px;
 	background: $white;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
@@ -80,12 +81,12 @@
 		font-size: 14px;
 		font-weight: 600;
 		line-height: 150%;
-		transition: .3s linear;
+		transition: .2s ease;
 		cursor: pointer;
 		span {
 			&:last-child {
 				color: $accent-main;
-				transition: .3s linear;
+				transition: .2s ease;
 			}
 		}
 		&:hover {
@@ -100,5 +101,111 @@
 				&:last-child {color: $accent-main3;}
 			}
 		}
+	}
+}
+
+.product-tabs {
+	color: $txt-black90;
+	h2 {
+		margin-bottom: 24px;
+		color: $txt-black;
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 125%;
+	}
+	a {
+		color: $accent-main;
+		&:hover {color: $accent-main2;}
+		&:active {color: $accent-main;}
+	}
+	p {
+		margin-bottom: 0px;
+		&:not(:last-child) {margin-bottom: 24px;}
+	}
+	&__description {
+		img {
+			position: relative;
+			max-width: 100%;
+			width: 100%;
+			height: 360px;
+			margin: 48px 0px;
+			border-radius: 25px;
+			overflow: hidden;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				left: 0px;
+				filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+			}
+		}
+	}
+	&__specification {
+		table {
+			width: 100%;
+		}
+		tr {
+			display: flex;
+			justify-content: space-between;
+		}
+		th {
+			flex: 1;
+			position: relative;
+			&::after {
+				content: '';
+				position: absolute;
+				right: 3px;
+				bottom: 7px;
+				left: 3px;
+				border-bottom: 1px dashed rgba($color: $ui-dark-gray30, $alpha: .3);
+			}
+		}
+		td {
+			&:last-child {
+				max-width: 390px;
+				width: 100%;
+			}
+		}
+	}
+	&__delivery {
+		p {
+			&:not(:last-child) {margin-bottom: 20px;}
+		}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.product-content {
+		padding: 40px;
+		&__content {
+			margin-bottom: 48px;
+			padding-bottom: 0px;
+			border: none;
+		}
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.product-content {
+		&__description {max-width: 200px;}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.product-content {
+		margin-bottom: 36px;
+		padding: 0px;
+		box-shadow: none;
+		&__content {
+			display: block;
+			margin-bottom: 36px;
+		}
+		&__slider {
+			justify-content: center;
+			margin-bottom: 36px;
+		}
+		&__thumbs {display: none;}
 	}
 }

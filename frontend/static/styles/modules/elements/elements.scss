@@ -57,7 +57,7 @@ a[href*=mailto], a[href*=tel] {
 			margin-right: 12px;
 			border: 1px solid $ui-dark-gray30;
 			border-radius: 2px;
-			transition: .3s linear;
+			transition: .2s ease;
 		}
 		&::after {
 			display: none;
@@ -151,7 +151,7 @@ a[href*=mailto], a[href*=tel] {
 		border-radius: 50px;
 		line-height: 150%;
 		text-align: center;
-		transition: .3s linear;
+		transition: .2s ease;
 		cursor: pointer;
 		&:hover {background: $ui-mdm-gray2;}
 		&:active {background: $ui-mdm-gray3;}
@@ -264,7 +264,7 @@ a[href*=mailto], a[href*=tel] {
 		height: 18px;
 		background: $ui-mdm-gray;
 		border-radius: 50%;
-		transition: .3s linear;
+		transition: .2s ease;
 		&:hover {
 			background: $accent-main2;
 			svg {fill: $white;}
@@ -314,7 +314,7 @@ a[href*=mailto], a[href*=tel] {
 	}
 	&__icon {
 		margin-left: 6px;
-		transition: .3s linear;
+		transition: .2s ease;
 	}
 	&__body {
 		display: none;
@@ -328,7 +328,7 @@ a[href*=mailto], a[href*=tel] {
 	}
 	&__item {
 		padding: 14px 18px;
-		transition: .3s linear;
+		transition: .2s ease;
 		cursor: pointer;
 		&:hover {color: $accent-main2;}
 		&:active {color: $accent-main3;}
@@ -370,7 +370,7 @@ a[href*=mailto], a[href*=tel] {
 		font-size: 14px;
 		font-weight: 600;
 		line-height: 150%;
-		transition: .3s linear;
+		transition: .2s ease;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -380,7 +380,7 @@ a[href*=mailto], a[href*=tel] {
 		font-size: 12px;
 		line-height: 135%;
 		font-weight: 500;
-		transition: .3s linear;
+		transition: .2s ease;
 	}
 	&__reset {
 		position: relative;
@@ -429,7 +429,7 @@ a[href*=mailto], a[href*=tel] {
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 150%;
-	transition: .3s linear;
+	transition: .2s ease;
 	cursor: pointer;
 	svg {
 		display: none;

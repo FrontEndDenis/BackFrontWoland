@@ -50,7 +50,7 @@
 		color: $txt-black90;
 		line-height: 150%;
 		user-select: none;
-		transition: .3s linear;
+		transition: .2s ease;
 		cursor: pointer;
 		svg {fill: $txt-black90;}
 		&:hover {

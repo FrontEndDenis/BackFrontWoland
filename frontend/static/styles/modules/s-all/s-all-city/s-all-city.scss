@@ -10,7 +10,7 @@
 		li {
 			margin-bottom: 10px !important;
 			&::after {display: none;}
-			&:not(:last-child) {margin-right: 10px;}
+			&:not(:last-child) {margin-right: 8px;}
 			& > a {
 				display: inline-block;
 				padding: 6px 12px;

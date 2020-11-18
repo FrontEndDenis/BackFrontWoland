@@ -8,7 +8,7 @@
 	color: $txt-black90;
 	border-radius: 25px;
 	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-	transition: .3s box-shadow linear;
+	transition: .2s box-shadow ease;
 	&__warning {
 		position: absolute;
 		top: 20px;
@@ -39,7 +39,7 @@
 		margin: 20px 0px 16px;
 		font-weight: 700;
 		line-height: 120%;
-		transition: .3s linear;
+		transition: .2s ease;
 		&:hover {color: $accent-main2;}
 		&:active {color: $accent-main3;}
 	}
@@ -122,7 +122,7 @@
 		background: $white;
 		border-radius: 10px;
 		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-		transition: .3s linear;
+		transition: .2s ease;
 		&:hover {box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1);}
 	}
 	&__close {

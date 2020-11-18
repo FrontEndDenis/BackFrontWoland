@@ -49,12 +49,12 @@
 		font-size: 14px;
 		font-weight: 600;
 		line-height: 150%;
-		transition: .3s linear;
+		transition: .2s ease;
 		cursor: pointer;
 		span {
 			&:last-child {
 				color: $accent-main;
-				transition: .3s linear;
+				transition: .2s ease;
 			}
 		}
 		&:hover {

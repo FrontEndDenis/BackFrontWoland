@@ -136,7 +136,7 @@ button[disabled] {
 		background: $ui-dark-gray30;
 		background-size: (($switchWidth * 2) + 50) 100%;
 		border-radius: 50px;
-		transition: all .3s linear;
+		transition: .2s ease;
 		cursor: pointer;
 		&::after {
 			content: '';
@@ -147,7 +147,7 @@ button[disabled] {
 			height: $btnWidth;
 			background: $white;
 			border-radius: 50%;
-			transition: left .3s linear, transform 150ms linear, width .3s linear;
+			transition: left .2s ease, transform 150ms linear, width .2s ease;
 		}
 		&:active {
 			&::after {transform: scale(0.90);}

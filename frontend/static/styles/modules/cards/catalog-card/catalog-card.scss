@@ -25,7 +25,7 @@
 			left: 0px;
 			width: 100%;
 			height: 100%;
-			transition: .3s linear;
+			transition: .2s ease;
 		}
 	}
 	&__content {
@@ -46,7 +46,7 @@
 		font-size: 24px;
 		font-weight: 700;
 		line-height: 125%;
-		transition: .3s linear;
+		transition: .2s ease;
 	}
 	&__btn {
 		position: absolute;
@@ -69,7 +69,7 @@
 		background: $white;
 		box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1);
 		border-radius: 20px;
-		transition: .3s linear;
+		transition: .2s ease;
 		opacity: 0;
 		visibility: hidden;
 		z-index: -1;

@@ -3,7 +3,7 @@
 	height: auto;
 	margin: 0;
 	transform: translate(0);
-	transition: .3s linear; 
+	transition: .2s ease; 
 }
 
 .modal-left .modal-content,
@@ -215,7 +215,7 @@
 	&__popular-request {
 		font-weight: 500;
 		li {
-			transition: .3s linear;
+			transition: .2s ease;
 			cursor: pointer;
 			&:not(:last-child) {margin-bottom: 12px;}
 			&:hover {color: $accent-main2;}
@@ -338,7 +338,7 @@
 		height: 13px;
 		background: $txt-gray60;
 		border-radius: 50%;
-		transition: .3s linear;
+		transition: .2s ease;
 		z-index: 4;
 		svg {
 			width: 5px;
@@ -348,7 +348,7 @@
 		}
 	}
 	&__icon {
-		transition: .3s linear;
+		transition: .2s ease;
 		svg {
 			width: 15px;
 			height: 9px;
@@ -371,7 +371,7 @@
 	}
 	&__panel {
 		border-bottom: 1px solid transparent;
-		transition: .3s linear;
+		transition: .2s ease;
 	}
 	&__list {
 		max-height: 130px;
@@ -379,7 +379,7 @@
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 150%;
-		transition: .3s linear;
+		transition: .2s ease;
 		overflow-y: auto;
 		li {
 			margin-bottom: 11px;
@@ -417,7 +417,7 @@
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 150%;
-		transition: .3s linear;
+		transition: .2s ease;
 		cursor: pointer;
 		&:hover {color: $accent-main2;}
 	}

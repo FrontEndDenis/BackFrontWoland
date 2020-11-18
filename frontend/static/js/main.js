@@ -164,15 +164,12 @@ function slidersInit() {
 		direction: 'vertical',
 		slidesPerView: 3,
 		spaceBetween: 24,
-		watchSlidesVisibility: true,
-		watchSlidesProgress: true,
+		// watchSlidesVisibility: true,
+		// watchSlidesProgress: true,
 	});
 	const product = new Swiper('.product-slider', {
 		thumbs: {
 			swiper: productThumbs,
-		},
-		pagination: {
-			el: '.swiper-pagination',
 		},
 		breakpoints: {
 			0: {
@@ -185,6 +182,9 @@ function slidersInit() {
 		navigation: {
 			prevEl: '.product-slider__prev',
 			nextEl: '.product-slider__next',
+		},
+		pagination: {
+			el: '.product-slider__pagination',
 		},
 	});
 }
@@ -395,7 +395,8 @@ function tabs() {
 		navs.forEach((nav) => nav.classList.remove('active'));
 		contents.forEach((content) => content.classList.remove('active'));
 		navs[id].classList.add('active');
-		contents[id].classList.add('active', 'fade-in-scale');
+		contents[id].classList.add('active');
+		animateCSS(contents[id], 'fade-in-scale');
 	}
 }
 tabs();

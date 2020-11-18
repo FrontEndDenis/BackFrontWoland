@@ -7,7 +7,7 @@ header {flex: 0 0 auto;}
 	background: $ui-main-blue;
 	color: $white;
 	z-index: 100;
-	transition: .3s linear;
+	transition: .2s ease;
 	transform: translateY(0%);
 	&__top-line {
 		margin-bottom: 16px;
@@ -73,7 +73,7 @@ header {flex: 0 0 auto;}
 		}
 		.txt--mdm14 {
 			color: $txt-white60;
-			transition: .3s linear;
+			transition: .2s ease;
 			&:hover {color: $accent-main2;}
 		}
 	}
@@ -126,7 +126,7 @@ header {flex: 0 0 auto;}
 		position: absolute;
 		top: 21px;
 		padding-top: 6px;
-		transition: .3s linear;
+		transition: .2s ease;
 		z-index: 1000;
 	}
 	&__list {
