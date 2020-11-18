@@ -38,8 +38,8 @@ DATABASE_HOST = 'localhost'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-DATABASE_NAME = 'unisite'
-DATABASE_PASS = 'tkPoWm9skRfTg6ak'
+DATABASE_NAME = 'woland'
+DATABASE_PASS = 'woland'
 
 if "unisite/unisite" in BASE_DIR:
 	DEBUG = True
@@ -50,7 +50,7 @@ else:
 	# DATABASE_HOST = 'gkws.ru'
 	# DATABASE_HOST = 'gkws.kz'
 	# DATABASE_HOST = 'isteels.ru'
-	DATABASE_HOST = 'al-titan.ru'
+	DATABASE_HOST = 'dev-db.roiburo.ru'
 	# MEDIA_URL = 'http://gkws.ru/media/'
 	MEDIA_URL = 'http://al-titan.ru/media/'
 
