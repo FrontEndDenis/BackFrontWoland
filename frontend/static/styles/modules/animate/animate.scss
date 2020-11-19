@@ -1,5 +1,5 @@
 .fade-in {
-	animation: fadeIn .3s ease-in-out both;
+	animation: fadeIn .2s ease both;
 	@keyframes fadeIn {
 		from {
 			opacity: 0;
@@ -11,7 +11,7 @@
 }
 
 .fade-out {
-	animation: fadeOut .3s ease-in-out both;
+	animation: fadeOut .3s ease both;
 	@keyframes fadeOut {
 		from {
 			opacity: 1;
@@ -25,7 +25,7 @@
 }
 
 .fade-in-scale {
-	animation: fadeInScale .5s ease-in-out both;
+	animation: fadeInScale .5s ease both;
 	@keyframes fadeInScale {
 		from {
 			opacity: 0;
@@ -39,7 +39,7 @@
 }
 
 .fade-in-scale-top {
-	animation: fadeInScaleTop .5s ease-in-out both;
+	animation: fadeInScaleTop .5s ease both;
 	@keyframes fadeInScaleTop {
 		from {
 			opacity: 0;
@@ -55,7 +55,7 @@
 }
 
 .fade-in-scale-bottom {
-	animation: fadeInScaleBottom .5s ease-in-out both;
+	animation: fadeInScaleBottom .5s ease both;
 	@keyframes fadeInScaleBottom {
 		from {
 			opacity: 1;
@@ -84,7 +84,7 @@
 
 @media only screen and (max-width: 767px) {
 	.fade-in-scale-top {
-		animation: fadeInScaleTop .5s ease-in-out both;
+		animation: fadeInScaleTop .5s ease both;
 		@keyframes fadeInScaleTop {
 			from {
 				opacity: 0;
@@ -103,7 +103,7 @@
 		}
 	}
 	.fade-in-scale-bottom {
-		animation: fadeInScaleBottom .5s ease-in-out both;
+		animation: fadeInScaleBottom .5s ease both;
 		@keyframes fadeInScaleBottom {
 			from {
 				opacity: 1;

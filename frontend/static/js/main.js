@@ -333,6 +333,8 @@ function catalogMenu() {
 		elems = panel.querySelectorAll('li'),
 		block = document.querySelector('.bottom-line__catalog');
 
+	let timer;
+
 	const checkEl = item => {
 		if (item.classList.contains('active')) {
 			addEl(item)
@@ -363,12 +365,28 @@ function catalogMenu() {
 
 	elems.forEach(elem => {
 		elem.addEventListener('mouseenter', function () {
-			checkEl(elem);
+			timerEnter(elem);
 		}, false);
 		bottom.addEventListener('mouseleave', function () {
-			hide(elem);
+			timerleave(elem);
 		}, false);
-	})
+	});
+
+	function timerEnter(item) {
+		if(panel.classList.contains('open-catalog')) {
+			checkEl(item);
+		} else {
+			clearTimeout(timer);
+			timer = setTimeout(function () {
+				checkEl(item);
+			}, 500);
+		}
+	}
+
+	function timerleave(item) {
+		clearTimeout(timer);
+		hide(item);
+	}
 }
 catalogMenu();
 
