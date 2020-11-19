@@ -1,0 +1,26 @@
+.scroll-sidebar.value
+	.scroll-sidebar__left
+		.scroll-sidebar__product
+			.scroll-sidebar__price-txt Цена
+			.scroll-sidebar__value 55 000 ₽/шт
+			.scroll-sidebar__value.hint
+				| Договорная
+				+icon('hint')
+			button.btn.btn--br50
+				| Добавить в заявку
+				+icon('add-basket')
+	.scroll-sidebar__right
+		h3.scroll-sidebar__title Хотите узнать цену?
+		p.scroll-sidebar__text Наш менеджер свяжется с вами и рассчитает цену того, что вам нужно:
+		form.scroll-sidebar__form.needs-validation(action='', method='get', novalidate)
+			.form-group
+					input.form-control(type='tel', placeholder='Ваш телефон', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
+					button.btn.btn--circle(type='submit')
+						+icon('arrow-right')
+			.form-group
+				label.checkbox
+					input.form-control(type='checkbox', checked, required)
+					span.checkbox__text
+						.policy
+							| Даю согласие на 
+							a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных

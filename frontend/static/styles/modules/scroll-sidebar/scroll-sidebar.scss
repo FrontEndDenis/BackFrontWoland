@@ -2,7 +2,6 @@
 	position: sticky;
 	top: 165px;
 	width: 100%;
-	margin-bottom: 120px;
 	padding: 32px 24px;
 	background: $ui-lgh-gray;
 	color: $txt-black90;
@@ -12,6 +11,39 @@
 		display: none;
 		margin-bottom: 24px;
 		border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
+	}
+	&__product {
+		button {
+			margin: 20px 0px 24px;
+			svg {
+				width: 20px;
+				height: 20px;
+				margin-left: 7px;
+			}
+		}
+	}
+	&__price-txt {
+		color: $txt-gray60;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 135%;
+	}
+	&__value {
+		margin-top: 4px;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 125%;
+		&.hint {
+			display: flex;
+			align-items: center;
+			svg {
+				width: 16px;
+				height: 16px;
+				margin-left: 2px;
+				&:hover {fill: $accent-main2;}
+				&:active {fill: $accent-main;}
+			}
+		}
 	}
 	&__title {
 		margin-bottom: 16px;
@@ -67,6 +99,7 @@
 	&.value {
 		.scroll-sidebar__left {display: block;}
 	}
+	&#scroll-sidebar-filters {margin-bottom: 120px;}
 }
 
 @media only screen and (max-width: 1199px) {
@@ -74,21 +107,28 @@
 		display: flex;
 		position: relative;
 		top: 0px;
-		margin-bottom: 80px;
 		padding: 32px 40px;
 		border-radius: 25px;
 		&__left {
 			flex-direction: column;
 			justify-content: center;
 			max-width: 246px;
+			width: 100%;
 			margin-right: 24px;
 			margin-bottom: 0px;
 			border-bottom: none;
 			border-right: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
 		}
+		&__product {
+			margin-right: 24px;
+			button {margin: 20px 0px 0px;}
+		}
 		&__right {width: 100%;}
 		&.hide-header {top: 0px;}
-		&.value {display: flex;}
+		&.value {
+			.scroll-sidebar__left {display: flex;}
+		}
+		&#scroll-sidebar-filters {margin-bottom: 80px;}
 	}
 }
 
@@ -96,7 +136,6 @@
 @media only screen and (max-width: 767px) {
 	.scroll-sidebar {
 		display: block;
-		margin-bottom: 60px;
 		padding: 32px 24px;
 		border-radius: 20px;
 		&__left {
@@ -106,6 +145,9 @@
 			border-bottom: 1px solid rgba($color: $ui-dark-gray30, $alpha: .1);
 			border-right: none;
 		}
-		&.value {display: block;}
+		&.value {
+			.scroll-sidebar__left {display: block;}
+		}
+		&#scroll-sidebar-filters {margin-bottom: 60px;}
 	}
 }
