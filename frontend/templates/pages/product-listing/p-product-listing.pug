@@ -1,11 +1,3 @@
-.breadcrumbs
-	.container-xxl
-		ul.breadcrumbs__list
-			//- +breadcrumbs-item('Каталог','catalog.html')
-			//- +breadcrumbs-item('Категория', '#', true, 'Сталь', 'Чугун', 'Медь')
-			//- +breadcrumbs-item('Подкатегория', '#', true, 'Трубы', 'Фланцевые листы', 'Алюминиевый прессованный профиль')
-			//- +breadcrumbs-item('Товар')
-
 section.p-product-listing
 	.container-xxl
 		.p-product-listing__title
@@ -29,9 +21,10 @@ section.p-product-listing
 		.row
 			.col-xl-9
 				.row
-					each product in product_list
-						.col-lg-3.col-md-4.col-sm-6
-							include  ../../modules/cards/stocks-card/stocks-card
+					if product_list
+						each product in product_list
+							.col-lg-3.col-md-4.col-sm-6
+								include  ../../modules/cards/stocks-card/stocks-card
 					.col-12
 						.custom-product
 							.custom-product__content
