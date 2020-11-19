@@ -25,15 +25,15 @@
 		  href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 	<style>
-        /* хром, сафари */
-        html::-webkit-scrollbar {
-            width: 0;
-        }
+		/* хром, сафари */
+		html::-webkit-scrollbar {
+			width: 0;
+		}
 
-        /* ie 10+ */
-        html {
-            -ms-overflow-style: none;
-        }
+		/* ie 10+ */
+		html {
+			-ms-overflow-style: none;
+		}
 	</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -99,20 +99,20 @@
 		})
 		//Date range as a button
 		$('#daterange-btn').daterangepicker({
-				ranges: {
-					'Today': [moment(), moment()],
-					'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-					'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-					'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-					'This Month': [moment().startOf('month'), moment().endOf('month')],
-					'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+					ranges: {
+						'Today': [moment(), moment()],
+						'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+						'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+						'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+						'This Month': [moment().startOf('month'), moment().endOf('month')],
+						'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+					},
+					startDate: moment().subtract(29, 'days'),
+					endDate: moment()
 				},
-				startDate: moment().subtract(29, 'days'),
-				endDate: moment()
-			},
-			function (start, end) {
-				$('#daterange-btn span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'))
-			}
+				function (start, end) {
+					$('#daterange-btn span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'))
+				}
 		)
 		//Date picker
 		$('#datepicker').datepicker({
