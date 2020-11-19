@@ -6,22 +6,11 @@
 					a(href='#')
 						+icon('star')
 						| Акции
-				li
-					a(href='#') Сталь
-				li
-					a(href='#') Цветные металлы
-				li
-					a(href='#') Чугун
-				li
-					a(href='#') Сплавы
-				li
-					a(href='#') Редкоземельные металлы
-				li
-					a(href='#') Оборудование
-				li
-					a(href='#') Полимеры
-		.bottom-line__catalog
-			include ./catalog-menu.pug
+				each category in catalog_menu_list
+					li
+						a(href=category.url)=category.name
+						.bottom-line__catalog
+							include ./catalog-menu.pug
 	.bottom-line__right
 		.bottom-line__search-input.search-input
 			button.search-input__search

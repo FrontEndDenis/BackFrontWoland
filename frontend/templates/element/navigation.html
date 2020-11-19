@@ -18,6 +18,7 @@
 					<li><a href="{{ request.scheme }}://
 
 
+
 							{% if item.subdomain_name %}{{ item.subdomain_name }}{% endif %}{{ current_url }}">{{ item.name }}</a>
 					</li>
 				{% endfor %}
@@ -26,6 +27,7 @@
 		<ul class="city-line__full-list city-output-list4" id="ul_city_list">
 			{% for item in filials_list %}
 				<li><a href="{{ request.scheme }}://
+
 
 
 						{% if item.subdomain_name %}{{ item.subdomain_name }}{% endif %}{{ current_url }}">{{ item.name }}</a>

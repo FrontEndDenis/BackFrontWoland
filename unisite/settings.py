@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import getpass
 import os
 
+from utils.frontend.magic import add_url_generator_to_models
+
+add_url_generator_to_models()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -106,6 +110,7 @@ TEMPLATES = [
 				'admin_m.views.static_admin_url',
 				'text_block_url.views.text_block_url',
 				PROJECT_NAME + '.views.global_views',
+				'utils.frontend.breadcrumbs.breadcrumbs'
 			],
 			'loaders': [
 				# PyPugJS part:   ##############################

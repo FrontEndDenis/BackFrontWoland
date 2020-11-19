@@ -126,6 +126,9 @@ class Product(models.Model):
 		ordering = ["catalog"]
 		verbose_name_plural = "Продукт"
 	
+	def generate_url(self):
+		return '/product/' + self.slug
+	
 	def set_slug(self):
 		if self.param_1:
 			self.name += " {}".format(self.param_1)

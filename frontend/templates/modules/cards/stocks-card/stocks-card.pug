@@ -20,7 +20,7 @@
 				.warning__item
 					.warning__property Тип соединения
 					.warning__value C цапковым концом под метрическую трубу
-	if product.is_spec == true
+	if product.is_spec
 		.stocks-card__wrap-img
 			.stocks-card__img
 				img(src="#{product.image}", alt="#{product.name}")
@@ -30,7 +30,7 @@
 		.stocks-card__wrap-img
 			.stocks-card__img
 				img(src="#{product.image}", alt="#{product.name}")
-	a.stocks-card__title(href='#')=product.name
+	a.stocks-card__title(href=product.url)=product.name
 	.stocks-card__specifications
 		if current_menu.label_param1 and product.param_1
 			.stocks-card__item
