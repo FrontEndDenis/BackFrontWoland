@@ -1,16 +1,17 @@
 .catalog-card
-	a.catalog-card__wrap(href="#{category.slug}")
+	a.catalog-card__wrap(href=category.url)
 		.catalog-card__img
 			img(src="#{category.image}", alt="#{category.name}")
 		.catalog-card__content
-			.catalog-card__count #{category.children|length} видов
+			.catalog-card__count #{category.get_child|length} видов
 			.catalog-card__title=category.name
 		.catalog-card__btn.btn.btn--circle
 			+icon('arrow-right')
 	.catalog-card__hidden
-		a.catalog-card__h-title(href='#')=category.name
+		a.catalog-card__h-title(href=category.url)=category.name
 		.catalog-card__h-wrap
 			ul.catalog-card__list
-				each sub_category in category.children
-					li
-						a(href="#{sub_category.slug}")=sub_category.name
+				if category.get_child
+					each sub_category in category.get_child
+						li
+							a(href=sub_category.url)=sub_category.name

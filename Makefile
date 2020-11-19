@@ -113,7 +113,7 @@ status:
 logs:
 	docker-compose ${PARAMS} logs
 in:
-	docker-compose ${PARAMS} exec app bash
+	docker-compose ${PARAMS} exec nginx bash
 php-dep:
 	docker-compose ${PARAMS} run app php composer.phar install
 js-dep:

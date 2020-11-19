@@ -1,26 +1,44 @@
 .stocks-card
-	.stocks-card__warning.warning
-		+icon('warning')
-		.warning__wrap
-			.warning__list
-				.warning__close
-					+icon('close')
-				.warning__item
-					.warning__property Марка
-					.warning__value 05Х16Н5АБ05Х16
-				.warning__item
-					.warning__property Марка
-					.warning__value 05Х16Н5АБ05Х16
-				.warning__item
-					.warning__property Марка
-					.warning__value 05Х16Н5АБ05Х16
-				.warning__item
-					.warning__property Тип соединения
-					.warning__value C цапковым концом под метрическую трубу
-				.warning__item
-					.warning__property Тип соединения
-					.warning__value C цапковым концом под метрическую трубу
-	if product.is_spec == true
+	if current_menu.label_param4 and product.param_4
+		.stocks-card__warning.warning
+			+icon('warning')
+			.warning__wrap
+				.warning__list
+					.warning__close
+						+icon('close')
+					if product.marka and not current_menu.is_hide_marka
+						.warning__item
+							.warning__property Марка
+							.warning__value=product.marka
+					if product.standart and not current_menu.is_hide_standart
+						.warning__item
+							.warning__property ГОСТ
+							.warning__value=product.standart
+					if current_menu.label_param1 and product.param_1
+						.warning__item
+							.warning__property=current_menu.label_param1
+							.warning__value=product.param_1
+					if current_menu.label_param2 and product.param_2
+						.warning__item
+							.warning__property=current_menu.label_param2
+							.warning__value=product.param_2
+					if current_menu.label_param3 and product.param_3
+						.warning__item
+							.warning__property=current_menu.label_param3
+							.warning__value=product.param_3
+					if current_menu.label_param4 and product.param_4
+						.warning__item
+							.warning__property=current_menu.label_param4
+							.warning__value=product.param_4
+					if current_menu.label_param5 and product.param_5
+						.warning__item
+							.warning__property=current_menu.label_param5
+							.warning__value=product.param_5
+					if current_menu.label_param6 and product.param_6
+						.warning__item
+							.warning__property=current_menu.label_param6
+							.warning__value=product.param_6
+	if product.is_spec
 		.stocks-card__wrap-img
 			.stocks-card__img
 				img(src="#{product.image}", alt="#{product.name}")
@@ -30,7 +48,7 @@
 		.stocks-card__wrap-img
 			.stocks-card__img
 				img(src="#{product.image}", alt="#{product.name}")
-	a.stocks-card__title(href='#')=product.name
+	a.stocks-card__title(href=product.url)=product.name
 	.stocks-card__specifications
 		if current_menu.label_param1 and product.param_1
 			.stocks-card__item

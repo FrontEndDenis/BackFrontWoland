@@ -52,11 +52,8 @@ class IndexView(TemplateView):
 		spec_list = Product.objects.filter(is_spec=True, is_hidden=False)[:SIZE_SALE_INDEX]
 		manufacture_list = Product.objects.filter(is_manufacture=True, is_hidden=False)[:SIZE_SERVICE_INDEX]
 		categories_list = MenuCatalog.objects.filter(parent_id=1, type_menu_id=6)[:10]
-		for category in categories_list:
-			category.children = category.get_child()
-		
-		popular_categories = MenuCatalog.objects.order_by('created_at')[:10]
-		ip = request.META.get('REMOTE_ADDR')
+		popular_categories = MenuCatalog.objects.filter(type_menu_id=7).order_by('created_at')[:10]
+		is_index = True
 		return render(request, self.template_name, locals())
 
 
