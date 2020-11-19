@@ -1,6 +1,6 @@
-a.manufacturing-card(href='#')
+a.manufacturing-card(href="#{manufacture.slug}")
 	.manufacturing-card__img
-		img(src='../../../../static/images/content/manufacturing-card.png', alt='')
-	.manufacturing-card__title Производство нержавеющих труб
+		img(src="#{manufacture.image}", alt="#{manufacture.name}")
+	.manufacturing-card__title=manufacture.name
 	.manufacturing-card__btn.btn.btn--circle.btn--trparent-svg
 		+icon('arrow-right')

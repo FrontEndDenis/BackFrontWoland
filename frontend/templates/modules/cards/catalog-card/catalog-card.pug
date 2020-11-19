@@ -1,34 +1,16 @@
 .catalog-card
-	a.catalog-card__wrap(href='#')
+	a.catalog-card__wrap(href="#{category.slug}")
 		.catalog-card__img
-			img(src='../../../../static/images/content/img.jpg', alt='')
+			img(src="#{category.image}", alt="#{category.name}")
 		.catalog-card__content
-			.catalog-card__count 12 видов
-			.catalog-card__title Сталь
+			.catalog-card__count #{category.children|length} видов
+			.catalog-card__title=category.name
 		.catalog-card__btn.btn.btn--circle
 			+icon('arrow-right')
 	.catalog-card__hidden
-		a.catalog-card__h-title(href='#') Сталь
+		a.catalog-card__h-title(href='#')=category.name
 		.catalog-card__h-wrap
 			ul.catalog-card__list
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				li
-					a(href='#') Конструкционные стали
-				//- each category in product.categories
-				//- 	li
-				//- 		a(href=category.href) #{category.name}
+				each sub_category in category.children
+					li
+						a(href="#{sub_category.slug}")=sub_category.name

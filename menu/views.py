@@ -50,9 +50,12 @@ class IndexView(TemplateView):
 		# advantages_list = Advantages.objects.filter(is_hidden=False)
 		news_list = News.objects.filter(is_hidden=False)[:3]
 		spec_list = Product.objects.filter(is_spec=True, is_hidden=False)[:SIZE_SALE_INDEX]
-		service_list = Product.objects.filter(is_service=True, is_hidden=False)[:SIZE_SERVICE_INDEX]
-		categories_list = MenuCatalog.objects.filter()[:10]
+		manufacture_list = Product.objects.filter(is_manufacture=True, is_hidden=False)[:SIZE_SERVICE_INDEX]
+		categories_list = MenuCatalog.objects.filter(parent_id=1, type_menu_id=6)[:10]
+		for category in categories_list:
+			category.children = category.get_child()
 		
+		popular_categories = MenuCatalog.objects.order_by('created_at')[:10]
 		ip = request.META.get('REMOTE_ADDR')
 		return render(request, self.template_name, locals())
 
@@ -121,6 +124,7 @@ class MenuView(View):
 			
 			page = 1
 			current_filter_url = request.path
+			product_list_count = product_list.count()
 			
 			if sort_type:
 				sort_type_str, product_list = get_sort_type(sort_type, product_list)

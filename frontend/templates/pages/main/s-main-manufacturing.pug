@@ -13,21 +13,10 @@ section.s-main-manufacturing
 					.s-main-manufacturing__slider
 						.manufacturing-slider.swiper-container
 							.swiper-wrapper
-								.swiper-slide
-									.manufacturing-slider__item
-										include ../../modules/cards/manufacturing-card/manufacturing-card
-								.swiper-slide
-									.manufacturing-slider__item
-										include ../../modules/cards/manufacturing-card/manufacturing-card
-								.swiper-slide
-									.manufacturing-slider__item
-										include ../../modules/cards/manufacturing-card/manufacturing-card
-								.swiper-slide
-									.manufacturing-slider__item
-										include ../../modules/cards/manufacturing-card/manufacturing-card
-								.swiper-slide
-									.manufacturing-slider__item
-										include ../../modules/cards/manufacturing-card/manufacturing-card
+								each manufacture in manufacture_list
+									.swiper-slide
+										.manufacturing-slider__item
+											include ../../modules/cards/manufacturing-card/manufacturing-card
 						button.manufacturing-slider__prev.swiper-prev
 							+icon('arrow-right-2')
 						button.manufacturing-slider__next.swiper-next
