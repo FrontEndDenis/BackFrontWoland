@@ -1187,16 +1187,16 @@ const Pagination = {
 		}
 
 		let html = [
-			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
+			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
 			`<ul class='pagination__list'></ul>`,  // pagination container
-			`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
+			`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
 		],
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
 							<span class='pagination__text'>Перейти на страницу</span>
 							<div class='pagination__fiuld'>
 								<input type='number' placeholder='№' inputmode='numeric'>
-								<button type='button' class='btn btn--circle'><svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></button>
+								<button type='button' class='btn btn--circle'><svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></button>
 							</div>
 						</div>`
 		e.innerHTML = block;
@@ -1469,7 +1469,7 @@ function filters() {
 		}
 
 		const addActive = item => {
-			const svg = `<svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="static/images/svg/symbol/sprite.svg#arrow-right"></use></svg>`
+			const svg = `<svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg>`
 			item.classList.add('active');
 			item.insertAdjacentHTML('afterbegin', svg)
 		}

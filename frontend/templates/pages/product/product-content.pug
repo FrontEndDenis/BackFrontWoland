@@ -11,49 +11,35 @@
 						.swiper-slide
 							.product-slider-thumbs__item
 								.product-slider-thumbs__img
-									img(src='../../../static/images/content/product-min.png' alt='')
+									img(src=product.image alt=product.name)
 						.swiper-slide
 							.product-slider-thumbs__item
 								.product-slider-thumbs__img
-									img(src='../../../static/images/content/product-min-2.png' alt='')
-						.swiper-slide
-							.product-slider-thumbs__item
-								.product-slider-thumbs__img
-									img(src='../../../static/images/content/product-min.png' alt='')
-						.swiper-slide
-							.product-slider-thumbs__item
-								.product-slider-thumbs__img
-									img(src='../../../static/images/content/product-min-2.png' alt='')
+									img(src=product.image_2 alt=product.name)
 			.product-slider.swiper-container
 				.swiper-wrapper
 					.swiper-slide
 						.product-slider__img
-							img(src='https://cdn-nus-1.pinme.ru/photo/66/da/66da1773ccb49e5d9aa269b7eae8be8e.jpg' alt='')
+							img(src=product.image alt=product.name)
 					.swiper-slide
 						.product-slider__img
-							img(src='../../../static/images/content/product-2.png' alt='')
-					.swiper-slide
-						.product-slider__img
-							img(src='../../../static/images/content/product.png' alt='')
-					.swiper-slide
-						.product-slider__img
-							img(src='../../../static/images/content/product-2.png' alt='')
+							img(src=product.image_2 alt=product.name)
 				.product-slider__pagination.swiper-pagination
 		.product-content__description
 			h3.product-content__title.txt--bld20 Коротко о товаре
-			ul.product-content__list
-				li
-					span Артикул
-					span 12345-18
-				li
-					span Марка
-					span 05Х16Н5АБ
-				li
-					span ГОСТ
-					span 05Х16Н5АБ05Х16Н5АБ
-				li
-					span Мин. диаметр электрода
-					span C цапковым концом под метрическую трубу
+			//ul.product-content__list
+			//	li
+			//		span Артикул
+			//		span 12345-18
+			//	li
+			//		span Марка
+			//		span 05Х16Н5АБ
+			//	li
+			//		span ГОСТ
+			//		span 05Х16Н5АБ05Х16Н5АБ
+			//	li
+			//		span Мин. диаметр электрода
+			//		span C цапковым концом под метрическую трубу
 			a.product-content__more-description.txt--clr1(href='#') Все характеристики
 	nav.product-content__mark
 		h3.product-content__mark-title.txt--smbld18 Этот товар других марок

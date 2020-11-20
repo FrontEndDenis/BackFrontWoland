@@ -2,13 +2,15 @@
 	.scroll-sidebar__left
 		.scroll-sidebar__product
 			.scroll-sidebar__price-txt Цена
-			.scroll-sidebar__value 55 000 ₽/шт
-			.scroll-sidebar__value.hint
-				| Договорная
-				+icon('hint')
-			button.btn.btn--br50
-				| Добавить в заявку
-				+icon('add-basket')
+			if product.price == null
+				.scroll-sidebar__value #{product.price} ₽/шт
+			else
+				.scroll-sidebar__value.hint
+					| Договорная
+					+icon('hint')
+				button.btn.btn--br50
+					| Добавить в заявку
+					+icon('add-basket')
 	.scroll-sidebar__right
 		h3.scroll-sidebar__title Хотите узнать цену?
 		p.scroll-sidebar__text Наш менеджер свяжется с вами и рассчитает цену того, что вам нужно:
