@@ -187,6 +187,15 @@ function slidersInit() {
 			el: '.product-slider__pagination',
 		},
 	});
+	const filters = new Swiper('.filters-slider-container', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		spaceBetween: 10,
+		scrollbar: {
+			el: '.filters-swiper-scrollbar',
+		},
+		mousewheel: true,
+	});
 }
 slidersInit();
 
@@ -391,7 +400,7 @@ function catalogMenu() {
 	});
 
 	function timerEnter(item) {
-		if(panel.classList.contains('open-catalog')) {
+		if (panel.classList.contains('open-catalog')) {
 			checkEl(item);
 		} else {
 			clearTimeout(timer);
@@ -407,6 +416,47 @@ function catalogMenu() {
 	}
 }
 catalogMenu();
+
+function catalogMenuList() {
+	const items = document.querySelectorAll('.catalog-menu__list > li'),
+		subItems = document.querySelectorAll('.catalog-submenu');
+
+	function hide(item, event) {
+		(event.classList.contains('catalog-menu__left')) ? hideAll() : show(item);
+	}
+
+	const hideAll = () => {
+		subItems.forEach(subItem => subItem.classList.remove('active'))
+		items.forEach(item => item.classList.remove('active'))
+	}
+
+	const show = item => {
+		const attr = item.dataset.categoryId;
+		hideAll();
+		item.classList.add('active')
+		subItems.forEach(subItem => {
+			if (subItem.dataset.categoryId === attr) subItem.classList.add('active')
+		})
+	}
+
+	items.forEach(item => {
+		item.addEventListener('mouseenter', function () {
+			show(item);
+		}, false);
+		item.addEventListener('mouseout', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			hide(item, e.relatedTarget);
+		}, false);
+	});
+	subItems.forEach(subItem => {
+		subItem.addEventListener('mouseleave', function () {
+			hideAll();
+		}, false);
+	})
+
+}
+catalogMenuList();
 
 // Табы
 function tabs() {

@@ -4,23 +4,49 @@ section.p-product-listing
 			h1.txt--bld40=current_menu.name
 			.count-listing=product_list_count
 		.p-product-listing__filters
-			//- .main-slider.swiper-container
-			//- 	.swiper-wrapper
-
-			button.filter.filter-all.btn.btn--br50.btn--gray(data-filter='all') Все фильтры
-			button.filter.filter-price.btn.btn--br50.btn--gray(data-filter='price') Только с ценой
-			button.filter.btn.btn--br50.btn--gray(data-filter='mark') Марка
-				.filter__delete
-					+icon('close')
-			button.filter.btn.btn--br50.btn--gray(data-filter='gost') ГОСТ
-				.filter__delete
-					+icon('close')
-			button.filter.btn.btn--br50.btn--gray(data-filter='height') Высота
-				.filter__delete
-					+icon('close')
-			button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
-				.filter__delete
-					+icon('close')
+			.filters-slider-container.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						button.filter.filter-all.btn.btn--br50.btn--gray(data-filter='all') Все фильтры
+					.swiper-slide
+						button.filter.filter-price.btn.btn--br50.btn--gray(data-filter='price') Только с ценой
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='mark') Марка
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='gost') ГОСТ
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='height') Высота
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+							.filter__delete
+								+icon('close')
+				.filters-swiper-scrollbar
 		.row
 			.col-xl-9
 				.row
