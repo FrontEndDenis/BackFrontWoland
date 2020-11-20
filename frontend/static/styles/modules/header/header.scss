@@ -197,9 +197,9 @@ header {flex: 0 0 auto;}
 		}
 		&.open-catalog {
 			& > li {
-				a {color: $txt-white60}
+				& > a {color: $txt-white60}
 				&.active {
-					a {color: $white;}
+					& > a {color: $white;}
 				}
 			}
 		}
@@ -237,7 +237,6 @@ header {flex: 0 0 auto;}
 		left: 0px;
 		right: 0px;
 		padding-top: 8px;
-		// z-index: 10;
 		&.active {display: block}
 	}
 	&.open-search {

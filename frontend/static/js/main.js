@@ -250,6 +250,21 @@ function animateCSS(element, animation) {
 	}, false);
 })();
 
+class ModalSite {
+	constructor(className) {
+		this.element = document.querySelector(className);
+	}
+	open() {
+		this.element.classList.add('modal-open');
+		this.element.style.paddingRight = '17px';
+	}
+	close() {
+		this.element.classList.remove('modal-open');
+		this.element.style.paddingRight = '0px';
+	}
+}
+window.openmodalsite = new ModalSite('body');
+
 // Фиксирование шапки
 function headerFixed() {
 	const mediaQuery = window.matchMedia('(min-width: 1024px)');
@@ -330,8 +345,8 @@ catalogListInfo();
 function catalogMenu() {
 	const bottom = document.querySelector('.bottom-line__left'),
 		panel = document.querySelector('.bottom-line__navitagion-panel'),
-		elems = panel.querySelectorAll('li'),
-		block = document.querySelector('.bottom-line__catalog');
+		elems = document.querySelectorAll('.bottom-line__navitagion-panel > li'),
+		block = document.querySelectorAll('.bottom-line__catalog');
 
 	let timer;
 
@@ -340,27 +355,30 @@ function catalogMenu() {
 			addEl(item)
 		} else if (item.classList.contains('spacial')) {
 			addEl(item)
-			block.classList.remove('active');
+			item.querySelector('.bottom-line__catalog').classList.remove('active');
 		} else {
 			addEl(item)
-			show();
+			show(item);
 		}
 	}
 
 	const addEl = item => {
-		elems.forEach(el => el.classList.remove('active'))
+		elems.forEach(el => el.classList.remove('active'));
+		block.forEach(el => el.classList.remove('active'));
 		panel.classList.add('open-catalog');
 		item.classList.add('active');
 	}
 
 	const hide = item => {
 		panel.classList.remove('open-catalog');
-		block.classList.remove('active', 'fade-in');
+		block.forEach(el => el.classList.remove('active'));
 		item.classList.remove('active');
+		openmodalsite.close()
 	}
 
-	const show = () => {
-		block.classList.add('active', 'fade-in');
+	const show = item => {
+		item.querySelector('.bottom-line__catalog').classList.add('active');
+		openmodalsite.open()
 	}
 
 	elems.forEach(elem => {
@@ -716,7 +734,6 @@ class Accordion {
 	}
 }
 window.accordion = new Accordion('.accordion');
-
 
 // Закрытие модальных окон
 function allCloseModal() {
