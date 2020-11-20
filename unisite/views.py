@@ -25,7 +25,7 @@ def global_views(request):
 	static_url = settings.STATIC_URL
 	
 	main_menu_list = MenuCatalog.objects.filter(parent__isnull=True, is_hidden=False)
-	catalog_menu_list = MenuCatalog.objects.filter(parent_id=1, is_hidden=False)
+	catalog_menu_list = MenuCatalog.objects.filter(id=1, is_hidden=False)
 	menu_list_footer_left = MenuCatalog.objects.filter(show_footer_left=True, is_hidden=False)
 	menu_list_footer_rigth = MenuCatalog.objects.filter(show_footer_rigth=True, is_hidden=False)
 	
