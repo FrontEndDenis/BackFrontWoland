@@ -43,7 +43,7 @@
         image: "registry.roiburo.ru/roiburo-llc/woland-app"
         state: present
     - name: Copy static
-      shell: "docker cp woland-app:/app/static /var/www/woland/static && chown -R 1000:1000 /var/www/woland"
+      shell: "docker cp woland-app:/app/static /var/www/woland && chown -R 1000:1000 /var/www/woland"
     - name: Run app
       docker_container:
         force_kill: yes
