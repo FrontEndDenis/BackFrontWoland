@@ -197,6 +197,7 @@ function slidersInit() {
 		mousewheel: true,
 	});
 }
+
 slidersInit();
 
 // Запуск функций при изменении разрешения экрана
@@ -215,11 +216,21 @@ document.addEventListener("DOMContentLoaded", function () {
 // Проверка с какого устройства зашли на сайт
 function isMobile() {
 	let isMobile = {
-		Android: function () { return navigator.userAgent.match(/Android/i); },
-		BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); },
-		iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); },
-		Opera: function () { return navigator.userAgent.match(/Opera Mini/i); },
-		Windows: function () { return navigator.userAgent.match(/IEMobile/i); },
+		Android: function () {
+			return navigator.userAgent.match(/Android/i);
+		},
+		BlackBerry: function () {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+		iOS: function () {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+		Opera: function () {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+		Windows: function () {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
 		any: function () {
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
@@ -239,7 +250,8 @@ function animateCSS(element, animation) {
 			node.classList.remove('animation', ...animationName.split(' '));
 			resolve('Animation ended');
 		}
-		node.addEventListener('animationend', handleAnimationEnd, { once: true });
+
+		node.addEventListener('animationend', handleAnimationEnd, {once: true});
 	});
 }
 
@@ -263,15 +275,18 @@ class ModalSite {
 	constructor(className) {
 		this.element = document.querySelector(className);
 	}
+
 	open() {
 		this.element.classList.add('modal-open');
 		this.element.style.paddingRight = '17px';
 	}
+
 	close() {
 		this.element.classList.remove('modal-open');
 		this.element.style.paddingRight = '0px';
 	}
 }
+
 window.openmodalsite = new ModalSite('body');
 
 // Фиксирование шапки
@@ -298,6 +313,7 @@ function headerFixed() {
 		});
 	}
 }
+
 headerFixed();
 
 // Отслеживаем событие Bootstrap modal window
@@ -330,6 +346,7 @@ function openSearchHeader() {
 	btn.addEventListener('click', show)
 	btnClose.addEventListener('click', hide)
 }
+
 openSearchHeader();
 
 // Компания
@@ -348,6 +365,7 @@ function catalogListInfo() {
 	elem.addEventListener('mouseenter', show, false);
 	elem.addEventListener('mouseleave', hide, false);
 }
+
 catalogListInfo();
 
 // Каталог
@@ -415,6 +433,7 @@ function catalogMenu() {
 		hide(item);
 	}
 }
+
 catalogMenu();
 
 function catalogMenuList() {
@@ -485,6 +504,7 @@ function tabs() {
 		animateCSS(contents[id], 'fade-in-scale');
 	}
 }
+
 tabs();
 
 // Кнопки +- в карточке
@@ -533,6 +553,7 @@ function inputNumber() {
 		}
 	});
 }
+
 inputNumber();
 
 // Сброс текста в поиске
@@ -556,6 +577,7 @@ function resetSearch() {
 		item.addEventListener('input', () => addReset(item))
 	});
 }
+
 resetSearch()
 
 // Склонение слов
@@ -623,6 +645,7 @@ function basketApp() {
 	basket.show(0, '.modal-basket__basket-item')
 	document.dispatchEvent(new Event('changeBasket'));
 }
+
 basketApp();
 
 clearList.addEventListener('click', () => {
@@ -681,6 +704,7 @@ function select() {
 	function selectToggle() {
 		this.parentElement.classList.toggle('active');
 	}
+
 	function selectChoose() {
 		let text = this.innerText,
 			select = this.closest('.select'),
@@ -737,6 +761,7 @@ function inputFile() {
 		item.addEventListener('change', () => processing(item));
 	});
 }
+
 inputFile()
 
 // Аккардион
@@ -759,22 +784,26 @@ function accordionEvent() {
 		});
 	});
 }
+
 accordionEvent();
 
 class Accordion {
 	constructor(className) {
 		this.element = document.querySelectorAll(className)
 	}
+
 	show(item) {
 		let panel = item.nextElementSibling;
 		panel.style.maxHeight = panel.scrollHeight + 'px';
 		item.classList.add('active');
 	}
+
 	hide(item) {
 		let panel = item.nextElementSibling;
 		panel.style.maxHeight = null;
 		item.classList.remove('active');
 	}
+
 	hideAll() {
 		this.element.forEach(elem => {
 			let block = elem.nextElementSibling;
@@ -783,6 +812,7 @@ class Accordion {
 		})
 	}
 }
+
 window.accordion = new Accordion('.accordion');
 
 // Закрытие модальных окон
@@ -818,6 +848,7 @@ function openMobileBtn(btnClass, icon, modalListElem, modalClass) {
 	})
 	eventBsModal(modalClass, 'hide', close)
 }
+
 openMobileBtn('#open-basket', '.icon-basket', modalList.basket, '#modal-basket')
 openMobileBtn('#open-search', '.icon-search', modalList.search, '#modal-search')
 openMobileBtn('#open-callback', false, modalList.callback, '#modal-callback')
@@ -845,6 +876,7 @@ function mobileMenu() {
 	});
 	over.addEventListener('click', () => closeMenu())
 }
+
 mobileMenu()
 
 class OpenMobileMenu {
@@ -852,6 +884,7 @@ class OpenMobileMenu {
 		this.element = document.querySelector(className);
 		this.over = this.element.querySelector('.mobile-menu__overlay');
 	}
+
 	show() {
 		allCloseModal();
 		document.querySelector('body').classList.add('menu-open');
@@ -888,6 +921,7 @@ function catalogMobMenu() {
 	items.forEach(item => item.addEventListener('click', () => show(item)));
 	prev.forEach(item => item.addEventListener('click', () => hide(item)));
 }
+
 catalogMobMenu();
 
 // Высота скролла карточек Каталога
@@ -909,6 +943,7 @@ function heightCatalogCard() {
 
 	cards.forEach(item => calcHeight(item));
 }
+
 heightCatalogCard()
 
 // Секция как мы работаем
@@ -934,7 +969,7 @@ function howWork() {
 				animateCSS(img, 'fade-in-scale-bottom');
 				img.addEventListener('animationend', () => {
 					img.classList.remove('active')
-				}, { once: true });
+				}, {once: true});
 			}
 		})
 	}
@@ -955,6 +990,7 @@ function howWork() {
 	})
 	showBlock(items[index])
 }
+
 howWork()
 
 // // Анимация грузовика
@@ -1002,7 +1038,10 @@ function onVisibleSpaceListener(elementId, cbIn, cbOut) {
 		// outVisibleSpace: cbOut
 	});
 }
-onVisibleSpaceListener('.s-main-delivery__text', el => { animationTruck(true) });
+
+onVisibleSpaceListener('.s-main-delivery__text', el => {
+	animationTruck(true)
+});
 
 // Высота карточек
 function heightStocksCard(el) {
@@ -1021,6 +1060,7 @@ function allCardHeight() {
 	heightStocksCard('.stocks-card');
 	heightStocksCard('.popular-categories-card');
 }
+
 allCardHeight();
 
 // Описание карточки
@@ -1056,6 +1096,7 @@ function descriptionStocksCard() {
 		btn.closest('.warning__wrap').classList.remove('active');
 	}))
 }
+
 descriptionStocksCard()
 
 // Положение элемента в окне
@@ -1102,16 +1143,41 @@ function breadCrumbs() {
 		}, false);
 	});
 }
+
 breadCrumbs();
 
 //Пагинация
 const Pagination = {
 	code: '',
+	onChange: null,
+
+	_SetPage: function (page) {
+		if (page < 1) {
+			if (Pagination.page !== 1) {
+				Pagination.page = 1;
+				if (Pagination.onChange) {
+					Pagination.onChange(Pagination.page);
+				}
+			}
+		} else if (page > Pagination.size) {
+			if (Pagination.page !== Pagination.size) {
+				Pagination.page = Pagination.size;
+				if (Pagination.onChange) {
+					Pagination.onChange(Pagination.page);
+				}
+			}
+			return;
+		}
+		Pagination.page = page;
+		if (Pagination.onChange) {
+			Pagination.onChange(page);
+		}
+	},
 
 	Extend: function (data) {
 		data = data || {};
 		Pagination.size = data.size || 300;
-		Pagination.page = data.page || 1;
+		Pagination._SetPage(data.page || 1);
 		Pagination.step = data.step || 2;
 	},
 
@@ -1130,29 +1196,24 @@ const Pagination = {
 	},
 
 	Click: function () {
-		Pagination.page = +this.innerHTML;
+		Pagination._SetPage(+this.innerHTML);
 		Pagination.Start();
 	},
 
 	Input: function (n) {
 		if (n > Pagination.size || n < 1) return
 		Pagination.page = n;
+		Pagination._SetPage(n);
 		Pagination.Start();
 	},
 
 	Prev: function () {
-		Pagination.page--;
-		if (Pagination.page < 1) {
-			Pagination.page = 1;
-		}
+		Pagination._SetPage(Pagination.page - 1);
 		Pagination.Start();
 	},
 
 	Next: function () {
-		Pagination.page++;
-		if (Pagination.page > Pagination.size) {
-			Pagination.page = Pagination.size;
-		}
+		Pagination._SetPage(Pagination.page + 1);
 		Pagination.Start();
 	},
 
@@ -1168,22 +1229,19 @@ const Pagination = {
 		Pagination.e.innerHTML = Pagination.code;
 		Pagination.code = '';
 		Pagination.Bind();
-		Pagination.ShowButtons()
+		Pagination.ShowButtons();
 	},
 
 	Start: function () {
 		if (Pagination.size < Pagination.step * 2 + 4) {
 			Pagination.Add(1, Pagination.size + 1);
-		}
-		else if (Pagination.page < Pagination.step * 2 + 1) {
+		} else if (Pagination.page < Pagination.step * 2 + 1) {
 			Pagination.Add(1, Pagination.step * 2 + 2);
 			Pagination.Last();
-		}
-		else if (Pagination.page > Pagination.size - Pagination.step * 2) {
+		} else if (Pagination.page > Pagination.size - Pagination.step * 2) {
 			Pagination.First();
 			Pagination.Add(Pagination.size - Pagination.step * 2, Pagination.size + 1);
-		}
-		else {
+		} else {
 			Pagination.First();
 			Pagination.Add(Pagination.page - Pagination.step + 1, Pagination.page + Pagination.step);
 			Pagination.Last();
@@ -1197,12 +1255,10 @@ const Pagination = {
 		if (Pagination.page == 1) {
 			prev.style.display = 'none';
 			next.style.display = 'flex';
-		}
-		else if (Pagination.page == Pagination.size) {
+		} else if (Pagination.page == Pagination.size) {
 			prev.style.display = 'flex';
 			next.style.display = 'none';
-		}
-		else {
+		} else {
 			prev.style.display = 'flex';
 			next.style.display = 'flex';
 		}
@@ -1237,10 +1293,10 @@ const Pagination = {
 		}
 
 		let html = [
-			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
-			`<ul class='pagination__list'></ul>`,  // pagination container
-			`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
-		],
+				`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
+				`<ul class='pagination__list'></ul>`,  // pagination container
+				`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
+			],
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
 							<span class='pagination__text'>Перейти на страницу</span>
@@ -1257,26 +1313,65 @@ const Pagination = {
 		Pagination.Buttons(e);
 	},
 
-	Init: function (e, data) {
+	Init: function (e, data, onChange = null) {
 		if (e == null) return
 		Pagination.Extend(data);
 		Pagination.Create(e);
 		Pagination.Start();
+		Pagination.onChange = onChange;
 	}
 };
 
+const CatalogController = {
+	filters: {},
+	catalogEl: null,
+	paginationEl: null,
+	baseUrl: null,
+
+
+	Init: function (catalogEl, paginationEl) {
+		this.catalogEl = catalogEl;
+		this.baseUrl = catalogEl.getAttribute('data-base-url');
+		this.paginationEl = paginationEl;
+		Pagination.Init(paginationEl, {
+			size: paginationEl.getAttribute('data-size'),
+			page: paginationEl.getAttribute('data-page'),
+			step: 2
+		}, function () {
+			CatalogController.Update();
+		});
+	},
+
+	Update: function () {
+		window.location = this._GenerateUrl();
+	},
+
+	_GenerateUrl: function () {
+		var url = this.baseUrl;
+
+		for (var name in this.filters) {
+			url += `/${name}/${this.filters[name]}`;
+		}
+
+		if (Pagination.page) {
+			url += `/page/${Pagination.page}`;
+		}
+		return url;
+	}
+}
+
 const init = function () {
-	Pagination.Init(document.getElementById('pagination'), {
-		size: 30, // pages size
-		page: 1,  // selected page
-		step: 2   // pages before and after current
-	});
+	var pagination = document.getElementById('pagination');
+	var catalog = document.getElementById('product-list');
+	CatalogController.Init(catalog, pagination);
 };
 
 document.addEventListener('DOMContentLoaded', init, false);
 
 // Проверка на видимость
-function isVisible(e) { return e.offsetWidth > 0 || e.offsetHeight > 0; }
+function isVisible(e) {
+	return e.offsetWidth > 0 || e.offsetHeight > 0;
+}
 
 // Ширина в 1 строку
 function lineWidth(classItem, classBtn) {
@@ -1332,6 +1427,7 @@ function lineWidth(classItem, classBtn) {
 	let btns = document.querySelectorAll(classBtn);
 	btns.forEach(btn => btn.addEventListener('click', () => toggleEl(btn)))
 }
+
 lineWidth('.s-all-gost__item', '.s-all-gost__more')
 lineWidth('.product-content__mark', '.product-content__more')
 
@@ -1348,6 +1444,7 @@ function sidebar() {
 		});
 	}
 }
+
 sidebar();
 
 // Фильтры
@@ -1368,6 +1465,7 @@ function filters() {
 			})
 		})
 	}
+
 	openModalFilters();
 
 	// Открытие аккордиона в модальном окне фильтров
@@ -1433,6 +1531,7 @@ function filters() {
 		});
 		addFilterElem(uls);
 	}
+
 	hideElModalFilter();
 
 	// Добавление выбранного фильтра
@@ -1452,7 +1551,8 @@ function filters() {
 			if (index === 0) {
 				if (arrAttr.indexOf(attr) === -1) return arrAttr.push(attr);
 				return
-			};
+			}
+			;
 
 			if (btns[index].querySelector('span')) btns[index].querySelector('span').remove();
 			btns[index].querySelector('.filter__delete').insertAdjacentHTML('beforebegin', text)
@@ -1543,9 +1643,6 @@ function filters() {
 	}
 
 
-
-
-
 	// Удаление элемента в модальном окне
 	function removeListitem(item) {
 		const parent = item.closest('.modal-f__item'),
@@ -1618,4 +1715,5 @@ function filters() {
 		if (arrAttr.length <= 0) document.querySelector('[data-filter="all"]').classList.remove('value')
 	}
 }
+
 filters()
