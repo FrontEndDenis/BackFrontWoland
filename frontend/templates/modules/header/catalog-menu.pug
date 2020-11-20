@@ -7,12 +7,13 @@
 					a(href=sub_category.url)
 						| #{sub_category.name}
 						+icon('arrow-right')
-		each sub_category in category.get_child
-			.catalog-menu__catalog-submenu.catalog-submenu(data-category-id=sub_category.id)
-				.catalog-submenu__wrap
-					.catalog-submenu__item
-						h3.catalog-submenu__title=sub_sub_categories.name
-						ul.catalog-submenu__list
-							each sub_sub_categories in sub_category.get_child
-								li
-									a(href=sub_sub_categories.url)=sub_sub_categories.name
+		if category.get_child
+			each sub_category in category.get_child
+				.catalog-menu__catalog-submenu.catalog-submenu(data-category-id=sub_category.id)
+					.catalog-submenu__wrap
+						.catalog-submenu__item
+							h3.catalog-submenu__title=sub_sub_categories.name
+							ul.catalog-submenu__list
+								each sub_sub_categories in sub_category.get_child
+									li
+										a(href=sub_sub_categories.url)=sub_sub_categories.name
