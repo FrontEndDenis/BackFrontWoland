@@ -164,8 +164,6 @@ function slidersInit() {
 		direction: 'vertical',
 		slidesPerView: 3,
 		spaceBetween: 24,
-		// watchSlidesVisibility: true,
-		// watchSlidesProgress: true,
 	});
 	const product = new Swiper('.product-slider', {
 		thumbs: {
@@ -187,17 +185,24 @@ function slidersInit() {
 			el: '.product-slider__pagination',
 		},
 	});
-	const filters = new Swiper('.filters-slider-container', {
-		slidesPerView: 'auto',
-		freeMode: true,
-		spaceBetween: 10,
-		scrollbar: {
-			el: '.filters-swiper-scrollbar',
-		},
-		mousewheel: true,
-	});
 }
 slidersInit();
+
+const filtersSlider = new Swiper('.filters-slider-container', {
+	slidesPerView: 'auto',
+	freeMode: true,
+	spaceBetween: 10,
+	mousewheel: {
+		releaseOnEdges: true,
+	},
+	scrollbar: {
+		el: '.filters-swiper-scrollbar',
+		hide: false,
+		draggable: true,
+		snapOnRelease: true,
+		dragSize: '14px',
+	},
+});
 
 document.querySelectorAll('input[type=tel]').forEach((tel) => {
 	const mask = IMask(tel, {
@@ -1556,10 +1561,10 @@ function filters() {
 				if (arrAttr.indexOf(attr) === -1) return arrAttr.push(attr);
 				return
 			}
-			;
 
 			if (btns[index].querySelector('span')) btns[index].querySelector('span').remove();
 			btns[index].querySelector('.filter__delete').insertAdjacentHTML('beforebegin', text)
+			filtersSlider.update();
 		}
 
 		const addShowSidebarValue = (titlePage, key, text, attr) => {

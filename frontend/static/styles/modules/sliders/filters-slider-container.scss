@@ -1,7 +1,8 @@
 .filters-slider-container {
-	width: 100%;
+	width: auto;
 	margin: 0px;
 	.swiper-slide {
 		width: auto;
+		&:last-child {margin-right: 0px !important;}
 	}
 }
