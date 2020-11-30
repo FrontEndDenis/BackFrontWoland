@@ -22,11 +22,11 @@
 							input.form-control(type='checkbox', checked, required)
 							span.checkbox__text
 								.policy
-									| Даю согласие на
+									| Даю согласие на 
 									a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
 					button.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='submit') Перезвоните мне
 				.modal-w__write-us.write-us
 					p Так же вы можете написать нам на почту по любому вопросу или предложению
-					a.write-us__mail(href='mailto:name@velund.ru')
+					a.write-us__mail(href='mailto:#{current_filial.email}')
 						+icon('arrow-right')
-						| name@velund.ru
+						=current_filial.email

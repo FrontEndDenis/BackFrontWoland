@@ -6,11 +6,11 @@ footer.footer
 		.footer__top
 			.footer__left
 				.footer__wrap-left
-					a.footer__logo.logo(href='index.html')
+					a.footer__logo.logo(href='/')
 						.logo__img
-							img(src='../../../static/images/general/logo-min.svg', alt='Велунд сталь')
+							img(src='#{static_url}images/general/logo-min.svg', alt='Велунд сталь')
 						.logo__text
-							img(src='../../../static/images/general/logo-text.svg', alt='Велунд сталь')
+							img(src='#{static_url}images/general/logo-text.svg', alt='Велунд сталь')
 					.footer__social
 						a.footer__social-link.btn.btn--circle.btn--trparent(href='#', target='_blank')
 							+icon('inst')
@@ -24,37 +24,40 @@ footer.footer
 							+icon('ok')
 				nav.footer__nav
 					ul.footer__nav-list.txt--mdm14
-						li
-							a(href='#') Каталог
-						li
-							a(href='#') Акции
-						li
-							a(href='#') Производство
-						li
-							a(href='#') Услуги
-						li
-							a(href='#') Доставка
-						li
-							a(href='#') О нас
-						li
-							a(href='#') Блог
-						li
-							a(href='#') Новости
-						li
-							a(href='#') Вакансии
-						li
-							a(href='#') Контакты
+						each item in menu_list_footer_left
+							li
+								a(href=item.url)=item.name
+							//- li
+							//- 	a(href='#') Каталог
+							//- li
+							//- 	a(href='#') Акции
+							//- li
+							//- 	a(href='#') Производство
+							//- li
+							//- 	a(href='#') Услуги
+							//- li
+							//- 	a(href='#') Доставка
+							//- li
+							//- 	a(href='#') О нас
+							//- li
+							//- 	a(href='#') Блог
+							//- li
+							//- 	a(href='#') Новости
+							//- li
+							//- 	a(href='#') Вакансии
+							//- li
+							//- 	a(href='#') Контакты
 			.footer__right
 				.footer__contacts
 					.footer__col
-						a.txt--mdm16(href='tel:+73439999999') 8 (343) 999 99 99
-						a.txt--mdm14(href='tel:+78009999999') 8 (800) 999 99 99
+						a.txt--mdm16(href='tel:+#{current_filial.phone}')=current_filial.phone
+						a.txt--mdm14(href='tel:+#{current_filial.phone}')=current_filial.phone
 					.footer__col
-						a.txt--mdm16(href='mailto:petropavlovsk@gkws.kz') petropavlovsk@gkws.kz
+						a.txt--mdm16(href='mailto:#{current_filial.email}')=current_filial.email
 						.footer__timetable.txt--mdm14 Пн-Пт с 9:00 до 19:00
 				.footer__address
-					.footer__address-title.txt--mdm16 Нижний Новгород
-					.footer__address-location.txt--mdm14 Проспект Маршала Жукова, 1 корпус 1, офис 425
+					.footer__address-title.txt--mdm16=current_filial.name
+					.footer__address-location.txt--mdm14=current_filial.address
 		.footer__bottom.txt--mdm12
 			.footer__group © Группа компаний «Велунд сталь» 2020
 			a.footer__policy(href='#', target='_blank') Политика конфиденциальности

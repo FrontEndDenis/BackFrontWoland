@@ -13,6 +13,7 @@ module.exports = function () {
 			'node_modules/bootstrap/dist/js/bootstrap.min.js',
 			'node_modules/swiper/swiper-bundle.min.js',
 			'node_modules/headroom.js/dist/headroom.min.js',
+			'node_modules/imask/dist/imask.min.js',
 		])
 			.pipe(concat('libs.min.js'))
 			.pipe($.gulp.dest(scriptsPATH.output));
@@ -24,6 +25,7 @@ module.exports = function () {
 			'node_modules/bootstrap/dist/js/bootstrap.min.js',
 			'node_modules/swiper/swiper-bundle.min.js',
 			'node_modules/headroom.js/dist/headroom.min.js',
+			'node_modules/imask/dist/imask.min.js',
 		])
 			.pipe(concat('libs.min.js'))
 			.pipe(uglify())

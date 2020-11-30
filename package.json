@@ -34,13 +34,14 @@
   },
   "dependencies": {
     "bootstrap": "^5.0.0-alpha1",
+    "headroom.js": "0.11.0",
+    "imask": "^6.0.5",
     "normalize.css": "^8.0.1",
     "npm-check-updates": "^9.0.4",
-    "headroom.js": "0.11.0",
     "popper.js": "1.16.0",
     "sticky-sidebar": "3.3.1",
-    "swiper": "6.3.2",
-    "svg4everybody": "^2.1.9"
+    "svg4everybody": "^2.1.9",
+    "swiper": "6.3.2"
   },
   "browserslist": [
     "last 3 version",

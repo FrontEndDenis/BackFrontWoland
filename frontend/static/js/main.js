@@ -197,8 +197,13 @@ function slidersInit() {
 		mousewheel: true,
 	});
 }
-
 slidersInit();
+
+document.querySelectorAll('input[type=tel]').forEach((tel) => {
+	const mask = IMask(tel, {
+		mask: '+{7} (000) 000-00-00'
+	});
+});
 
 // Запуск функций при изменении разрешения экрана
 document.addEventListener("DOMContentLoaded", function () {
@@ -251,7 +256,7 @@ function animateCSS(element, animation) {
 			resolve('Animation ended');
 		}
 
-		node.addEventListener('animationend', handleAnimationEnd, {once: true});
+		node.addEventListener('animationend', handleAnimationEnd, { once: true });
 	});
 }
 
@@ -969,7 +974,7 @@ function howWork() {
 				animateCSS(img, 'fade-in-scale-bottom');
 				img.addEventListener('animationend', () => {
 					img.classList.remove('active')
-				}, {once: true});
+				}, { once: true });
 			}
 		})
 	}
@@ -1293,10 +1298,10 @@ const Pagination = {
 		}
 
 		let html = [
-				`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
-				`<ul class='pagination__list'></ul>`,  // pagination container
-				`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
-			],
+			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
+			`<ul class='pagination__list'></ul>`,  // pagination container
+			`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
+		],
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
 							<span class='pagination__text'>Перейти на страницу</span>
@@ -1314,7 +1319,6 @@ const Pagination = {
 	},
 
 	Init: function (e, data, onChange = null) {
-		if (e == null) return
 		Pagination.Extend(data);
 		Pagination.Create(e);
 		Pagination.Start();
@@ -1327,7 +1331,6 @@ const CatalogController = {
 	catalogEl: null,
 	paginationEl: null,
 	baseUrl: null,
-
 
 	Init: function (catalogEl, paginationEl) {
 		this.catalogEl = catalogEl;
@@ -1347,9 +1350,9 @@ const CatalogController = {
 	},
 
 	_GenerateUrl: function () {
-		var url = this.baseUrl;
+		let url = this.baseUrl;
 
-		for (var name in this.filters) {
+		for (let name in this.filters) {
 			url += `/${name}/${this.filters[name]}`;
 		}
 
@@ -1361,8 +1364,9 @@ const CatalogController = {
 }
 
 const init = function () {
-	var pagination = document.getElementById('pagination');
-	var catalog = document.getElementById('product-list');
+	const pagination = document.getElementById('pagination');
+	const catalog = document.getElementById('product-list');
+	if(pagination === null) return;
 	CatalogController.Init(catalog, pagination);
 };
 
@@ -1715,5 +1719,4 @@ function filters() {
 		if (arrAttr.length <= 0) document.querySelector('[data-filter="all"]').classList.remove('value')
 	}
 }
-
 filters()

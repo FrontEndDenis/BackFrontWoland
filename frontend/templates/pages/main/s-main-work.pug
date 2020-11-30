@@ -12,10 +12,10 @@ section.s-main-work
 									.s-main-work__title.txt--smbld18 Вы оставляете заявку
 								.s-main-work__content.accordion-panel.txt--mdm14
 									p
-										| Вы можете заказать нужные товары на сайте или оформить заявку через менеджера по телефону
-										a.txt--clr1(href='tel:+73439999999') 8 (343) 999 99 99
-										| или по почте
-										a.txt--clr1(href='mailto:petropavlovsk@gkws.kz') petropavlovsk@gkws.kz
+										| Вы можете заказать нужные товары на сайте или оформить заявку через менеджера по телефону 
+										a.txt--clr1(href='tel:+#{current_filial.phone}')=current_filial.phone
+										|  или по почте 
+										a.txt--clr1(href='mailto:#{current_filial.email}')=current_filial.email
 							.s-main-work__item
 								.s-main-work__header.accordion.accordion--hide(data-id='1')
 									.s-main-work__step.btn.btn--circle 2

@@ -111,6 +111,10 @@
 		li {
 			&:not(:last-child) {margin-bottom: 12px;}
 		}
+		a {
+			&:hover {color: $accent-main2}
+			&:active {color: $accent-main}
+		}
 	}
 	&.active {display: block;}
 }

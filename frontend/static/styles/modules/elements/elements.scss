@@ -442,9 +442,7 @@ a[href*=mailto], a[href*=tel] {
 }
 
 .count-listing {
-	position: absolute;
-	top: 0px;
-	right: -34px;
+	padding-left: 10px;
 	color: $txt-gray;
 	font-size: 16px;
 	font-weight: 500;
