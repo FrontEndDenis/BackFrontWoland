@@ -1565,6 +1565,7 @@ function filters() {
 			if (btns[index].querySelector('span')) btns[index].querySelector('span').remove();
 			btns[index].querySelector('.filter__delete').insertAdjacentHTML('beforebegin', text)
 			filtersSlider.update();
+			filtersSlider.scrollbar.updateSize();
 		}
 
 		const addShowSidebarValue = (titlePage, key, text, attr) => {
@@ -1689,6 +1690,8 @@ function filters() {
 	function removeFilterBtnPage(el) {
 		el.closest('button').classList.remove('value')
 		el.previousElementSibling.remove();
+		filtersSlider.update();
+		filtersSlider.scrollbar.updateSize();
 	}
 
 	const btnFilterPage = () => {
