@@ -1,6 +1,6 @@
 .modal-basket__forms
 	.modal-basket__title.txt--bld24 Оформление заявки
-	.modal-basket__forms-text.txt--rgl14 Оставьте свои контактные данные и мы перезвоним вам в течение 15 минут, чтобы подвердить заявку.
+	.modal-basket__forms-text.txt--mdm14 Оставьте свои контактные данные и мы перезвоним вам в течение 15 минут, чтобы подвердить заявку.
 	.modal-basket__form-group.form-group
 		.form-group
 			label(for='modal-field-3') Ваше имя
@@ -20,7 +20,7 @@
 		.form-group
 			label(for='modal-field-4') Ваш телефон
 				.required *
-			input#modal-field-4.form-control(type='tel', placeholder='+7 (___) __-__-__', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
+			input#modal-field-4.form-control(type='tel', placeholder='+7 (___) __-__-__', pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}", minlength='18', inputmode='numeric', required)
 			.invalid-feedback Введите телефон
 		.form-group
 			label(for='modal-field-5') Ваша почта

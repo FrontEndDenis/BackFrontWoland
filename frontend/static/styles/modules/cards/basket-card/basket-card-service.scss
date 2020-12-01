@@ -1,0 +1,79 @@
+.basket-card-service, .basket-card-manufacturing {
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 20px;
+	background: $white;
+	color: $txt-black90;
+	border-radius: 20px;
+	font-weight: 600;
+	z-index: 10;
+	&__left {flex-shrink: 0;}
+	&__right {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__img {
+		flex-shrink: 0;
+		position: relative;
+		width: 40px;
+		height: 40px;
+		margin-right: 16px;
+		background: $ui-lgh-gray;
+		border-radius: 8px;
+		overflow: hidden;
+		img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&__subtitle {
+		margin-bottom: 4px;
+		color: $txt-gray60;
+		font-size: 10px;
+		line-height: 135%;
+	}
+	&__text {
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 135%;
+		&.hint {
+			fill: $txt-gray60;
+		}
+	}
+	&__wrap {
+		display: flex;
+		align-items: center;
+	}
+	&__remove {
+		margin-left: 28px;
+		&:hover {
+			svg {fill: $accent-main2;}
+		}
+		&:active {
+			svg {fill: $accent-main;}
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.basket-card-service, .basket-card-manufacturing {
+		display: block;
+		padding: 24px 20px;
+		&__right {
+			align-items: start;
+			margin-top: 12px;
+		}
+		&__remove {
+			position: absolute;
+			top: 30px;
+			right: 20px;
+			margin: 0px;
+		}
+	}
+}

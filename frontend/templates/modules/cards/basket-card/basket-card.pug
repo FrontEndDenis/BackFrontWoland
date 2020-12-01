@@ -1,4 +1,4 @@
-.basket-card
+.basket-card.basket-card-modal
 	.basket-card__top
 		.basket-card__left
 			.basket-card__img
@@ -11,7 +11,7 @@
 				input.input-number__field(type='text', min='1', value='1 шт.', max='10000', inputmode='numeric')
 				button.input-number__plus(type='button')
 					+icon('plus')
-			button.basket-card__close(type='button')
+			button.basket-card__remove.remove-basket-card(type='button')
 				+icon('remove')
 	.basket-card__bottom
 		.basket-card__info

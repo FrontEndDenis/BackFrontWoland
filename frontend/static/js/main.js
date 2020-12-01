@@ -630,18 +630,32 @@ const parent = document.querySelector('.modal-basket'),
 	no = parent.querySelector('.modal-basket__no'),
 	prevBasket = parent.querySelector('.modal-basket__prev-basket'),
 	counter = parent.querySelector('.modal-basket__count-product'),
-	delCard = document.querySelectorAll('.basket-card__close');
+	delCard = document.querySelectorAll('.remove-basket-card');
 
 let count = 0,
 	countSec = 0;
 
 function basketApp() {
 	document.addEventListener('changeBasket', (evt) => {
-		const cards = document.querySelectorAll('.basket-card');
+		const prodCards = document.querySelectorAll('.basket-card'),
+			servCards = document.querySelectorAll('.basket-card-service'),
+			manCards = document.querySelectorAll('.basket-card-manufacturing');
 
-		counter.textContent = `${cards.length + ' ' + declOfNum(cards.length, ['товар', 'товара', 'товаров'])}`;
+		let arr = [];
 
-		if (cards.length > 0) {
+		addTextModalBasket(prodCards, ['товар', 'товара', 'товаров'])
+		addTextModalBasket(servCards, ['услуга', 'услуги', 'услуг'])
+		addTextModalBasket(manCards, ['производство', 'производства', 'производств'])
+		
+		function addTextModalBasket(element, array) {
+			if(element.length > 0) {
+				arr.push(element.length + ' ' + declOfNum(element.length, array))
+			}
+		}
+
+		counter.textContent = arr.join(', ');
+		
+		if ((prodCards.length || servCards.length || manCards.length) > 0) {
 			basket.show(countSec, '.modal-basket__section');
 			basket.show(count, '.modal-basket__basket-item');
 		} else {
@@ -667,7 +681,7 @@ delCard.forEach((del) => {
 	del.addEventListener('click', (evt) => {
 		evt.preventDefault();
 
-		del.closest('.basket-card').remove();
+		del.closest('.basket-card-modal').remove();
 
 		document.dispatchEvent(new Event('changeBasket'));
 	});
@@ -676,7 +690,7 @@ delCard.forEach((del) => {
 yes.addEventListener('click', (evt) => {
 	evt.preventDefault();
 
-	const cards = document.querySelectorAll('.basket-card');
+	const cards = document.querySelectorAll('.basket-card-modal');
 
 	cards.forEach(card => card.remove());
 

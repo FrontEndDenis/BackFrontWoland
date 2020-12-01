@@ -16,7 +16,7 @@
 		p.scroll-sidebar__text Наш менеджер свяжется с вами и рассчитает цену того, что вам нужно:
 		form.scroll-sidebar__form.needs-validation(action='', method='get', novalidate)
 			.form-group
-					input.form-control(type='tel', placeholder='Ваш телефон', pattern="\\+7\\s\\(\\d{3}\\)\\s\\d{3}-\\d{2}-\\d{2}", minlength='16', inputmode='numeric', required)
+					input.form-control(type='tel', placeholder='Ваш телефон', pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}", minlength='18', inputmode='numeric', required)
 					button.btn.btn--circle(type='submit')
 						+icon('arrow-right')
 			.form-group

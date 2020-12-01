@@ -1,22 +1,14 @@
 .modal-basket__body
 	.modal-basket__list
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-		.modal-basket__item
-			include ../../cards/basket-card/basket-card
-	.modal-basket__buttons
-		.modal-basket__fixed-btn
-			button.modal-basket__request.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='button') Оформить заявку
+		include ../../cards/basket-card/basket-card-service
+		include ../../cards/basket-card/basket-card-manufacturing
+		include ../../cards/basket-card/basket-card-2
+		include ../../cards/basket-card/basket-card
+		include ../../cards/basket-card/basket-card
+		include ../../cards/basket-card/basket-card-2
+		include ../../cards/basket-card/basket-card
+		include ../../cards/basket-card/basket-card-2
+		include ../../cards/basket-card/basket-card
+	.modal-basket__buttons.modal-basket__fixed
+		button.modal-basket__request.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='button') Оформить заявку
 		button.modal-basket__clear-list.btn.btn--link(type='button') Очистить список
