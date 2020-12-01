@@ -392,7 +392,7 @@ function catalogMenu() {
 			addEl(item)
 		} else if (item.classList.contains('spacial')) {
 			addEl(item)
-			item.querySelector('.bottom-line__catalog').classList.remove('active');
+			// item.querySelector('.bottom-line__catalog').classList.remove('active');
 		} else {
 			addEl(item)
 			show(item);

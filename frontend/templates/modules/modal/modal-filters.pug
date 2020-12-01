@@ -6,9 +6,10 @@
 					+icon('close')
 				.modal-f__title Все фильтры
 				.modal-f__wrap-content
-					.modal-f__text-f Выберите нужные вам параметры, чтобы легче найти  необходимую вам продукцию
 					.modal-f__content
 						.modal-f__list-filters
+							.modal-f__item
+								.modal-f__text-f Выберите нужные вам параметры, чтобы легче найти  необходимую вам продукцию
 							.modal-f__item
 								.modal-f__header.accordion(data-filter='mark')
 									.modal-f__wrap-text
@@ -149,7 +150,7 @@
 											a(href='#') 05Х16Н5АБ1@ASss
 										li
 											a(href='#') C цапковым концом под метрическую трубу под метрическую трубу
-							//- .modal-f__item
+							.modal-f__item
 								.modal-f__header.accordion(data-filter='width-min-shelf')
 									.modal-f__wrap-text
 										.modal-f__text
@@ -192,6 +193,6 @@
 											a(href='#') 05Х16Н5АБ1@ASss
 										li
 											a(href='#') C цапковым концом под метрическую трубу
-					.modal-f__buttons
-						button.btn.btn--wdh220.btn--br50(type='button') Смотреть
-						button.modal-f__clear.btn.btn--link(type='button') Сбросить фильтры
+				.modal-f__buttons
+					button.btn.btn--wdh220.btn--br50(type='button' data-dismiss='modal') Смотреть
+					button.modal-f__clear.btn.btn--link(type='button') Сбросить фильтры
