@@ -26,8 +26,10 @@
 	&__img {
 		max-width: 40px;
 		height: 40px;
+		background: $ui-lgh-gray;
 		border-radius: 10px;
 		overflow: hidden;
+		img {height: 100%;}
 	}
 	&__icon {
 		position: absolute;

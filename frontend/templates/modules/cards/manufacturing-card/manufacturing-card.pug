@@ -1,6 +1,6 @@
 a.manufacturing-card(href="#{manufacture.slug}")
 	.manufacturing-card__img
-		img(src="#{manufacture.image}", alt="#{manufacture.name}")
+		img(src="#{media_url}#{manufacture.image}", alt="#{manufacture.name}")
 	.manufacturing-card__title=manufacture.name
 	.manufacturing-card__btn.btn.btn--circle.btn--trparent-svg
 		+icon('arrow-right')

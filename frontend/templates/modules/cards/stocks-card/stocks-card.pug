@@ -41,13 +41,13 @@
 	if product.is_spec
 		.stocks-card__wrap-img
 			.stocks-card__img
-				img(src="#{product.image}", alt="#{product.name}")
+				img(src="#{media_url}#{product.image}", alt="#{product.name}")
 			.stocks-card__icon
 				img(src='../../../../static/images/general/special.svg', alt='Спецпредложение')
 	else
 		.stocks-card__wrap-img
 			.stocks-card__img
-				img(src="#{product.image}", alt="#{product.name}")
+				img(src="#{media_url}#{product.image}", alt="#{product.name}")
 	a.stocks-card__title(href=product.url)=product.name
 	.stocks-card__specifications
 		if current_menu.label_param1 and product.param_1

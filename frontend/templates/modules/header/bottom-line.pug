@@ -7,9 +7,9 @@
 						+icon('star')
 						| Акции
 				each category in catalog_menu_list
-					each sub_category in category.get_child
+					each category_2 in category.get_child
 						li
-							a(href=sub_category.url)=sub_category.name
+							a(href=category_2.url)=category_2.name
 							.bottom-line__catalog
 								include ./catalog-menu.pug
 	.bottom-line__right

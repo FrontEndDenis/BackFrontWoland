@@ -32,7 +32,6 @@
 		max-width: 600px;
 	}
 	&--img-bg {
-		background: right url('../../../../static/images/content/slide-banner.jpg') no-repeat;
 		&::before {
 			content: '';
 			position: absolute;
@@ -42,6 +41,19 @@
 			left: 0px;
 			background: linear-gradient(120deg, rgba(3,58,73,1) 50%, rgba(3,58,73,0.9) 60%, rgba(3,58,73,0.8) 70%, rgba(3,58,73,0.5) 80%, rgba(3,58,73,0.3) 90%, rgba(3,58,73,0) 100%);
 			z-index: 1;
+		}
+		.slide-banner__img {
+			top: 0px;
+			left: 0px;
+			right: auto;
+			bottom: auto;
+			max-width: 100%;
+			width: 100%;
+			height: 100%;
+			img {
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 }

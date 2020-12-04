@@ -59,7 +59,7 @@ else:
 	# DATABASE_HOST = 'isteels.ru'
 	# DATABASE_HOST = 'dev-db.roiburo.ru'
 	MEDIA_URL = 'http://gkws.ru/media/'
-	MEDIA_URL = 'http://al-titan.ru/media/'
+	# MEDIA_URL = 'http://al-titan.ru/media/'
 
 STATIC_ROOT = PATH_PROJECT + '/www/static/'
 MEDIA_ROOT = PATH_PROJECT + '/www/media/'

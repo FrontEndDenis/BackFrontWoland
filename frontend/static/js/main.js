@@ -25,10 +25,10 @@ function slidersInit() {
 		watchSlidesProgress: true,
 		mousewheelControl: true,
 		keyboardControl: true,
-		autoplay: {
-			delay: 3500,
-			disableOnInteraction: false,
-		},
+		// autoplay: {
+		// 	delay: 3500,
+		// 	disableOnInteraction: false,
+		// },
 		pagination: {
 			el: '.s-main-slider__pagination',
 			clickable: true,

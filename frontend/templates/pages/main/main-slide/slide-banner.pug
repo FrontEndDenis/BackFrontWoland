@@ -1,11 +1,24 @@
-.slide-banner
-	.slide-banner__content
-		h2.slide-banner__title.txt--bld48
-			| #{slider.name}
-			br
-			| #{slider.text}
-		a.slide-banner__link(href=slider.url)
-			| Подробнее
-			+icon('arrow-right')
-	.slide-banner__img
-		img(src=slider.image, alt='')
+if slider.image
+	.slide-banner.slide-banner--img-bg
+		.slide-banner__content
+			h2.slide-banner__title.txt--bld48
+				| #{slider.name}
+				br
+				| #{slider.text}
+			a.slide-banner__link(href=slider.url)
+				| Подробнее
+				+icon('arrow-right')
+		.slide-banner__img
+			img(src='#{media_url}#{slider.image}', alt=slider.name)
+else
+	.slide-banner
+		.slide-banner__content
+			h2.slide-banner__title.txt--bld48
+				| #{slider.name}
+				br
+				| #{slider.text}
+			a.slide-banner__link(href=slider.url)
+				| Подробнее
+				+icon('arrow-right')
+		.slide-banner__img
+			img(src='../../../static/images/general/f-logo.svg', alt=slider.name)
