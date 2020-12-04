@@ -55,7 +55,19 @@
 		margin: 0 auto 48px;
 	}
 	&__text {
-		margin: 20px 0 32px;
+		margin: 20px 0 36px;
+	}
+	&__tabs {
+		.search-input input {
+			padding: 18px 46px;
+		}
+	}
+	&__search {margin-bottom: 24px;}
+	&__subtitle {
+		margin-bottom: 18px;
+		color: $txt-gray60;
+		font-weight: 600;
+		line-height: 150%;
 	}
 	&__form {
 		button {margin-top: 40px;}

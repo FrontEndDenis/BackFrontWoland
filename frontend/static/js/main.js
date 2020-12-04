@@ -12,6 +12,8 @@ if (document.getElementById('modal-filters')) {
 
 svg4everybody();
 
+// const tippy = document.querySelectorAll('[data-tippy-content]');
+
 // Инициализация слайдеров
 function slidersInit() {
 	const interleaveOffset = .5;
@@ -361,19 +363,20 @@ openSearchHeader();
 
 // Компания
 function catalogListInfo() {
-	const elem = document.querySelector('.catalog-list'),
-		block = elem.querySelector('.catalog-list__wrap');
+	const elems = document.querySelectorAll('.catalog-list');
 
-	const show = () => {
-		elem.classList.add('active');
-		animateCSS(block, 'fade-in');
+	const show = item => {
+		item.classList.add('active');
+		animateCSS(item.querySelector('.catalog-list__wrap'), 'fade-in');
 	}
 
-	const hide = () => {
-		elem.classList.remove('active');
+	const hide = item => {
+		item.classList.remove('active');
 	}
-	elem.addEventListener('mouseenter', show, false);
-	elem.addEventListener('mouseleave', hide, false);
+	elems.forEach(elem => {
+		elem.addEventListener('mouseenter', () => show(elem))
+		elem.addEventListener('mouseleave', () => hide(elem))
+	})
 }
 
 catalogListInfo();
@@ -1175,6 +1178,12 @@ const Pagination = {
 	code: '',
 	onChange: null,
 
+	Check: function() {
+		let link = Number(window.location.href.split('page').pop().replace(/[//#/?]/gi, ''));
+		const dataSize = document.querySelector('#pagination');
+		dataSize.setAttribute('data-page', link)
+	},
+
 	_SetPage: function (page) {
 		if (page < 1) {
 			if (Pagination.page !== 1) {
@@ -1199,10 +1208,9 @@ const Pagination = {
 	},
 
 	Extend: function (data) {
-		data = data || {};
-		Pagination.size = data.size || 300;
-		Pagination._SetPage(data.page || 1);
-		Pagination.step = data.step || 2;
+		Pagination.size = Number(data.size);
+		Pagination._SetPage(Number(data.page));
+		Pagination.step = Number(data.step || 2);
 	},
 
 	Add: function (s, f) {
@@ -1221,13 +1229,6 @@ const Pagination = {
 
 	Click: function () {
 		Pagination._SetPage(+this.innerHTML);
-		Pagination.Start();
-	},
-
-	Input: function (n) {
-		if (n > Pagination.size || n < 1) return
-		Pagination.page = n;
-		Pagination._SetPage(n);
 		Pagination.Start();
 	},
 
@@ -1288,51 +1289,25 @@ const Pagination = {
 		}
 	},
 
-	Fuild: function () {
-		const fuild = document.querySelector('.pagination__fiuld input');
-		Pagination.Input(+fuild.value);
-	},
-
 	Buttons: function (e) {
-		let nav = e.getElementsByTagName('a'),
-			btn = document.querySelector('.pagination__fiuld button'),
-			fuild = document.querySelector('.pagination__fiuld input');
+		let nav = e.getElementsByTagName('a');
 		nav[0].addEventListener('click', Pagination.Prev, false);
 		nav[1].addEventListener('click', Pagination.Next, false);
-		btn.addEventListener('click', Pagination.Fuild, false);
-		fuild.addEventListener('keydown', function (e) {
-			if (e.keyCode === 13) {
-				Pagination.Input(+fuild.value);
-			}
-		});
 	},
 
 	Create: function (e) {
-		let prevTxt = 'Назад',
-			nextTxt = 'Вперед';
-
-		if (document.documentElement.clientWidth < 767) {
-			prevTxt = '',
-				nextTxt = '';
-		}
-
 		let html = [
-			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg>${prevTxt}</a>`, // previous button
+			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`, // previous button
 			`<ul class='pagination__list'></ul>`,  // pagination container
-			`<a class='pagination__next'>${nextTxt}<svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
+			`<a class='pagination__next'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
 		],
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
-							<span class='pagination__text'>Перейти на страницу</span>
-							<div class='pagination__fiuld'>
-								<input type='number' placeholder='№' inputmode='numeric'>
-								<button type='button' class='btn btn--circle'><svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></button>
-							</div>
+							<span class='pagination__text'>Не нашли, что искали?</span>
+							<a class='pagination__link txt--clr1'>Расскажите нам, что вам нужно <svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></a>
 						</div>`
 		e.innerHTML = block;
-		if (Pagination.size > 7) {
-			e.insertAdjacentHTML('beforeend', blockRight)
-		}
+		e.insertAdjacentHTML('beforeend', blockRight)
 		Pagination.e = e.getElementsByTagName('ul')[0];
 		Pagination.Buttons(e);
 	},
@@ -1355,6 +1330,7 @@ const CatalogController = {
 		this.catalogEl = catalogEl;
 		this.baseUrl = catalogEl.getAttribute('data-base-url');
 		this.paginationEl = paginationEl;
+		Pagination.Check();
 		Pagination.Init(paginationEl, {
 			size: paginationEl.getAttribute('data-size'),
 			page: paginationEl.getAttribute('data-page'),
@@ -1385,7 +1361,7 @@ const CatalogController = {
 const init = function () {
 	const pagination = document.getElementById('pagination');
 	const catalog = document.getElementById('product-list');
-	if(pagination === null) return;
+	if (pagination === null) return;
 	CatalogController.Init(catalog, pagination);
 };
 

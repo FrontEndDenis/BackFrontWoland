@@ -41,7 +41,8 @@
     "popper.js": "1.16.0",
     "sticky-sidebar": "3.3.1",
     "svg4everybody": "^2.1.9",
-    "swiper": "6.3.2"
+    "swiper": "6.3.2",
+    "tippy.js": "^6.2.7"
   },
   "browserslist": [
     "last 3 version",

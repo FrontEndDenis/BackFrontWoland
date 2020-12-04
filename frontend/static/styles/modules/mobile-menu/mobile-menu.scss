@@ -197,7 +197,8 @@ body {
 			& > a {padding: 5px 12px;}
 		}
 		&__prev {
-			& > a {padding: 10px 12px;}
+			margin-bottom: 0px;
+			& > a {padding: 20px 10px 24px;}
 		}
 	}
 }

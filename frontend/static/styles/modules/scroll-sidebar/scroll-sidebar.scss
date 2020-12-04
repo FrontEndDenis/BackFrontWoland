@@ -76,6 +76,7 @@
 		}
 		span {
 			&:first-child {
+				display: inline-block;
 				margin-right: 4px;
 				color: $txt-gray;
 			}

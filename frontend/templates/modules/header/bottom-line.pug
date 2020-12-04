@@ -3,14 +3,15 @@
 		nav.bottom-line__nav
 			ul.bottom-line__navitagion-panel.txt--mdm14
 				li.spacial
-					a(href='#')
+					a(href='/spec')
 						+icon('star')
 						| Акции
 				each category in catalog_menu_list
-					li
-						a(href=category.url)=category.name
-						.bottom-line__catalog
-							include ./catalog-menu.pug
+					each sub_category in category.get_child
+						li
+							a(href=sub_category.url)=sub_category.name
+							.bottom-line__catalog
+								include ./catalog-menu.pug
 	.bottom-line__right
 		.bottom-line__search-input.search-input
 			button.search-input__search

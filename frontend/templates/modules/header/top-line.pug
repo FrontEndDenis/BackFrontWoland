@@ -21,35 +21,6 @@
 					else
 						li
 							a(href=item.url)=item.name
-					
-				//- li
-				//- 	a(href='#') Услуги
-				//- li
-				//- 	a(href='#') Доставка
-				//- li.catalog-list
-				//- 	a(href='#')
-				//- 		| Компания
-				//- 		+icon('arrow-down')
-				//- 	.catalog-list__wrap
-				//- 		ul.catalog-list__list
-				//- 			li
-				//- 				a(href='#')
-				//- 					| О нас
-				//- 					+icon('arrow-right')
-				//- 			li
-				//- 				a(href='#')
-				//- 					| Блог
-				//- 					+icon('arrow-right')
-				//- 			li
-				//- 				a(href='#')
-				//- 					| Новости
-				//- 					+icon('arrow-right')
-				//- 			li
-				//- 				a(href='#')
-				//- 					| Вакансии
-				//- 					+icon('arrow-right')
-				//- li
-				//- 	a(href='#') Контакты
 	.top-line__right
 		.top-line__contacts
 			.top-line__info
@@ -58,8 +29,8 @@
 					#open-city.top-line__city.txt--mdm14
 						span=current_filial.name
 				.top-line__col
-					a.txt--mdm16(href='tel:+#{current_filial.phone}')=current_filial.phone
-					a.txt--mdm14(href='tel:+#{current_filial.phone}')=current_filial.phone
+					a.txt--mdm16(href='tel:#{current_filial.phone}')=current_filial.phone
+					a.txt--mdm14(href='tel:#{current_filial.phone}')=current_filial.phone
 			button#open-callback.top-line__callback.btn.btn--circle.btn--white5(type='button')
 				+icon('phone')
 		.top-line__mobile

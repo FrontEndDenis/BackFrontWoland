@@ -34,8 +34,14 @@
 	}
 	a {
 		color: $accent-main;
-		&:hover {color: $accent-main2;}
-		&:active {color: $accent-main3;}
+		&:hover {
+			color: $accent-main2;
+			text-decoration: underline !important;
+		}
+		&:active {
+			color: $accent-main;
+			text-decoration: none !important;
+		}
 	}
 }
 

@@ -10,10 +10,18 @@
 				.modal-w__text Найдите свой город с помощью поиска или в списке популярных городов
 				.modal-w__tabs.tabs
 					.tabs__nav
-						button.tabs__nav-item(type='button') Россия
-						button.tabs__nav-item(type='button') Казахстан
+						button.tabs__nav-item.btn-city(type='button') Россия
+						button.tabs__nav-item.btn-city(type='button') Казахстан
+					.modal-w__search.search-input.search-input--reset
+						button.search-input__search
+							+icon('search')
+						input(type='search', placeholder='Ваш город')
+						button.search-input__reset
+							+icon('close')
 					.tabs__content
 						.tabs__content-item
-							p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum nemo deserunt dolore nostrum natus corrupti, ipsum iste explicabo fugit, libero consectetur quod iusto illum ea sed dolores fuga ratione dolorum.
+							.modal-w__subtitle Популярные города
+							ul.modal-w__list
 						.tabs__content-item
-							p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, optio. Labore accusamus obcaecati ullam provident, quos voluptate. Blanditiis repudiandae nesciunt quasi sint eveniet? Neque accusamus eveniet, quis magnam consequatur nulla?
+							.modal-w__subtitle Популярные города
+							ul.modal-w__list
