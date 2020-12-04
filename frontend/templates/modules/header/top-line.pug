@@ -7,20 +7,36 @@
 				img(src='#{static_url}images/general/logo-text.svg', alt='Велунд сталь')
 		nav.top-line__nav
 			ul.top-line__navitagion-panel.txt--mdm14
-				each item in main_menu_list
-					if not item.is_hidden_child and item.get_child
-						li.catalog-list
-							a(href=item.url)=item.name
-								+icon('arrow-down')
-							.catalog-list__wrap
-								ul.catalog-list__list
-									each sub_item in item.get_child
-										li
-											a(href=sub_item.url)=sub_item.name
-												+icon('arrow-right')
-					else
-						li
-							a(href=item.url)=item.name
+				li
+					a(href='/proizvodstvo') Производство
+				li
+					a(href='/uslugi') Услуги
+				li
+					a(href='/dostavka-i-oplata') Доставка
+				li.catalog-list
+					a(href='/informaciya')
+						| Компания
+						+icon('arrow-down')
+					.catalog-list__wrap
+						ul.catalog-list__list
+							li
+								a(href='/o-kompanii')
+									| О нас
+									+icon('arrow-right')
+							li
+								a(href='/articles')
+									| Блог
+									+icon('arrow-right')
+							li
+								a(href='/news')
+									| Новости
+									+icon('arrow-right')
+							li
+								a(href='/vakansii')
+									| Вакансии
+									+icon('arrow-right')
+				li
+					a(href='/contacts') Контакты
 	.top-line__right
 		.top-line__contacts
 			.top-line__info
@@ -30,7 +46,7 @@
 						span=current_filial.name
 				.top-line__col
 					a.txt--mdm16(href='tel:#{current_filial.phone}')=current_filial.phone
-					a.txt--mdm14(href='tel:#{current_filial.phone}')=current_filial.phone
+					a.txt--mdm14(href='tel:#{current_filial.phone_dop}')=current_filial.phone_dop
 			button#open-callback.top-line__callback.btn.btn--circle.btn--white5(type='button')
 				+icon('phone')
 		.top-line__mobile

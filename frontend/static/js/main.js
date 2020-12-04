@@ -903,7 +903,6 @@ function mobileMenu() {
 	});
 	over.addEventListener('click', () => closeMenu())
 }
-
 mobileMenu()
 
 class OpenMobileMenu {
@@ -926,7 +925,6 @@ class OpenMobileMenu {
 		this.over.classList.remove('active');
 	}
 }
-
 window.openMobileMenu = new OpenMobileMenu('.mobile-menu');
 
 // Открытие каталога в мобильном меню
@@ -948,7 +946,6 @@ function catalogMobMenu() {
 	items.forEach(item => item.addEventListener('click', () => show(item)));
 	prev.forEach(item => item.addEventListener('click', () => hide(item)));
 }
-
 catalogMobMenu();
 
 // Высота скролла карточек Каталога
@@ -1181,6 +1178,7 @@ const Pagination = {
 	Check: function() {
 		let link = Number(window.location.href.split('page').pop().replace(/[//#/?]/gi, ''));
 		const dataSize = document.querySelector('#pagination');
+		if (!link) link = 1;
 		dataSize.setAttribute('data-page', link)
 	},
 

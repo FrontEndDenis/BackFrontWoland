@@ -1,16 +1,8 @@
-mixin icon(name,mod)
-	if mod
-		svg(class="svg-sprite-icon icon-" + name + ' ' + mod)
-			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
-	else
-		svg(class="svg-sprite-icon icon-" + name)
-			use(xlink:href="static/images/svg/symbol/sprite.svg#" + name)
-
 nav.mobile-menu
 	.mobile-menu__wrap
 		.mobile-menu__content
 			button.mobile-menu__city(data-toggle='modal' data-target='#modal-city')
-				.mobile-menu__city-title Нижний Новгород
+				.mobile-menu__city-title=current_filial.name
 				.mobile-menu__change Изменить
 			ul.mobile-menu__list
 				li.mobile-menu__item
@@ -19,59 +11,25 @@ nav.mobile-menu
 						span.mobile-menu__icon
 							+icon('arrow-down')
 					ul.catalog-m-menu.accordion-panel
-						li.catalog-m-menu__item
-							a
-								span Сталь
-								span.catalog-m-menu__icon
-									+icon('arrow-right-2')
-							include ./catalog-m-menu.pug
-						li.catalog-m-menu__item
-							a
-								span Цветные металлы
-								span.catalog-m-menu__icon
-									+icon('arrow-right-2')
-							include ./catalog-m-menu.pug
-						li.catalog-m-menu__item
-							a
-								span Чугун
-								span.catalog-m-menu__icon
-									+icon('arrow-right-2')
-							include ./catalog-m-menu.pug
-						li.catalog-m-menu__item
-							a
-								span Сплавы
-								span.catalog-m-menu__icon
-									+icon('arrow-right-2')
-							include ./catalog-m-menu.pug
-						li.catalog-m-menu__item
-							a
-								span Редкоземельные металлы
-								span.catalog-m-menu__icon
-									+icon('arrow-right-2')
-							include ./catalog-m-menu.pug
-						li.catalog-m-menu__item
-							a
-								span Оборудование
-								span.catalog-m-menu__icon
-									+icon('arrow-right-2')
-							include ./catalog-m-menu.pug
-						li.catalog-m-menu__item
-							a
-								span Полимеры
-								span.catalog-m-menu__icon
-									+icon('arrow-right-2')
-							include ./catalog-m-menu.pug
+						each category in catalog_menu_list
+							each category_2 in category.get_child
+								li.catalog-m-menu__item
+									a
+										span=category_2.name
+										span.catalog-m-menu__icon
+											+icon('arrow-right-2')
+									include ./catalog-m-menu.pug
 				li.mobile-menu__item
-					a(href='#')
+					a(href='/spec')
 						span Акции
 						span.mobile-menu__icon
 							+icon('star')
 				li.mobile-menu__item
-					a(href='#') Производство
+					a(href='/proizvodstvo') Производство
 				li.mobile-menu__item
-					a(href='#') Услуги
+					a(href='/uslugi') Услуги
 				li.mobile-menu__item
-					a(href='#') Доставка
+					a(href='/dostavka-i-oplata') Доставка
 				li.mobile-menu__item
 					a.accordion
 						span Компания
@@ -79,21 +37,21 @@ nav.mobile-menu
 							+icon('arrow-down')
 					ul.catalog-m-menu.accordion-panel
 						li.catalog-m-menu__item
-							a(href='#') О нас
+							a(href='/o-kompanii') О нас
 						li.catalog-m-menu__item
-							a(href='#') Блог
+							a(href='/articles') Блог
 						li.catalog-m-menu__item
-							a(href='#') Новости
+							a(href='/news') Новости
 						li.catalog-m-menu__item
-							a(href='#') Вакансии
+							a(href='/vakansii') Вакансии
 				li.mobile-menu__item
-					a(href='#') Контакты
+					a(href='/contacts') Контакты
 			.mobile-menu__contacts
 				.mobile-menu__phone
-					a.txt--smbld16(href='tel:+73439999999') 8 (343) 999 99 99
+					a.txt--smbld16(href='tel:#{current_filial.phone}')=current_filial.phone
 				.mobile-menu__phone
-					a.txt--smbld14(href='tel:+78009999999') 8 (800) 999 99 99
-				a.mobile-menu__mail.txt--smbld16(href='mailto:petropavlovsk@gkws.kz') petropavlovsk@gkws.kz
+					a.txt--smbld14(href='tel:#{current_filial.phone_dop}')=current_filial.phone_dop
+				a.mobile-menu__mail.txt--smbld16(href='mailto:#{current_filial.email}')=current_filial.email
 				button.mobile-menu__callback.btn.btn--h52.btn--br50(type='button', data-toggle='modal' data-target='#modal-callback')
 					+icon('phone')
 					span Обратный звонок

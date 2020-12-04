@@ -156,10 +156,10 @@ body {
 	}
 	&__sub {
 		position: absolute;
-		bottom: 0;
 		top: 0px;
 		max-width: 390px;
 		width: 100%;
+		min-height: calc(100% - 150px);
 		background: $white;
 		transition: transform .2s ease;
 		transform: translate(100%);
