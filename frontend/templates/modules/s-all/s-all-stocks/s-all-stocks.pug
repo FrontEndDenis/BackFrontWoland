@@ -1,21 +1,21 @@
-section.s-all-stocks
-	.container-xxl
-		.s-all-stocks__header
-			h2.s-all-stocks__title.txt--bld40
-				+icon('star')
-				| Акции
-			a.link(href='/spec')
-				span Все акции
-				+icon('arrow-right-2')
-		.s-all-stocks__slider
-			.stocks-slider.swiper-container
-				.swiper-wrapper
-					each product in product_list
-						if product.is_spec
+if spec_list
+	section.s-all-stocks
+		.container-xxl
+			.s-all-stocks__header
+				h2.s-all-stocks__title.txt--bld40
+					+icon('star')
+					| Акции
+				a.link(href='/spec')
+					span Все акции
+					+icon('arrow-right-2')
+			.s-all-stocks__slider
+				.stocks-slider.swiper-container
+					.swiper-wrapper
+						each spec in spec_list
 							.swiper-slide
 								.stocks-slider__item
 									include ../../cards/stocks-card/stocks-card
-			button.stocks-slider__prev.swiper-prev
-				+icon('arrow-right-2')
-			button.stocks-slider__next.swiper-next
-				+icon('arrow-right-2')
+				button.stocks-slider__prev.swiper-prev
+					+icon('arrow-right-2')
+				button.stocks-slider__next.swiper-next
+					+icon('arrow-right-2')

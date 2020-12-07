@@ -1441,11 +1441,11 @@ function sidebar() {
 		});
 	}
 }
-
 sidebar();
 
 // Фильтры
 function filters() {
+	if (!document.getElementById('modal-filters')) return
 	const openBtnModal = document.querySelectorAll('.p-product-listing__filters button:not(.filter-price)'),
 		modalUlList = document.querySelectorAll('.modal-f__list'),
 		pageBtnFilters = document.querySelectorAll('.p-product-listing__filters button'),
@@ -1679,7 +1679,6 @@ function filters() {
 	}
 	// Распределение удаления элементов в нескольких местах
 	const removeAllLocation = (attr, classNames) => {
-		console.log(attr);
 		const elements = document.querySelectorAll(`*[data-filter='${attr}']`);
 		elements.forEach(elem => {
 			if (elem.classList.contains(classNames)) {
