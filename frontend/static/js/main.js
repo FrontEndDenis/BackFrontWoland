@@ -788,7 +788,6 @@ function inputFile() {
 		item.addEventListener('change', () => processing(item));
 	});
 }
-
 inputFile()
 
 // Аккардион
@@ -811,7 +810,6 @@ function accordionEvent() {
 		});
 	});
 }
-
 accordionEvent();
 
 class Accordion {
@@ -839,7 +837,6 @@ class Accordion {
 		})
 	}
 }
-
 window.accordion = new Accordion('.accordion');
 
 // Закрытие модальных окон
@@ -1302,7 +1299,7 @@ const Pagination = {
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
 							<span class='pagination__text'>Не нашли, что искали?</span>
-							<a class='pagination__link txt--clr1'>Расскажите нам, что вам нужно <svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></a>
+							<a class='pagination__link txt--clr1' data-toggle='modal' data-target='#modal-need'>Расскажите нам, что вам нужно <svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></a>
 						</div>`
 		e.innerHTML = block;
 		e.insertAdjacentHTML('beforeend', blockRight)
@@ -1735,3 +1732,22 @@ function filters() {
 	}
 }
 filters()
+
+function toggleBtnModalNeed() {
+	const el = document.querySelector('.modal-need__wrap-toggle'),
+		btn = document.querySelector('#btn-toggle-2'),
+		input = document.querySelector('#modal-field-10');
+	btn.addEventListener('click', () => {
+		if (el.classList.contains('active')) {
+			el.classList.remove('active')
+			accordion.hide(document.querySelector('.modal-need__toggle'));
+			input.removeAttribute('required');
+		} else {
+			el.classList.add('active')
+			accordion.show(document.querySelector('.modal-need__toggle'));
+			input.setAttribute('required', 'required');
+		}
+		input.classList.toggle('form-control')
+	})
+}
+toggleBtnModalNeed()

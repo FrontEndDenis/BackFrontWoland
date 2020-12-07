@@ -411,6 +411,35 @@
 	&__clear {margin-right: 20px;}
 }
 
+.modal-need {
+	padding: 80px 48px;
+	&__text {
+		margin: 20px 0px 28px;
+		color: $txt-black90;
+		font-weight: 500;
+	}
+	&__wrap-toggle {
+		margin-bottom: 24px;
+		padding: 20px;
+		background: $white;
+		border-radius: 10px;
+		&.active {
+			.modal-need__hidden {margin-top: 24px;}
+		}
+	}
+	&__toggle {display: flex;}
+	&__btn-toggle {
+		display: flex;
+		align-items: center;
+		margin-right: 16px;
+	}
+	&__hidden {
+		input {
+			border: 1px solid $ui-mdm-gray;
+		}
+	}
+}
+
 .modal-close {
 	display: flex;
 	align-items: center;
@@ -436,6 +465,9 @@
 		transform: rotate(-180deg);
 	}
 	&__text {display: none;}
+	&:hover {
+		svg {fill: $accent-main;}
+	}
 }
 
 @media only screen and (max-width: 1199px) {

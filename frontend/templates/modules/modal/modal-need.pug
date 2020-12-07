@@ -1,0 +1,55 @@
+#modal-need.modal.modal-right(tabindex='-1' aria-labelledby='modalRightLabel' aria-hidden='true')
+	.modal-dialog
+		.modal-content
+			.modal-need
+				.modal-need__close.modal-close.modal-close--txt(type='button' data-dismiss='modal')
+					+icon('close')
+					+icon('arrow-right-2')
+					.modal-close__text Вернуться назад
+				.modal-need__title.txt--bld36 Расскажите нам, что вам нужно
+				.modal-need__text Опишите ниже, что вы ищете. Мы расширим ассортимент и оповестим вас о поступлении.
+				form.modal-need__form.needs-validation(action='', method='get', novalidate)
+					.form-group
+						label(for='modal-field-7') Ваш запрос
+						textarea#modal-field-7(cols='30', rows='10', placeholder='Опишите нужные вам товары')
+					.form-group
+						label(for='modal-field-8') Ваша почта
+							.required *
+						input#modal-field-8.form-control(type='text', placeholder='@mail', pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$', required)
+						.invalid-feedback Введите почту
+					.modal-need__wrap-toggle
+						.modal-need__toggle
+							.modal-need__btn-toggle
+								input#btn-toggle-2.checkbox(type='checkbox')
+								label(for='btn-toggle-2')
+							.modal-need__toggle-text.txt--smbld14 Позвонить вам для уточнения деталей
+						.modal-need__hidden.accordion-panel
+							.form-group
+								label(for='modal-field-9') Ваше имя
+								input#modal-field-9.form-control(type='text', maxlength='50', placeholder='Имя')
+							.form-group
+								label(for='modal-field-10') Ваш телефон
+									.required *
+								input#modal-field-10(type='tel', placeholder='+7 (___) __-__-__', pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}", minlength='18', inputmode='numeric')
+								.invalid-feedback Введите телефон
+					.form-group
+						label.checkbox
+							input.form-control(type='checkbox', checked, required)
+							span.checkbox__text
+								.policy
+									| Даю согласие на 
+									a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
+					.form-group
+						.input-file
+							input#file-2(type='file', name='file')
+							.input-file__wrap
+								label(for='file-2')
+									.input-file__icon
+										+icon('clip')
+										+icon('document')
+									.input-file__content
+										.input-file__txt Добавить файл
+										.input-file__size до 10Mb
+								.input-file__reset
+									+icon('close')
+					button.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='submit') Отправить  запрос
