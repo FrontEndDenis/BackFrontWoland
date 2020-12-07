@@ -25,42 +25,79 @@
 				h2 Все характеристики
 				table
 					tbody
-						tr
-							td
-								span Артикул
-							td 12345-18
-						tr
-							td
-								span Марка
-							td 05Х16Н5АБ
-						tr
-							td 
-								span ГОСТ
-							td DIN 50049-1992
-						tr
-							td 
-								span Высота
-							td 3 мм
-						tr
-							td 
-								span Мин. диаметр электрода
-							td 15.2 мм
-						tr
-							td
-								span Тип соединения
-							td C цапковым концом под метрическую трубу
-						tr
-							td 
-								span Ширина меньшей полки, мм
-							td 05Х16Н5АБ
-						tr
-							td 
-								span Толщина меньшей полки, мм
-							td 3 мм
-						tr
-							td 
-								span Ширина
-							td 15.2 мм
+						if product.marka and not current_menu.is_hide_marka
+							tr
+								td
+									span Марка
+								td=product.marka
+						if product.standart and not current_menu.is_hide_standart
+							tr
+								td
+									span ГОСТ
+								td=product.standart
+						if current_menu.label_param1 and product.param_1
+							tr
+								if current_menu.ed_izm_param1
+									td
+										span=current_menu.ed_izm_param1
+								else
+									td
+										span=current_menu.label_param1
+								td=product.param_1
+						if current_menu.label_param2 and product.param_2
+							tr
+								if current_menu.ed_izm_param2
+									td
+										span=current_menu.ed_izm_param2
+								else
+									td
+										span=current_menu.label_param2
+								td=product.param_2
+						if current_menu.label_param3 and product.param_3
+							tr
+								if current_menu.ed_izm_param3
+									td
+										span=current_menu.ed_izm_param3
+								else
+									td
+										span=current_menu.label_param3
+								td=product.param_3
+						if current_menu.label_param4 and product.param_4
+							tr
+								if current_menu.ed_izm_param4
+									td
+										span=current_menu.ed_izm_param4
+								else
+									td
+										span=current_menu.label_param4
+								td=product.param_4
+						if current_menu.label_param5 and product.param_5
+							tr
+								if current_menu.ed_izm_param5
+									td
+										span=current_menu.ed_izm_param5
+								else
+									td
+										span=current_menu.label_param5
+								td=product.param_5
+						if current_menu.label_param6 and product.param_6
+							tr
+								if current_menu.ed_izm_param6
+									td
+										span=current_menu.ed_izm_param6
+								else
+									td
+										span=current_menu.label_param6
+								td=product.param_6
+						if current_menu.label_param7 and product.param_7
+							tr
+								if current_menu.ed_izm_param7
+									td
+										span=current_menu.ed_izm_param7
+								else
+									td
+										span=current_menu.label_param7
+								td=product.param_7
 			.product-tabs__delivery.tabs__content-item
 				h2 Оплата и доставка
 				p Доставка металлопроката и металлический изделий точно в срок – основной принцип Компании «СтальПро». Мы постоянно совершенствуем логистику грузоперевозок.

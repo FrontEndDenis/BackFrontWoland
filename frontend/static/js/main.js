@@ -1446,31 +1446,32 @@ sidebar();
 
 // Фильтры
 function filters() {
-	const filtersModal = document.getElementById('modal-filters');
-	if (filtersModal == null) return
+	const openBtnModal = document.querySelectorAll('.p-product-listing__filters button:not(.filter-price)'),
+		modalUlList = document.querySelectorAll('.modal-f__list'),
+		pageBtnFilters = document.querySelectorAll('.p-product-listing__filters button'),
+		pageBtnFiltersPrice = document.querySelector('.filter-price[data-filter="price"]'),
+		modalBtnFiltersPrice = document.querySelector('.modal-f__btn-toggle input'),
+		modalBtnDel = document.querySelectorAll('.modal-f__delete'),
+		pageBtnDel = document.querySelectorAll('.p-product-listing__filters .filter__delete'),
+		modalBtnRemoveAll = document.querySelector('.modal-f__clear');
 
 	let arrAttr = [];
 
 	// Открытие модального фильтра
 	function openModalFilters() {
-		const btns = document.querySelectorAll('.p-product-listing__filters button:not(.filter-price)');
-
-		btns.forEach(btn => {
+		openBtnModal.forEach(btn => {
 			btn.addEventListener('click', () => {
 				modalList.filters.show();
 				openFiltersAccordion(btn.getAttribute('data-filter'))
 			})
 		})
 	}
-
 	openModalFilters();
 
 	// Открытие аккордиона в модальном окне фильтров
 	function openFiltersAccordion(value) {
 		const acc = document.querySelectorAll('.modal-f__header.accordion');
-
 		acc.forEach(el => accordion.hide(el));
-
 		acc.forEach(el => {
 			if (el.getAttribute('data-filter') == value) {
 				el.classList.add('active');
@@ -1481,8 +1482,6 @@ function filters() {
 
 	// Скрывать элементы фильтров модалки
 	function hideElModalFilter() {
-		const uls = document.querySelectorAll('.modal-f__list');
-
 		const createMore = (el, ind) => {
 			if (ind <= 0) return
 			let more = `<div class='modal-f__more'><span>Еще </span><span>${ind}</span></div>`;
@@ -1500,11 +1499,9 @@ function filters() {
 				el.closest('.modal-f__panel').querySelector('.modal-f__more').style.display = 'block';
 		}
 
-		uls.forEach(item => hide(item))
-
 		const show = el => {
-			let li = el.previousSibling.querySelectorAll('li');
-			li.forEach(l => l.style.display = 'block')
+			let lis = el.previousSibling.querySelectorAll('li');
+			lis.forEach(li => li.style.display = 'block')
 		};
 
 		const toggleEl = el => {
@@ -1521,41 +1518,51 @@ function filters() {
 			el.classList.toggle('active')
 		}
 
+		modalUlList.forEach(item => hide(item))
+
 		const btns = document.querySelectorAll('.modal-f__more');
 
 		btns.forEach(btn => {
 			btn.addEventListener('click', () => toggleEl(btn))
 		});
-		addFilterElem(uls);
 	}
-
 	hideElModalFilter();
-
+	// Общие классы
+	// Удаление активного элемента в списке модального окна
+	const removeActive = collection => {
+		collection.forEach(item => {
+			item.classList.remove('active')
+			if (item.querySelector('svg')) item.querySelector('svg').remove()
+		})
+	}
+	//Очистка массива атрибутов
+	const removeAllArrAttr = attr => {
+		arrAttr = arrAttr.filter(item => item !== attr);
+		if (arrAttr.length <= 0) document.querySelector('[data-filter="all"]').classList.remove('value')
+	}
 	// Добавление выбранного фильтра
-	function addFilterElem(ul) {
-
+	function addFilterElem() {
+		// Добавление элемента в кнопки на странице
 		const addShowBattunValue = (text, attr) => {
-			const btns = document.querySelectorAll('.p-product-listing__filters button');
-
 			let index = 0;
 
-			btns.forEach((btn, ind) => {
+			pageBtnFilters.forEach((btn, ind) => {
 				if (btn.getAttribute('data-filter') == attr) index = ind;
 			});
 
-			btns[index].classList.add('value');
+			pageBtnFilters[index].classList.add('value');
 
 			if (index === 0) {
 				if (arrAttr.indexOf(attr) === -1) return arrAttr.push(attr);
 				return
 			}
 
-			if (btns[index].querySelector('span')) btns[index].querySelector('span').remove();
-			btns[index].querySelector('.filter__delete').insertAdjacentHTML('beforebegin', text)
+			if (pageBtnFilters[index].querySelector('span')) pageBtnFilters[index].querySelector('span').remove();
+			pageBtnFilters[index].querySelector('.filter__delete').insertAdjacentHTML('beforebegin', text)
 			filtersSlider.update();
 			filtersSlider.scrollbar.updateSize();
 		}
-
+		// Генерация списк в sidebar
 		const addShowSidebarValue = (titlePage, key, text, attr) => {
 			const sidebar = document.querySelector('#scroll-sidebar-filters'),
 				left = sidebar.querySelector('.scroll-sidebar__left'),
@@ -1580,7 +1587,6 @@ function filters() {
 			} else {
 				ul.insertAdjacentHTML('beforeend', li);
 			}
-
 			document.addEventListener('changeSidebarList', () => {
 				let li = ul.querySelectorAll('li');
 				if (li.length <= 0) {
@@ -1589,7 +1595,7 @@ function filters() {
 				}
 			});
 		}
-
+		// Добавление элемента в модальное окно
 		const addShowHeaderValue = (item, text) => {
 			const headerModalText = item.querySelector('.modal-f__wrap-text')
 			if (item.classList.contains('value')) {
@@ -1599,36 +1605,27 @@ function filters() {
 				item.classList.add('value');
 			}
 		}
+		// Оборачиваем текст в span
+		const createSpanValue = text => `<span>${text}</span>`;
 
-		const createValue = (text) => {
-			return `<span>${text}</span>`
-		}
-
+		// Распределение полученного текста и атрибута при клике из списка элементов в модальном окне
 		const addLogic = item => {
-			const titleKeyText = createValue(item.closest('.modal-f__item').querySelector('.modal-f__text span').textContent),
-				valueText = createValue(item.textContent),
+			const titleKeyText = createSpanValue(item.closest('.modal-f__item').querySelector('.modal-f__text span').textContent),
+				valueText = createSpanValue(item.textContent),
 				pageTitle = document.querySelector('.p-product-listing__title .txt--bld40').textContent,
 				attr = item.closest('.modal-f__item').querySelector('.modal-f__header').getAttribute('data-filter'),
 				headerModal = item.closest('.modal-f__item').querySelector('.modal-f__header');
-
 			addShowHeaderValue(headerModal, valueText);
 			addShowSidebarValue(pageTitle, titleKeyText, valueText, attr);
 			addShowBattunValue(valueText, attr);
 		}
-
+		// Добавление активного элемента в списке модального окна
 		const addActive = item => {
 			const svg = `<svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg>`
 			item.classList.add('active');
 			item.insertAdjacentHTML('afterbegin', svg)
 		}
-
-		const removeActive = collection => {
-			collection.forEach(item => {
-				item.classList.remove('active')
-				if (item.querySelector('svg')) item.querySelector('svg').remove()
-			})
-		}
-
+		// Начала добавление текста в 3х местах
 		const addEvents = elem => {
 			const li = elem.querySelectorAll('li a');
 			li.forEach(item => item.addEventListener('click', () => {
@@ -1637,64 +1634,52 @@ function filters() {
 				addActive(item);
 			}))
 		}
-		ul.forEach(item => addEvents(item))
+		modalUlList.forEach(item => addEvents(item))
+
+		// Кнопки цены на странице и в модальном окне
+		const toggleBtnPrice = btn => btn.classList.toggle('value');
+		const toggleModalBtnPrice = btn => btn.checked = !btn.checked;
+
+		const btnPrice = () => {
+			pageBtnFiltersPrice.addEventListener('click', () => {
+				toggleBtnPrice(pageBtnFiltersPrice);
+				toggleModalBtnPrice(modalBtnFiltersPrice)
+			})
+		}
+		btnPrice();
+
+		const btnPriceModal = () => {
+			modalBtnFiltersPrice.addEventListener('click', () => toggleBtnPrice(pageBtnFiltersPrice))
+		}
+		btnPriceModal();
+		allRemoveValue();
 	}
+	addFilterElem();
 
-
+	// Удаление выбранного фильтра
 	// Удаление элемента в модальном окне
-	function removeListitem(item) {
+	const removeListitem = item => {
 		const parent = item.closest('.modal-f__item'),
 			list = parent.querySelectorAll('.modal-f__list a');
 
-		item.classList.remove('value')
-		item.querySelector('.modal-f__text').nextElementSibling.remove();
-
-		list.forEach(a => {
-			if (a.classList.contains('active')) {
-				a.classList.remove('active');
-				a.querySelector('svg').remove();
-			}
-		})
+		if (item.classList.contains('value')) {
+			item.classList.remove('value')
+			item.querySelector('.modal-f__text').nextElementSibling.remove();
+		}
+		removeActive(list)
 	}
-
-	function removeModalEl(el) {
-		removeListitem(el.closest('.modal-f__item').querySelector('.modal-f__header'));
-	}
-
-	const btnModalDelete = () => {
-		const btns = document.querySelectorAll('.modal-f__delete');
-
-		btns.forEach(btn => btn.addEventListener('click', (e) => {
-			const attr = btn.closest('.modal-f__header').getAttribute('data-filter');
-			e.stopPropagation();
-			e.preventDefault();
-			removeModalEl(btn);
-			removeAllLocation(attr, 'filter');
-			removeAllbtn(attr);
-		}));
-	}
-	btnModalDelete();
-
-	function removeFilterBtnPage(el) {
-		el.closest('button').classList.remove('value')
-		el.previousElementSibling.remove();
+	// Удаление элемента в кнопке на странице
+	const removeFilterBtnPage = el => {
+		if (el.closest('button').classList.contains('value')) {
+			el.closest('button').classList.remove('value')
+			el.previousElementSibling.remove();
+		} else return
 		filtersSlider.update();
 		filtersSlider.scrollbar.updateSize();
 	}
-
-	const btnFilterPage = () => {
-		const btns = document.querySelectorAll('.p-product-listing__filters .filter__delete')
-		btns.forEach(btn => btn.addEventListener('click', (e) => {
-			const attr = btn.closest('button').getAttribute('data-filter');
-			e.stopPropagation();
-			e.preventDefault();
-			removeFilterBtnPage(btn);
-			removeAllLocation(attr, 'modal-f__header');
-		}));
-	}
-	btnFilterPage();
-
-	function removeAllLocation(attr, classNames) {
+	// Распределение удаления элементов в нескольких местах
+	const removeAllLocation = (attr, classNames) => {
+		console.log(attr);
 		const elements = document.querySelectorAll(`*[data-filter='${attr}']`);
 		elements.forEach(elem => {
 			if (elem.classList.contains(classNames)) {
@@ -1709,10 +1694,45 @@ function filters() {
 			}
 		});
 	}
+	// Кнопка удаления в модальном окне
+	const btnModalDelete = () => {
+		modalBtnDel.forEach(btn => btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			e.preventDefault();
+			const attr = btn.closest('.modal-f__header').getAttribute('data-filter');
+			removeListitem(btn.closest('.modal-f__item').querySelector('.modal-f__header'));
+			removeAllLocation(attr, 'filter');
+			removeAllArrAttr(attr);
+		}));
+	}
+	btnModalDelete();
+	// Кнопка удаления на странице
+	const btnFilterPage = () => {
+		pageBtnDel.forEach(btn => btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			e.preventDefault();
+			const attr = btn.closest('button').getAttribute('data-filter');
+			removeFilterBtnPage(btn);
+			removeAllLocation(attr, 'modal-f__header');
+		}));
+	}
+	btnFilterPage();
 
-	function removeAllbtn(attr) {
-		arrAttr = arrAttr.filter(item => item !== attr);
-		if (arrAttr.length <= 0) document.querySelector('[data-filter="all"]').classList.remove('value')
+	// Кнопка сброса
+	function allRemoveValue() {
+		modalBtnRemoveAll.addEventListener('click', () => {
+			const allAttr = document.querySelectorAll('.modal-f__header[data-filter]:not([data-filter="price"])');
+			arrAttr.forEach(attr => removeAllArrAttr(attr));
+			if (pageBtnFiltersPrice.classList.contains('value')) {
+				pageBtnFiltersPrice.classList.remove('value');
+				modalBtnFiltersPrice.checked = !modalBtnFiltersPrice.checked;
+			}
+			allAttr.forEach(attr => {
+				attr = attr.dataset.filter;
+				removeAllLocation(attr, 'modal-f__header');
+				removeAllLocation(attr, 'filter');
+			})
+		})
 	}
 }
 filters()

@@ -2,7 +2,7 @@
 	.scroll-sidebar__left
 		.scroll-sidebar__product
 			.scroll-sidebar__price-txt Цена
-			if product.price == null
+			if product.price
 				.scroll-sidebar__value #{product.price} ₽/шт
 			else
 				.scroll-sidebar__value.hint

@@ -11,35 +11,80 @@
 						.swiper-slide
 							.product-slider-thumbs__item
 								.product-slider-thumbs__img
-									img(src=product.image alt=product.name)
+									img(src='#{media_url}#{product.image}' alt=product.name)
 						.swiper-slide
 							.product-slider-thumbs__item
 								.product-slider-thumbs__img
-									img(src=product.image_2 alt=product.name)
+									img(src='#{media_url}#{product.image_2}' alt=product.name)
 			.product-slider.swiper-container
 				.swiper-wrapper
 					.swiper-slide
 						.product-slider__img
-							img(src=product.image alt=product.name)
+							img(src='#{media_url}#{product.image}' alt=product.name)
 					.swiper-slide
 						.product-slider__img
-							img(src=product.image_2 alt=product.name)
+							img(src='#{media_url}#{product.image_2}' alt=product.name)
 				.product-slider__pagination.swiper-pagination
 		.product-content__description
 			h3.product-content__title.txt--bld20 Коротко о товаре
-			//ul.product-content__list
-			//	li
-			//		span Артикул
-			//		span 12345-18
-			//	li
-			//		span Марка
-			//		span 05Х16Н5АБ
-			//	li
-			//		span ГОСТ
-			//		span 05Х16Н5АБ05Х16Н5АБ
-			//	li
-			//		span Мин. диаметр электрода
-			//		span C цапковым концом под метрическую трубу
+			ul.product-content__list
+				if product.marka and not current_menu.is_hide_marka
+					li
+						span Марка
+						span=product.marka
+				if product.standart and not current_menu.is_hide_standart
+					li
+						span ГОСТ
+						span=product.standart
+				if current_menu.label_param1 and product.param_1
+					li
+						if current_menu.ed_izm_param1
+							span=current_menu.ed_izm_param1
+						else
+							span=current_menu.label_param1
+						span=product.param_1
+				if current_menu.label_param2 and product.param_2
+					li
+						if current_menu.ed_izm_param2
+							span=current_menu.ed_izm_param2
+						else
+							span=current_menu.label_param2
+						span=product.param_2
+				if current_menu.label_param3 and product.param_3
+					li
+						if current_menu.ed_izm_param3
+							span=current_menu.ed_izm_param3
+						else
+							span=current_menu.label_param3
+						span=product.param_3
+				if current_menu.label_param4 and product.param_4
+					li
+						if current_menu.ed_izm_param4
+							span=current_menu.ed_izm_param4
+						else
+							span=current_menu.label_param4
+						span=product.param_4
+				if current_menu.label_param5 and product.param_5
+					li
+						if current_menu.ed_izm_param5
+							span=current_menu.ed_izm_param5
+						else
+							span=current_menu.label_param5
+						span=product.param_5
+				if current_menu.label_param6 and product.param_6
+					li
+						if current_menu.ed_izm_param6
+							span=current_menu.ed_izm_param6
+						else
+							span=current_menu.label_param6
+						span=product.param_6
+				if current_menu.label_param7 and product.param_7
+					li
+						if current_menu.ed_izm_param7
+							span=current_menu.ed_izm_param7
+						else
+							span=current_menu.label_param7
+						span=product.param_7
 			a.product-content__more-description.txt--clr1(href='#') Все характеристики
 	nav.product-content__mark
 		h3.product-content__mark-title.txt--smbld18 Этот товар других марок

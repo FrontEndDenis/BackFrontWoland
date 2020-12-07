@@ -51,10 +51,10 @@ footer.footer
 				.footer__contacts
 					.footer__col
 						a.txt--mdm16(href='tel:+#{current_filial.phone}')=current_filial.phone
-						a.txt--mdm14(href='tel:+#{current_filial.phone}')=current_filial.phone
+						a.txt--mdm14(href='tel:+#{current_filial.phone_dop}')=current_filial.phone_dop
 					.footer__col
 						a.txt--mdm16(href='mailto:#{current_filial.email}')=current_filial.email
-						.footer__timetable.txt--mdm14 Пн-Пт с 9:00 до 19:00
+						.footer__timetable.txt--mdm14=current_filial.rezhim
 				.footer__address
 					.footer__address-title.txt--mdm16=current_filial.name
 					.footer__address-location.txt--mdm14=current_filial.address
