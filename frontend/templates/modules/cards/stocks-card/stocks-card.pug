@@ -1,150 +1,77 @@
 .stocks-card
-	if product
-		if current_menu.label_param4 and product.param_4
-			.stocks-card__warning.warning
-				+icon('warning')
-				.warning__wrap
-					.warning__list
-						.warning__close
-							+icon('close')
-						if product.marka and not current_menu.is_hide_marka
-							.warning__item
-								.warning__property Марка
-								.warning__value=product.marka
-						if product.standart and not current_menu.is_hide_standart
-							.warning__item
-								.warning__property ГОСТ
-								.warning__value=product.standart
-						if current_menu.label_param1 and product.param_1
-							.warning__item
-								.warning__property=current_menu.label_param1
-								.warning__value=product.param_1
-						if current_menu.label_param2 and product.param_2
-							.warning__item
-								.warning__property=current_menu.label_param2
-								.warning__value=product.param_2
-						if current_menu.label_param3 and product.param_3
-							.warning__item
-								.warning__property=current_menu.label_param3
-								.warning__value=product.param_3
-						if current_menu.label_param4 and product.param_4
-							.warning__item
-								.warning__property=current_menu.label_param4
-								.warning__value=product.param_4
-						if current_menu.label_param5 and product.param_5
-							.warning__item
-								.warning__property=current_menu.label_param5
-								.warning__value=product.param_5
-						if current_menu.label_param6 and product.param_6
-							.warning__item
-								.warning__property=current_menu.label_param6
-								.warning__value=product.param_6
-		if product.is_spec
-			.stocks-card__wrap-img
-				.stocks-card__img
-					img(src="#{media_url}#{product.image}", alt="#{product.name}")
-				.stocks-card__icon
-					img(src='../../../../static/images/general/special.svg', alt='Спецпредложение')
-		else
-			.stocks-card__wrap-img
-				.stocks-card__img
-					img(src="#{media_url}#{product.image}", alt="#{product.name}")
-		a.stocks-card__title(href=product.url)=product.name
-		.stocks-card__specifications
-			if current_menu.label_param1 and product.param_1
-				.stocks-card__item
-					.stocks-card__property=current_menu.label_param1
-					.stocks-card__value=product.param_1
-			if current_menu.label_param2 and product.param_2
-				.stocks-card__item
-					.stocks-card__property=current_menu.label_param2
-					.stocks-card__value=product.param_2
-			if current_menu.label_param3 and product.param_3
-				.stocks-card__item
-					.stocks-card__property=current_menu.label_param3
-					.stocks-card__value=product.param_3
-			.stocks-card__wrap-item
-				.stocks-card__item
-					.stocks-card__property Цена
-					if product.price
-						.stocks-card__value.price #{product.price} ₽/шт
-					else
-						.stocks-card__value.price.hint
-							| Договорная
-							+icon('hint')
-				.stocks-card__item
-					button.stocks-card__add-basket.btn.btn--circle(type='button')
-						.stocks-card__add-basket-txt В заявку
-						+icon('add-basket')
-	if spec
-		if current_menu.label_param4 and spec.param_4
-			.stocks-card__warning.warning
-				+icon('warning')
-				.warning__wrap
-					.warning__list
-						.warning__close
-							+icon('close')
-						if spec.marka and not current_menu.is_hide_marka
-							.warning__item
-								.warning__property Марка
-								.warning__value=spec.marka
-						if spec.standart and not current_menu.is_hide_standart
-							.warning__item
-								.warning__property ГОСТ
-								.warning__value=spec.standart
-						if current_menu.label_param1 and spec.param_1
-							.warning__item
-								.warning__property=current_menu.label_param1
-								.warning__value=spec.param_1
-						if current_menu.label_param2 and spec.param_2
-							.warning__item
-								.warning__property=current_menu.label_param2
-								.warning__value=spec.param_2
-						if current_menu.label_param3 and spec.param_3
-							.warning__item
-								.warning__property=current_menu.label_param3
-								.warning__value=spec.param_3
-						if current_menu.label_param4 and spec.param_4
-							.warning__item
-								.warning__property=current_menu.label_param4
-								.warning__value=spec.param_4
-						if current_menu.label_param5 and spec.param_5
-							.warning__item
-								.warning__property=current_menu.label_param5
-								.warning__value=spec.param_5
-						if current_menu.label_param6 and spec.param_6
-							.warning__item
-								.warning__property=current_menu.label_param6
-								.warning__value=spec.param_6
-			.stocks-card__wrap-img
-				.stocks-card__img
-					img(src="#{media_url}#{spec.image}", alt="#{spec.name}")
-				.stocks-card__icon
-					img(src='../../../../static/images/general/special.svg', alt='Спецпредложение')
-		a.stocks-card__title(href=spec.url)=spec.name
-		.stocks-card__specifications
-			if current_menu.label_param1 and spec.param_1
-				.stocks-card__item
-					.stocks-card__property=current_menu.label_param1
-					.stocks-card__value=spec.param_1
-			if current_menu.label_param2 and spec.param_2
-				.stocks-card__item
-					.stocks-card__property=current_menu.label_param2
-					.stocks-card__value=spec.param_2
-			if current_menu.label_param3 and spec.param_3
-				.stocks-card__item
-					.stocks-card__property=current_menu.label_param3
-					.stocks-card__value=spec.param_3
-			.stocks-card__wrap-item
-				.stocks-card__item
-					.stocks-card__property Цена
-					if spec.price
-						.stocks-card__value.price #{spec.price} ₽/шт
-					else
-						.stocks-card__value.price.hint
-							| Договорная
-							+icon('hint')
-				.stocks-card__item
-					button.stocks-card__add-basket.btn.btn--circle(type='button')
-						.stocks-card__add-basket-txt В заявку
-						+icon('add-basket')
+	if current_menu.label_param3 and product.param_3
+		.stocks-card__warning.warning
+			+icon('warning')
+			.warning__wrap
+				.warning__list
+					.warning__close
+						+icon('close')
+					if product.marka and not current_menu.is_hide_marka
+						.warning__item
+							.warning__property Марка
+							.warning__value=product.marka
+					if product.standart and not current_menu.is_hide_standart
+						.warning__item
+							.warning__property ГОСТ
+							.warning__value=product.standart
+					if current_menu.label_param1 and product.param_1
+						.warning__item
+							.warning__property=current_menu.label_param1
+							.warning__value=product.param_1
+					if current_menu.label_param2 and product.param_2
+						.warning__item
+							.warning__property=current_menu.label_param2
+							.warning__value=product.param_2
+					if current_menu.label_param3 and product.param_3
+						.warning__item
+							.warning__property=current_menu.label_param3
+							.warning__value=product.param_3
+					if current_menu.label_param4 and product.param_4
+						.warning__item
+							.warning__property=current_menu.label_param4
+							.warning__value=product.param_4
+					if current_menu.label_param5 and product.param_5
+						.warning__item
+							.warning__property=current_menu.label_param5
+							.warning__value=product.param_5
+					if current_menu.label_param6 and product.param_6
+						.warning__item
+							.warning__property=current_menu.label_param6
+							.warning__value=product.param_6
+	if product.is_spec
+		.stocks-card__wrap-img
+			.stocks-card__img
+				img(src="#{media_url}#{product.image}", alt="#{product.name}")
+			.stocks-card__icon
+				img(src='#{static_url}images/general/special.svg', alt='#{product.name}')
+	else
+		.stocks-card__wrap-img
+			.stocks-card__img
+				img(src="#{media_url}#{product.image}", alt="#{product.name}")
+	a.stocks-card__title(href=product.url)=product.name
+	.stocks-card__specifications
+		if current_menu.label_param1 and product.param_1
+			.stocks-card__item
+				.stocks-card__property=current_menu.label_param1
+				.stocks-card__value=product.param_1
+		if current_menu.label_param2 and product.param_2
+			.stocks-card__item
+				.stocks-card__property=current_menu.label_param2
+				.stocks-card__value=product.param_2
+		if current_menu.label_param3 and product.param_3
+			.stocks-card__item
+				.stocks-card__property=current_menu.label_param3
+				.stocks-card__value=product.param_3
+		.stocks-card__wrap-item
+			.stocks-card__item
+				.stocks-card__property Цена
+				if product.price
+					.stocks-card__value.price #{product.price} ₽/шт
+				else
+					.stocks-card__value.price.hint
+						| Договорная
+						+icon('hint')
+			.stocks-card__item
+				button.stocks-card__add-basket.btn.btn--circle(type='button')
+					.stocks-card__add-basket-txt В заявку
+					+icon('add-basket')

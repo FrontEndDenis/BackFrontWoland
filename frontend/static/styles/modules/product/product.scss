@@ -19,6 +19,7 @@
 	&__thumbs {
 		flex-shrink: 0;
 		position: relative;
+		max-height: 340px;
 		margin-right: 32px;
 	}
 	&__description {max-width: 254px;}
@@ -47,6 +48,7 @@
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 150%;
+		cursor: pointer;
 		&:hover {text-decoration: none;}
 	}
 	&__mark {

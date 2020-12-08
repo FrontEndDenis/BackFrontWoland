@@ -95,13 +95,17 @@
 	.product-slider {
 		height: auto;
 		&__pagination {display: flex;}
+		.swiper-wrapper {height: 340px;}
 	}
 }
 
 @media only screen and (max-width: 575px) {
 	.product-slider {
 		max-width: 296px;
-		&__img {width: 296px;}
+		&__img {
+			width: 296px;
+			height: 296px;
+		}
 		.swiper-wrapper {height: 296px;}
 	}
 }

@@ -414,7 +414,7 @@
 .modal-need {
 	padding: 80px 48px;
 	&__text {
-		margin: 20px 0px 28px;
+		margin: 20px 0px 24px;
 		color: $txt-black90;
 		font-weight: 500;
 	}
@@ -477,6 +477,7 @@
 	.modal-f {
 		&__wrap-content {margin-bottom: 206px;}
 	}
+	.modal-need {padding: 80px 48px 230px;}
 }
 
 @media only screen and (max-width: 860px) {
@@ -499,7 +500,6 @@
 			font-size: 24px;
 		}
 	}
-
 	.write-us {
 		&__mail, &__time {
 			svg {
@@ -508,7 +508,6 @@
 			}
 		}
 	}
-
 	.modal-f {
 		padding: 24px 12px;
 		&__title {
@@ -534,7 +533,6 @@
 		}
 		&__clear {margin: 0px;}
 	}
-
 	.modal-basket {
 		padding: 32px 12px 172px;
 		&__header {
@@ -588,6 +586,11 @@
 	.modal-search {
 		padding: 32px 12px;
 		.txt--bld24 {font-size: 18px;}
+	}
+	.modal-need {
+		padding: 20px 12px 110px;
+		&__title {font-size: 18px;}
+		&__text {font-size: 14px;}
 	}
 	.modal-close {
 		&--txt {

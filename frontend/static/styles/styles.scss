@@ -21,6 +21,9 @@ body {
 	font-family: 'Montserrat-custom', Roboto, 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Cantarell, 'Helvetica Neue';
 	overflow-x: hidden;
 	h1, h2, h3, h4, h5, h6 {margin: 0}
+	&.open-catalog {
+		overflow-y: hidden;
+	}
 }
 
 ul[class],

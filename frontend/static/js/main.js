@@ -8,6 +8,9 @@ const modalList = {
 
 if (document.getElementById('modal-filters')) {
 	modalList['filters'] = new bootstrap.Modal(document.getElementById('modal-filters'));
+} 
+if (document.getElementById('modal-need')) {
+	modalList['need'] = new bootstrap.Modal(document.getElementById('modal-need'));
 }
 
 svg4everybody();
@@ -289,16 +292,13 @@ class ModalSite {
 	}
 
 	open() {
-		this.element.classList.add('modal-open');
-		this.element.style.paddingRight = '17px';
+		this.element.classList.add('open-catalog');
 	}
 
 	close() {
-		this.element.classList.remove('modal-open');
-		this.element.style.paddingRight = '0px';
+		this.element.classList.remove('open-catalog');
 	}
 }
-
 window.openmodalsite = new ModalSite('body');
 
 // Фиксирование шапки
@@ -413,12 +413,12 @@ function catalogMenu() {
 		panel.classList.remove('open-catalog');
 		block.forEach(el => el.classList.remove('active'));
 		item.classList.remove('active');
-		openmodalsite.close()
+		openmodalsite.close();
 	}
 
 	const show = item => {
 		item.querySelector('.bottom-line__catalog').classList.add('active');
-		openmodalsite.open()
+		openmodalsite.open();
 	}
 
 	elems.forEach(elem => {
@@ -446,7 +446,6 @@ function catalogMenu() {
 		hide(item);
 	}
 }
-
 catalogMenu();
 
 function catalogMenuList() {
@@ -841,14 +840,17 @@ window.accordion = new Accordion('.accordion');
 
 // Закрытие модальных окон
 function allCloseModal() {
-	const btns = document.querySelectorAll('.top-line__mobile button')
-
-	btns.forEach(btn => btn.classList.remove('open'))
-
 	for (let key in modalList) {
 		modalList[key].hide();
 	}
 	openMobileMenu.hide();
+}
+
+// кнопки закрытия модальных окон
+function btnAllCloseModal() {
+	const btns = document.querySelectorAll('.top-line__mobile button')
+	btns.forEach(btn => btn.classList.remove('open'))
+	allCloseModal();
 }
 
 // Кнопка открытия мобильных кнопок поиска и корзины
@@ -856,7 +858,7 @@ function openMobileBtn(btnClass, icon, modalListElem, modalClass) {
 	const btn = document.querySelector(btnClass);
 
 	const open = () => {
-		allCloseModal();
+		btnAllCloseModal();
 		btn.classList.add('open');
 		if (icon) animateCSS(btn.querySelector('.icon-close'), 'fade-in')
 	}
@@ -909,7 +911,7 @@ class OpenMobileMenu {
 	}
 
 	show() {
-		allCloseModal();
+		btnAllCloseModal();
 		document.querySelector('body').classList.add('menu-open');
 		this.element.style.right = '0';
 		this.over.classList.add('active');
@@ -1299,7 +1301,7 @@ const Pagination = {
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
 							<span class='pagination__text'>Не нашли, что искали?</span>
-							<a class='pagination__link txt--clr1' data-toggle='modal' data-target='#modal-need'>Расскажите нам, что вам нужно <svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></a>
+							<a class='pagination__link txt--clr1'>Расскажите нам, что вам нужно <svg class="svg-sprite-icon icon-arrow-right"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></a>
 						</div>`
 		e.innerHTML = block;
 		e.insertAdjacentHTML('beforeend', blockRight)
@@ -1352,14 +1354,12 @@ const CatalogController = {
 		return url;
 	}
 }
-
 const init = function () {
 	const pagination = document.getElementById('pagination');
 	const catalog = document.getElementById('product-list');
 	if (pagination === null) return;
 	CatalogController.Init(catalog, pagination);
 };
-
 document.addEventListener('DOMContentLoaded', init, false);
 
 // Проверка на видимость
@@ -1733,7 +1733,22 @@ function filters() {
 }
 filters()
 
+// Открытие модального окна need
+function openModalNeed() {
+	const btn = document.querySelector('.pagination__link'),
+		header = document.querySelector('.header');
+	if (!btn) return
+	btn.addEventListener('click', () => {
+		if (header.classList.contains('hide')) header.classList.remove('hide')
+		allCloseModal();
+		modalList.need.show();
+	})
+}
+document.addEventListener('DOMContentLoaded', openModalNeed, false);
+
+// Кнопка toggle в моадльном окне
 function toggleBtnModalNeed() {
+	if (!document.getElementById('modal-need')) return
 	const el = document.querySelector('.modal-need__wrap-toggle'),
 		btn = document.querySelector('#btn-toggle-2'),
 		input = document.querySelector('#modal-field-10');
@@ -1751,3 +1766,42 @@ function toggleBtnModalNeed() {
 	})
 }
 toggleBtnModalNeed()
+
+// Характеристика на странице товара
+function hideElPageProduct() {
+	const items = document.querySelectorAll('.product-content__list li');
+	if (!items) return;
+
+	const toggleShow = (el, style) => {
+		let li = el.closest('ul').querySelectorAll('li');
+		li.forEach(l => l.style.display = style)
+	};
+
+	const hideEl = () => {
+		let ind = 0;
+		for (let i = 4; i < items.length; i++) {
+			items[i].style.display = 'none';
+			ind = i;
+		}
+		(!items[ind].closest('.product-content__list').querySelector('.product-content__more-description')) ?
+			createEl(items[ind], ind - 3) :
+			items[ind].closest('.product-content__list').querySelector('.product-content__more-description').style.display = 'block';
+	};
+
+	const createEl = (el, ind) => {
+		if (ind <= 0) return
+		let more = '<li class="product-content__more-description txt--clr1">Все характеристики</li>';
+		el.insertAdjacentHTML('afterend', more);
+	}
+
+	const toggleEl = el => {
+		(el.classList.contains('active')) ? hideEl() : toggleShow(el, 'block');
+		el.classList.toggle('active')
+	}
+
+	hideEl();
+	const btn = document.querySelector('.product-content__more-description');
+	if (!btn) return
+	btn.addEventListener('click', () => toggleEl(btn))
+}
+hideElPageProduct();

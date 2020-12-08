@@ -116,7 +116,6 @@ body {
 
 .catalog-m-menu {
 	&__item, &__prev {
-		&:not(:last-child) {margin-bottom: 4px;}
 		& > a {
 			display: flex;
 			align-items: center;
@@ -154,12 +153,18 @@ body {
 			}
 		}
 	}
+	&__item {
+		&:not(:last-child) {margin-bottom: 4px;}
+		&:last-child {
+			a {padding: 5px 32px 15px;}
+		}
+	}
 	&__sub {
 		position: absolute;
 		top: 0px;
 		max-width: 390px;
 		width: 100%;
-		min-height: calc(100% - 150px);
+		min-height: 100%;
 		background: $white;
 		transition: transform .2s ease;
 		transform: translate(100%);
