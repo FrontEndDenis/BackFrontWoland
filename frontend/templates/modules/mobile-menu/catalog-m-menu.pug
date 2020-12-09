@@ -37,6 +37,38 @@ ul.catalog-m-menu.catalog-m-menu__sub
 													span=category_5.name
 													span.catalog-m-menu__icon
 														+icon('arrow-right-2')
+												ul.catalog-m-menu.catalog-m-menu__sub
+													li.catalog-m-menu__prev
+														a
+															span.catalog-m-menu__icon
+																+icon('arrow-right-2')
+															span=category_5.name
+													each category_6 in category_5.get_child
+														if category_6.get_child
+															li.catalog-m-menu__item
+																a
+																	span=category_6.name
+																	span.catalog-m-menu__icon
+																		+icon('arrow-right-2')
+																ul.catalog-m-menu.catalog-m-menu__sub
+																	li.catalog-m-menu__prev
+																		a
+																			span.catalog-m-menu__icon
+																				+icon('arrow-right-2')
+																			span=category_6.name
+																	each category_7 in category_6.get_child
+																		if category_7.get_child
+																			li.catalog-m-menu__item
+																				a
+																					span=category_7.name
+																					span.catalog-m-menu__icon
+																						+icon('arrow-right-2')
+																		else 
+																			li.catalog-m-menu__item
+																				a(href=category_7.url)=category_7.name
+														else 
+															li.catalog-m-menu__item
+																a(href=category_6.url)=category_6.name
 										else 
 											li.catalog-m-menu__item
 												a(href=category_5.url)=category_5.name

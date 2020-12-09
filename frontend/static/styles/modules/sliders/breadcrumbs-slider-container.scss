@@ -1,0 +1,22 @@
+.breadcrumbs-slider-container {
+	width: auto;
+	margin: 0px;
+	.swiper-slide {
+		width: auto;
+		&:last-child {margin-right: 0px !important;}
+		&:not(:last-child) {
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: -13px;
+				width: 2px;
+				height: 15px;
+				background: $txt-black;
+				opacity: .15;
+				border-radius: 80px;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}

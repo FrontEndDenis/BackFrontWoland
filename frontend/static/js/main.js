@@ -8,7 +8,7 @@ const modalList = {
 
 if (document.getElementById('modal-filters')) {
 	modalList['filters'] = new bootstrap.Modal(document.getElementById('modal-filters'));
-} 
+}
 if (document.getElementById('modal-need')) {
 	modalList['need'] = new bootstrap.Modal(document.getElementById('modal-need'));
 }
@@ -190,6 +190,14 @@ function slidersInit() {
 			el: '.product-slider__pagination',
 		},
 	});
+	const filtersSlider = new Swiper('.breadcrumbs-slider-container', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		spaceBetween: 26,
+		mousewheel: {
+			releaseOnEdges: true,
+		},
+	});
 }
 slidersInit();
 
@@ -301,6 +309,13 @@ class ModalSite {
 }
 window.openmodalsite = new ModalSite('body');
 
+// Отслеживаем событие Bootstrap modal window
+function eventBsModal(elem, events, fn) {
+	document.querySelector(elem).addEventListener(`${events}.bs.modal`, function (e) {
+		fn()
+	});
+}
+
 // Фиксирование шапки
 function headerFixed() {
 	const mediaQuery = window.matchMedia('(min-width: 1024px)');
@@ -313,27 +328,56 @@ function headerFixed() {
 			let lostY = 0;
 
 			document.addEventListener('scroll', () => {
-				if (lostY >= 900) {
-					if (window.scrollY > lostY) {
-						header.classList.add('hide');
-					} else {
-						if (window.scrollY > height || lostY < offsetHeight) header.classList.remove('hide');
+				if (!document.querySelector('.bottom-line__search-input').classList.contains('active')) {
+					if (lostY >= 900) {
+						if (window.scrollY > lostY) {
+							header.classList.add('hide');
+						} else {
+							if (window.scrollY > height || lostY < offsetHeight) header.classList.remove('hide');
+						}
 					}
+					lostY = window.scrollY;
 				}
-				lostY = window.scrollY;
 			});
 		});
 	}
 }
-
 headerFixed();
 
-// Отслеживаем событие Bootstrap modal window
-function eventBsModal(elem, events, fn) {
-	document.querySelector(elem).addEventListener(`${events}.bs.modal`, function (e) {
-		fn()
-	});
+// Подсказывающее поле
+function tooltipField() {
+	const parent = document.querySelector('.bottom-line__search-input'),
+		input = parent.querySelector('input');
+
+	const showTooltip = () => {
+		if (input.value != '') {
+			addFocus();
+			parent.classList.add('value');
+		} else {
+			removeFocus();
+			parent.classList.remove('value');
+		}
+	}
+
+	const addFocus = () => {
+		parent.classList.add('focus')
+	}
+	const removeFocus = () => parent.classList.remove('focus')
+
+	input.addEventListener('focus', () => addFocus())
+	input.addEventListener('input', () => showTooltip())
+	document.addEventListener('click', e => {
+		let target = e.target,
+			its_menu = target == parent || parent.contains(target);
+
+		if (!its_menu) {
+			removeFocus()
+			parent.classList.remove('value');
+			input.value = '';
+		}
+	})
 }
+tooltipField()
 
 // Поиск в шапке
 function openSearchHeader() {
@@ -345,20 +389,18 @@ function openSearchHeader() {
 	const show = () => {
 		bottomLine.classList.add('open-search');
 		btn.previousElementSibling.classList.add('active');
-		input.focus();
 		animateCSS(btn.previousElementSibling, 'fade-in')
 	}
 
 	const hide = () => {
 		bottomLine.classList.remove('open-search');
-		btn.previousElementSibling.classList.remove('active');
+		btn.previousElementSibling.classList.remove('active', 'focus', 'value');
 		input.value = '';
 	}
 
 	btn.addEventListener('click', show)
 	btnClose.addEventListener('click', hide)
 }
-
 openSearchHeader();
 
 // Компания
@@ -565,7 +607,6 @@ function inputNumber() {
 		}
 	});
 }
-
 inputNumber();
 
 // Сброс текста в поиске
@@ -584,12 +625,10 @@ function resetSearch() {
 			btnReset.classList.remove('reset');
 		})
 	}
-
 	parent.forEach(item => {
 		item.addEventListener('input', () => addReset(item))
 	});
 }
-
 resetSearch()
 
 // Склонение слов
@@ -648,15 +687,15 @@ function basketApp() {
 		addTextModalBasket(prodCards, ['товар', 'товара', 'товаров'])
 		addTextModalBasket(servCards, ['услуга', 'услуги', 'услуг'])
 		addTextModalBasket(manCards, ['производство', 'производства', 'производств'])
-		
+
 		function addTextModalBasket(element, array) {
-			if(element.length > 0) {
+			if (element.length > 0) {
 				arr.push(element.length + ' ' + declOfNum(element.length, array))
 			}
 		}
 
 		counter.textContent = arr.join(', ');
-		
+
 		if ((prodCards.length || servCards.length || manCards.length) > 0) {
 			basket.show(countSec, '.modal-basket__section');
 			basket.show(count, '.modal-basket__basket-item');
@@ -1174,7 +1213,7 @@ const Pagination = {
 	code: '',
 	onChange: null,
 
-	Check: function() {
+	Check: function () {
 		let link = Number(window.location.href.split('page').pop().replace(/[//#/?]/gi, ''));
 		const dataSize = document.querySelector('#pagination');
 		if (!link) link = 1;
@@ -1770,7 +1809,7 @@ toggleBtnModalNeed()
 // Характеристика на странице товара
 function hideElPageProduct() {
 	const items = document.querySelectorAll('.product-content__list li');
-	if (!items) return;
+	if (items.length == 0) return;
 
 	const toggleShow = (el, style) => {
 		let li = el.closest('ul').querySelectorAll('li');

@@ -1,35 +1,47 @@
 .breadcrumbs
 	.container-xxl
-		ul.breadcrumbs__list
-			if not is_index
-				li.breadcrumbs__item
-					a.breadcrumbs__link(href='/') Главная
-			if news_item
-				li.breadcrumbs__item
-					a.breadcrumbs__link(href=news_item.url) Новости
-			elif news_list
-				li.breadcrumbs__item
-					span.breadcrumbs__text Новости
-			elif current_menu.parent
-				if current_menu.parent.parent.parent.parent
-					li.breadcrumbs__item
-						a.breadcrumbs__link(href=current_menu.parent.parent.parent.parent.url)=current_menu.parent.parent.parent.parent.name
-				if current_menu.parent.parent.parent
-					li.breadcrumbs__item
-						a.breadcrumbs__link(href=current_menu.parent.parent.parent.url)=current_menu.parent.parent.parent.name
-				if current_menu.parent.parent
-					li.breadcrumbs__item
-						a.breadcrumbs__link(href=current_menu.parent.parent.url)=current_menu.parent.parent.name
-				li.breadcrumbs__item
-					a.breadcrumbs__link(href=current_menu.parent.url)=current_menu.parent.name
-				if product
-					li.breadcrumbs__item
-						a.breadcrumbs__link(href=current_menu.url)=current_menu.name
-					li
-						span.breadcrumbs__text #{product.name}
-				else
-					li.breadcrumbs__item
-						span.breadcrumbs__text=current_menu.name
-			elif current_menu
-				li.breadcrumbs__item
-					span.breadcrumbs__text=current_menu.name
+		.breadcrumbs-slider-container.swiper-container
+			ul.breadcrumbs__list.swiper-wrapper
+				if not is_index
+					.swiper-slide
+						li.breadcrumbs__item
+							a.breadcrumbs__link(href='/') Главная
+				if news_item
+					.swiper-slide
+						li.breadcrumbs__item
+							a.breadcrumbs__link(href=news_item.url) Новости
+				elif news_list
+					.swiper-slide
+						li.breadcrumbs__item
+							span.breadcrumbs__text Новости
+				elif current_menu.parent
+					if current_menu.parent.parent.parent.parent
+						.swiper-slide
+							li.breadcrumbs__item
+								a.breadcrumbs__link(href=current_menu.parent.parent.parent.parent.url)=current_menu.parent.parent.parent.parent.name
+					if current_menu.parent.parent.parent
+						.swiper-slide
+							li.breadcrumbs__item
+								a.breadcrumbs__link(href=current_menu.parent.parent.parent.url)=current_menu.parent.parent.parent.name
+					if current_menu.parent.parent
+						.swiper-slide
+							li.breadcrumbs__item
+								a.breadcrumbs__link(href=current_menu.parent.parent.url)=current_menu.parent.parent.name
+					.swiper-slide
+						li.breadcrumbs__item
+							a.breadcrumbs__link(href=current_menu.parent.url)=current_menu.parent.name
+					if product
+						.swiper-slide
+							li.breadcrumbs__item
+								a.breadcrumbs__link(href=current_menu.url)=current_menu.name
+						.swiper-slide
+							li
+								span.breadcrumbs__text #{product.name}
+					else
+						.swiper-slide
+							li.breadcrumbs__item
+								span.breadcrumbs__text=current_menu.name
+				elif current_menu
+					.swiper-slide
+						li.breadcrumbs__item
+							span.breadcrumbs__text=current_menu.name

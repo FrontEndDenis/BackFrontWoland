@@ -13,12 +13,17 @@ nav.mobile-menu
 					ul.catalog-m-menu.accordion-panel
 						each category in catalog_menu_list
 							each category_2 in category.get_child
-								li.catalog-m-menu__item
-									a
-										span=category_2.name
-										span.catalog-m-menu__icon
-											+icon('arrow-right-2')
-									include ./catalog-m-menu.pug
+								if category_2.get_child
+									li.catalog-m-menu__item
+										a
+											span=category_2.name
+											span.catalog-m-menu__icon
+												+icon('arrow-right-2')
+										include ./catalog-m-menu.pug
+								else
+									li.catalog-m-menu__item
+										a(href=category_2.url)
+											span=category_2.name
 				li.mobile-menu__item
 					a(href='/spec')
 						span Акции

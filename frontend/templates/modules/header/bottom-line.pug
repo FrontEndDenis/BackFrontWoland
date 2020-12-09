@@ -13,12 +13,33 @@
 							.bottom-line__catalog
 								include ./catalog-menu.pug
 	.bottom-line__right
-		.bottom-line__search-input.search-input
-			button.search-input__search
-				+icon('search')
-			input(type='search', placeholder='Найти товар')
-			button.search-input__close
-				+icon('close')
+		.bottom-line__search-input
+			.bottom-line__tooltip
+				.search-input
+					button.search-input__search
+						+icon('search')
+					input(type='search', placeholder='Найти товар')
+					button.search-input__close
+						+icon('close')
+				nav.bottom-line__tooltip-list
+					.bottom-line__tooltip-title.txt--smbld14 Популярные запросы
+					ul.bottom-line__tooltip-listing.txt--mdm14
+						li
+							a(href='#') Трубы в изоляции
+						li
+							a(href='#') Арматура КЛ АТ800
+						li
+							a(href='#') Катанка 5.5
+						li
+							a(href='#') Лента Х/К упаковочная
+						li
+							a(href='#') Электроды
+						li
+							a(href='#') Дюбель стальной MOLLY
+				.bottom-line__tooltip-link.txt--smbld14
+					a(href='#')
+						| Все результаты поиска
+						+icon('arrow-right')
 		button#open-search-header.bottom-line__search.btn.btn--circle.btn--trparent
 			+icon('search')
 		.bottom-line__basket(data-toggle='modal' data-target='#modal-basket')
