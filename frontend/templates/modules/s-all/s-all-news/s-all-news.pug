@@ -1,5 +1,3 @@
-include ../../cards/news-card/news-card
-
 section.s-all-news
 	.container-xxl
 		.s-all-news__content
@@ -13,22 +11,19 @@ section.s-all-news
 					.swiper-wrapper
 						.swiper-slide
 							.news-slider__item
-								+newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020')
+								include ../../cards/news-card/news-card
 						.swiper-slide
 							.news-slider__item
-								+newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020', '', true, 'news-card', 'news-card--big')
-								//- +newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020')
+								include ../../cards/news-card/news-card
 						.swiper-slide
 							.news-slider__item
-								//- +newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020')
-								+newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020', 'news-card--accent')
+								include ../../cards/news-card/news-card
 						.swiper-slide
 							.news-slider__item
-								//- +newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020')
-								+newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020', 'news-card--accent-dark')
+								include ../../cards/news-card/news-card
 						.swiper-slide
 							.news-slider__item
-								+newsCard('Разнообразие кабельной продукции', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.', '20.10.2020')
+								include ../../cards/news-card/news-card
 				button.news-slider__prev.swiper-prev
 					+icon('arrow-right-2')
 				button.news-slider__next.swiper-next

@@ -35,6 +35,10 @@
 @import "product-listing/p-product-listing";
 // Страница товара
 @import "product/product";
+// Страница статьи и новостей внутренняя
+@import "article-news/p-article-news";
+// Страница вакансий
+@import "vacancy/p-vacancyю";
 // Слайдеры
 @import "sliders/sliders";
 @import "sliders/popular-categories-slider";
@@ -57,6 +61,7 @@
 @import "cards/news-card/news-card";
 @import "cards/popular-categories-card/popular-categories-card";
 @import "cards/service-card/service-card";
+@import "cards/vacancy-card/vacancy-card";
 // Пагинация
 @import "pagination/pagination";
 // Баннер деталей на заказ

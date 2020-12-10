@@ -1,0 +1,26 @@
+.p-vacancy {
+	&__title {margin-bottom: 40px;}
+	&__list {
+		.col-md-6 {
+			&:nth-child(1n+3) {margin-top: 24px;}
+		}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.p-vacancy {
+		&__title {margin-bottom: 32px;}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.p-vacancy {
+		&__title {margin-bottom: 24px;}
+		&__list {
+			.col-md-6 {
+				&:nth-child(1n+3) {margin-top: 0px;}
+				&:nth-child(1n+2) {margin-top: 20px;}
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+#scroll-sidebar-article.scroll-sidebar
+	.scroll-sidebar__left
+		.scroll-sidebar__article-link
+	.scroll-sidebar__right
+		h3.scroll-sidebar__title Полезная рассылка
+		p.scroll-sidebar__text Вы будете первым узнавать о выходе новостей, акций и статей 
+		form.scroll-sidebar__form.needs-validation(action='', method='get', novalidate)
+			.form-group
+					input.form-control(type='text', placeholder='@mail', pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$', required)
+					button.btn.btn--circle(type='submit')
+						+icon('arrow-right')
+			.form-group
+				label.checkbox
+					input.form-control(type='checkbox', checked, required)
+					span.checkbox__text
+						.policy
+							| Даю согласие на 
+							a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных

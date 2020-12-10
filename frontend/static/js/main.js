@@ -1395,7 +1395,7 @@ const CatalogController = {
 }
 const init = function () {
 	const pagination = document.getElementById('pagination');
-	const catalog = document.getElementById('product-list');
+	const catalog = document.getElementById('page');
 	if (pagination === null) return;
 	CatalogController.Init(catalog, pagination);
 };
@@ -1844,3 +1844,48 @@ function hideElPageProduct() {
 	btn.addEventListener('click', () => toggleEl(btn))
 }
 hideElPageProduct();
+
+// Страницы Новстей, Статей
+function generatingLink() {
+	const sidebar = document.querySelector('#scroll-sidebar-article');
+	if (!sidebar) return
+
+	const parent = document.querySelector('#page-art-news'),
+		links = parent.querySelectorAll('h2');
+
+	const generatingAttr = (elem, ind) => elem.setAttribute('id', ('link-' + ind))
+
+	const generatingTegLink = (elem, ind) => {
+		const element = `<a href='#link-${ind}'>${elem.innerText}<a>`;
+		sidebar.querySelector('.scroll-sidebar__article-link').insertAdjacentHTML('beforeend', element)
+	}
+
+	if (links.length > 0) {
+		sidebar.classList.add('value');
+		links.forEach((link, index) => {
+			generatingAttr(link, index)
+			generatingTegLink(link, index)
+		})
+	}
+}
+generatingLink()
+
+// Плавный скролл
+function scrollAnchors() {
+	const anchors = document.querySelectorAll('a[href*="#"]')
+
+	anchors.forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault()
+
+			const block = anchor.getAttribute('href');
+			if (block == '#') return
+
+			document.querySelector(block).scrollIntoView({
+				behavior: 'smooth',
+				block: 'center',
+			})
+		})
+	})	
+}
+scrollAnchors()
