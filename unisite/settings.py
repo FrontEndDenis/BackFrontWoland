@@ -48,7 +48,7 @@ MEDIA_URL = '/media/'
 DATABASE_NAME = 'unisite'
 DATABASE_PASS = 'tkPoWm9skRfTg6ak'
 
-if "unisite/unisite" in BASE_DIR:
+if "unisite/gkws" in BASE_DIR:
 	DEBUG = False
 	PATH_PROJECT = '/home/unisite/unisite/'
 else:
