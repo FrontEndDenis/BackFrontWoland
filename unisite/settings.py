@@ -49,7 +49,7 @@ DATABASE_NAME = 'unisite'
 DATABASE_PASS = 'tkPoWm9skRfTg6ak'
 
 if "unisite/unisite" in BASE_DIR:
-	DEBUG = True
+	DEBUG = False
 	PATH_PROJECT = '/home/unisite/unisite/'
 else:
 	DEBUG = True
