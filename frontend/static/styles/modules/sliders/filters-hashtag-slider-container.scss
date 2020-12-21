@@ -1,0 +1,7 @@
+.filters-hashtag-slider-container {
+	width: auto;
+	.swiper-slide {
+		width: auto;
+		&:last-child {margin-right: 0px !important;}
+	}
+}

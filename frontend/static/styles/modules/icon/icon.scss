@@ -143,6 +143,14 @@
 	fill: $txt-black90;
 }
 
+.icon-download {
+	width: 22px;
+	height: 22px;
+	stroke: $white;
+	stroke-width: 2px;
+	fill: none;
+}
+
 @media only screen and (max-width: 767px) {
 	.icon-basket {
 		width: 19px;

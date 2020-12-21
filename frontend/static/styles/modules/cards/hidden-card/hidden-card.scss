@@ -1,4 +1,4 @@
-.vacancy-card {
+.hidden-card {
 	padding: 36px 40px;
 	background: $white;
 	border-radius: 25px;
@@ -69,7 +69,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-	.vacancy-card {
+	.hidden-card {
 		padding: 24px;
 	}
 }

@@ -1,6 +1,57 @@
-section.articles-listing
-    .container-xxl
-        .articles-listing__title.txt--bld40 Новости компании
-        .row
-            .col-12
-            
+section.articles-listing#page(data-base-url=current_menu.url)
+	.container-xxl
+		.articles-listing__title.txt--bld40 Блог компании
+		.articles-listing__callback.b-all-callback
+			.b-all-callback__content
+				.b-all-callback__title Подпишитесь на рассылку и узнавайте обо всем первым
+				form.b-all-callback__form.needs-validation(action='', method='get', novalidate)
+					.form-group
+							input.form-control(type='tel', placeholder='Ваш телефон', pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}", minlength='18', inputmode='numeric', required)
+							button.btn.btn--circle(type='submit')
+								+icon('arrow-right')
+					.form-group
+						label.checkbox.checkbox--white
+							input.form-control(type='checkbox', checked, required)
+							span.checkbox__text
+								.policy.policy--white
+									| Даю согласие на 
+									a(href='policy.html', target='_blank') обработку персональных данных
+			.b-all-callback__wrap-img
+				.b-all-callback__img
+					//- img
+		.articles-listing__filters
+			.filters-hashtag-slider-container.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						button.btn.btn--br50.btn--gray Все
+					.swiper-slide
+						button.btn.btn--br50.btn--gray Продукция
+					.swiper-slide
+						button.btn.btn--br50.btn--gray Производство
+					.swiper-slide
+						button.btn.btn--br50.btn--gray Продукция
+		.articles-listing__list
+			.row
+				.col-md-8
+					include ../../modules/cards/article-card/article-card-4
+				.col-md-4
+					include ../../modules/cards/article-card/article-card-3
+				.col-md-4
+					include ../../modules/cards/article-card/article-card
+				.col-md-4
+					include ../../modules/cards/article-card/article-card
+				.col-md-4
+					include ../../modules/cards/article-card/article-card
+				.col-md-4
+					include ../../modules/cards/article-card/article-card-2
+				.col-md-8
+					include ../../modules/cards/article-card/article-card-4
+				.col-md-4
+					include ../../modules/cards/article-card/article-card
+				.col-md-4
+					include ../../modules/cards/article-card/article-card
+				.col-md-4
+					include ../../modules/cards/article-card/article-card
+				.col-12
+					.download-button.btn.btn--gray.btn--br50 Показать еще
+					include ../../modules/pagination/pagination

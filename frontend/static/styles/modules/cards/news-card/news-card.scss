@@ -34,7 +34,7 @@
 		padding: 4px;
 		z-index: 2;
 	}
-	&__time {
+	&__time, &__hashtag {
 		position: absolute;
 		bottom: 39px;
 		left: 32px;
@@ -84,8 +84,8 @@
 				}
 			}
 			&__title {color: $white;}
-			&__text, &__time {color: $ui-mdm-gray;}
-			&__time {left: 40px;}
+			&__text, &__time, &__hashtag {color: $ui-mdm-gray;}
+			&__time, &__hashtag {left: 40px;}
 			&__btn {
 				right: 40px;
 				&.btn--trparent-svg {
@@ -106,7 +106,7 @@
 	&--accent, &--accent-dark {
 		background: $accent-main;
 		.news-card {
-			&__title, &__time {color: $white;}
+			&__title, &__time, &__hashtag {color: $white;}
 			&__text {color: $ui-mdm-gray;}
 			&__btn {
 				&.btn--trparent-svg {
@@ -146,14 +146,14 @@
 			bottom: 24px;
 			right: 24px;
 		}
-		&__time {
+		&__time, &__hashtag {
 			bottom: 31px;
 			left: 24px;
 		}
 		&--big {
 			padding: 32px 28px;
 			.news-card {
-				&__time {left: 28px;}
+				&__time, &__hashtag {left: 28px;}
 				&__btn {right: 28px;}
 			}
 		}
@@ -170,7 +170,7 @@
 			bottom: 12px;
 			right: 20px;
 		}
-		&__time {
+		&__time, &__hashtag {
 			bottom: 24px;
 			left: 20px;
 			font-size: 14px;
@@ -178,7 +178,7 @@
 		&--big {
 			padding: 20px;
 			.news-card {
-				&__time {left: 20px;}
+				&__time, &__hashtag {left: 20px;}
 				&__btn {right: 20px;}
 			}
 			

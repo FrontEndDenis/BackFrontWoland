@@ -22,6 +22,8 @@
 @import "s-all/s-all-seotext/s-all-seotext";
 @import "s-all/s-all-city/s-all-city";
 @import "s-all/s-all-text/s-all-text";
+// Блоки на всех страницах
+@import "b-all/b-all-callback";
 // Главная
 @import "index/s-main-slider";
 @import "index/s-main-catalog";
@@ -35,6 +37,12 @@
 @import "product-listing/p-product-listing";
 // Страница товара
 @import "product/product";
+// Страница контактов
+@import "contacts/contacts";
+// Страница доставки и оплаты
+@import "payment-delivery/payment-delivery";
+// Страница листинга статьи и новостей
+@import "article-news/article-news";
 // Страница статьи и новостей внутренняя
 @import "article-news/p-article-news";
 // Страница вакансий
@@ -50,6 +58,7 @@
 @import "sliders/product-slider";
 @import "sliders/filters-slider-container";
 @import "sliders/breadcrumbs-slider-container";
+@import "sliders/filters-hashtag-slider-container";
 // Баннеры
 @import "slide-banner/slide-bannet";
 // Карточки
@@ -61,7 +70,7 @@
 @import "cards/news-card/news-card";
 @import "cards/popular-categories-card/popular-categories-card";
 @import "cards/service-card/service-card";
-@import "cards/vacancy-card/vacancy-card";
+@import "cards/hidden-card/hidden-card";
 // Пагинация
 @import "pagination/pagination";
 // Баннер деталей на заказ

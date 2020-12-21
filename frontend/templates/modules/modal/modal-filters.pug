@@ -1,6 +1,17 @@
 #modal-filters.modal.modal-right(tabindex='-1' aria-labelledby='modalRightLabel' aria-hidden='true')
 	.modal-dialog.modal-dialog--wdh600
-		.modal-content
+		form#filter_form.modal-content(name='filter_form' method='post' action='')
+			input(type='hidden' name='menu_slug' value=current_menu.slug)
+			input(type='hidden' name='filter_marka' id='filter_marka' value=current_marka.slug)
+			input(type='hidden' name='filter_standart' id='filter_standart' value=current_standart.slug)
+			input(type='hidden' name='filter_param_1' id='filter_param_1' value=param_1)
+			input(type='hidden' name='filter_param_2' id='filter_param_2' value=param_2)
+			input(type='hidden' name='filter_param_3' id='filter_param_3' value=param_3)
+			input(type='hidden' name='filter_param_4' id='filter_param_4' value=param_4)
+			input(type='hidden' name='filter_param_5' id='filter_param_5' value=param_5)
+			input(type='hidden' name='filter_param_6' id='filter_param_6' value=param_6)
+			input(type='hidden' name='filter_param_7' id='filter_param_7' value=param_7)
+			input(type='hidden' name='sort_type' id='sort_type' value=sort_type)
 			.modal-f-wrap
 				.modal-f
 					.modal-f__close.modal-close(type='button' data-dismiss='modal')
@@ -9,39 +20,31 @@
 					.modal-f__wrap-content
 						.modal-f__content
 							.modal-f__list-filters
-								.modal-f__item
-									.modal-f__header.accordion(data-filter='mark')
-										.modal-f__wrap-text
-											.modal-f__text
-												span Марка
-												.modal-f__delete
+								if not current_menu.is_hide_marka
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='mark')
+											.modal-f__wrap-text
+												.modal-f__text
+													if current_marka
+														span=current_marka.name
+													else
+														span Марка
+													.modal-f__delete(onclick="document.getElementById('filter_marka').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
 													+icon('close')
-										.modal-f__icon
-											+icon('arrow-down')
-									.modal-f__panel.accordion-panel
-										.modal-f__search-input.search-input.search-input--reset
-											button.search-input__search
-												+icon('search')
-											input(type='search', placeholder='Найти товар')
-											button.search-input__reset
-												+icon('close')
-										ul.modal-f__list
-											li
-												a(href='#') 05Х16Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ6Н5АБ
-											li
-												a(href='#') 05
-											li
-												a(href='#') 05Х16Н5АН5АБ6Н5АБ
-											li
-												a(href='#') 056Н5АБ
-											li
-												a(href='#') 05Х166Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ1@ASss
-											li
-												a(href='#') C цапковым концом под метрическую трубу
+											ul.modal-f__list
+												each item in marka_filter
+													if item.marka__name
+														li
+															a(href='#' onclick="document.getElementById('filter_marka').value='{{ item.marka__slug }}';get_filter_url();")=item.marka__name
 								.modal-f__item
 									.modal-f__header(data-filter='price')
 										.modal-f__wrap-text
@@ -50,148 +53,238 @@
 										.modal-f__btn-toggle
 											input#btn-toggle.checkbox(type='checkbox')
 											label(for='btn-toggle')
-								.modal-f__item
-									.modal-f__header.accordion(data-filter='gost')
-										.modal-f__wrap-text
-											.modal-f__text
-												span ГОСТ
-												.modal-f__delete
+								if not current_menu.is_hide_standart
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='gost')
+											.modal-f__wrap-text
+												.modal-f__text
+													if current_standart
+														span=current_standart.name
+													else
+														span ГОСТ
+													.modal-f__delete(onclick="document.getElementById('filter_standart').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
 													+icon('close')
-										.modal-f__icon
-											+icon('arrow-down')
-									.modal-f__panel.accordion-panel
-										.modal-f__search-input.search-input.search-input--reset
-											button.search-input__search
-												+icon('search')
-											input(type='search', placeholder='Найти товар')
-											button.search-input__reset
-												+icon('close')
-										ul.modal-f__list
-											li
-												a(href='#') 05Х16Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ6Н5АБ
-											li
-												a(href='#') 05 под метрическую трубу под метрическую трубу
-											li
-												a(href='#') 05Х16Н5АН5АБ6Н5АБ
-											li
-												a(href='#') 056Н5АБ
-											li
-												a(href='#') 05Х166Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ1@ASss
-											li
-												a(href='#') C цапковым концом под метрическую трубу
-								.modal-f__item
-									.modal-f__header.accordion(data-filter='min-el')
-										.modal-f__wrap-text
-											.modal-f__text
-												span Мин. диаметр электрода, в мм
-												.modal-f__delete
+											ul.modal-f__list
+												each item in standart_filter
+													if item.standart__name
+														li
+															a(href='#' onclick="document.getElementById('filter_standart').value='{{ item.standart__slug }}';get_filter_url();")=item.standart__name
+								if current_menu.label_param1
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='param1')
+											.modal-f__wrap-text
+												.modal-f__text
+													if param_1
+														span=param_1_name
+													elif current_menu.ed_izm_param1
+														span=current_menu.ed_izm_param1
+													else
+														span=current_menu.label_param1
+													.modal-f__delete(onclick="document.getElementById('filter_param_1').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
 													+icon('close')
-										.modal-f__icon
-											+icon('arrow-down')
-									.modal-f__panel.accordion-panel
-										.modal-f__search-input.search-input.search-input--reset
-											button.search-input__search
-												+icon('search')
-											input(type='search', placeholder='Найти товар')
-											button.search-input__reset
-												+icon('close')
-										ul.modal-f__list
-											li
-												a(href='#') 05Х16Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ6Н5АБ
-											li
-												a(href='#') 05
-											li
-												a(href='#') 05Х16Н5АН5АБ6Н5АБ под метрическую трубу под метрическую трубу
-											li
-												a(href='#') 056Н5АБ
-											li
-												a(href='#') 05Х166Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ1@ASss
-											li
-												a(href='#') C цапковым концом под метрическую трубу
-								.modal-f__item
-									.modal-f__header.accordion(data-filter='type')
-										.modal-f__wrap-text
-											.modal-f__text
-												span Тип соединения
-												.modal-f__delete
+											ul.modal-f__list
+												each item in param_1_filter
+													if item.param_1
+														li
+															a(href='#' onclick="document.getElementById('filter_param_1').value='{{ item.param_1_slug }}';get_filter_url();")=item.param_1
+								if current_menu.label_param2
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='param2')
+											.modal-f__wrap-text
+												.modal-f__text
+													if param_2
+														span=param_2_name
+													elif current_menu.ed_izm_param2
+														span=current_menu.ed_izm_param2
+													else
+														span=current_menu.label_param2
+													.modal-f__delete(onclick="document.getElementById('filter_param_2').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
 													+icon('close')
-										.modal-f__icon
-											+icon('arrow-down')
-									.modal-f__panel.accordion-panel
-										.modal-f__search-input.search-input.search-input--reset
-											button.search-input__search
-												+icon('search')
-											input(type='search', placeholder='Найти товар')
-											button.search-input__reset
-												+icon('close')
-										ul.modal-f__list
-											li
-												a(href='#') 05Х16Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ6Н5АБ
-											li
-												a(href='#') 05
-											li
-												a(href='#') 05Х16Н5АН5АБ6Н5АБ
-											li
-												a(href='#') 056Н5АБ
-											li
-												a(href='#') 05Х166Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ1@ASss
-											li
-												a(href='#') C цапковым концом под метрическую трубу под метрическую трубу
-								.modal-f__item
-									.modal-f__header.accordion(data-filter='width-min-shelf')
-										.modal-f__wrap-text
-											.modal-f__text
-												span Ширина меньшей полки, мм
-												.modal-f__delete
+											ul.modal-f__list
+												each item in param_2_filter
+													if item.param_2
+														li
+															a(href='#' onclick="document.getElementById('filter_param_2').value='{{ item.param_2_slug }}';get_filter_url();")=item.param_2
+								if current_menu.label_param3
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='param3')
+											.modal-f__wrap-text
+												.modal-f__text
+													if param_3
+														span=param_3_name
+													elif current_menu.ed_izm_param3
+														span=current_menu.ed_izm_param3
+													else
+														span=current_menu.label_param3
+													.modal-f__delete(onclick="document.getElementById('filter_param_3').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
 													+icon('close')
-										.modal-f__icon
-											+icon('arrow-down')
-									.modal-f__panel.accordion-panel
-										.modal-f__search-input.search-input.search-input--reset
-											button.search-input__search
-												+icon('search')
-											input(type='search', placeholder='Найти товар')
-											button.search-input__reset
-												+icon('close')
-										ul.modal-f__list
-											li
-												a(href='#') 05Х16Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ6Н5АБ
-											li
-												a(href='#') 05
-											li
-												a(href='#') 05Х16Н5АН5АБ6Н5АБ
-											li
-												a(href='#') 056Н5АБ
-											li
-												a(href='#') 05Х166Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ1@ASss
-											li
-												a(href='#') C цапковым концом под метрическую трубу
-											li
-												a(href='#') 05Х16Н5АН5АБ6Н5АБ
-											li
-												a(href='#') 056Н5АБ
-											li
-												a(href='#') 05Х166Н5АБ
-											li
-												a(href='#') 05Х16Н5АБ1@ASss
-											li
-												a(href='#') C цапковым концом под метрическую трубу
+											ul.modal-f__list
+												each item in param_3_filter
+													if item.param_3
+														li
+															a(href='#' onclick="document.getElementById('filter_param_3').value='{{ item.param_3_slug }}';get_filter_url();")=item.param_3
+								if current_menu.label_param4
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='param4')
+											.modal-f__wrap-text
+												.modal-f__text
+													if param_4
+														span=param_4_name
+													elif current_menu.ed_izm_param4
+														span=current_menu.ed_izm_param4
+													else
+														span=current_menu.label_param4
+													.modal-f__delete(onclick="document.getElementById('filter_param_4').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
+													+icon('close')
+											ul.modal-f__list
+												each item in param_4_filter
+													if item.param_4
+														li
+															a(href='#' onclick="document.getElementById('filter_param_4').value='{{ item.param_4_slug }}';get_filter_url();")=item.param_4
+								if current_menu.label_param5
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='param5')
+											.modal-f__wrap-text
+												.modal-f__text
+													if param_5
+														span=param_5_name
+													elif current_menu.ed_izm_param5
+														span=current_menu.ed_izm_param5
+													else
+														span=current_menu.label_param5
+													.modal-f__delete(onclick="document.getElementById('filter_param_5').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
+													+icon('close')
+											ul.modal-f__list
+												each item in param_5_filter
+													if item.param_5
+														li
+															a(href='#' onclick="document.getElementById('filter_param_5').value='{{ item.param_5_slug }}';get_filter_url();")=item.param_5
+								if current_menu.label_param6
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='param6')
+											.modal-f__wrap-text
+												.modal-f__text
+													if param_6
+														span=param_6_name
+													elif current_menu.ed_izm_param6
+														span=current_menu.ed_izm_param6
+													else
+														span=current_menu.label_param6
+													.modal-f__delete(onclick="document.getElementById('filter_param_6').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
+													+icon('close')
+											ul.modal-f__list
+												each item in param_6_filter
+													if item.param_6
+														li
+															a(href='#' onclick="document.getElementById('filter_param_6').value='{{ item.param_6_slug }}';get_filter_url();")=item.param_6
+								if current_menu.label_param7
+									.modal-f__item
+										.modal-f__header.accordion(data-filter='param7')
+											.modal-f__wrap-text
+												.modal-f__text
+													if param_7
+														span=param_7_name
+													elif current_menu.ed_izm_param7
+														span=current_menu.ed_izm_param7
+													else
+														span=current_menu.label_param7
+													.modal-f__delete(onclick="document.getElementById('filter_param_7').value='';get_filter_url();")
+														+icon('close')
+											.modal-f__icon
+												+icon('arrow-down')
+										.modal-f__panel.accordion-panel
+											.modal-f__search-input.search-input.search-input--reset
+												button.search-input__search
+													+icon('search')
+												input(type='search', placeholder='Найти товар')
+												button.search-input__reset
+													+icon('close')
+											ul.modal-f__list
+												each item in param_7_filter
+													if item.param_7
+														li
+															a(href='#' onclick="document.getElementById('filter_param_7').value='{{ item.param_7_slug }}';get_filter_url();")=item.param_7
 			.modal-f__buttons
 				button.btn.btn--wdh220.btn--br50(type='button' data-dismiss='modal') Смотреть
 				button.modal-f__clear.btn.btn--link(type='button') Сбросить фильтры
+			script(type="text/javascript" language="javascript").
+				function get_filter_url() {
+					formData = new FormData($(filter_form).get(0));
+					$.ajax({
+						url: "{% url 'menu:get_filter_url' %}",
+						type: 'POST',
+						contentType: false,
+						processData: false,
+						data: formData,
+						dataType: 'json',
+						success: function (data) {
+							location.href = data['url'];
+						},
+						error: function (xhr, str) {
+							alert('Возникла ошибка: ' + xhr.responseCode);
+						}
+					});
+				}

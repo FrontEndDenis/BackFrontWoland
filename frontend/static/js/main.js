@@ -190,10 +190,18 @@ function slidersInit() {
 			el: '.product-slider__pagination',
 		},
 	});
-	const filtersSlider = new Swiper('.breadcrumbs-slider-container', {
+	const breadcrumbsSlider = new Swiper('.breadcrumbs-slider-container', {
 		slidesPerView: 'auto',
 		freeMode: true,
 		spaceBetween: 26,
+		mousewheel: {
+			releaseOnEdges: true,
+		},
+	});
+	const filtersHashtagSlider = new Swiper('.filters-hashtag-slider-container', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		spaceBetween: 10,
 		mousewheel: {
 			releaseOnEdges: true,
 		},
@@ -1889,3 +1897,61 @@ function scrollAnchors() {
 	})	
 }
 scrollAnchors()
+
+// // Яндекс карта
+// function init() {
+// 	let center = [42.367110, 69.660379],
+// 		myMap = new ymaps.Map('ymaps1607942522953841233', {
+// 		center: center,
+// 		zoom: 14,
+// 		type: 'yandex#map',
+// 		controls: ['fullscreenControl']
+// 	});
+// 	// Мобильная прокрутка
+// 	if (isMobile()) myMap.behaviors.disable('drag');
+// 	// ctrl при прокрутке
+// 	myMap.behaviors.disable('scrollZoom');
+// 	let ctrlKey = false,
+// 		ctrlMessVisible = false,
+// 		timer;
+// 	myMap.events.add(['wheel', 'mousedown'], function (e) {
+// 		if (e.get('type') == 'wheel') {
+// 			if (!ctrlKey) {
+// 				document.querySelector('#ymap-ctrl-display').classList.add('active')
+// 				ctrlMessVisible = true;
+// 				clearTimeout(timer);
+// 				timer = setTimeout(function () {
+// 					document.querySelector('#ymap-ctrl-display').classList.remove('active')
+// 					ctrlMessVisible = false;
+// 				}, 1500);
+// 			}
+// 			else {
+// 				document.querySelector('#ymap-ctrl-display').classList.remove('active')
+// 			}
+// 		}
+// 		if (e.get('type') == 'mousedown' && ctrlMessVisible) {
+// 			document.querySelector('#ymap-ctrl-display').classList.remove('active')
+// 		}
+// 	});
+// 	document.onkeydown(function (e) {
+// 		if (e.which === 17 && !ctrlKey) {
+// 			ctrlKey = true;
+// 			myMap.behaviors.enable('scrollZoom');
+// 		}
+// 	});
+// 	document.onkeyup(function (e) {
+// 		if (e.which === 17) {
+// 			ctrlKey = false;
+// 			myMap.behaviors.disable('scrollZoom');
+// 		}
+// 	});
+// 	// Метка
+// 	let myPlacemark = new ymaps.Placemark([42.367109, 69.660380], null, {
+// 		iconLayout: 'default#image',
+// 		iconImageHref: "../../static/images/general/mark.svg",
+// 		iconImageSize: [130, 44],
+// 		iconImageOffset: [-68, -44]
+// 	});
+// 	myMap.geoObjects.add(myPlacemark);
+// }
+// init()

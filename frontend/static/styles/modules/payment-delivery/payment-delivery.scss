@@ -1,0 +1,11 @@
+.payment-delivery {
+	&__title {margin-bottom: 32px;}
+	&__list {margin-top: -24px;}
+	.col-md-6 {margin-top: 24px;}
+}
+
+@media only screen and (max-width: 767px) {
+	.payment-delivery {
+		&__title {margin-bottom: 24px;}
+	}
+}

@@ -37,6 +37,10 @@ button[disabled] {
 			color: $txt-black;
 		}
 	}
+	&--lgh {
+		background: $ui-lgh-gray;
+		color: $txt-black;
+	}
 	&--wdh185 {max-width: 185px;}
 	&--wdh190 {max-width: 190px;}
 	&--wdh220 {max-width: 220px;}

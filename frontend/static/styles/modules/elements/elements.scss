@@ -79,6 +79,24 @@ a[href*=mailto], a[href*=tel] {
 		border-color: $accent-main;
 	}
 	input[type=checkbox]:checked ~ span::after {display: block}
+	&--white {
+		.checkbox {
+			&__text {
+				&::before {
+					background: $white !important;
+					border-color: $white !important;
+				}
+				&::after {
+					content: url('../../../../static/images/general/check-acc.svg');
+					top: 1px;
+				}
+			}
+			input[type=checkbox]:checked ~ span::before {
+				background: $white;
+				border-color: $white;
+			}
+		}
+	}
 }
 
 .search-input {
@@ -224,6 +242,20 @@ a[href*=mailto], a[href*=tel] {
 		font-size: 12px;
 		line-height: 135%;
 		font-weight: 500;
+		&--white {
+			color: $white;
+			a {
+				opacity: .6;
+				&:hover {
+					opacity: 1;
+					text-decoration: underline;
+				}
+				&:active {
+					opacity: 1;
+					text-decoration: none;
+				}
+			}
+		}
 	}
 	.checkbox {margin: 0px;}
 }
