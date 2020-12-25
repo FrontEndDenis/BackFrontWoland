@@ -1,0 +1,36 @@
+section.p-service-listing#page(data-base-url=current_menu.url)
+	.container-xxl
+		h1.txt--bld40 Виды услуг
+		.p-service-listing__callback.b-all-callback
+			.b-all-callback__content.b-all-callback__content--wdh776
+				.b-all-callback__title Нужна услуга по металлообработке, оставьте телефон и мы перезвоним вам
+				form.b-all-callback__form.needs-validation(action='', method='get', novalidate)
+					.form-group
+							input.form-control(type='tel', placeholder='Ваш телефон', pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}", minlength='18', inputmode='numeric', required)
+							button.btn.btn--circle(type='submit')
+								+icon('arrow-right')
+					.form-group
+						label.checkbox.checkbox--white
+							input.form-control(type='checkbox', checked, required)
+							span.checkbox__text
+								.policy.policy--white
+									| Даю согласие на 
+									a(href='policy.html', target='_blank') обработку персональных данных
+			.b-all-callback__wrap-img
+				.b-all-callback__img
+		.row
+			//- .col-lg-3.col-md-4.col-sm-6
+			//- 	include  ../../modules/cards/manufacturing-card/manufacturing-card-2
+			//- .col-lg-3.col-md-4.col-sm-6
+			//- 	include  ../../modules/cards/manufacturing-card/manufacturing-card-2
+			//- .col-lg-3.col-md-4.col-sm-6
+			//- 	include  ../../modules/cards/manufacturing-card/manufacturing-card-2
+			//- .col-lg-3.col-md-4.col-sm-6
+			//- 	include  ../../modules/cards/manufacturing-card/manufacturing-card-2
+			//- .col-lg-3.col-md-4.col-sm-6
+			//- 	include  ../../modules/cards/manufacturing-card/manufacturing-card-2
+			//- .col-lg-3.col-md-4.col-sm-6
+			//- 	include  ../../modules/cards/manufacturing-card/manufacturing-card-2
+			.col-12
+				.download-button.btn.btn--gray.btn--br50 Показать еще
+				include ../../modules/pagination/pagination

@@ -1,16 +1,21 @@
 .basket-card-service.basket-card-modal
 	.basket-card-service__left
 		.basket-card-service__img
-			img(src='#{static_url}images/content/basket-card-service.jpg', alt='Изображение услуги')
+			img(src='#{media_url}#{item.product.image}', alt=item.product.name)
 	.basket-card-service__right
 		.basket-card-service__info
 			.basket-card-service__subtitle Услуга
-			.basket-card-service__text Лазерная резка
+			a.basket-card-service__text(href='#{item.product.get_absolute_url}')=item.product.name
 		.basket-card-manufacturing__wrap
-			.basket-card-service__info
-				.basket-card-service__subtitle Цена
-				.basket-card-service__text.hint
-					| Договорная
-					+icon('hint')
+			if item.product.price
+				.basket-card-service__info
+					.basket-card-service__subtitle Цена
+					.basket-card-service__text=item.product.price
+			else
+				.basket-card-service__info
+					.basket-card-service__subtitle Цена
+					.basket-card-service__text.hint
+						| Договорная
+						+icon('hint')
 			button.basket-card-service__remove.remove-basket-card(type='button')
 				+icon('remove')

@@ -80,12 +80,6 @@
 		margin-bottom: 24px;
 		font-size: 14px;
 		font-weight: 500;
-		li {
-			&::after {
-				top: 8px;
-				transform: translateY(0);
-			}
-		}
 		span {
 			&:first-child {
 				display: inline-block;

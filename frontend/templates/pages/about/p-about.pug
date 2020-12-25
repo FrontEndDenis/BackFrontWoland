@@ -1,0 +1,84 @@
+section.p-about
+	.container-xxl
+		h1.txt--bld40 О нас
+		.p-about__wrap
+			.p-about__callback.b-all-callback
+				.b-all-callback__content.b-all-callback__content--wdh776
+					.b-all-callback__title Группа компаний «Велунд Сталь»
+					.b-all-callback__text Производитель и поставщик металлопроката. Мы помогаем выбрать металлопродукцию и сами проектируем технологическое оборудование с учетом ваших требований.
+					.b-all-callback__list
+						.b-all-callback__icon
+							+icon('shipment')
+							span Поставка готовых изделий
+						.b-all-callback__icon
+							+icon('production')
+							span Изготовление на заказ
+						.b-all-callback__icon
+							+icon('processing')
+							span Услуги по обработке металла
+				.b-all-callback__wrap-img
+					.b-all-callback__img
+						//- img
+			.p-about__content
+				.p-about__grid-block
+					.p-about__block
+						h2.txt--bld24 Мы производим
+						ul
+							li Цветной, стальной и чугунный прокат
+							li Сплавы: прецизионные и тугоплавкие, ферросплавы, баббиты
+							li Редкоземельные металлы
+							li Полимеры: ПВХ и композиты
+					.p-about__block
+						h2.txt--bld24 Оплата
+						p 
+							| Постоянным покупателям предоставляем отсрочку платежа.
+							| В качестве платежа мы принимаем:
+						.p-about__payment
+							.p-about__icon
+								+icon('credit-card')
+								span Наличные средства в офисах компании
+							.p-about__icon
+								+icon('coins')
+								span Безналичные переводы на расчетный счет
+					.p-about__block
+						h2.txt--bld24 Самовывоз и доставка
+						p
+							| Наши филиалы в России и Казахстане отмечены на карте.
+							| Вы можете забрать товары со склада любого из них или заказать доставку.
+					.p-about__numbers
+						.p-about__number
+							.p-about__num 2020
+							.p-about__text год основания
+						.p-about__number
+							.p-about__num 35
+							.p-about__text филиалов в России и Казахстане
+						.p-about__number
+							.p-about__num 4500 
+							.p-about__text деталей производим каждый час
+				.p-about__map-filial
+					.p-about__item
+						h3.txt--bld18 Россия
+						.p-about__map
+							img(src='#{static_url}images/content/ru.png', alt='Карта России')
+					.p-about__item
+						h3.txt--bld18 Казахстан
+						.p-about__map
+							img(src='#{static_url}images/content/kz.png', alt='Карта Казахстана')
+				.p-about__wrap-text
+					p Мы привезем заказ в любой регион России и стран СНГ: Азербайджана, Армении, Белоруссии, Казахстана, Киргизии, Молдавии, Таджикистана, Узбекистана.
+					p “Велунд Сталь” принимает заявки из труднодоступных мест и доставляет грузы в регионы Крайнего Севера. Мы содержим автопарк, чтобы выполнять сложные заказы.
+				.p-about__about-block
+					.p-about__about-text
+						h2.txt--bld24 Участие в тендерах
+						p
+							| Велунд Сталь участвует в тендерах на поставку металлопроката, сырья и оборудования. Высылайте конкурсные приглашения к участию и инструкции на электронную почту 
+							a.txt--clr1(href='mailto:#{current_filial.email}')=current_filial.email
+					.p-about__about-img
+						img(src='#{static_url}images/content/tender.jpg', alt='Участие в тендерах')
+				.p-about__about-block
+					.p-about__about-img
+						img(src='#{static_url}images/content/history.jpg', alt='История названия бренда')
+					.p-about__about-text
+						h2.txt--bld24 История названия бренда
+						p В скандинавских мифах почитали бога-кузнеца Велунда.  Легенда гласит, что он был покровителя кузнецов и ювелиров, наделяя волшебными свойствами оружие и украшения.
+						p Группа компаний “Велунд Сталь” получила название в честь него, потому что наша сила в умении выпускать продукцию, которая прослужит долгие годы.

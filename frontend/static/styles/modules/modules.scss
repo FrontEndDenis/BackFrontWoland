@@ -33,10 +33,16 @@
 @import "index/s-main-answers";
 // Каталог
 @import "catalog/p-catalog-list";
-// Листинг
+// Листинг товаров
 @import "product-listing/p-product-listing";
 // Страница товара
 @import "product/product";
+// Страница производства
+@import "manufacturing/manufacturing";
+// Листинг производства
+@import "manufacturing-listing/p-manufacturing-listing";
+// Страница о компании
+@import "about/p-about";
 // Страница контактов
 @import "contacts/contacts";
 // Страница доставки и оплаты
@@ -52,7 +58,7 @@
 @import "sliders/popular-categories-slider";
 @import "sliders/main-slider";
 @import "sliders/catalog-slider";
-@import "sliders/manufacturing-slider";
+@import "sliders/s-manufacturing-slider";
 @import "sliders/stocks-slider";
 @import "sliders/news-slider";
 @import "sliders/product-slider";

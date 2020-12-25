@@ -1,0 +1,40 @@
+.service-content
+	.service-content__content
+		.service-content__slider
+			.service-content__thumbs
+				button.service-slider__prev
+					+icon('arrow-up')
+				button.service-slider__next
+					+icon('arrow-up')
+				.service-slider-thumbs.swiper-container
+					.swiper-wrapper
+						.swiper-slide
+							.service-slider-thumbs__item
+								.service-slider-thumbs__img
+									img(src='#{media_url}#{manufacture.image}' alt=manufacture.name)
+						.swiper-slide
+							.service-slider-thumbs__item
+								.service-slider-thumbs__img
+									img(src='#{media_url}#{manufacture.image_2}' alt=manufacture.name)
+			.service-slider.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						.service-slider__img
+							img(src='#{media_url}#{manufacture.image}' alt=manufacture.name)
+					.swiper-slide
+						.service-slider__img
+							img(src='#{media_url}#{manufacture.image_2}' alt=manufacture.name)
+				.service-slider__pagination.swiper-pagination
+		.service-content__description
+			h3.service-content__title.txt--bld20 О производстве
+			.service-content__text
+				p
+					strong Лазерная резка металла 
+					| – это один из способов обработки металла при помощи лазерного луча.
+				p Осуществляем лазерную резку металла от 1 мм до 30 мм в своем цеху.
+				p Стоимость лазерной резки зависит от чертежа, количества и материала.
+				a.service-content__more-description.txt--clr1(href='#')
+					| Посмотреть другие услуги
+					+icon('arrow-right')
+	.service-content__sidebar
+		include ../../modules/scroll-sidebar/scroll-sidebar-service

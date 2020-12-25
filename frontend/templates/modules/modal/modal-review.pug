@@ -1,0 +1,43 @@
+#modal-review.modal.modal-right(tabindex='-1' aria-labelledby='modalRightLabel' aria-hidden='true')
+	.modal-dialog
+		.modal-content
+			.modal-review
+				.modal-review__close.modal-close.modal-close--txt(type='button' data-dismiss='modal')
+					+icon('close')
+					+icon('arrow-right-2')
+					.modal-close__text Оставьте отзыв
+				.modal-review__title.txt--bld36 Оставьте отзыв
+				.modal-review__text Расскажите о наших сильных и слабых сторонах, чтобы мы стали лучше. 
+				form.modal-review__form.needs-validation(action='', method='get', novalidate)
+					.form-group
+						label(for='modal-field-11') Ваше имя
+						input#modal-field-11.form-control(type='text', maxlength='50', placeholder='Имя')
+					.form-group
+						label(for='modal-field-12') Ваша почта
+							.required *
+						input#modal-field-12.form-control(type='text', placeholder='@mail', pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$', required)
+						.invalid-feedback Введите почту
+					.form-group
+						label(for='modal-field-13') Ваш отзыв
+						textarea#modal-field-13(cols='30', rows='10', placeholder='Отзыв о нашей работе')
+					.form-group
+						label.checkbox
+							input.form-control(type='checkbox', checked, required)
+							span.checkbox__text
+								.policy
+									| Даю согласие на 
+									a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
+					.form-group
+						.input-file
+							input#file-2(type='file', name='file')
+							.input-file__wrap
+								label(for='file-2')
+									.input-file__icon
+										+icon('clip')
+										+icon('document')
+									.input-file__content
+										.input-file__txt Добавить файл
+										.input-file__size до 10Mb
+								.input-file__reset
+									+icon('close')
+					button.btn.btn--h52.btn--wdh220.btn--br50.btn--m-wdh100(type='submit') Отправить отзыв

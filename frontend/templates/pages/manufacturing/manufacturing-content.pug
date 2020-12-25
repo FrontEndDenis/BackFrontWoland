@@ -1,0 +1,39 @@
+.manufacturing-content
+	.manufacturing-content__content
+		.manufacturing-content__slider
+			.manufacturing-content__thumbs
+				button.manufacturing-slider__prev
+					+icon('arrow-up')
+				button.manufacturing-slider__next
+					+icon('arrow-up')
+				.manufacturing-slider-thumbs.swiper-container
+					.swiper-wrapper
+						.swiper-slide
+							.manufacturing-slider-thumbs__item
+								.manufacturing-slider-thumbs__img
+									img(src='#{media_url}#{manufacture.image}' alt=manufacture.name)
+						.swiper-slide
+							.manufacturing-slider-thumbs__item
+								.manufacturing-slider-thumbs__img
+									img(src='#{media_url}#{manufacture.image_2}' alt=manufacture.name)
+			.manufacturing-slider.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						.manufacturing-slider__img
+							img(src='#{media_url}#{manufacture.image}' alt=manufacture.name)
+					.swiper-slide
+						.manufacturing-slider__img
+							img(src='#{media_url}#{manufacture.image_2}' alt=manufacture.name)
+				.manufacturing-slider__pagination.swiper-pagination
+		.manufacturing-content__description
+			h3.manufacturing-content__title.txt--bld20 О производстве
+			.manufacturing-content__text
+				p
+					strong Пружина 
+					| – это элемент с упругими свойствами, который способен накапливать или поглощать механическую энергию.
+				p Вы можете заказать товар на заказ или выбрать готовые размеры.
+				a.manufacturing-content__more-description.txt--clr1(href='#')
+					| Посмотреть товары в наличии
+					+icon('arrow-right')
+	.manufacturing-content__sidebar
+		include ../../modules/scroll-sidebar/scroll-sidebar-manufacturing

@@ -17,7 +17,7 @@
 		font-weight: 500;
 	}
 	div[class*="col"] {
-		div {
+		figure {
 			position: relative;
 			min-height: 360px;
 			margin-top: 12px;
@@ -48,7 +48,7 @@
 @media only screen and (max-width: 1199px) {
 	.s-all-seotext {
 		div[class*="col"] {
-			div {
+			figure {
 				min-height: 260px;
 				margin-top: 12px;
 			}
@@ -68,7 +68,7 @@
 		}
 		p, ul {margin-bottom: 16px;}
 		div[class*="col"] {
-			div {margin-top: 24px;}
+			figure {margin-top: 24px;}
 		}
 	}
 }

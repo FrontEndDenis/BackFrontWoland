@@ -104,7 +104,7 @@ function slidersInit() {
 			nextEl: '.catalog-slider__next',
 		},
 	})
-	const manufacturingSlider = new Swiper('.manufacturing-slider', {
+	const sManufacturingSlider = new Swiper('.s-manufacturing-slider', {
 		spaceBetween: 24,
 		breakpoints: {
 			0: {
@@ -118,8 +118,8 @@ function slidersInit() {
 			}
 		},
 		navigation: {
-			prevEl: '.manufacturing-slider__prev',
-			nextEl: '.manufacturing-slider__next',
+			prevEl: '.s-manufacturing-slider__prev',
+			nextEl: '.s-manufacturing-slider__next',
 		},
 	})
 	const stocksSlider = new Swiper('.stocks-slider', {
@@ -165,6 +165,7 @@ function slidersInit() {
 			nextEl: '.news-slider__next',
 		},
 	})
+	// Станица продукции
 	const productThumbs = new Swiper('.product-slider-thumbs', {
 		direction: 'vertical',
 		slidesPerView: 3,
@@ -190,6 +191,59 @@ function slidersInit() {
 			el: '.product-slider__pagination',
 		},
 	});
+	// Страница производства
+	const manufacturingThumbs = new Swiper('.manufacturing-slider-thumbs', {
+		direction: 'vertical',
+		slidesPerView: 3,
+		spaceBetween: 24,
+	});
+	const manufacturing = new Swiper('.manufacturing-slider', {
+		thumbs: {
+			swiper: manufacturingThumbs,
+		},
+		breakpoints: {
+			0: {
+				direction: 'horizontal',
+			},
+			767: {
+				direction: 'vertical',
+			}
+		},
+		navigation: {
+			prevEl: '.manufacturing-slider__prev',
+			nextEl: '.manufacturing-slider__next',
+		},
+		pagination: {
+			el: '.manufacturing-slider__pagination',
+		},
+	});
+	// Страница услуг
+	const serviceThumbs = new Swiper('.service-slider-thumbs', {
+		direction: 'vertical',
+		slidesPerView: 3,
+		spaceBetween: 24,
+	});
+	const service = new Swiper('.service-slider', {
+		thumbs: {
+			swiper: serviceThumbs,
+		},
+		breakpoints: {
+			0: {
+				direction: 'horizontal',
+			},
+			767: {
+				direction: 'vertical',
+			}
+		},
+		navigation: {
+			prevEl: '.service-slider__prev',
+			nextEl: '.service-slider__next',
+		},
+		pagination: {
+			el: '.service-slider__pagination',
+		},
+	});
+	// Хлебные крошки
 	const breadcrumbsSlider = new Swiper('.breadcrumbs-slider-container', {
 		slidesPerView: 'auto',
 		freeMode: true,
@@ -198,6 +252,7 @@ function slidersInit() {
 			releaseOnEdges: true,
 		},
 	});
+	// Фильтр
 	const filtersHashtagSlider = new Swiper('.filters-hashtag-slider-container', {
 		slidesPerView: 'auto',
 		freeMode: true,
@@ -1579,7 +1634,7 @@ function filters() {
 			if (item.querySelector('svg')) item.querySelector('svg').remove()
 		})
 	}
-	//Очистка массива атрибутов
+	// Очистка массива атрибутов
 	const removeAllArrAttr = attr => {
 		arrAttr = arrAttr.filter(item => item !== attr);
 		if (arrAttr.length <= 0) document.querySelector('[data-filter="all"]').classList.remove('value')

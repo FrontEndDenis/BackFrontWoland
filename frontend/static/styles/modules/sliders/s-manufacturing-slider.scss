@@ -1,17 +1,17 @@
-.manufacturing-slider {
+.s-manufacturing-slider {
 	&__prev {left: -19px;}
 	&__next {right: -19px;}
 }
 
 @media only screen and (max-width: 767px) {
-	.manufacturing-slider {
+	.s-manufacturing-slider {
 		&__prev {left: 0px;}
 		&__next {right: 0px;}
 	}
 }
 
 @media only screen and (max-width: 575px) {
-	.manufacturing-slider {
+	.s-manufacturing-slider{
 		padding-right: 20%;
 	}
 }

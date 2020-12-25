@@ -89,7 +89,7 @@
 	.col-xl-3 {flex: 1;}
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 991px) {
 	.p-product-listing {
 		.col-lg-3.col-md-4.col-sm-6 {
 			&:nth-child(1n+5) {margin-top: 0px;}

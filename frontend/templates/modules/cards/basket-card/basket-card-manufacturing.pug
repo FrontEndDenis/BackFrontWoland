@@ -1,16 +1,21 @@
 .basket-card-manufacturing.basket-card-modal
 	.basket-card-manufacturing__left
 		.basket-card-manufacturing__img
-			img(src='#{static_url}images/content/basket-card-manufacturing.jpg', alt='Изображение производство')
+			img(src='#{media_url}#{item.product.image}', alt=item.product.name)
 	.basket-card-manufacturing__right
 		.basket-card-manufacturing__info
 			.basket-card-manufacturing__subtitle Услуга
-			.basket-card-manufacturing__text Лазерная резка
+			a.basket-card-manufacturing__text(href='#{item.product.get_absolute_url}')=item.product.name
 		.basket-card-manufacturing__wrap
-			.basket-card-manufacturing__info
-				.basket-card-manufacturing__subtitle Цена
-				.basket-card-manufacturing__text.hint
-					| Договорная
-					+icon('hint')
+			if item.product.price
+				.basket-card-manufacturing__info
+					.basket-card-manufacturing__subtitle Цена
+					.basket-card-manufacturing__text=item.product.price
+			else
+				.basket-card-manufacturing__info
+					.basket-card-manufacturing__subtitle Цена
+					.basket-card-manufacturing__text.hint
+						| Договорная
+						+icon('hint')
 			button.basket-card-manufacturing__remove.remove-basket-card(type='button')
 				+icon('remove')

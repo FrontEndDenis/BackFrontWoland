@@ -1,9 +1,16 @@
 .basket-card.basket-card-modal
 	.basket-card__top
 		.basket-card__left
-			.basket-card__img
-				img(src='#{static_url}images/content/basket-card.jpg', alt='Изображение товара')
-			a.basket-card__title(href='#') Стальной плоский фланец приварной встык с соединительным выступом
+			if item.product.is_spec
+				.basket-card__wrap-img
+					.basket-card__img
+						img(src='#{media_url}#{item.product.image}', alt=item.product.name)
+					.basket-card__icon
+						img(src='#{static_url}images/general/special.svg', alt='Спецпредложение')
+			else
+				.basket-card__img
+					img(src='#{media_url}#{item.product.image}', alt=item.product.name)
+			a.basket-card__title(href='#{item.product.get_absolute_url}')=item.product.name
 		.basket-card__buttons
 			.basket-card__number.input-number
 				button.input-number__minus(type='button')
@@ -15,45 +22,55 @@
 				+icon('remove')
 	.basket-card__bottom
 		.basket-card__info
-			.basket-card__item
-				.basket-card__subtitle Марка
-				.basket-card__text 05Х16Н5АБ05Х16
-			.basket-card__item
-				.basket-card__subtitle ГОСТ
-				.basket-card__text ГОСТ 15588-86
-			.basket-card__item
-				.basket-card__subtitle ГОСТ
-				.basket-card__text ГОСТ 15588-86
-			.basket-card__item
-				.basket-card__subtitle Цена
-				.basket-card__value.hint
-						| Договорная
+			if item.product.marka
+				.basket-card__item
+					.basket-card__subtitle Марка
+					.basket-card__text=item.product.marka
+			if item.product.standart
+				.basket-card__item
+					.basket-card__subtitle ГОСТ
+					.basket-card__text=item.product.standart
+			if item.product.param_1
+				.basket-card__item
+					.basket-card__subtitle=item.product.label_param1
+					.basket-card__text=item.product.param_1
+			if item.product.price
+				.basket-card__item
+					.basket-card__subtitle.hint
+						| Есть 12 Штук
 						+icon('hint')
+					.basket-card__value=item.product.price
+			else
+				.basket-card__item
+					.basket-card__subtitle Цена
+					.basket-card__value.hint
+							| Договорная
+							+icon('hint')
 		.basket-card__all-info.accordion
 			| Другие характеристики
 			+icon('arrow-down')
 		.basket-card__info.accordion-panel
-			.basket-card__item
-				.basket-card__subtitle Марка
-				.basket-card__text 05Х16Н5АБ05Х16
-			.basket-card__item
-				.basket-card__subtitle ГОСТ
-				.basket-card__text ГОСТ 15588-86
-			.basket-card__item
-				.basket-card__subtitle ГОСТ
-				.basket-card__text ГОСТ 15588-86
-			.basket-card__item
-				.basket-card__subtitle Марка
-				.basket-card__text 05Х16Н5АБ05Х16
-			.basket-card__item
-				.basket-card__subtitle Марка
-				.basket-card__text 05Х16Н5АБ05Х16
-			.basket-card__item
-				.basket-card__subtitle ГОСТ
-				.basket-card__text ГОСТ 15588-86
-			.basket-card__item
-				.basket-card__subtitle ГОСТ
-				.basket-card__text ГОСТ 15588-86
-			.basket-card__item
-				.basket-card__subtitle Марка
-				.basket-card__text 05Х16Н5АБ05Х16
+			if item.product.param_2
+				.basket-card__item
+					.basket-card__subtitle=item.product.label_param2
+					.basket-card__text=item.product.param_2
+			if item.product.param_3
+				.basket-card__item
+					.basket-card__subtitle=item.product.label_param3
+					.basket-card__text=item.product.param_3
+			if item.product.param_4
+				.basket-card__item
+					.basket-card__subtitle=item.product.label_param4
+					.basket-card__text=item.product.param_4
+			if item.product.param_5
+				.basket-card__item
+					.basket-card__subtitle=item.product.label_param5
+					.basket-card__text=item.product.param_5
+			if item.product.param_6
+				.basket-card__item
+					.basket-card__subtitle=item.product.label_param6
+					.basket-card__text=item.product.param_6
+			if item.product.param_7
+				.basket-card__item
+					.basket-card__subtitle=item.product.label_param7
+					.basket-card__text=item.product.param_7

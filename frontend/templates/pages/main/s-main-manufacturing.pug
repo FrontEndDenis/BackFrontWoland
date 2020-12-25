@@ -5,19 +5,19 @@ section.s-main-manufacturing
 				img(src='../../../static/images/general/logo-manufacturing.svg', alt='Велунд')
 			.s-main-manufacturing__header
 				h2.txt--bld40 Производство
-				a.link.link--w(href='#')
+				a.link.link--w(href='/manufacture')
 					span Все производство
 					+icon('arrow-right-2')
 			.row
 				.offset-xl-3.offset-md-4.col-xl-9.col-md-8
 					.s-main-manufacturing__slider
-						.manufacturing-slider.swiper-container
+						.s-manufacturing-slider.swiper-container
 							.swiper-wrapper
 								each manufacture in manufacture_list
 									.swiper-slide
-										.manufacturing-slider__item
+										.s-manufacturing-slider__item
 											include ../../modules/cards/manufacturing-card/manufacturing-card
-						button.manufacturing-slider__prev.swiper-prev
+						button.s-manufacturing-slider__prev.swiper-prev
 							+icon('arrow-right-2')
-						button.manufacturing-slider__next.swiper-next
+						button.s-manufacturing-slider__next.swiper-next
 							+icon('arrow-right-2')

@@ -1,0 +1,128 @@
+.p-manufacturing, .p-service {
+	&__title {margin-bottom: 32px;}
+}
+
+.manufacturing-content, .service-content {
+	margin-bottom: 60px;
+	padding: 48px 60px 40px;
+	background: $white;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 25px;
+	&__content {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__slider {display: flex;}
+	&__thumbs {
+		flex-shrink: 0;
+		position: relative;
+		max-height: 340px;
+		margin-right: 32px;
+	}
+	&__description {max-width: 300px;}
+	&__title {margin-bottom: 24px;}
+	&__text {
+		font-size: 14px;
+		line-height: 150%;
+		font-weight: 500;
+	}
+	&__more-description {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 150%;
+		cursor: pointer;
+		svg {margin-left: 12px;}
+		&:hover {text-decoration: none;}
+	}
+	&__sidebar {
+		display: none;
+		margin-top: 48px;
+	}
+}
+
+.manufacturing-text, .service-text {
+	color: $txt-black90;
+	h2 {
+		margin-bottom: 24px;
+		color: $txt-black;
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 125%;
+	}
+	a {
+		color: $accent-main;
+		&:hover {color: $accent-main2;}
+		&:active {color: $accent-main;}
+	}
+	p {
+		margin-bottom: 0px;
+		&:not(:last-child) {margin-bottom: 24px;}
+	}
+	figure {
+		position: relative;
+		max-width: 100%;
+		width: 100%;
+		height: 360px;
+		margin: 48px 0px;
+		border-radius: 25px;
+		overflow: hidden;
+		img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				left: 0px;
+				filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1199px) {
+	.p-manufacturing, .p-service {
+		.col-xl-3 {display: none;}
+	}
+	.manufacturing-content, .service-content {
+		padding: 40px;
+		&__content {margin-bottom: 48px;}
+		&__sidebar {display: block;}
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.manufacturing-content, .service-content {
+		&__description {max-width: 200px;}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.manufacturing-content, .service-content {
+		padding: 0px;
+		box-shadow: none;
+		&__content {
+			display: block;
+			margin-bottom: 36px;
+		}
+		&__slider {
+			justify-content: center;
+			margin-bottom: 36px;
+		}
+		&__thumbs {display: none;}
+		&__sidebar {margin-top: 26px;}
+	}
+	.manufacturing-text, .service-text {
+		h2 {font-size: 20px;}
+		p, ul, table {font-size: 14px;}
+		figure {
+			height: 260px;
+			margin: 36px 0px;
+		}
+	}
+}

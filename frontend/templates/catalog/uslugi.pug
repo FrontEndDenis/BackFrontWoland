@@ -1,12 +1,15 @@
 extends ../p-base.pug
 
 block variables
-	- var title = 'Вакансии'
+	- var title = 'Услуги'
 	- var description = ''
 
 block content
+	//- include ../pages/service/p-service
+	include ../pages/service-listing/p-service-listing
 	//- include ../pages/vacancy/p-vacancy
-	include ../pages/payment-delivery/payment-delivery
+	//- include ../pages/about/p-about
+	//- include ../pages/payment-delivery/payment-delivery
 	include ../modules/s-all/s-all-gost/s-all-gost
 	include ../modules/s-all/s-all-stocks/s-all-stocks
 	include ../modules/s-all/s-all-popular-categories/s-all-popular-categories-2
