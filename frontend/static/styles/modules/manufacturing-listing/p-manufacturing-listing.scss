@@ -1,7 +1,7 @@
 .p-manufacturing-listing {
-    margin-bottom: 0px;
-    h1 {margin-bottom: 32px;}
-    .col-lg-3.col-md-4.col-sm-6 {
+	margin-bottom: 0px;
+	h1 {margin-bottom: 32px;}
+	.col-lg-3.col-md-4.col-sm-6 {
 		&:nth-child(1n+5) {margin-top: 24px;}
 	}
 }
@@ -17,19 +17,19 @@
 
 @media only screen and (max-width: 767px) {
 	.p-manufacturing-listing {
-        h1 {margin-bottom: 24px;}
+		h1 {margin-bottom: 24px;}
 		.col-lg-3.col-md-4.col-sm-6 {
 			&:nth-child(1n+4) {margin-top: 0px;}
 			&:nth-child(1n+3) {margin-top: 24px;}
-        }
-        .manufacturing-card {
-            min-height: 158px !important;
-            &__img {
-                left: auto;
-                right: 0px;
-                opacity: .3;
-            } 
-        }
+		}
+		.manufacturing-card {
+			min-height: 158px !important;
+			&__img {
+				left: auto;
+				right: 0px;
+				opacity: .3;
+			} 
+		}
 	}
 }
 

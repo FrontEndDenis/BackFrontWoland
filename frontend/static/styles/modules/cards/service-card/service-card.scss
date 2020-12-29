@@ -5,9 +5,9 @@
 	overflow: hidden;
 	&__img {
 		position: relative;
-		max-width: 300px;
+		max-width: 205px;
 		width: 100%;
-		min-height: 246px;
+		min-height: 192px;
 		img {
 			position: absolute;
 			top: 0px;
@@ -16,73 +16,66 @@
 			height: 100%;
 		}
 	}
-	&__content {
-		padding: 32px 48px;
-	}
+	&__content {padding: 24px 40px;}
 	&__title {
-		margin-bottom: 20px;
+		margin-bottom: 16px;
 		font-size: 20px;
 		font-weight: 700;
 		line-height: 120%;
 	}
 	&__text {
-		margin-bottom: 24px;
-		color: $txt-black90;
+		margin-bottom: 20px;
+		color: $txt-gray;
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 150%;
 	}
-	&__buttons {
+	&__button {
+		position: relative;
 		display: flex;
 		align-items: center;
-		button {
-			width: auto;
-			margin-right: 40px;
-			padding: 10px 24px;
-			svg {margin-left: 7px;}
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 150%;
+		svg {margin-left: 8px;}
+		&:hover {
+			color: $accent-main2;
+			text-decoration: none;
+			svg {fill: $accent-main2;}
 		}
-		a {
-			display: flex;
-			align-items: center;
-			font-size: 14px;
-			font-weight: 600;
-			line-height: 150%;
-			svg {margin-left: 8px;}
-			&:hover {
-				color: $accent-main2;
-				text-decoration: none;
-				svg {fill: $accent-main2;}
-			}
-			&:active {
-				color: $accent-main;
-				svg {fill: $accent-main;}
-			}
+		&:active {
+			color: $accent-main;
+			svg {fill: $accent-main;}
+		}
+		&::before {
+			content: 'Узнать больше об услуге';
+			position: relative;
 		}
 	}
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1199px) {
 	.service-card {
-		&__img {max-width: 250px;}
+		&__img {max-width: 95px;}
+		&__content {padding: 24px;}
 	}
 }
 
 @media only screen and (max-width: 767px) {
 	.service-card {
-		display: block;
 		&__img {
-			max-width: 100%;
-			min-height: 150px;
+			max-width: 64px;
+			min-height: 80px;
 		}
-		&__content {padding: 24px 20px;}
-		&__title {margin-bottom: 16px;}
-		&__buttons {
-			flex-direction: column-reverse;
-			button {
-				width: 100%;
-				margin-top: 24px;
-				margin-right: 0px;
-			}
+		&__content {padding: 18px 20px;}
+		&__title {
+			margin-bottom: 4px;
+			font-size: 14px;
+			line-height: 135%;
+		}
+		&__text {display: none;}
+		&__button  {
+			&::before {content: 'Узнать больше'}
 		}
 	}
 }

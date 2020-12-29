@@ -18,6 +18,25 @@ section.p-service-listing#page(data-base-url=current_menu.url)
 									a(href='policy.html', target='_blank') обработку персональных данных
 			.b-all-callback__wrap-img
 				.b-all-callback__img
+		.p-service-listing__filters
+			.service-slider-container.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						label.checkbox-btn
+							input(type='checkbox')
+							span Все
+					.swiper-slide
+						label.checkbox-btn
+							input(type='checkbox')
+							span Резка
+					.swiper-slide
+						label.checkbox-btn
+							input(type='checkbox')
+							span Плавка
+					.swiper-slide
+						label.checkbox-btn
+							input(type='checkbox')
+							span Полировка
 		.row
 			.col-sm-6
 				include  ../../modules/cards/service-card/service-card

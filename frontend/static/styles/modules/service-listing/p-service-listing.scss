@@ -1,0 +1,17 @@
+.p-service-listing {
+	margin-bottom: 0px;
+	h1,  &__filters {margin-bottom: 32px;}
+	.col-sm-6 {
+		&:nth-child(1n+3) {margin-top: 24px;}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.p-service-listing {
+		h1 {margin-bottom: 24px;}
+		.col-sm-6 {
+			&:nth-child(1n+3) {margin-top: 0px;}
+			&:nth-child(1n+2) {margin-top: 24px;}
+		}
+	}
+}

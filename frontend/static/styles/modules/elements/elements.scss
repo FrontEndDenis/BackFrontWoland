@@ -98,6 +98,29 @@ a[href*=mailto], a[href*=tel] {
 	}
 }
 
+.checkbox-btn {
+	user-select: none;
+	span {
+		display: inline-block;
+		padding: 10px 16px;
+		background: $ui-mdm-gray;
+		color: $txt-black90;
+		border-radius: 50px;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 150%;
+		transition: .2s;
+		cursor: pointer;
+		&:hover {background: $ui-mdm-gray2;}
+		&:active {background: $ui-mdm-gray3;}
+	}
+	input {display: none}
+	input[type=checkbox]:checked ~ span {
+		background: $accent-main;
+		color: $white;
+	}
+}
+
 .search-input {
 	position: relative;
 	&__search, &__close, &__reset {
@@ -151,6 +174,16 @@ a[href*=mailto], a[href*=tel] {
 			font-size: 14px;
 			line-height: 150%;
 		}
+	}
+	&__btn {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		max-width: 128px;
+	}
+	&--btn {
+		.search-input__reset {right: 140px;}
+		input {padding-right: 164px;}
 	}
 }
 
@@ -482,6 +515,16 @@ a[href*=mailto], a[href*=tel] {
 	vertical-align: top;
 }
 
+.stars {
+	display: flex;
+	align-items: center;
+	.icon-star {
+		width: 32px;
+		height: 30px;
+		margin-right: 12px;
+	}
+}
+
 @media only screen and (max-width: 767px) {
 	.logo {
 		&__img {
@@ -499,5 +542,19 @@ a[href*=mailto], a[href*=tel] {
 	}
 	.count-listing {
 		font-size: 14px;
+	}
+	.search-input {
+		&__btn {max-width: 84px;}
+		&--btn {
+			.search-input__reset {right: 90px;}
+			input {padding-right: 110px;}
+		}
+	}
+	.stars {
+		.icon-star {
+			width: 21px;
+			height: 19px;
+			margin-right: 8px;
+		}
 	}
 }

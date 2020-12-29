@@ -33,7 +33,7 @@
 @import "index/s-main-answers";
 // Каталог
 @import "catalog/p-catalog-list";
-// Листинг товаров
+// Листинг товаров (+Поиск, Акции)
 @import "product-listing/p-product-listing";
 // Страница товара
 @import "product/product";
@@ -41,6 +41,8 @@
 @import "manufacturing/manufacturing";
 // Листинг производства
 @import "manufacturing-listing/p-manufacturing-listing";
+// Листинг услуг
+@import "service-listing/p-service-listing";
 // Страница о компании
 @import "about/p-about";
 // Страница контактов
@@ -53,6 +55,8 @@
 @import "article-news/p-article-news";
 // Страница вакансий
 @import "vacancy/p-vacancyю";
+// Страница 404
+@import "not-found/not-found";
 // Слайдеры
 @import "sliders/sliders";
 @import "sliders/popular-categories-slider";

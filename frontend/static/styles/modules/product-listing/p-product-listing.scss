@@ -2,12 +2,11 @@
 	margin-bottom: 0px;
 	&__title {
 		display: table;
-		margin-bottom: 32px;
 		h1 {display: inline;}
 	}
 	&__filters {
 		width: 100%;
-		margin-bottom: 32px;
+		margin: 32px 0px;
 		button {
 			position: relative;
 			width: auto;
@@ -83,14 +82,116 @@
 			}
 		}
 	}
+	// Результаты поиска
+	&__header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 32px;
+	}
+	&__search-result {
+		margin-left: 10px;
+		color: $txt-gray60;
+	}
+	&__search-input {
+		max-width: 600px;
+		margin-bottom: 32px;
+		input {
+			height: 40px;
+			border: 1px solid $ui-mdm-gray;
+		}
+	}
+	&__tabs {
+		color: $txt-black90;
+		.tabs {
+			&__nav {margin-bottom: 0px;}
+			&__nav-item {
+				position: relative;
+				padding: 0px;
+				background: transparent;
+				color: $txt-gray;
+				border-radius: 0px;
+				font-size: 14px;
+				font-weight: 500;
+				&:not(:last-child) {margin-right: 24px;}
+				&:hover, &:active {color: $txt-black;}
+				&.active {
+					color: $txt-black;
+					&:hover, &:active {background: transparent;}
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: -16px;
+						left: 0px;
+						right: 0px;
+						height: 3px;
+						border-radius: 50px;
+						background: $accent-main;
+					}
+				}
+			}
+		}
+	}
+	&__tab-link {
+		padding: 16px 0px;
+		background: $ui-lgh-gray;
+	}
+	&__tab-content {
+		background: $white;
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+	}
+	&__tab-header {
+		padding: 26px 0px;
+		h2 {
+			font-size: 16px;
+			font-weight: 700;
+		}
+	}
+	&__tab-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 12px 80px;
+		margin: 0px;
+		padding: 24px 0px 36px !important;
+		border-top: 1px solid rgba($color: $ui-dark-gray30, $alpha: .3);
+		a {
+			&:hover {color: $accent-main2;}
+			&:active {color: $accent-main3;}
+		}
+	}
+	// Нет результатов
+	&__not-search {
+		max-width: 500px;
+		width: 100%;
+		margin: 32px auto 60px;
+		text-align: center;
+		h2 {margin-bottom: 20px;}
+	}
+	&__not-search-img {
+		img {display: inline-block;}
+	}
+	&__not-search-text {
+		color: $txt-black90;
+		font-weight: 500;
+	}
+	.s-all-feedback {margin-bottom: 120px;}
+	// Акции
+	&__not-filrets {margin-top: 32px;}
 	.col-lg-3.col-md-4.col-sm-6 {
 		&:nth-child(1n+5) {margin-top: 24px;}
 	}
 	.col-xl-3 {flex: 1;}
 }
 
+@media only screen and (max-width: 1199px) {
+	.p-product-listing {
+		&__tab-list {grid-template-columns: 1fr 1fr 1fr;}
+		.s-all-feedback {margin-bottom: 80px;}
+	}
+}
+
 @media only screen and (max-width: 991px) {
 	.p-product-listing {
+		&__tab-list {gap: 12px 24px}
 		.col-lg-3.col-md-4.col-sm-6 {
 			&:nth-child(1n+5) {margin-top: 0px;}
 			&:nth-child(1n+4) {margin-top: 24px;}
@@ -100,6 +201,27 @@
 
 @media only screen and (max-width: 767px) {
 	.p-product-listing {
+		&__header, &__search-input {margin-bottom: 24px;}
+		&__tabs {
+			.tabs {
+				&__nav-item {
+					&.active {
+						&::after {bottom: -14px;}
+					}
+				}
+			}
+		}
+		&__tab-link {
+			padding: 14px 0px;
+		}
+		&__tab-header {
+			padding: 20px 0px;
+			h2 {font-size: 14px;}
+		}
+		&__tab-list {
+			grid-template-columns: 1fr;
+			padding: 20px 0px 36px !important;
+		}
 		.col-lg-3.col-md-4.col-sm-6 {
 			&:nth-child(1n+4) {margin-top: 0px;}
 			&:nth-child(1n+3) {margin-top: 24px;}

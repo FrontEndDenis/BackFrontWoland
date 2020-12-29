@@ -5,7 +5,11 @@ block variables
 	- var description = ''
 
 block content
-	include ../pages/product-listing/p-product-listing
+	//- Страница поиска товара
+	//- include ../pages/search-listing/p-search-listing
+	//- Страница Акций
+	include ../pages/stocks-listing/p-stocks-listing
+	//- include ../pages/product-listing/p-product-listing
 	include ../modules/s-all/s-all-gost/s-all-gost
 	include ../modules/s-all/s-all-stocks/s-all-stocks
 	include ../modules/s-all/s-all-popular-categories/s-all-popular-categories-2
@@ -19,8 +23,6 @@ block modal
 	include ../modules/modal/modal-thanks
 	include ../modules/modal/modal-basket/modal-basket
 	include ../modules/modal/modal-search
-	include ../modules/modal/modal-filters
 	include ../modules/modal/modal-need
-
-block script
-	script(src="/static/js/jquery-3.3.1.min.js")
+	//- Для Акций модальное окно с фильтрами не нужна
+	include ../modules/modal/modal-filters

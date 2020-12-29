@@ -1,6 +1,16 @@
-a.news-card(href='#')
-	.news-card__title Разнообразие кабельной продукции
-	.news-card__text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis aliquam eleifend imperdiet tellus phasellus enim mattis tortor.
-	time.news-card__time(datetime='2020-10-20') 20.10.2020
-	.news-card__btn.btn.btn--circle.btn--trparent-svg
-		+icon('arrow-right')
+if news.image
+	a.news-card.news-card--big(href=news.slug)
+		.news-card__img
+			img(src='#{static_url}#{news.image}', alt=news.name)
+		.news-card__title=news.name
+		.news-card__text=news.description
+		time.news-card__time(datetime=news.date)=news.date
+		.news-card__btn.btn.btn--circle.btn--trparent-svg
+			+icon('arrow-right')
+else
+	a.news-card(href=news.slug)
+		.news-card__title=news.name
+		.news-card__text=news.description
+		time.news-card__time(datetime=news.date)=news.date
+		.news-card__btn.btn.btn--circle.btn--trparent-svg
+			+icon('arrow-right')

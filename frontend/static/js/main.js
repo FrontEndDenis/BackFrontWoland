@@ -261,6 +261,15 @@ function slidersInit() {
 			releaseOnEdges: true,
 		},
 	});
+	// Фильтр
+	const filtersServiceSlider = new Swiper('.service-slider-container', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		spaceBetween: 10,
+		mousewheel: {
+			releaseOnEdges: true,
+		},
+	});
 }
 slidersInit();
 
@@ -1545,13 +1554,13 @@ sidebar();
 // Фильтры
 function filters() {
 	if (!document.getElementById('modal-filters')) return
-	const openBtnModal = document.querySelectorAll('.p-product-listing__filters button:not(.filter-price)'),
+	const openBtnModal = document.querySelectorAll('.p-all-filters button:not(.filter-price)'),
 		modalUlList = document.querySelectorAll('.modal-f__list'),
-		pageBtnFilters = document.querySelectorAll('.p-product-listing__filters button'),
+		pageBtnFilters = document.querySelectorAll('.p-all-filters button'),
 		pageBtnFiltersPrice = document.querySelector('.filter-price[data-filter="price"]'),
 		modalBtnFiltersPrice = document.querySelector('.modal-f__btn-toggle input'),
 		modalBtnDel = document.querySelectorAll('.modal-f__delete'),
-		pageBtnDel = document.querySelectorAll('.p-product-listing__filters .filter__delete'),
+		pageBtnDel = document.querySelectorAll('.p-all-filters .filter__delete'),
 		modalBtnRemoveAll = document.querySelector('.modal-f__clear');
 
 	let arrAttr = [];

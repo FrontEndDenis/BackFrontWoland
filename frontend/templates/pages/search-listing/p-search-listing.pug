@@ -1,0 +1,156 @@
+section.p-product-listing#page(data-base-url=current_menu.url)
+	.p-product-listing__wrap
+		.container-xxl
+			h1.p-product-listing__header.txt--bld40
+				span.p-product-listing__stat Поиск
+				span.p-product-listing__search-result труба
+			.p-product-listing__search-input.search-input.search-input--reset.search-input--btn
+				.search-input__search
+					+icon('search')
+				input(type='search', placeholder='Найти товар')
+				button.search-input__reset
+					+icon('close')
+				button.search-input__btn.btn.btn--br50.btn--h40 Найти
+		.p-product-listing__tabs.tabs
+			.p-product-listing__tab-link
+				.container-xxl
+					.tabs__nav
+						button.tabs__nav-item(type='button') Товары
+						button.tabs__nav-item(type='button') Марка
+						button.tabs__nav-item(type='button') Гост
+			//- Последний элемент если товар был не найден
+			.p-product-listing__tab-content
+				.container-xxl
+					.tabs__content-item
+						.p-product-listing__tab-header
+							h2 По запросу найдено 389 товаров в 25 категориях
+						ul.p-product-listing__tab-list.txt--mdm14
+							li
+								a(href='#') Нержавеющий  шестигранник
+							li
+								a(href='#') Медные трубы для водоснабжения и отопления
+							li
+								a(href='#') Нержавеющая пружинная проволока
+							li
+								a(href='#') Нержавеющий  шестигранник
+							li
+								a(href='#') Оборудование для литейного производства
+							li
+								a(href='#') Нержавеющая пружинная проволока
+							li
+								a(href='#') Оборудование производства
+							li
+								a(href='#') Нержавеющий  шестигранник
+							li
+								a(href='#') Трубные системы для пароводяных подогревателей
+							li
+								a(href='#') Трубные системы
+							li
+								a(href='#') Трубные системы
+							li
+								a(href='#') Нержавеющий  шестигранник 
+					.tabs__content-item
+						.p-product-listing__tab-header
+							h2 По запросу найдено 389 товаров в 25 категориях
+						ul.p-product-listing__tab-list.txt--mdm14
+							li
+								a(href='#') Нержавеющий  шестигранник
+							li
+								a(href='#') Медные трубы для водоснабжения и отопления
+							li
+								a(href='#') Нержавеющая пружинная проволока
+							li
+								a(href='#') Нержавеющий  шестигранник
+							li
+								a(href='#') Оборудование для литейного производства
+							li
+								a(href='#') Нержавеющая пружинная проволока
+							li
+								a(href='#') Оборудование производства
+							li
+								a(href='#') Нержавеющий  шестигранник
+							li
+								a(href='#') Трубные системы для пароводяных подогревателей
+							li
+								a(href='#') Трубные системы
+							li
+								a(href='#') Трубные системы
+							li
+								a(href='#') Нержавеющий  шестигранник 
+					.tabs__content-item
+						.p-product-listing__tab-header
+							h2 По запросу ничего не найдено
+		.container-xxl
+			.p-product-listing__filters.p-all-filters
+				.filters-slider-container.swiper-container
+					.swiper-wrapper
+						.swiper-slide
+							button.filter.filter-all.btn.btn--br50.btn--gray(data-filter='all') Все фильтры
+						.swiper-slide
+							button.filter.filter-price.btn.btn--br50.btn--gray(data-filter='price') Только с ценой
+						.swiper-slide
+							button.filter.btn.btn--br50.btn--gray(data-filter='mark') Марка
+								.filter__delete
+									+icon('close')
+						.swiper-slide
+							button.filter.btn.btn--br50.btn--gray(data-filter='gost') ГОСТ
+								.filter__delete
+									+icon('close')
+						.swiper-slide
+							button.filter.btn.btn--br50.btn--gray(data-filter='height') Высота
+								.filter__delete
+									+icon('close')
+						.swiper-slide
+							button.filter.btn.btn--br50.btn--gray(data-filter='type') Тип соединения
+								.filter__delete
+									+icon('close')
+				.filters-swiper-scrollbar
+			.row
+				.col-xl-9
+					.row
+						if product_list
+							each product in product_list
+								.col-lg-3.col-md-4.col-sm-6
+									include  ../../modules/cards/stocks-card/stocks-card
+						.col-12
+							.custom-product
+								.custom-product__content
+									.custom-product__img
+										img(src='#{static_url}images/general/logo-cust-prod.svg', alt='Велунд')
+									p.custom-product__text Мы можем сделать изделие на заказ из любого металла
+									a.custom-product__link.btn.btn--circle(href='#')
+										+icon('arrow-right')
+						.col-12
+							.download-button.btn.btn--gray.btn--br50 Показать еще
+							include ../../modules/pagination/pagination
+				.col-xl-3
+					include ../../modules/scroll-sidebar/scroll-sidebar-listing
+		//- Если товар не найден
+		.container-xxl
+			.p-product-listing__not-search
+				.p-product-listing__not-search-img
+					img(src='#{static_url}images/content/not-search.png', alt='К сожалению, здесь ничего нет')
+				h2.txt--bld24 К сожалению, здесь ничего нет
+				.p-product-listing__not-search-text Попробуйте изменить поисковый запрос или оставьте заявку на обратный звонок, и мы перезвоним вам
+		.container-xxl.s-all-feedback
+			.s-all-feedback__content
+				.row
+					.offset-md-1.col-md-11
+						.s-all-feedback__wrap
+							form.s-all-feedback__form.needs-validation(action='', method='get', novalidate)
+								h2.s-all-feedback__title.txt--bld40 Остались вопросы?
+								.s-all-feedback__text Во время консультации ваш менеджер ответит на все вопросы
+								.form-group
+									input.form-control(type='tel', placeholder='Ваш телефон', pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}", minlength='18', inputmode='numeric', required)
+									button.btn.btn--circle(type='submit')
+										+icon('arrow-right')
+								.form-group
+									label.checkbox
+										input.form-control(type='checkbox', checked, required)
+										span.checkbox__text
+											.policy
+												| Даю согласие на 
+												a.txt--clr1(href='policy.html', target='_blank') обработку персональных данных
+							.s-all-feedback__img
+								.s-all-feedback__ellipse
+								img(src='#{static_url}images/content/manager.png', alt='Менеджер')
