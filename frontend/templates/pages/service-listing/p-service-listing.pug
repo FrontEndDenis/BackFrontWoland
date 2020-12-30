@@ -3,7 +3,7 @@ section.p-service-listing#page(data-base-url=current_menu.url)
 		h1.txt--bld40 Виды услуг
 		.p-service-listing__callback.b-all-callback
 			.b-all-callback__content.b-all-callback__content--wdh776
-				.b-all-callback__title Нужна услуга по металлообработке, оставьте телефон и мы перезвоним вам
+				.b-all-callback__title Нужна обработка металла? Перезвоним, чтобы обсудить детали
 				form.b-all-callback__form.needs-validation(action='', method='get', novalidate)
 					.form-group
 							input.form-control(type='tel', placeholder='Ваш телефон', pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}", minlength='18', inputmode='numeric', required)
@@ -18,6 +18,7 @@ section.p-service-listing#page(data-base-url=current_menu.url)
 									a(href='policy.html', target='_blank') обработку персональных данных
 			.b-all-callback__wrap-img
 				.b-all-callback__img
+					img(src='#{static_url}images/general/callback-4.png')
 		.p-service-listing__filters
 			.service-slider-container.swiper-container
 				.swiper-wrapper
