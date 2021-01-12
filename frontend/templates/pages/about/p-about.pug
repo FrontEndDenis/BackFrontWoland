@@ -40,7 +40,7 @@ section.p-about
 							.p-about__icon
 								+icon('coins')
 								span Безналичные переводы на расчетный счет
-					.p-about__block
+					.p-about__block.b-all-map-filial
 						h2.txt--bld24 Самовывоз и доставка
 						p
 							| Наши филиалы в России и Казахстане отмечены на карте.
@@ -55,18 +55,51 @@ section.p-about
 						.p-about__number
 							.p-about__num 4500 
 							.p-about__text деталей производим каждый час
-				.p-about__map-filial
-					.p-about__item
-						h3.txt--bld18 Россия
-						.p-about__map
-							img(src='#{static_url}images/content/ru.png', alt='Карта России')
-					.p-about__item
-						h3.txt--bld18 Казахстан
-						.p-about__map
-							img(src='#{static_url}images/content/kz.png', alt='Карта Казахстана')
-				.p-about__wrap-text
-					p Мы привезем заказ в любой регион России и стран СНГ: Азербайджана, Армении, Белоруссии, Казахстана, Киргизии, Молдавии, Таджикистана, Узбекистана.
-					p “Велунд Сталь” принимает заявки из труднодоступных мест и доставляет грузы в регионы Крайнего Севера. Мы содержим автопарк, чтобы выполнять сложные заказы.
+				.p-about__map-filial.b-all-map-filial
+					.b-all-map-filial__content
+						.b-all-map-filial__item
+							h3.txt--bld18 Россия
+							.b-all-map-filial__map.b-all-map-filial__map--ru
+								img(src='#{static_url}images/content/ru.png', alt='Карта России')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+						.b-all-map-filial__item
+							h3.txt--bld18 Казахстан
+							.b-all-map-filial__map.b-all-map-filial__map--kz
+								img(src='#{static_url}images/content/kz.png', alt='Карта Казахстана')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+								+icon('mark-map')
+					.p-about__wrap-text.b-all-map-filial__wrap-text
+						p Мы привезем заказ в любой регион России и стран СНГ: Азербайджана, Армении, Белоруссии, Казахстана, Киргизии, Молдавии, Таджикистана, Узбекистана.
+						p “Велунд Сталь” принимает заявки из труднодоступных мест и доставляет грузы в регионы Крайнего Севера. Мы содержим автопарк, чтобы выполнять сложные заказы.
 				.p-about__about-block
 					.p-about__about-text
 						h2.txt--bld24 Участие в тендерах

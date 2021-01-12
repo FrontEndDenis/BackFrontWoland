@@ -1,6 +1,8 @@
 .modal-basket__body
 	.modal-basket__list
-		each item in cart_items
+		include ../../cards/basket-card/basket-card
+		include ../../cards/basket-card/basket-card
+		//- each item in cart_items
 			if item.product
 				include ../../cards/basket-card/basket-card
 			elif item.product.is_service

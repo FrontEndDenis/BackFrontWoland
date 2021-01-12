@@ -10,11 +10,14 @@
 		position: absolute;
 		top: 60px;
 		left: 60px;
+		right: 60px;
 		z-index: 2;
 	}
 	&__title {
 		max-width: 720px;
+		height: 182px;
 		margin-bottom: 24px;
+		overflow: hidden;
 	}
 	&__link {
 		font-size: 18px;
@@ -68,6 +71,7 @@
 			right: 12px;
 		}
 		&__title {
+			height: auto;
 			font-size: 28px;
 		}
 		&__link {

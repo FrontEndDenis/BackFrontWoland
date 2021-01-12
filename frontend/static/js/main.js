@@ -1962,6 +1962,44 @@ function scrollAnchors() {
 }
 scrollAnchors()
 
+// Марки на карте
+function markMap() {
+	const marks = document.querySelectorAll('.b-all-map-filial__mark')
+	// if (marks.length == 0) return
+
+	marks.forEach(mark => mark.addEventListener('click', () => generationBage(mark)))
+
+	function generationBage(item) {
+		let city = item.dataset.city,
+			phone = item.dataset.phone,
+			mail = item.dataset.mail,
+			bages = document.querySelectorAll('.b-all-map-filial__mark-info')
+		if (bages.length == 0) {
+			item.insertAdjacentHTML('beforeend', createInfoBage(city, phone, mail));
+		} else {
+			bages.forEach(bage => bage.remove())
+			item.insertAdjacentHTML('beforeend', createInfoBage(city, phone, mail));
+		}
+	}
+
+	function createInfoBage(c, p, m) {
+		return `
+			<div class="b-all-map-filial__mark-info">
+				<div class="b-all-map-filial__mark-title txt--smbld14">${c}</div>
+				<div class="b-all-map-filial__mark-item">
+					<div class="b-all-map-filial__mark-subtitle">Телефон</div>
+					<a href="tel:${p}" class="b-all-map-filial__mark-phone txt--smbld12">${p}</a>
+				</div>
+				<div class="b-all-map-filial__mark-item">
+					<div class="b-all-map-filial__mark-subtitle">Почта</div>
+					<a href="mailto:${m}" class="b-all-map-filial__mark-phone txt--smbld12">${m}</a>
+				</div>
+			</div>
+		`
+	}
+}
+markMap();
+
 // // Яндекс карта
 // function init() {
 // 	let center = [42.367110, 69.660379],

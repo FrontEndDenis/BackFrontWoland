@@ -25,6 +25,7 @@
 		align-items: center;
 		color: $accent-main;
 		transition: .2s ease;
+		font-weight: 600;
 		svg {
 			width: 15px;
 			height: 8px;
@@ -54,9 +55,28 @@
 		ul:not([class]) {
 			&:not(:last-child) {margin-bottom: 32px}
 		}
-		p {
+		& > p {
 			margin: 0px;
 			&:not(:last-child) {margin-bottom: 32px}
+		}
+	}
+	&__mail {
+		display: flex;
+		align-items: center;
+		color: $txt-black;
+	}
+	&__icon {
+		flex-shrink: 0;
+		margin-right: 16px;
+	}
+	&__content-text {
+		p {
+			margin: 0px;
+			&:last-child {
+				margin-top: 2px;
+				color: $txt-gray;
+				line-height: 135%;
+			}
 		}
 	}
 }

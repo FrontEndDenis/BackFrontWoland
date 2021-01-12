@@ -1,6 +1,8 @@
 .hidden-card
-	h2.hidden-card__title Оплата
-	p.hidden-card__text Наши филиалы в России и Казахстане отмечены на карте. Вы можете забрать товары со склада любого из них или заказать доставку.
+	h2.hidden-card__title Работа с физ. лицами и по тендерам
+	p.hidden-card__text
+		| Велунд Сталь участвует в тендерах на поставку металлопроката, сырья и оборудования. Высылайте конкурсные приглашения к участию и инструкции на электронную почту 
+		a.txt--clr1(href='mailto:#{current_filial.email}')=current_filial.email
 	.hidden-card__accordion.accordion
 		| Узнать больше
 		+icon('arrow-down')
