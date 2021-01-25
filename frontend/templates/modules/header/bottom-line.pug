@@ -1,17 +1,29 @@
 .bottom-line
 	.bottom-line__left
-		nav.bottom-line__nav
-			ul.bottom-line__navitagion-panel.txt--mdm14
-				li.spacial
-					a(href='/spec')
-						+icon('star')
-						| Акции
-				each category in catalog_menu_list
-					each category_2 in category.get_child
-						li
-							a(href=category_2.url)=category_2.name
-							.bottom-line__catalog
-								include ./catalog-menu.pug
+		nav.bottom-line__nav.txt--mdm14
+			.bottom-line__catalog-menu
+				a(href='/catalog')
+					+icon('menu')
+					| Каталог
+				.bottom-line__catalog
+					include ./catalog-menu.pug
+			.bottom-line__slider
+				.catalog-slider-container.swiper-container
+					.swiper-wrapper
+						.swiper-slide
+							a.spacial(href='/spec')
+								+icon('star')
+								| Акции
+						each category in catalog_menu_list
+							each category_2 in category.get_child
+								.swiper-slide
+									a(href=category_2.url)=category_2.name
+				.catalog-slider-container__wrap-prev
+					button.catalog-slider-container__prev.swiper-prev.swiper-prev--header
+						+icon('arrow-right-2')
+				.catalog-slider-container__wrap-next
+					button.catalog-slider-container__next.swiper-next.swiper-next--header
+						+icon('arrow-right-2')
 	.bottom-line__right
 		.bottom-line__search-input
 			.bottom-line__tooltip

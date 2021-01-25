@@ -117,6 +117,19 @@ button[disabled] {
 		svg {fill: $accent-main3;}
 	}
 	&.swiper-button-disabled {display: none;}
+	&--header {
+		width: 22px;
+		height: 22px;
+		background: $ui-white10;
+		box-shadow: none;
+		svg {
+			height: 10px;
+			fill: $accent-main2;
+		}
+		&:hover {
+			background: $ui-white5;
+		}
+	}
 }
 
 .swiper-prev {

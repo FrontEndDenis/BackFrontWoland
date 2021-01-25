@@ -3,7 +3,8 @@
 		.catalog-card__img
 			img(src="#{media_url}#{category.image}", alt="#{category.name}")
 		.catalog-card__content
-			.catalog-card__count #{category.get_child|length} видов
+			if category.get_child|length
+				.catalog-card__count #{category.get_child|length} видов
 			.catalog-card__title=category.name
 		.catalog-card__btn.btn.btn--circle
 			+icon('arrow-right')

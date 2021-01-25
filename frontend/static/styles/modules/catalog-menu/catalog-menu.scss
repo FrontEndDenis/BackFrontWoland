@@ -1,17 +1,15 @@
 .catalog-menu {
-	width: 100%;
-	background: $white;
+	width: auto;
 	color: $txt-black;
-	border-radius: 15px;
-	box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1);
 	white-space: normal;
-	overflow: hidden;
 	&__left {
-		max-width: 290px;
+		max-width: 270px;
 		width: 100%;
 		height: 660px;
 		padding: 24px 0 24px 12px;
 		background: $ui-lgh-gray;
+		border-radius: 15px;
+		box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1);
 		overflow-y: auto;
 		&::-webkit-scrollbar-track {
 			background: $ui-lgh-gray;

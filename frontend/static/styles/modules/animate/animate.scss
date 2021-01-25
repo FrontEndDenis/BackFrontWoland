@@ -82,6 +82,34 @@
 	}
 }
 
+.catalog-open {
+	animation: catalogOpen .3s ease both;
+	@keyframes catalogOpen {
+		from {
+			opacity: 0;
+			top: 100px;
+		}
+		to {
+			opacity: 1;
+			top: 32px;
+		}
+	}
+}
+
+.catalog-close {
+	animation: catalogClose .3s ease both;
+	@keyframes catalogClose {
+		from {
+			opacity: 1;
+			top: 32px;
+		}
+		to {
+			opacity: 0;
+			top: 100px;
+		}
+	}
+}
+
 @media only screen and (max-width: 767px) {
 	.fade-in-scale-top {
 		animation: fadeInScaleTop .5s ease both;

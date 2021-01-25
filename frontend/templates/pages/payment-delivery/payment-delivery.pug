@@ -1,7 +1,7 @@
 section.payment-delivery
 	.container-xxl
 		h1.payment-delivery__title.txt--bld40 Доставка и оплата
-		.payment-delivery__callback.b-all-callback
+		.payment-delivery__callback.b-all-callback.b-all-callback--payment-delivery
 			.b-all-callback__title
 				| Есть вопросы?
 				br
@@ -18,6 +18,9 @@ section.payment-delivery
 					a.b-all-callback__text(href='mailto:#{current_filial.email}')=current_filial.email
 				.b-all-callback__item
 					button.btn.btn--wdh185.btn--br50.btn--lgh.btn--m-wdh100(type='button', data-toggle='modal', data-target='#modal-callback') Позвонить вам?
+			.b-all-callback__wrap-img
+					.b-all-callback__img
+						img(src='#{static_url}images/general/callback-7.png')
 		.payment-delivery__list
 			.row
 				.col-md-6

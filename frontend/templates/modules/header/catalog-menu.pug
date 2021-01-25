@@ -1,23 +1,42 @@
 .catalog-menu
 	.catalog-menu__left
-		h2.catalog-menu__title=category_2.name
+		h2.catalog-menu__title Каталог
 		ul.catalog-menu__list
-			each category_3 in category_2.get_child
-				li(data-category-id=category_3.id)
-					a(href=category_3.url)
-						| #{category_3.name}
-						+icon('arrow-right')
-		each category_3 in category_2.get_child
-			.catalog-menu__catalog-submenu.catalog-submenu(data-category-id=category_3.id)
-				.catalog-submenu__wrap
-					each category_4 in category_3.get_child
-						if category_4.get_child
-							.catalog-submenu__item
-								a(href=category_4.url).catalog-submenu__title=category_4.name
-								ul.catalog-submenu__list
-									each category_5 in category_4.get_child
-										li
-											a(href=category_5.url)=category_5.name
+			each category in catalog_menu_list
+				each category_2 in category.get_child
+					li(data-category-id=category_2.id)
+						if category_2.get_child
+							a(href=category_2.url)
+								| #{category_2.name}
+								+icon('arrow-right')
+							.catalog-menu__catalog-submenu
+								ul.catalog-menu__list-submenu
+									each category_3 in category_2.get_child
+										li(data-category-id=category_3.id)
+											if category_3.get_child
+												a(href=category_3.url)
+													| #{category_3.name}
+													+icon('arrow-right')
+											else
+												a(href=category_3.url)=category_3.name
 						else
-							.catalog-submenu__item
-								a(href=category_4.url).catalog-submenu__title=category_4.name
+							a(href=category_2.url)=category_2.name
+		//- 	each category_3 in category_2.get_child
+		//- 		li(data-category-id=category_3.id)
+		//- 			a(href=category_3.url)
+		//- 				| #{category_3.name}
+		//- 				+icon('arrow-right')
+		//- each category_3 in category_2.get_child
+		//- 	.catalog-menu__catalog-submenu.catalog-submenu(data-category-id=category_3.id)
+		//- 		.catalog-submenu__wrap
+		//- 			each category_4 in category_3.get_child
+		//- 				if category_4.get_child
+		//- 					.catalog-submenu__item
+		//- 						a(href=category_4.url).catalog-submenu__title=category_4.name
+		//- 						ul.catalog-submenu__list
+		//- 							each category_5 in category_4.get_child
+		//- 								li
+		//- 									a(href=category_5.url)=category_5.name
+		//- 				else
+		//- 					.catalog-submenu__item
+		//- 						a(href=category_4.url).catalog-submenu__title=category_4.name

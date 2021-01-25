@@ -19,17 +19,25 @@ section.articles-listing#page(data-base-url=current_menu.url)
 			.b-all-callback__wrap-img
 				.b-all-callback__img
 					img(src='#{static_url}images/general/callback-3.png')
-		.articles-listing__filters
+		form.articles-listing__filters(action='')
 			.filters-hashtag-slider-container.swiper-container
 				.swiper-wrapper
 					.swiper-slide
-						button.btn.btn--br50.btn--gray Все
+						label.checkbox-btn
+							input(type='checkbox')
+							span Все
 					.swiper-slide
-						button.btn.btn--br50.btn--gray Продукция
+						label.checkbox-btn
+							input(type='checkbox')
+							span Продукция
 					.swiper-slide
-						button.btn.btn--br50.btn--gray Производство
+						label.checkbox-btn
+							input(type='checkbox')
+							span Производство
 					.swiper-slide
-						button.btn.btn--br50.btn--gray Продукция
+						label.checkbox-btn
+							input(type='checkbox')
+							span Продукция
 		.articles-listing__list
 			.row
 				.col-md-8

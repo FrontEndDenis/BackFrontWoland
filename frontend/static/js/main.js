@@ -3,15 +3,10 @@ const modalList = {
 	search: new bootstrap.Modal(document.getElementById('modal-search')),
 	city: new bootstrap.Modal(document.getElementById('modal-city')),
 	callback: new bootstrap.Modal(document.getElementById('modal-callback')),
-
 }
 
-if (document.getElementById('modal-filters')) {
-	modalList['filters'] = new bootstrap.Modal(document.getElementById('modal-filters'));
-}
-if (document.getElementById('modal-need')) {
-	modalList['need'] = new bootstrap.Modal(document.getElementById('modal-need'));
-}
+if (document.getElementById('modal-filters')) modalList['filters'] = new bootstrap.Modal(document.getElementById('modal-filters'));
+if (document.getElementById('modal-need')) modalList['need'] = new bootstrap.Modal(document.getElementById('modal-need'))
 
 svg4everybody();
 
@@ -270,6 +265,19 @@ function slidersInit() {
 			releaseOnEdges: true,
 		},
 	});
+	// Каталог
+	const headerCatalogSlider = new Swiper('.catalog-slider-container', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		spaceBetween: 20,
+		mousewheel: {
+			releaseOnEdges: true,
+		},
+		navigation: {
+			prevEl: '.catalog-slider-container__wrap-prev',
+			nextEl: '.catalog-slider-container__wrap-next',
+		},
+	});
 }
 slidersInit();
 
@@ -335,17 +343,15 @@ function isMobile() {
 
 // Анимации
 function animateCSS(element, animation) {
-	return new Promise((resolve, reject) => {
-		const animationName = animation;
-		const node = (element.nodeType === 1) ? element : document.querySelector(element);
+	return new Promise((resolve) => {
+		const animationName = animation,
+			node = (element.nodeType === 1) ? element : document.querySelector(element);
 
-		node.classList.add('animation', ...animationName.split(' '));
-
+		node.classList.add(...animationName.split(' '));
 		function handleAnimationEnd() {
-			node.classList.remove('animation', ...animationName.split(' '));
+			node.classList.remove(...animationName.split(' '));
 			resolve('Animation ended');
 		}
-
 		node.addEventListener('animationend', handleAnimationEnd, { once: true });
 	});
 }
@@ -370,11 +376,9 @@ class ModalSite {
 	constructor(className) {
 		this.element = document.querySelector(className);
 	}
-
 	open() {
 		this.element.classList.add('open-catalog');
 	}
-
 	close() {
 		this.element.classList.remove('open-catalog');
 	}
@@ -496,68 +500,95 @@ function catalogListInfo() {
 catalogListInfo();
 
 // Каталог
+// function catalogMenu() {
+// 	const bottom = document.querySelector('.bottom-line__left'),
+// 		panel = document.querySelector('.bottom-line__navitagion-panel'),
+// 		elems = document.querySelectorAll('.bottom-line__navitagion-panel > li'),
+// 		block = document.querySelectorAll('.bottom-line__catalog');
+
+// 	let timer;
+
+// 	const checkEl = item => {
+// 		if (item.classList.contains('active')) {
+// 			addEl(item)
+// 		} else if (item.classList.contains('spacial')) {
+// 			addEl(item)
+// 			item.querySelector('.bottom-line__catalog').classList.remove('active');
+// 		} else {
+// 			addEl(item)
+// 			show(item);
+// 		}
+// 	}
+
+// 	const addEl = item => {
+// 		elems.forEach(el => el.classList.remove('active'));
+// 		block.forEach(el => el.classList.remove('active'));
+// 		panel.classList.add('open-catalog');
+// 		item.classList.add('active');
+// 	}
+
+// 	const hide = item => {
+// 		panel.classList.remove('open-catalog');
+// 		block.forEach(el => el.classList.remove('active'));
+// 		item.classList.remove('active');
+// 		openmodalsite.close();
+// 	}
+
+// 	const show = item => {
+// 		item.querySelector('.bottom-line__catalog').classList.add('active');
+// 		openmodalsite.open();
+// 	}
+
+// 	elems.forEach(elem => {
+// 		elem.addEventListener('mouseenter', function () {
+// 			timerEnter(elem);
+// 		}, false);
+// 		bottom.addEventListener('mouseleave', function () {
+// 			timerleave(elem);
+// 		}, false);
+// 	});
+
+// 	function timerEnter(item) {
+// 		if (panel.classList.contains('open-catalog')) {
+// 			checkEl(item);
+// 		} else {
+// 			clearTimeout(timer);
+// 			timer = setTimeout(function () {
+// 				checkEl(item);
+// 			}, 500);
+// 		}
+// 	}
+
+// 	function timerleave(item) {
+// 		clearTimeout(timer);
+// 		hide(item);
+// 	}
+// }
+// catalogMenu();
 function catalogMenu() {
 	const bottom = document.querySelector('.bottom-line__left'),
-		panel = document.querySelector('.bottom-line__navitagion-panel'),
-		elems = document.querySelectorAll('.bottom-line__navitagion-panel > li'),
-		block = document.querySelectorAll('.bottom-line__catalog');
+		catalog = document.querySelector('.bottom-line__catalog-menu > a'),
+		block = document.querySelector('.bottom-line__catalog');
 
 	let timer;
 
-	const checkEl = item => {
-		if (item.classList.contains('active')) {
-			addEl(item)
-		} else if (item.classList.contains('spacial')) {
-			addEl(item)
-			// item.querySelector('.bottom-line__catalog').classList.remove('active');
-		} else {
-			addEl(item)
-			show(item);
-		}
-	}
+	catalog.addEventListener('mouseenter', () => timerEnter(), false)
+	bottom.addEventListener('mouseleave', () => timerleave(), false);
 
-	const addEl = item => {
-		elems.forEach(el => el.classList.remove('active'));
-		block.forEach(el => el.classList.remove('active'));
-		panel.classList.add('open-catalog');
-		item.classList.add('active');
-	}
 
-	const hide = item => {
-		panel.classList.remove('open-catalog');
-		block.forEach(el => el.classList.remove('active'));
-		item.classList.remove('active');
-		openmodalsite.close();
-	}
-
-	const show = item => {
-		item.querySelector('.bottom-line__catalog').classList.add('active');
-		openmodalsite.open();
-	}
-
-	elems.forEach(elem => {
-		elem.addEventListener('mouseenter', function () {
-			timerEnter(elem);
-		}, false);
-		bottom.addEventListener('mouseleave', function () {
-			timerleave(elem);
-		}, false);
-	});
-
-	function timerEnter(item) {
-		if (panel.classList.contains('open-catalog')) {
-			checkEl(item);
-		} else {
-			clearTimeout(timer);
-			timer = setTimeout(function () {
-				checkEl(item);
-			}, 500);
-		}
-	}
-
-	function timerleave(item) {
+	function timerEnter() {
 		clearTimeout(timer);
-		hide(item);
+		timer = setTimeout(() => {
+			block.classList.add('active');
+			animateCSS(block, 'catalog-open');
+			openmodalsite.open();
+		}, 300);
+	}
+
+	function timerleave() {
+		clearTimeout(timer);
+		block.classList.remove('active');
+		openmodalsite.close();
 	}
 }
 catalogMenu();
@@ -1280,7 +1311,7 @@ function breadCrumbs() {
 
 breadCrumbs();
 
-//Пагинация
+// Пагинация
 const Pagination = {
 	code: '',
 	onChange: null,
@@ -1405,9 +1436,9 @@ const Pagination = {
 
 	Create: function (e) {
 		let html = [
-			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`, // previous button
-			`<ul class='pagination__list'></ul>`,  // pagination container
-			`<a class='pagination__next'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`  // next button
+			`<a class='pagination__prev'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`,
+			`<ul class='pagination__list'></ul>`,
+			`<a class='pagination__next'><svg class="svg-sprite-icon icon-arrow-right-2"><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right-2"></use></svg></a>`
 		],
 			block = `<nav class='pagination__left'>${html.join('')}</nav>`,
 			blockRight = `<div class='pagination__right'>
@@ -1965,7 +1996,8 @@ scrollAnchors()
 // Марки на карте
 function markMap() {
 	const marks = document.querySelectorAll('.b-all-map-filial__mark')
-	// if (marks.length == 0) return
+	if (marks.length == 0) return
+	
 
 	marks.forEach(mark => mark.addEventListener('click', () => generationBage(mark)))
 
@@ -1974,6 +2006,7 @@ function markMap() {
 			phone = item.dataset.phone,
 			mail = item.dataset.mail,
 			bages = document.querySelectorAll('.b-all-map-filial__mark-info')
+			console.log(item.getBoundingClientRect());
 		if (bages.length == 0) {
 			item.insertAdjacentHTML('beforeend', createInfoBage(city, phone, mail));
 		} else {

@@ -34,23 +34,20 @@
 		img {
 			width: 100%;
 		}
+		svg {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
 		&--ru {
-			.b-all-map-filial__mark {
-				&:nth-child(2) {
-					transform: translate(54px, -130px);
-				}
-			}
+			// .b-all-map-filial__mark {fill: $ui-main-blue;}
 		}
 	}
 	&__mark {
-		position: absolute;
+		position: relative;
 		color: $txt-black90;
 		font-weight: 600;
 		cursor: pointer;
-		svg {
-			width: 16px;
-			height: 22px;
-		}
 	}
 	&__mark-info {
 		position: absolute;
