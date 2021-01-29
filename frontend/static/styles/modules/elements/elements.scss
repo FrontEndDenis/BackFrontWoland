@@ -406,6 +406,7 @@ a[href*=mailto], a[href*=tel] {
 
 .input-file {
 	display: inline-block;
+	height: 39px;
 	input {
 		display: none;
 	}
@@ -425,6 +426,7 @@ a[href*=mailto], a[href*=tel] {
 	}
 	&__icon {
 		margin-right: 16px;
+		margin-top: 4px;
 		.icon-document {display: none;}
 	}
 	&__txt {
@@ -466,7 +468,13 @@ a[href*=mailto], a[href*=tel] {
 		}
 	}
 	&.add-file {
-		.input-file__reset {display: flex;}
+		.input-file {
+			&__reset {display: flex;}
+			&__icon {
+				.icon-clip {display: none;}
+				.icon-document {display: block;}
+			}
+		}
 	}
 	&.error {
 		.input-file {

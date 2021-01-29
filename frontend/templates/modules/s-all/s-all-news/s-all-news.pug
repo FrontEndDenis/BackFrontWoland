@@ -9,23 +9,11 @@ section.s-all-news
 			.s-all-news__slider
 				.news-slider.swiper-container
 					.swiper-wrapper
-						.swiper-slide
-							.news-slider__item
-								include ../../cards/news-card/news-card
-						.swiper-slide
-							.news-slider__item
-								include ../../cards/news-card/news-card
-						.swiper-slide
-							.news-slider__item
-								include ../../cards/news-card/news-card
-						.swiper-slide
-							.news-slider__item
-								include ../../cards/news-card/news-card
-						.swiper-slide
-							.news-slider__item
-								include ../../cards/news-card/news-card
+						each news in news_list
+							.swiper-slide
+								.news-slider__item
+									include ../../cards/news-card/news-card
 				button.news-slider__prev.swiper-prev
 					+icon('arrow-right-2')
 				button.news-slider__next.swiper-next
 					+icon('arrow-right-2')
-					

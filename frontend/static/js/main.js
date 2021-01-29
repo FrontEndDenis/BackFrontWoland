@@ -313,6 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		lineWidth('.s-all-gost__item', '.s-all-gost__more');
 		lineWidth('.product-content__mark', '.product-content__more');
 		sidebar();
+		calcWidth();
 	};
 });
 
@@ -496,75 +497,32 @@ function catalogListInfo() {
 		elem.addEventListener('mouseleave', () => hide(elem))
 	})
 }
-
 catalogListInfo();
 
+// Подсвечивать категории в шапке
+function headerCatalogSlider() {
+	const parent = document.querySelector('.bottom-line__slider'),
+		items = parent.querySelectorAll('.swiper-slide a');
+
+	const hideAll = () => {
+		parent.classList.remove('active');
+		items.forEach(item => item.classList.remove('active'));
+	}
+
+	const addActive = elem => {
+		hideAll();
+		parent.classList.add('active');
+		elem.classList.add('active');
+	}
+
+	items.forEach(item => {
+		item.addEventListener('mouseenter', () => addActive(item));
+		item.addEventListener('mouseleave', () => hideAll());
+	})
+}
+headerCatalogSlider();
+
 // Каталог
-// function catalogMenu() {
-// 	const bottom = document.querySelector('.bottom-line__left'),
-// 		panel = document.querySelector('.bottom-line__navitagion-panel'),
-// 		elems = document.querySelectorAll('.bottom-line__navitagion-panel > li'),
-// 		block = document.querySelectorAll('.bottom-line__catalog');
-
-// 	let timer;
-
-// 	const checkEl = item => {
-// 		if (item.classList.contains('active')) {
-// 			addEl(item)
-// 		} else if (item.classList.contains('spacial')) {
-// 			addEl(item)
-// 			item.querySelector('.bottom-line__catalog').classList.remove('active');
-// 		} else {
-// 			addEl(item)
-// 			show(item);
-// 		}
-// 	}
-
-// 	const addEl = item => {
-// 		elems.forEach(el => el.classList.remove('active'));
-// 		block.forEach(el => el.classList.remove('active'));
-// 		panel.classList.add('open-catalog');
-// 		item.classList.add('active');
-// 	}
-
-// 	const hide = item => {
-// 		panel.classList.remove('open-catalog');
-// 		block.forEach(el => el.classList.remove('active'));
-// 		item.classList.remove('active');
-// 		openmodalsite.close();
-// 	}
-
-// 	const show = item => {
-// 		item.querySelector('.bottom-line__catalog').classList.add('active');
-// 		openmodalsite.open();
-// 	}
-
-// 	elems.forEach(elem => {
-// 		elem.addEventListener('mouseenter', function () {
-// 			timerEnter(elem);
-// 		}, false);
-// 		bottom.addEventListener('mouseleave', function () {
-// 			timerleave(elem);
-// 		}, false);
-// 	});
-
-// 	function timerEnter(item) {
-// 		if (panel.classList.contains('open-catalog')) {
-// 			checkEl(item);
-// 		} else {
-// 			clearTimeout(timer);
-// 			timer = setTimeout(function () {
-// 				checkEl(item);
-// 			}, 500);
-// 		}
-// 	}
-
-// 	function timerleave(item) {
-// 		clearTimeout(timer);
-// 		hide(item);
-// 	}
-// }
-// catalogMenu();
 function catalogMenu() {
 	const bottom = document.querySelector('.bottom-line__left'),
 		catalog = document.querySelector('.bottom-line__catalog-menu > a'),
@@ -589,50 +547,85 @@ function catalogMenu() {
 		clearTimeout(timer);
 		block.classList.remove('active');
 		openmodalsite.close();
+		document.querySelectorAll('.catalog-menu__submenu').forEach(item => item.classList.remove('active'));
+		document.querySelectorAll('.catalog-menu__items > li').forEach(item => item.classList.remove('active'));
+		document.querySelectorAll('.catalog-menu__submenu-level').forEach(item => item.classList.remove('show'));
 	}
 }
 catalogMenu();
 
+// Работа списков меню
 function catalogMenuList() {
-	const items = document.querySelectorAll('.catalog-menu__list > li'),
-		subItems = document.querySelectorAll('.catalog-submenu');
+	const items = document.querySelectorAll('.catalog-menu__items > li'),
+		level = document.querySelectorAll('.catalog-menu__submenu-level'),
+		titles = document.querySelectorAll('.catalog-menu__title');
 
-	function hide(item, event) {
-		(event.classList.contains('catalog-menu__left')) ? hideAll() : show(item);
+	function hideAll(elem) {
+		const searchСurrentLevel = elem.dataset.level,
+			arr = Array.from(level).slice(searchСurrentLevel-1, level.length);
+		
+		arr.forEach(item => {
+			item.querySelectorAll('.catalog-menu__submenu').forEach(item => item.classList.remove('active'));
+			item.querySelectorAll('.catalog-menu__items > li').forEach(item => item.classList.remove('active'));
+			item.classList.remove('show');
+		})
 	}
 
-	const hideAll = () => {
-		subItems.forEach(subItem => subItem.classList.remove('active'))
-		items.forEach(item => item.classList.remove('active'))
+	function removeCurrentLevelActive(item) {
+		item.closest('.catalog-menu__submenu-level').querySelectorAll('li').forEach(item => item.classList.remove('active'));
+	}
+
+	function checkValue(elem) {
+		let flag = true
+		if (elem.dataset.level != undefined) hideAll(elem);
+		else flag = false
+		return flag
+	}
+	
+	function searchLevel(attrValue) {
+		let elem;
+		level.forEach(item => (item.dataset.level == attrValue) ? elem = item : '')
+		return elem
 	}
 
 	const show = item => {
-		const attr = item.dataset.categoryId;
-		hideAll();
-		item.classList.add('active')
-		subItems.forEach(subItem => {
-			if (subItem.dataset.categoryId === attr) subItem.classList.add('active')
+		const attr = item.dataset.categoryId,
+			parent = searchLevel(item.dataset.level);
+
+		if (!checkValue(item)) return
+
+		item.classList.add('active');
+		parent.querySelectorAll('.catalog-menu__submenu').forEach(subItem => {
+			if (subItem.dataset.categoryId === attr) {
+				subItem.classList.add('active');
+				parent.classList.add('show');
+				return;
+			}
 		})
 	}
 
 	items.forEach(item => {
-		item.addEventListener('mouseenter', function () {
+		item.addEventListener('mouseenter', () => {
+			removeCurrentLevelActive(item);
 			show(item);
-		}, false);
-		item.addEventListener('mouseout', function (e) {
-			e.preventDefault();
-			e.stopPropagation();
-			hide(item, e.relatedTarget);
-		}, false);
+			calcWidth();
+		});
 	});
-	subItems.forEach(subItem => {
-		subItem.addEventListener('mouseleave', function () {
-			hideAll();
-		}, false);
-	})
-
+	titles.forEach(item => item.addEventListener('mouseenter', () => {
+		removeCurrentLevelActive(item);
+		checkValue(item);
+	}))
 }
 catalogMenuList();
+
+function calcWidth() {
+	const calcItem = ((document.querySelector('.container-xxl').clientWidth - 24) - 270) / 3,
+		catalogItems = document.querySelectorAll('.catalog-menu__submenu-level.show');
+	
+	if (catalogItems.length == 0) return
+
+	catalogItems.forEach(item => item.style.width = calcItem + 'px')	
+}
 
 // Табы
 function tabs() {
@@ -748,15 +741,12 @@ class Basket {
 
 	show(n, classElem) {
 		const sections = this.element.querySelectorAll(classElem);
-
 		this.hideAll(classElem);
-
 		sections[n].classList.add('show-section', 'fade-in');
 	}
 
 	hideAll(classElem) {
 		const sections = this.element.querySelectorAll(classElem);
-
 		sections.forEach((section) => {
 			section.classList.remove('show-section');
 		});
@@ -893,18 +883,17 @@ function inputFile() {
 			file = input.files[0],
 			txt = elem.querySelector('.input-file__txt'),
 			sizeTxt = elem.querySelector('.input-file__size'),
-			resetBtn = elem.querySelector('.input-file__reset'),
-			parts = file.name;
+			resetBtn = elem.querySelector('.input-file__reset');
 
-		const reset = e => {
-			e.preventDefault();
-			e.stopPropagation();
-			if (input.value) {
-				txt.innerText = 'Добавить файл';
-				sizeTxt.innerText = 'до 10Mb';
-				elem.classList.remove('error', 'add-file')
-				input.value = '';
-			}
+		reset();
+
+		const parts = file.name;
+			
+		function reset() {
+			txt.innerText = 'Добавить файл';
+			sizeTxt.innerText = 'до 10Mb';
+			elem.classList.remove('error', 'add-file')
+			input.value = '';
 		}
 
 		let fileSize = parseFloat((file.size / 1024 ** 2).toFixed(4));
@@ -919,7 +908,11 @@ function inputFile() {
 			elem.classList.add('add-file')
 		}
 
-		resetBtn.addEventListener('click', reset);
+		resetBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			e.stopPropagation();
+			reset();
+		});
 
 		sizeTxt.innerText = fileSize + 'Mb';
 		txt.innerText = parts;
@@ -1238,14 +1231,16 @@ function descriptionStocksCard() {
 		let element = elem.querySelector('.warning__wrap');
 		desc.forEach(el => el.querySelector('.warning__wrap').classList.remove('active'))
 		element.classList.add('active', 'fixed');
-		isHidden(element);
 		if (countHidden(element).right > 0) {
 			element.style.right = 0 + 'px';
 		}
 		element.classList.remove('fixed');
 	}
 
-	const hide = elem => elem.querySelector('.warning__wrap').classList.remove('active');
+	const hide = elem => {
+		elem.querySelector('.warning__wrap').classList.remove('active');
+		elem.querySelector('.warning__wrap').setAttribute('style', '');
+	}
 
 	desc.forEach(el => {
 		if (isMobile()) {
@@ -1259,17 +1254,18 @@ function descriptionStocksCard() {
 	btns.forEach(btn => btn.addEventListener('click', (e) => {
 		e.stopPropagation();
 		btn.closest('.warning__wrap').classList.remove('active');
+		btn.closest('.warning__wrap').setAttribute('style', '');
 	}))
 }
 
 descriptionStocksCard()
 
 // Положение элемента в окне
-function isHidden(element) {
-	const elementRect = element.getBoundingClientRect(),
-		elementHides = elementRect.top < 0 || elementRect.left < 0 || elementRect.bottom > window.innerHeight || elementRect.right > window.innerWidth;
-	return elementHides;
-}
+// function isHidden(element) {
+// 	const elementRect = element.getBoundingClientRect(),
+// 		elementHides = elementRect.top < 0 || elementRect.left < 0 || elementRect.bottom > window.innerHeight || elementRect.right > window.innerWidth;
+// 	return elementHides;
+// }
 
 function countHidden(element) {
 	const elementRect = element.getBoundingClientRect(),
@@ -1662,7 +1658,10 @@ function filters() {
 		const btns = document.querySelectorAll('.modal-f__more');
 
 		btns.forEach(btn => {
-			btn.addEventListener('click', () => toggleEl(btn))
+			btn.addEventListener('click', () => {
+				toggleEl(btn);
+				// searchModalFilter(btn);
+			});
 		});
 	}
 	hideElModalFilter();
@@ -1875,6 +1874,27 @@ function filters() {
 }
 filters()
 
+// Поиск в фильтре
+function searchModalFilter(elem) {
+	const main = elem.closest('.modal-f__item'),
+		list = main.querySelectorAll('.modal-f__list li'),
+		inputSearch = main.querySelector('input[type="search"]');
+	
+	inputSearch.addEventListener('input', () => {
+		let value = inputSearch.value.trim().toLowerCase();
+		if (value != '') {
+			list.forEach(li => {
+				if (li.querySelector('a').innerText.trim().toLowerCase().search(value) == -1) {
+					li.classList.add('hide');
+				} else {
+					li.classList.remove('hide');
+				}
+			})
+		}
+		else list.forEach(li => li.classList.remove('hide'))
+	})
+}
+
 // Открытие модального окна need
 function openModalNeed() {
 	const btn = document.querySelector('.pagination__link'),
@@ -1910,43 +1930,24 @@ function toggleBtnModalNeed() {
 toggleBtnModalNeed()
 
 // Характеристика на странице товара
-function hideElPageProduct() {
-	const items = document.querySelectorAll('.product-content__list li');
-	if (items.length == 0) return;
+function openSpecifProduct() {
+	const allSpecifications = document.querySelector('.product-content__list .product-content__more-description'),
+		tabBtn = document.querySelector('.tabs__nav-specif'),
+		tabCont = document.querySelector('.tabs__content-specif');
 
-	const toggleShow = (el, style) => {
-		let li = el.closest('ul').querySelectorAll('li');
-		li.forEach(l => l.style.display = style)
-	};
+	if (!allSpecifications) return
 
-	const hideEl = () => {
-		let ind = 0;
-		for (let i = 4; i < items.length; i++) {
-			items[i].style.display = 'none';
-			ind = i;
-		}
-		(!items[ind].closest('.product-content__list').querySelector('.product-content__more-description')) ?
-			createEl(items[ind], ind - 3) :
-			items[ind].closest('.product-content__list').querySelector('.product-content__more-description').style.display = 'block';
-	};
-
-	const createEl = (el, ind) => {
-		if (ind <= 0) return
-		let more = '<li class="product-content__more-description txt--clr1">Все характеристики</li>';
-		el.insertAdjacentHTML('afterend', more);
-	}
-
-	const toggleEl = el => {
-		(el.classList.contains('active')) ? hideEl() : toggleShow(el, 'block');
-		el.classList.toggle('active')
-	}
-
-	hideEl();
-	const btn = document.querySelector('.product-content__more-description');
-	if (!btn) return
-	btn.addEventListener('click', () => toggleEl(btn))
+	allSpecifications.addEventListener('click', (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		document.querySelectorAll('.tabs__nav-item').forEach(item => item.classList.remove('active'))
+		document.querySelectorAll('.tabs__content-item').forEach(item => item.classList.remove('active'))
+		tabBtn.classList.add('active');
+		tabCont.classList.add('active')
+		animateCSS(tabCont, 'fade-in-scale');
+	})
 }
-hideElPageProduct();
+openSpecifProduct();
 
 // Страницы Новстей, Статей
 function generatingLink() {
@@ -1956,18 +1957,14 @@ function generatingLink() {
 	const parent = document.querySelector('#page-art-news'),
 		links = parent.querySelectorAll('h2');
 
-	const generatingAttr = (elem, ind) => elem.setAttribute('id', ('link-' + ind))
-
-	const generatingTegLink = (elem, ind) => {
-		const element = `<a href='#link-${ind}'>${elem.innerText}<a>`;
-		sidebar.querySelector('.scroll-sidebar__article-link').insertAdjacentHTML('beforeend', element)
-	}
+	const generatingAttr = (elem, ind) => elem.setAttribute('id', `link-${ind}`)
+	const generatingTegLink = (elem, ind) => `<a href='#link-${ind}'>${elem.innerText}<a>`;
 
 	if (links.length > 0) {
 		sidebar.classList.add('value');
 		links.forEach((link, index) => {
 			generatingAttr(link, index)
-			generatingTegLink(link, index)
+			sidebar.querySelector('.scroll-sidebar__article-link').insertAdjacentHTML('beforeend', generatingTegLink(link, index))
 		})
 	}
 }
@@ -1998,30 +1995,46 @@ function markMap() {
 	const marks = document.querySelectorAll('.b-all-map-filial__mark')
 	if (marks.length == 0) return
 	
-
 	marks.forEach(mark => mark.addEventListener('click', () => generationBage(mark)))
 
 	function generationBage(item) {
 		let city = item.dataset.city,
 			phone = item.dataset.phone,
 			mail = item.dataset.mail,
-			bages = document.querySelectorAll('.b-all-map-filial__mark-info')
-			console.log(item.getBoundingClientRect());
+			bages = document.querySelectorAll('.b-all-map-filial__mark-info'),
+			parent = item.closest('.b-all-map-filial__map'),
+			[top, left] = position(parent, item);
+		
 		if (bages.length == 0) {
-			item.insertAdjacentHTML('beforeend', createInfoBage(city, phone, mail));
+			parent.insertAdjacentHTML('beforeend', createInfoBage(city, phone, mail));
+			addStyle(parent, top, left);
 		} else {
 			bages.forEach(bage => bage.remove())
-			item.insertAdjacentHTML('beforeend', createInfoBage(city, phone, mail));
+			parent.insertAdjacentHTML('beforeend', createInfoBage(city, phone, mail));
+			addStyle(parent, top, left);
 		}
+		const close = document.querySelector('.b-all-map-filial__close')
+
+		close.addEventListener('click', () => close.closest('.b-all-map-filial__mark-info').remove())
+	}
+
+	function position(parent, elem) {
+		let parentPos = parent.getBoundingClientRect(),
+			childrenPos = elem.getBoundingClientRect(),
+			top = childrenPos.top - parentPos.top,
+			left = childrenPos.left - parentPos.left;
+		
+		return [top, left]
 	}
 
 	function createInfoBage(c, p, m) {
 		return `
 			<div class="b-all-map-filial__mark-info">
+				<button class="b-all-map-filial__close"><svg class="svg-sprite-icon icon-close "><use xlink:href="/static/images/svg/symbol/sprite.svg#close"></use></svg></button>
 				<div class="b-all-map-filial__mark-title txt--smbld14">${c}</div>
 				<div class="b-all-map-filial__mark-item">
 					<div class="b-all-map-filial__mark-subtitle">Телефон</div>
-					<a href="tel:${p}" class="b-all-map-filial__mark-phone txt--smbld12">${p}</a>
+					<a href="tel:${p.replace(/[\s()-]/g, '')}" class="b-all-map-filial__mark-phone txt--smbld12">${p}</a>
 				</div>
 				<div class="b-all-map-filial__mark-item">
 					<div class="b-all-map-filial__mark-subtitle">Почта</div>
@@ -2030,9 +2043,21 @@ function markMap() {
 			</div>
 		`
 	}
+
+	function addStyle(main, top, left) {
+		const element = document.querySelector('.b-all-map-filial__mark-info'),
+			mainBlock = main.closest('.b-all-map-filial__item').offsetWidth;
+		if (window.innerWidth >= 768) {
+			if (main.closest('.b-all-map-filial__map--kz')) {
+				if (left + 200 > mainBlock) left -= 185
+			}
+		} else {
+			if ((left + 250) > main.innerWidth) left -= 185
+		}
+		element.setAttribute('style',  `top: ${Math.trunc(top - 150)+'px'}; left: ${Math.trunc(left + 8)+'px'};`)
+	}
 }
 markMap();
-
 // // Яндекс карта
 // function init() {
 // 	let center = [42.367110, 69.660379],

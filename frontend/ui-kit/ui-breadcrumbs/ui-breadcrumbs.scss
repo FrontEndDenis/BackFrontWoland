@@ -26,21 +26,6 @@
 				color: $accent-main3;
 			}
 		}
-		// &:not(:last-child) {
-		// 	margin-right: 26px;
-		// 	&::before {
-		// 		content: '';
-		// 		position: absolute;
-		// 		top: 50%;
-		// 		right: -13px;
-		// 		width: 2px;
-		// 		height: 15px;
-		// 		background: $txt-black;
-		// 		opacity: .15;
-		// 		border-radius: 80px;
-		// 		transform: translateY(-50%);
-		// 	}
-		// }
 		&.active {
 			.breadcrumbs__wrap {display: block;}
 			.breadcrumbs__icon {
@@ -100,14 +85,8 @@
 @media only screen and (max-width: 1199px) {
 	.breadcrumbs {
 		padding: 20px 0px;
-
 		&__wrap, &__icon {
 			display: none;
-		}
-
-		&__list {
-			overflow-x: auto;
-			overflow-y: hidden;
 		}
 	}
 }

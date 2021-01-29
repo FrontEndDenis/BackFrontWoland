@@ -34,13 +34,22 @@
 		img {
 			width: 100%;
 		}
-		svg {
+		& > svg {
 			position: absolute;
 			top: 0px;
 			left: 0px;
 		}
 		&--ru {
-			// .b-all-map-filial__mark {fill: $ui-main-blue;}
+			.b-all-map-filial__mark {
+				fill: $ui-main-blue;
+				&:hover {fill: $ui-main-blue2}
+			}
+		}
+		&--kz {
+			.b-all-map-filial__mark {
+				fill: $accent-main;
+				&:hover {fill: $accent-main2}
+			}
 		}
 	}
 	&__mark {
@@ -53,12 +62,13 @@
 		position: absolute;
 		top: -150px;
 		left: 10px;
-		width: 175px;
+		width: 185px;
 		padding: 12px;
 		background: $white;
 		border-radius: 10px;
 		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 		cursor: default;
+		z-index: 2;
 	}
 	&__mark-title {
 		margin-bottom: 10px;
@@ -67,11 +77,30 @@
 		&:not(:last-child) {margin-bottom: 10px;}
 	}
 	&__mark-subtitle {
-		margin-bottom: 4px;
+		margin-bottom: 2px;
 		color: $txt-gray60;
 		font-size: 10px;
+		font-weight: 500;
 		line-height: 135%;
 		text-transform: uppercase;
+	}
+	&__close {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		width: 10px;
+		height: 10px;
+		line-height: 0px;
+		svg {
+			width: 10px;
+			height: 10px;
+		}
+		&:hover {
+			svg {fill: $accent-main}
+		}
+		&:active {
+			svg {fill: $accent-main2}
+		}
 	}
 }
 @media only screen and (max-width: 1199px) {

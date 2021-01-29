@@ -1,5 +1,5 @@
 if news.image
-	a.news-card.news-card--big(href=news.slug)
+	a.news-card.news-card--big(href='{% url "news:detail" news.slug %}')
 		.news-card__img
 			img(src='#{static_url}#{news.image}', alt=news.name)
 		.news-card__title=news.name
@@ -8,7 +8,7 @@ if news.image
 		.news-card__btn.btn.btn--circle.btn--trparent-svg
 			+icon('arrow-right')
 else
-	a.news-card(href=news.slug)
+	a.news-card(href='{% url "news:detail" news.slug %}')
 		.news-card__title=news.name
 		.news-card__text=news.description
 		time.news-card__time(datetime=news.date)=news.date

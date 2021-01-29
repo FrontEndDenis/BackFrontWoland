@@ -146,12 +146,7 @@ header {flex: 0 0 auto;}
 				justify-content: space-between;
 				padding: 10px 18px;
 				color: $txt-black;
-				&:hover {
-					color: $accent-main;
-					svg {opacity: 1}
-				}
 			}
-			svg {opacity: 0;}
 		}
 	}
 	&.active {
@@ -184,7 +179,7 @@ header {flex: 0 0 auto;}
 	}
 	&__catalog-menu {
 		margin-right: 20px;
-		a {
+		& > a {
 			display: flex;
 			align-items: center;
 			padding: 0 12px;
@@ -204,7 +199,14 @@ header {flex: 0 0 auto;}
 			display: flex;
 			align-items: center;
 			svg {margin-right: 7px;}
-			
+		}
+		&.active {
+			a {
+				color: $txt-white60;
+				&.active {
+					color: $white;
+				}
+			}
 		}
 	}
 	&__right {
@@ -327,16 +329,14 @@ header {flex: 0 0 auto;}
 		position: absolute;
 		top: 32px;
 		left: 0px;
-		// right: 0px;
 		padding-top: 20px;
 		&.active {display: block}
 	}
 	&.open-search {
-		.catalog-slider-container {display: none;}
 		.bottom-line {
 			&__right {flex: 1}
 			&__search-input {flex: 1}
-			&__search {display: none}
+			&__search, &__slider {display: none}
 			&__basket {margin-left: 16px;}
 		}
 	}
@@ -393,21 +393,5 @@ header {flex: 0 0 auto;}
 			padding: 0px;
 		}
 		&__m-basket {margin: 0px 8px}
-	}
-	.bottom-line {
-		// &__navitagion-panel {
-		// 	& > li {
-		// 		line-height: 135%;
-		// 		&:not(:last-child) {margin-right: 16px}
-		// 		a {line-height: 135%;}
-		// 		&.spacial {
-		// 			a {
-		// 				padding: 4px 8px;
-		// 				line-height: 135%;
-		// 			}
-		// 			svg {margin-right: 5px;}
-		// 		}
-		// 	}
-		// }
 	}
 } 

@@ -358,6 +358,7 @@
 		overflow-y: auto;
 		li {
 			margin-bottom: 11px;
+			&.hide {display: none !important}
 		}
 		a {
 			display: flex;
@@ -471,7 +472,7 @@
 }
 
 @media only screen and (max-width: 1199px) {
-	.modal, .modal-backdrop {top: 150px;}
+	.modal, .modal-backdrop {top: 131px;}
 	.modal-w {padding: 80px 48px 198px;}
 	.modal-basket {padding: 48px 48px 198px;}
 	.modal-f {
@@ -481,11 +482,11 @@
 }
 
 @media only screen and (max-width: 860px) {
-	.modal, .modal-backdrop {top: 145px;}
+	.modal, .modal-backdrop {top: 126px;}
 }
 
 @media only screen and (max-width: 767px) {
-	.modal, .modal-backdrop {top: 94px;}
+	.modal, .modal-backdrop {top: 89px;}
 	.modal-w {
 		padding: 20px 12px 118px;
 		&__img {margin: 0 auto 32px;}

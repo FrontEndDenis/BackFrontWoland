@@ -22,8 +22,12 @@ section.news-listing#page(data-base-url=current_menu.url)
 		.news-listing__list
 			.row
 				each news in news_list
-					.col-md-4
-						include ../../modules/cards/news-card/news-card
+					if news.image
+						.col-md-8
+							include ../../modules/cards/news-card/news-card
+					else
+						.col-md-4
+							include ../../modules/cards/news-card/news-card
 				.col-md-8
 					include ../../modules/cards/news-card/news-card-4
 				.col-md-4
