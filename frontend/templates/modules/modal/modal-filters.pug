@@ -269,7 +269,7 @@
 															a(href='#' onclick="document.getElementById('filter_param_7').value='{{ item.param_7_slug }}';get_filter_url();")=item.param_7
 			.modal-f__buttons
 				button.btn.btn--wdh220.btn--br50(type='button' data-dismiss='modal') Смотреть
-				button.modal-f__clear.btn.btn--link(type='button') Сбросить фильтры
+				button.modal-f__clear.btn.btn--link(type='button')
 			script(type="text/javascript" language="javascript").
 				function get_filter_url() {
 					formData = new FormData($(filter_form).get(0));

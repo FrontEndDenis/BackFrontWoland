@@ -430,10 +430,7 @@ function tooltipField() {
 		if (input.value != '') {
 			addFocus();
 			parent.classList.add('value');
-		} else {
-			removeFocus();
-			parent.classList.remove('value');
-		}
+		} else parent.classList.remove('value')
 	}
 
 	const addFocus = () => {
@@ -558,7 +555,8 @@ catalogMenu();
 function catalogMenuList() {
 	const items = document.querySelectorAll('.catalog-menu__items > li'),
 		level = document.querySelectorAll('.catalog-menu__submenu-level'),
-		titles = document.querySelectorAll('.catalog-menu__title');
+		titles = document.querySelectorAll('.catalog-menu__title'),
+		overflowLevel = document.querySelectorAll('.catalog-menu__submenu-level:not(.catalog-menu__left)');
 
 	function hideAll(elem) {
 		const searchСurrentLevel = elem.dataset.level,
@@ -567,12 +565,14 @@ function catalogMenuList() {
 		arr.forEach(item => {
 			item.querySelectorAll('.catalog-menu__submenu').forEach(item => item.classList.remove('active'));
 			item.querySelectorAll('.catalog-menu__items > li').forEach(item => item.classList.remove('active'));
-			item.classList.remove('show');
+			item.classList.remove('show', 'active');
 		})
 	}
 
 	function removeCurrentLevelActive(item) {
-		item.closest('.catalog-menu__submenu-level').querySelectorAll('li').forEach(item => item.classList.remove('active'));
+		const parent = item.closest('.catalog-menu__submenu-level');
+		parent.classList.remove('active')
+		parent.querySelectorAll('li').forEach(item => item.classList.remove('active'));
 	}
 
 	function checkValue(elem) {
@@ -615,6 +615,8 @@ function catalogMenuList() {
 		removeCurrentLevelActive(item);
 		checkValue(item);
 	}))
+
+	overflowLevel.forEach(item => item.addEventListener('mouseenter', () => item.previousElementSibling.classList.add('active')))
 }
 catalogMenuList();
 
@@ -1617,6 +1619,7 @@ function filters() {
 
 	// Скрывать элементы фильтров модалки
 	function hideElModalFilter() {
+
 		const createMore = (el, ind) => {
 			if (ind <= 0) return
 			let more = `<div class='modal-f__more'><span>Еще </span><span>${ind}</span></div>`;
@@ -1640,13 +1643,16 @@ function filters() {
 		};
 
 		const toggleEl = el => {
+			const indexSpan = el.querySelectorAll('span');
 			if (el.classList.contains('active')) {
 				hide(el.previousSibling);
-				el.querySelector('span').textContent = 'Еще ';
+				indexSpan[0].textContent = 'Еще ';
+				indexSpan[1].style.display = 'inline-block'
 				el.previousElementSibling.previousElementSibling.classList.remove('search');
 			} else {
 				show(el);
-				el.querySelector('span').textContent = 'Скрыть ';
+				indexSpan[0].textContent = 'Скрыть все';
+				indexSpan[1].style.display = 'none';
 				el.previousElementSibling.previousElementSibling.classList.add('search');
 				accordion.show(el.closest('.modal-f__panel').previousElementSibling)
 			}
@@ -1779,6 +1785,7 @@ function filters() {
 		const toggleModalBtnPrice = btn => btn.checked = !btn.checked;
 
 		const btnPrice = () => {
+			if (!pageBtnFiltersPrice) return
 			pageBtnFiltersPrice.addEventListener('click', () => {
 				toggleBtnPrice(pageBtnFiltersPrice);
 				toggleModalBtnPrice(modalBtnFiltersPrice)
@@ -1787,6 +1794,7 @@ function filters() {
 		btnPrice();
 
 		const btnPriceModal = () => {
+			if (!pageBtnFiltersPrice) return
 			modalBtnFiltersPrice.addEventListener('click', () => toggleBtnPrice(pageBtnFiltersPrice))
 		}
 		btnPriceModal();
@@ -1995,7 +2003,11 @@ function markMap() {
 	const marks = document.querySelectorAll('.b-all-map-filial__mark')
 	if (marks.length == 0) return
 	
-	marks.forEach(mark => mark.addEventListener('click', () => generationBage(mark)))
+	marks.forEach(mark => mark.addEventListener('click', e => {
+		e.stopPropagation();
+		e.preventDefault();
+		generationBage(mark);
+	}))
 
 	function generationBage(item) {
 		let city = item.dataset.city,
@@ -2015,7 +2027,15 @@ function markMap() {
 		}
 		const close = document.querySelector('.b-all-map-filial__close')
 
-		close.addEventListener('click', () => close.closest('.b-all-map-filial__mark-info').remove())
+		close.addEventListener('click', () => close.closest('.b-all-map-filial__mark-info').remove());
+		
+		document.addEventListener('click', e => {
+			let target = e.target,
+				markInfo = document.querySelector('.b-all-map-filial__mark-info');
+
+			if (markInfo == null) return
+			if (!(target == markInfo || markInfo.contains(target))) markInfo.remove();
+		})
 	}
 
 	function position(parent, elem) {
@@ -2058,6 +2078,81 @@ function markMap() {
 	}
 }
 markMap();
+
+function tippyStocksCard() {
+	const tippys = document.querySelectorAll('.hint .hint__wrap');
+
+	if (tippys.length == 0) return
+
+	const createBage = () => `<div class="hint__wrap-bage"><div class="hint__bage">Менеджер подсчитает точную стоимость во время звонка</div></div>`;
+
+	function hideAll() {
+		const bages = document.querySelectorAll('.hint__bage');
+		bages.forEach(bage => bage.remove())
+	}
+	
+	tippys.forEach(tippy => {
+		if (isMobile()) {
+			tippy.addEventListener('touchstart', () => tippy.insertAdjacentHTML('beforeend', createBage()))
+			// document.addEventListener('touchstart', e => {
+			// 	let target = e.target,
+			// 		its_menu = target == parent || parent.contains(target);
+		
+			// 	if (!its_menu) hideAll();
+			// })
+		} else {
+			tippy.addEventListener('mouseenter', () => tippy.insertAdjacentHTML('beforeend', createBage()))
+			tippy.addEventListener('mouseleave', () => hideAll());
+		}
+		
+	})
+}
+tippyStocksCard()
+
+function addProductAnimation() {
+	const btns = document.querySelectorAll('.stocks-card__add-basket');
+
+	btns.forEach(btn => {
+		btn.addEventListener('click', () => {
+			setTimeout(() => {
+				btn.classList.add('btn-complited');
+				tippyBtnStocksCard();
+			}, 1000);
+		});
+	});
+}
+addProductAnimation();
+
+function tippyBtnStocksCard() {
+	const btnsTippy = document.querySelectorAll('.stocks-card__add-basket.btn-complited');
+
+	if (btnsTippy.length == 0) return
+
+	const createBage = () => `<div class="stocks-card__wrap-bage"><div class="stocks-card__bage">Товар добавлен в корзину</div></div>`;
+
+	function hideAll() {
+		const bages = document.querySelectorAll('.stocks-card__wrap-bage');
+		bages.forEach(bage => bage.remove())
+	}
+
+	btnsTippy.forEach(btn => {
+		if (isMobile()) {
+			btn.addEventListener('touchstart', () => btn.insertAdjacentHTML('beforeend', createBage()))
+			// document.addEventListener('touchstart', e => {
+			// 	let target = e.target,
+			// 		its_menu = target == parent || parent.contains(target);
+		
+			// 	if (!its_menu) hideAll();
+			// })
+		} else {
+			btn.addEventListener('mouseenter', () => {
+				btn.insertAdjacentHTML('beforeend', createBage());
+			})
+			btn.addEventListener('mouseleave', () => hideAll());
+		}
+	})
+}
+
 // // Яндекс карта
 // function init() {
 // 	let center = [42.367110, 69.660379],

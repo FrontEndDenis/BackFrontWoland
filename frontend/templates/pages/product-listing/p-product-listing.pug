@@ -10,114 +10,14 @@ section.p-product-listing#page(data-base-url=current_menu.url)
 						button.filter.filter-all.btn.btn--br50.btn--gray(data-filter='all') Все фильтры
 					.swiper-slide
 						button.filter.filter-price.btn.btn--br50.btn--gray(data-filter='price') Только с ценой
-					if not current_menu.is_hide_marka
-						.swiper-slide
-							button.filter.btn.btn--br50.btn--gray(data-filter='mark') Марка
-								.filter__delete
-									+icon('close')
-					if not current_menu.is_hide_standart
-						.swiper-slide
-							button.filter.btn.btn--br50.btn--gray(data-filter='gost') ГОСТ
-								.filter__delete
-									+icon('close')
-					if current_menu.label_param1
-						.swiper-slide
-							if param_1
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=param_1_name
-									.filter__delete
-										+icon('close')
-							elif current_menu.ed_izm_param1
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.ed_izm_param1
-									.filter__delete
-										+icon('close')
-							else
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.label_param1
-									.filter__delete
-										+icon('close')
-					if current_menu.label_param2
-						.swiper-slide
-							if param_2
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=param_2_name
-									.filter__delete
-										+icon('close')
-							elif current_menu.ed_izm_param2
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.ed_izm_param2
-									.filter__delete
-										+icon('close')
-							else
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.label_param2
-									.filter__delete
-										+icon('close')
-					if current_menu.label_param3
-						.swiper-slide
-							if param_3
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=param_3_name
-									.filter__delete
-										+icon('close')
-							elif current_menu.ed_izm_param3
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.ed_izm_param3
-									.filter__delete
-										+icon('close')
-							else
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.label_param3
-									.filter__delete
-										+icon('close')
-					if current_menu.label_param4
-						.swiper-slide
-							if param_4
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=param_4_name
-									.filter__delete
-										+icon('close')
-							elif current_menu.ed_izm_param4
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.ed_izm_param4
-									.filter__delete
-										+icon('close')
-							else
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.label_param4
-									.filter__delete
-										+icon('close')
-					if current_menu.label_param5
-						.swiper-slide
-							if param_5
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=param_5_name
-									.filter__delete
-										+icon('close')
-							elif current_menu.ed_izm_param5
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.ed_izm_param5
-									.filter__delete
-										+icon('close')
-							else
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.label_param5
-									.filter__delete
-										+icon('close')
-					if current_menu.label_param6
-						.swiper-slide
-							if param_6
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=param_6_name
-									.filter__delete
-										+icon('close')
-							elif current_menu.ed_izm_param6
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.ed_izm_param6
-									.filter__delete
-										+icon('close')
-							else
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.label_param6
-									.filter__delete
-										+icon('close')
-					if current_menu.label_param7
-						.swiper-slide
-							if param_7
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=param_7_name
-									.filter__delete
-										+icon('close')
-							elif current_menu.ed_izm_param7
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.ed_izm_param7
-									.filter__delete
-										+icon('close')
-							else
-								button.filter.btn.btn--br50.btn--gray(data-filter='')=current_menu.label_param7
-									.filter__delete
-										+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='mark') Марка
+							.filter__delete
+								+icon('close')
+					.swiper-slide
+						button.filter.btn.btn--br50.btn--gray(data-filter='gost') ГОСТ
+							.filter__delete
+								+icon('close')
 			.filters-swiper-scrollbar
 		.row
 			.col-xl-9

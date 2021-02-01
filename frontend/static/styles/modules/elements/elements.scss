@@ -298,11 +298,41 @@ a[href*=mailto], a[href*=tel] {
 }
 
 .hint {
-	display: flex;
-	align-items: center;
-	svg {
+	position: relative;
+	display: inline-flex;
+	&__wrap {
+		width: 16px;
+		height: 16px;
 		margin-left: 2px;
 		line-height: 16px;
+	}
+	&__wrap-bage {
+		position: absolute;
+		left: 50%;
+		top: 19px;
+		padding-top: 8px;
+		transform: translateX(-50%);
+		z-index: 10;
+	}
+	&__bage {
+		width: 190px;
+		padding: 10px;
+		background: $white;
+		color: $txt-black90;
+		border-radius: 10px;
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		font-size: 10px;
+		font-weight: 500;
+		line-height: 125%;
+		letter-spacing: 0.02em;
+	}
+	svg {line-height: 16px}
+	&:hover {
+		svg {fill: $accent-main2;}
+	}
+	&:active {
+		svg {fill: $accent-main3;}
 	}
 }
 

@@ -21,11 +21,14 @@
 		transition: .2s ease;
 	}
 	&__text {
+		max-height: 134px;
 		margin-bottom: 40px;
 		color: $txt-gray;
 		font-size: 18px;
 		font-weight: 500;
 		line-height: 125%;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 	&__btn {
 		position: absolute;

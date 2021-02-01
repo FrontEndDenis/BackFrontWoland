@@ -5,10 +5,10 @@ body {
 .mobile-menu {
 	position: fixed;
 	right: -100%;
-	top: 150px;
+	top: 131px;
 	bottom: 0;
 	width: 100%;
-	height: calc(100% - 150px);
+	height: calc(100% - 131px);
 	transition: .2s ease;
 	z-index: 1001;
 	&__wrap {
@@ -103,7 +103,7 @@ body {
 	&__overlay {
 		display: none;
 		position: fixed;
-		top: 150px;
+		top: 131px;
 		bottom: 0px;
 		right: 0px;
 		left: 0px;
@@ -176,16 +176,16 @@ body {
 
 @media only screen and (max-width: 860px) {
 	.mobile-menu {
-		top: 145px;
-		height: calc(100% - 145px);
-		&__overlay {top: 145px;}
+		top: 126px;
+		height: calc(100% - 126px);
+		&__overlay {top: 126px;}
 	}
 }
 
 @media only screen and (max-width: 767px) {
 	.mobile-menu {
-		top: 94px;
-		height: calc(100% - 94px);
+		top: 92px;
+		height: calc(100% - 92px);
 		&__city {
 			padding: 0 12px 20px;
 		}
@@ -195,7 +195,7 @@ body {
 		&__contacts {
 			padding: 20px 12px 0px;
 		}
-		&__overlay {top: 94px;}
+		&__overlay {top: 92px;}
 	}
 	.catalog-m-menu {
 		&__item, &__prev {

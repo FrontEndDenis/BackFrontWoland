@@ -11,7 +11,32 @@
 	}
 	&__submenu-level {
 		display: none;
-		&.show {display: block;}
+		&.show {
+			display: block;
+			& + .catalog-menu {
+				&__submenu-level {
+					&.show {
+						.catalog-menu__submenu {
+							&::before {
+								content: '';
+								position: absolute;
+								left: 0px;
+								top: 12px;
+								bottom: 12px;
+								width: 1px;
+								background: $ui-lgh-gray;
+							}
+						}
+					}	
+				}
+			}
+			
+		}
+		&.active {
+			.catalog-menu {
+				&__list, &__list-submenu {overflow-y: hidden;}
+			}
+		}
 	}
 	&__left {
 		display: block;
@@ -84,6 +109,7 @@
 		}
 	}
 	&__submenu {
+		position: relative;
 		display: none;
 		height: 560px;
 		padding: 24px;

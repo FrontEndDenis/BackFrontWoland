@@ -30,7 +30,7 @@
 }
 
 .icon-basket {
-	width: 20px;
+	width: 22px;
 	height: 22px;
 	fill: $accent-main;
 }
@@ -182,9 +182,15 @@
 }
 
 .icon-menu {
-	width: 16px;
-	height: 16px;
+	width: 17px;
+	height: 17px;
 	fill: $accent-main;
+}
+
+.icon-add-basket-complited {
+	width: 20px;
+	height: 20px;
+	fill: $txt-black;
 }
 
 @media only screen and (max-width: 767px) {

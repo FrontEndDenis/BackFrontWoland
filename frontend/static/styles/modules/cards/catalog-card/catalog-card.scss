@@ -84,7 +84,7 @@
 	}
 	&__list {
 		margin: 0px;
-		padding-right: 8px;
+		padding-right: 8px !important;
 		overflow-y: auto;
 		li {
 			&:not(:last-child) {margin-bottom: 10px;}

@@ -58,8 +58,10 @@
 				else
 					.stocks-card__value.price.hint
 						| Договорная
-						+icon('hint')
+						.hint__wrap
+							+icon('hint')
 			.stocks-card__item
 				button.stocks-card__add-basket.btn.btn--circle(type='button')
 					.stocks-card__add-basket-txt В заявку
 					+icon('add-basket')
+					+icon('add-basket-complited')
