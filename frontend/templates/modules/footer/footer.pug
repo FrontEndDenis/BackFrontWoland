@@ -24,29 +24,26 @@ footer.footer
 							+icon('ok')
 				nav.footer__nav
 					ul.footer__nav-list.txt--mdm14
-						each item in menu_list_footer_left
 							li
-								a(href=item.url)=item.name
-							//- li
-							//- 	a(href='#') Каталог
-							//- li
-							//- 	a(href='#') Акции
-							//- li
-							//- 	a(href='#') Производство
-							//- li
-							//- 	a(href='#') Услуги
-							//- li
-							//- 	a(href='#') Доставка
-							//- li
-							//- 	a(href='#') О нас
-							//- li
-							//- 	a(href='#') Блог
-							//- li
-							//- 	a(href='#') Новости
-							//- li
-							//- 	a(href='#') Вакансии
-							//- li
-							//- 	a(href='#') Контакты
+								a(href='/catalog') Каталог
+							li
+								a(href='/spec') Акции
+							li
+								a(href='/proizvodstvo') Производство
+							li
+								a(href='/uslugi') Услуги
+							li
+								a(href='/dostavka-i-oplata') Доставка
+							li
+								a(href='/o-kompanii') О нас
+							li
+								a(href='/articles') Блог
+							li
+								a(href='/news') Новости
+							li
+								a(href='/vakansii') Вакансии
+							li
+								a(href='/contacts') Контакты
 			.footer__right
 				.footer__contacts
 					.footer__col
