@@ -47,9 +47,37 @@
 			width: 100%;
 		}
 	}
-	&__anvil, &__hammer {
+	&__anvil, &__hammer, &__sparks {
 		position: absolute;
 		z-index: 2;
+	}
+	&__sparks {
+		left: 50%;
+		bottom: 43%;
+		max-width: 150px;
+		transform: translateX(-50%);
+		animation: sparks 1.2s linear infinite;
+		opacity: 0;
+		z-index: 3;
+		@keyframes sparks {
+			0% {
+				opacity: 0;
+			}
+			50% {
+				opacity: 0;
+				bottom: 43%;
+			}
+			60% {
+				opacity: 1;
+				bottom: 50%;
+				transform: translateX(-50%) scale(1.1)
+			}
+			100% {
+				opacity: 0;
+				bottom: 60%;
+				transform: translateX(-50%) scale(1.2)
+			}
+		}
 	}
 	&__anvil {
 		left: 50%;

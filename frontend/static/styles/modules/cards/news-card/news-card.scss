@@ -21,6 +21,7 @@
 		transition: .2s ease;
 	}
 	&__text {
+		display: -webkit-box;
 		max-height: 134px;
 		margin-bottom: 40px;
 		color: $txt-gray;
@@ -28,6 +29,8 @@
 		font-weight: 500;
 		line-height: 125%;
 		text-overflow: ellipsis;
+		-webkit-line-clamp: 6;
+		-webkit-box-orient: vertical;
 		overflow: hidden;
 	}
 	&__btn {

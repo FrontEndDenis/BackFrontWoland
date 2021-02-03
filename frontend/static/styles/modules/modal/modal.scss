@@ -462,7 +462,11 @@
 		background: $white;
 		border-radius: 10px;
 		&.active {
-			.modal-need__hidden {margin-top: 24px;}
+			.modal-need__hidden {
+				margin-top: 24px;
+				opacity: 1;
+				visibility: visible;
+			}
 		}
 	}
 	&__toggle {display: flex;}
@@ -472,8 +476,13 @@
 		margin-right: 16px;
 	}
 	&__hidden {
+		opacity: 0;
+		visibility: hidden;
 		input {
 			border: 1px solid $ui-mdm-gray;
+		}
+		.form-group {
+			&:last-child {margin-bottom: 0px;}
 		}
 	}
 }
