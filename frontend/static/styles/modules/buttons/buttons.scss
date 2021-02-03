@@ -181,6 +181,31 @@ button[disabled] {
 	}
 }
 
+.radio-btn {
+	input {
+		display: none;
+		&:checked + label {
+			background: $accent-main;
+			color: $white;
+			&:hover {
+				background: $accent-main2;
+				color: $white;
+			}
+			&:active {
+				background: $accent-main3;
+				color: $white;
+			}
+		}
+	}
+	label {
+		display: inline-flex;
+		width: auto;
+	}
+	&:not(:last-child) {
+		margin-right: 12px;
+	}
+}
+
 .download-button {margin-top: 32px;}
 
 @media only screen and (max-width: 1023px) {

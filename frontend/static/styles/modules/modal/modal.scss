@@ -57,17 +57,51 @@
 	&__text {
 		margin: 20px 0 36px;
 	}
-	&__tabs {
-		.search-input input {
+	&__button-city {
+		display: flex;
+		margin-bottom: 32px;
+	}
+	&__search {
+		margin-bottom: 24px;
+		input {
 			padding: 18px 46px;
 		}
 	}
-	&__search {margin-bottom: 24px;}
 	&__subtitle {
 		margin-bottom: 18px;
 		color: $txt-gray60;
 		font-weight: 600;
 		line-height: 150%;
+	}
+	&__list {
+		margin-bottom: 0px;
+		color: $txt-black90;
+		font-weight: 500;
+		li {
+			&:not(:last-child) {
+				margin-bottom: 16px;
+			}
+		}
+		a {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			svg {
+				opacity: 0;
+				visibility: hidden;
+			}
+			&:hover, &:active {
+				color: $accent-main;
+				svg {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+			&:active {
+				color: $accent-main2;
+				svg {fill: $accent-main2;}
+			}
+		}
 	}
 	&__form {
 		button {margin-top: 40px;}

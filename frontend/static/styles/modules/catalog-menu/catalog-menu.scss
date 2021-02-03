@@ -34,7 +34,10 @@
 		}
 		&.active {
 			.catalog-menu {
-				&__list, &__list-submenu {overflow-y: hidden;}
+				&__list, &__list-submenu {
+					overflow-y: hidden;	
+				}
+				&__list-submenu {padding-right: 3px;}
 			}
 		}
 	}
@@ -111,6 +114,7 @@
 	&__submenu {
 		position: relative;
 		display: none;
+		width: inherit;
 		height: 560px;
 		padding: 24px;
 		padding-right: 10px;

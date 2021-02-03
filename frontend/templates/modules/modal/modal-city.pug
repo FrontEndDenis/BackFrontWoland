@@ -8,20 +8,19 @@
 					.modal-close__text Выбор города
 				.modal-w__title.txt--bld36 Выберите город
 				.modal-w__text Найдите свой город с помощью поиска или в списке популярных городов
-				.modal-w__tabs.tabs
-					.tabs__nav
-						button.tabs__nav-item.btn-city(type='button') Россия
-						button.tabs__nav-item.btn-city(type='button') Казахстан
-					.modal-w__search.search-input.search-input--reset
-						button.search-input__search
-							+icon('search')
-						input(type='search', placeholder='Ваш город')
-						button.search-input__reset
-							+icon('close')
-					.tabs__content
-						.tabs__content-item
-							.modal-w__subtitle Популярные города
-							ul.modal-w__list
-						.tabs__content-item
-							.modal-w__subtitle Популярные города
-							ul.modal-w__list
+				.modal-w__button-city
+					.radio-btn
+						input#radio-city(type='radio', name='city', data-city='ru', checked)
+						label.btn.btn--gray.btn--br50(for='radio-city') Россия
+					.radio-btn
+						input#radio-city2(type='radio', name='city', data-city='kz')
+						label.btn.btn--gray.btn--br50(for='radio-city2') Казахстан
+				.modal-w__search.search-input.search-input--reset
+					button.search-input__search
+						+icon('search')
+					input(type='search', placeholder='Ваш город')
+					button.search-input__reset
+						+icon('close')
+				.modal-w__content
+					.modal-w__subtitle Популярные города
+					ul.modal-w__list

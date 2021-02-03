@@ -621,7 +621,7 @@ function catalogMenuList() {
 catalogMenuList();
 
 function calcWidth() {
-	const calcItem = ((document.querySelector('.container-xxl').clientWidth - 24) - 270) / 3,
+	const calcItem = ((document.querySelector('.container-xxl').clientWidth - 20) - 270) / 3,
 		catalogItems = document.querySelectorAll('.catalog-menu__submenu-level.show');
 	
 	if (catalogItems.length == 0) return

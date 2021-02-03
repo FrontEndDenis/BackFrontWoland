@@ -1,0 +1,188 @@
+
+[
+	{
+		"country": "ru",
+		"cityChild": [
+			{
+				"city": "Москва",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Санкт-Петербург",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Екатеринбург",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Нижний Новгород",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Казань",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Новосибирск",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Краснодар",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Владивосток",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Курск",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Липецк",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Мурманск",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Орёл",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Тула",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Архангельск",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Астрахань",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Саранск",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Смоленск",
+				"pathCity": "#",
+				"popular": false
+			}
+		]
+	},
+	{
+		"country": "kz",
+		"cityChild": [
+			{
+				"city": "Нур-Султан",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Жезказган",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Караганда",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Кокшетау",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Костанай",
+				"pathCity": "#",
+				"popular": true
+			},
+			{
+				"city": "Павлодар",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Петропавловск",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Семей",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Усть-Каменогорск",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Алматы",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Кызылорда",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Талдыкорган",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Шымкент",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Тараз",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Атырау",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Актау",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Актобе",
+				"pathCity": "#",
+				"popular": false
+			},
+			{
+				"city": "Уральск",
+				"pathCity": "#",
+				"popular": false
+			}
+		]
+	}
+]
