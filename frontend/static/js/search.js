@@ -16,7 +16,7 @@ function filterCity(data) {
 		reset = document.querySelector('.modal-w__search .search-input__reset'),
 		outputList = document.querySelector('.modal-w__list'),
 		title = document.querySelector('.modal-w__subtitle'),
-		createLi = item => `<li><a href="${item.pathCity}">${item.city}<svg class="svg-sprite-icon icon-arrow-right "><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></a></li>`;
+		createLi = item => `<li><a href="${item.pathCity}">${item.city}<svg class="svg-sprite-icon icon-arrow-right "><use xlink:href="/static/images/svg/symbol/sprite.svg#arrow-right"></use></svg></a></li>`,
 		renderList = res => outputList.innerHTML = res.map(e => createLi(e)).join('');
 
 	function filterValue() {
