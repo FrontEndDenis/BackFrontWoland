@@ -7,8 +7,8 @@ body {
 	right: -100%;
 	top: 131px;
 	bottom: 0;
-	width: 100%;
-	height: calc(100% - 131px);
+	// width: 100%;
+	// height: calc(100% - 131px);
 	transition: .2s ease;
 	z-index: 1001;
 	&__wrap {
@@ -155,9 +155,6 @@ body {
 	}
 	&__item {
 		&:not(:last-child) {margin-bottom: 4px;}
-		&:last-child {
-			a {padding: 5px 32px 15px;}
-		}
 	}
 	&__sub {
 		position: absolute;

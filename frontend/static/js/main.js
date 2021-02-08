@@ -14,9 +14,9 @@ svg4everybody();
 
 // Инициализация слайдеров
 function slidersInit() {
-	const interleaveOffset = .5;
-	let mainText = ['Бесплатная доставка', 'Скидка на 1-ый заказ', 'Акции месяца', 'Новый Год', 'Текст из массива js'];
-	const mainSlider = new Swiper('.main-slider', {
+	const interleaveOffset = .5,
+		mainText = Array.from(document.querySelectorAll('.main-slider .swiper-slide')),
+		mainSlider = new Swiper('.main-slider', {
 		slidesPerView: 1,
 		loop: true,
 		speed: 1000,
@@ -31,7 +31,7 @@ function slidersInit() {
 			el: '.s-main-slider__pagination',
 			clickable: true,
 			renderBullet: function (index, className) {
-				return `<span class="` + className + `">` + (mainText[index]) + `</span>`;
+				return `<span class="${className}">${mainText[index].dataset.title}</span>`;
 			}
 		},
 		on: {
@@ -360,16 +360,20 @@ function animateCSS(element, animation) {
 // Валидация
 (function () {
 	window.addEventListener('load', function () {
-		let forms = document.getElementsByClassName('needs-validation');
-		let validation = Array.prototype.filter.call(forms, function (form) {
-			form.addEventListener('submit', function (event) {
-				if (form.checkValidity() === false) {
-					event.preventDefault();
-					event.stopPropagation();
-				}
-				form.classList.add('was-validated');
-			}, false);
-		});
+		let forms = document.getElementsByClassName('needs-validation'),
+			validation = Array.prototype.filter.call(forms, function (form) {
+				form.addEventListener('submit', function (event) {
+					if (form.checkValidity() === false) {
+						event.preventDefault();
+						event.stopPropagation();
+					} else {
+						if (form.id === 'modal-basket-form') {
+							basket.show(2, '.modal-basket__section');
+						}
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
 	}, false);
 })();
 
@@ -744,14 +748,13 @@ class Basket {
 	show(n, classElem) {
 		const sections = this.element.querySelectorAll(classElem);
 		this.hideAll(classElem);
-		sections[n].classList.add('show-section', 'fade-in');
+		sections[n].classList.add('show-section');
+		animateCSS(sections[n], 'fade-in');
 	}
 
 	hideAll(classElem) {
 		const sections = this.element.querySelectorAll(classElem);
-		sections.forEach((section) => {
-			section.classList.remove('show-section');
-		});
+		sections.forEach((section) => section.classList.remove('show-section'));
 	}
 }
 
@@ -784,9 +787,7 @@ function basketApp() {
 		addTextModalBasket(manCards, ['производство', 'производства', 'производств'])
 
 		function addTextModalBasket(element, array) {
-			if (element.length > 0) {
-				arr.push(element.length + ' ' + declOfNum(element.length, array))
-			}
+			if (element.length > 0) arr.push(element.length + ' ' + declOfNum(element.length, array))
 		}
 
 		counter.textContent = arr.join(', ');
@@ -805,7 +806,6 @@ function basketApp() {
 	basket.show(0, '.modal-basket__basket-item')
 	document.dispatchEvent(new Event('changeBasket'));
 }
-
 basketApp();
 
 clearList.addEventListener('click', () => {
@@ -825,18 +825,14 @@ delCard.forEach((del) => {
 
 yes.addEventListener('click', (evt) => {
 	evt.preventDefault();
-
 	const cards = document.querySelectorAll('.basket-card-modal');
-
 	cards.forEach(card => card.remove());
-
 	document.dispatchEvent(new Event('changeBasket'));
 });
 
 no.addEventListener('click', () => {
 	count--;
 	basket.show(count, '.modal-basket__basket-item');
-
 	document.dispatchEvent(new Event('changeBasket'));
 });
 
@@ -2117,6 +2113,7 @@ function addProductAnimation() {
 			setTimeout(() => {
 				btn.classList.add('btn-complited');
 				tippyBtnStocksCard();
+				bageAddBasket(btn);
 			}, 1000);
 		});
 	});
@@ -2136,21 +2133,37 @@ function tippyBtnStocksCard() {
 	}
 
 	btnsTippy.forEach(btn => {
-		if (isMobile()) {
-			btn.addEventListener('touchstart', () => btn.insertAdjacentHTML('beforeend', createBage()))
-			// document.addEventListener('touchstart', e => {
-			// 	let target = e.target,
-			// 		its_menu = target == parent || parent.contains(target);
-		
-			// 	if (!its_menu) hideAll();
-			// })
-		} else {
-			btn.addEventListener('mouseenter', () => {
-				btn.insertAdjacentHTML('beforeend', createBage());
-			})
-			btn.addEventListener('mouseleave', () => hideAll());
-		}
+		btn.addEventListener('mouseenter', () => btn.insertAdjacentHTML('beforeend', createBage()))
+		btn.addEventListener('mouseleave', () => hideAll());
 	})
+}
+
+function bageAddBasket(btn) {
+	const title = btn.closest('.stocks-card').querySelector('.stocks-card__title').textContent,
+		basket = document.querySelector('.bottom-line__basket'),
+		showBage = () => basket.insertAdjacentHTML('beforeend', createBasketBage(title));
+
+	function animationBage() {
+		const bage = document.querySelector('.basket-bage');
+		bage.classList.add('active');
+		animateCSS(bage, 'fade-in-basket')
+		setTimeout(() => {
+			animateCSS(bage, 'fade-out-basket');
+			bage.addEventListener('animationend', () => bage.remove(), { once: true });
+		}, 2000)
+	}
+
+	function createBasketBage(text) {
+		return `
+			<div class="basket-bage">
+				<p>Добавлено:<p>
+				<h3>${text}<h3>
+			</div>
+		`
+	}
+
+	showBage();
+	animationBage();
 }
 
 // // Яндекс карта

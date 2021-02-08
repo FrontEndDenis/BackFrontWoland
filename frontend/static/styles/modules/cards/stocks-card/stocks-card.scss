@@ -89,6 +89,7 @@
 		.icon-add-basket-complited {display: none;}
 		&.btn-complited {
 			background: $ui-mdm-gray;
+			color: $txt-black;
 			cursor: default;
 			.icon-add-basket-complited {display: block;}
 			.icon-add-basket {display: none;}

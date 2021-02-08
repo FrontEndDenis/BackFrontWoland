@@ -346,6 +346,7 @@ header {flex: 0 0 auto;}
 		cursor: pointer;
 	}
 	&__basket {
+		position: relative;
 		flex-shrink: 0;
 		font-weight: 600;
 		button {min-width: 126px;}

@@ -9,16 +9,39 @@
 		font-size: 14px;
 		line-height: 150%;
 		z-index: 2;
-		span {white-space: nowrap;}
 		&::before {
 			content: '';
 			position: absolute;
-			top: -12px;
-			left: 0;
-			right: 0;
+			top: 0px;
+			left: 0px;
+			right: 0px;
 			height: 2px;
 			background: $white;
 			opacity: .2;
+		}
+	}
+	&__pagination {
+		display: flex;
+		align-items: flex-end;
+		height: 40px;
+		span {
+			position: relative;
+			white-space: nowrap;
+			&::before {
+				content: '';
+				position: absolute;
+				top: -19px;
+				left: 0px;
+				right: 0px;
+				height: 2px;
+				background: $white;
+				transition: .2s ease;
+				opacity: 0;
+				z-index: 3;
+			}
+			&.swiper-pagination-bullet-active {
+				&::before {opacity: 1;}
+			}
 		}
 	}
 	.container-xxl {
@@ -49,6 +72,9 @@
 			right: 12px;
 			font-size: 12px;
 			line-height: 135%;
+		}
+		&__pagination {
+			height: 35px;
 		}
 		.container-xxl {
 			padding: 0px;

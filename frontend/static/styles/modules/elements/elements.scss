@@ -563,6 +563,32 @@ a[href*=mailto], a[href*=tel] {
 	}
 }
 
+.basket-bage {
+	display: none;
+	position: absolute;
+	top: 70px;
+	right: 0px;
+	width: 260px;
+	padding: 16px 20px;
+	background: rgba($color: $txt-black, $alpha: .8);
+	color: $white;
+	border-radius: 15px;
+	font-size: 14px;
+	overflow: hidden;
+	p {
+		margin-bottom: 6px;
+		font-weight: 700;
+		line-height: 135%;
+	}
+	h3 {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 150%;
+		opacity: .8;
+	}
+	&.active {display: block;}
+}
+
 @media only screen and (max-width: 767px) {
 	.logo {
 		&__img {

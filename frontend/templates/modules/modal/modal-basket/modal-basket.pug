@@ -1,7 +1,7 @@
 #modal-basket.modal.modal-right(tabindex='-1' aria-labelledby='modalRightLabel' aria-hidden='true')
 	.modal-dialog.modal-dialog--wdh708
 		.modal-content
-			form.modal-basket.needs-validation(action='', method='get', novalidate)
+			form#modal-basket-form.modal-basket.needs-validation(action='', method='get', novalidate)
 				.modal-basket__section.modal-basket__basket-list
 					button.modal-basket__close.modal-close(type='button' data-dismiss='modal')
 						+icon('close')
@@ -16,3 +16,7 @@
 						include ./modal-basket-not.pug
 				.modal-basket__section.modal-basket__form
 					include ./modal-basket-form.pug
+				.modal-basket__section.modal-basket__thanks
+					.modal-basket__header
+						.modal-basket__title.txt--bld24 Заявка отправлена
+					include ./modal-basket-thanks.pug
