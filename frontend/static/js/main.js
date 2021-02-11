@@ -1067,12 +1067,12 @@ function catalogMobMenu() {
 	const show = item => {
 		let block = item.nextElementSibling;
 		if (!block) return
-		block.style.transform = 'translate(0)';
+		block.style.right = '0';
 	}
 
 	const hide = item => {
 		let block = item.closest('.catalog-m-menu__sub')
-		block.style.transform = 'translate(100%)';
+		block.style.right = '-100%';
 	}
 
 	items.forEach(item => item.addEventListener('click', () => show(item)));

@@ -7,8 +7,8 @@ body {
 	right: -100%;
 	top: 131px;
 	bottom: 0;
-	// width: 100%;
-	// height: calc(100% - 131px);
+	max-width: 400px;
+	width: 100%;
 	transition: .2s ease;
 	z-index: 1001;
 	&__wrap {
@@ -157,14 +157,16 @@ body {
 		&:not(:last-child) {margin-bottom: 4px;}
 	}
 	&__sub {
-		position: absolute;
-		top: 0px;
-		max-width: 390px;
+		position: fixed;
+		top: 131px;
+		right: -100%;
+		bottom: 0px;
+		max-width: 400px;
 		width: 100%;
 		min-height: 100%;
+		padding-bottom: 131px !important;
 		background: $white;
-		transition: transform .2s ease;
-		transform: translate(100%);
+		transition: .2s ease;
 		overflow-y: auto;
 		overflow-x: hidden;
 		z-index: 1003
@@ -174,15 +176,19 @@ body {
 @media only screen and (max-width: 860px) {
 	.mobile-menu {
 		top: 126px;
-		height: calc(100% - 126px);
-		&__overlay {top: 126px;}
+		&__overlay{top: 126px;}
+	}
+	.catalog-m-menu {
+		&__sub {
+			top: 126px;
+			padding-bottom: 126px !important;
+		}
 	}
 }
 
 @media only screen and (max-width: 767px) {
 	.mobile-menu {
 		top: 92px;
-		height: calc(100% - 92px);
 		&__city {
 			padding: 0 12px 20px;
 		}
@@ -192,7 +198,7 @@ body {
 		&__contacts {
 			padding: 20px 12px 0px;
 		}
-		&__overlay {top: 92px;}
+		&__overlay{top: 92px;}
 	}
 	.catalog-m-menu {
 		&__item, &__prev {
@@ -201,6 +207,10 @@ body {
 		&__prev {
 			margin-bottom: 0px;
 			& > a {padding: 20px 10px 24px;}
+		}
+		&__sub {
+			top: 92px;
+			padding-bottom: 92px !important;
 		}
 	}
 }
